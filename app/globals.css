@@ -1,26 +1,326 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════════════
+   ROOT VARS — source of truth, overridable by JS or .dark
+   ═══════════════════════════════════════════════════════════ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /* ── 1. COLORS — Primary brand ──────────────────────────── */
+  --primary:  #042a37;
+  --primary-dark:  #042834;
+
+  /* Secondary */
+  --secondary: #60deaf;
+
+  /* Text */
+  --text-primary:#ffffff;
+  --text-dark:#052029;
+  --text-opacity-90:#042A3714;
+
+  /* colors */
+  --light-red:#EA1D2D; 
+  --light-blue:#00ADD8; 
+  --light-yellow:#FDB714; 
+  --light-orange:#F36E24; 
+  --light-green:#2D9A47; 
+  --dark-yellow:#D19F2A;  
+  --dark-orange:#EF412A; 
+  --dark-red:#C22033; 
+  --dark-blue :#007DBB; 
+
+  /* Semantic */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger:  #ef4444;
+  --info:    #06b6d4;
+
+  /* ── 3. SHADOWS ─────────────────────────────────────────── */
+  /* --shadow-sm:    0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow:       0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md:    0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg:    0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl:    0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow-brand: 0 4px 14px 0 rgb(59 130 246 / 0.4); */
 }
 
+/* ═══════════════════════════════════════════════════════════
+   @theme inline — Tailwind utilities point to :root vars
+   No new CSS vars generated, values stay dynamic
+   ═══════════════════════════════════════════════════════════ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* ── Breakpoints ────────────────────────────────────────── */
+  --breakpoint-xs:  480px;
+  --breakpoint-sm:  640px;
+  --breakpoint-md:  768px;
+  --breakpoint-lg:  1024px;
+  --breakpoint-xl:  1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ── Primary → point to :root vars ─────────────────────── */
+  --color-primary:  var(--primary);
+  --color-primary-dark:  var(--primary-dark);
+
+  /* ── Secondary → point to :root vars ───────────────────── */
+  --color-secondary: var(--secondary);
+
+  /* ── Text → point to :root vars ───────────────────── */
+  --color-text-primary: var(--text-primary);
+  --color-text-dark:  var(--text-dark);
+  --color-text-opacity-90:  var(--text-opacity-90);
+
+  /* ── Colors → point to :root vars ───────────────────── */
+  --color-light-red:  var(--light-red); 
+  --color-light-blue: var(--light-blue); 
+  --color-light-yellow: var(--light-yellow); 
+  --color-light-orange: var(--light-orange); 
+  --color-light-green:  var(--light-green); 
+  --color-dark-yellow:  var(--dark-yellow);  
+  --color-dark-orange:  var(--dark-orange); 
+  --color-dark-red: var(--dark-red); 
+  --color-dark-blue:  var(--dark-blue); 
+
+  /* ── Semantic → point to :root vars ────────────────────── */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger:  var(--danger);
+  --color-info:    var(--info);
+
+  /* ── Shadows → point to :root vars ─────────────────────── */
+  /* --shadow-sm:    var(--shadow-sm);
+  --shadow:       var(--shadow);
+  --shadow-md:    var(--shadow-md);
+  --shadow-lg:    var(--shadow-lg);
+  --shadow-xl:    var(--shadow-xl);
+  --shadow-inner: var(--shadow-inner);
+  --shadow-brand: var(--shadow-brand); */
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-primary-regular: "primary-regular", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
+  --font-primary-bold:  "primary-bold", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
+  --font-primary-light: "primary-light", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
+  
+  --font-primary-medium:  "primary-medium", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
+  --font-primary-semibold:  "primary-semibold", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+  --text-6xl:  3.75rem;
+
+  /* ── Border radius ──────────────────────────────────────── */
+  --radius-xs:   0.125rem;
+  --radius-sm:   0.25rem;
+  --radius-md:   0.5rem;
+  --radius-lg:   0.75rem;
+  --radius-xl:   1rem;
+  --radius-2xl:  1.5rem;
+  --radius-3xl:  2rem;
+  --radius-full: 9999px;
+
+  /* ── Z-index ────────────────────────────────────────────── */
+  --z-dropdown: 1000;
+  --z-sticky:   1020;
+  --z-overlay:  1030;
+  --z-modal:    1040;
+  --z-toast:    1050;
+  --z-tooltip:  1060;
+
+  /* ── Gradients ──────────────────────────────────────────── */
+  /* --bg-gradient-brand: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --bg-gradient-dark:  linear-gradient(180deg, #0f172a 0%, #1e293b 100%); */
+
+  /* ── Animations ─────────────────────────────────────────── */
+  /* --animate-fade-in:   fade-in 0.3s ease-out;
+  --animate-slide-up:  slide-up 0.4s ease-out;
+  --animate-spin-slow: spin-slow 3s linear infinite; */
+
+  /* @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(16px); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  } */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@font-face {
+  font-family: "primary-regular";
+  src: url("/fonts/SemplicitaPro-Regular.woff2") format("woff2");
+  font-display: swap;   /* ← shows fallback font until loaded */
+}
+
+@font-face {
+  font-family: "primary-bold";
+  src: url("/fonts/SemplicitaPro-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "primary-light";
+  src: url("/fonts/SemplicitaPro-Light.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "primary-medium";
+  src: url("/fonts/SemplicitaPro-Medium.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "primary-semibold";
+  src: url("/fonts/SemplicitaPro-SemiBold.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════ */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: var(--primary);
+    color: var(--text-primary);
+    font-family: var(--font-primary-regular);
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--primary);
+    color: var(--text-primary);
+    line-height: 1.75;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary-bold);
+  }
+
+  a, a:hover, a:link, a:visited {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  /* img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  } */
+
+  code, pre {
+    font-family: var(--font-mono);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ═══════════════════════════════════════════════════════════
+   DARK MODE — toggled via <html class="dark">
+   Only flip the UI tokens, brand colors stay the same
+   ═══════════════════════════════════════════════════════════ */
+html.dark {
+  /* ── 1. COLORS — Primary brand ──────────────────────────── */
+  /* --primary:  #042a37;
+  --primary-dark:  #042834; */
+
+  /* Secondary */
+  /* --secondary: #60deaf; */
+
+  /* Text */
+  /* --text-primary:#ffffff;
+  --text-dark:#052029;
+  --text-opacity-90:#042A3714; */
+
+  /* colors */
+  /* --light-red:#EA1D2D; 
+  --light-blue:#00ADD8; 
+  --light-yellow:#FDB714; 
+  --light-orange:#F36E24; 
+  --light-green:#2D9A47; 
+  --dark-yellow:#D19F2A;  
+  --dark-orange:#EF412A; 
+  --dark-red:#C22033; 
+  --dark-blue :#007DBB;  */
+
+  /* Semantic */
+  /* --success: #22c55e;
+  --warning: #f59e0b;
+  --danger:  #ef4444;
+  --info:    #06b6d4; */
+
+  /* ── 3. SHADOWS ─────────────────────────────────────────── */
+
+  /* --shadow-sm:    0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow:       0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --shadow-md:    0 4px 6px -1px rgb(0 0 0 / 0.4);
+  --shadow-lg:    0 10px 15px -3px rgb(0 0 0 / 0.4);
+  --shadow-xl:    0 20px 25px -5px rgb(0 0 0 / 0.4);  */
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTS
+   ═══════════════════════════════════════════════════════════ */
+@layer components {
+  /* .btn {
+    @apply inline-flex items-center justify-center gap-2
+           px-4 py-2 rounded-lg font-medium text-sm
+           transition-colors duration-200 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700;
+  }
+
+  .btn-outline {
+    @apply btn border border-border text-muted hover:border-primary-500 hover:text-primary-600;
+  }
+
+  .card {
+    @apply rounded-xl border border-border shadow p-6;
+    background-color: var(--surface);
+  }
+
+  .container-content {
+    @apply mx-auto w-full px-4;
+    max-width: var(--container-content);
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-border px-3 py-2
+           text-sm placeholder:text-muted-fg bg-surface
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  } */
+}
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
