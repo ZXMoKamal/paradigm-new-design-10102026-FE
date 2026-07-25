@@ -8,16 +8,18 @@
   /* ── 1. COLORS — Primary brand ──────────────────────────── */
   --primary:  #042a37;
   --primary-dark:  #042834;
+  --primary-light:  #104a5d;
 
   /* Secondary */
-  --secondary: #60deaf;
+  --secondary: #60daef;
 
   /* Text */
   --text-primary:#ffffff;
   --text-dark:#052029;
   --text-opacity-90:#042A3714;
-
+  
   /* colors */
+  --white:#ffffff;
   --light-red:#EA1D2D; 
   --light-blue:#00ADD8; 
   --light-yellow:#FDB714; 
@@ -61,6 +63,7 @@
   /* ── Primary → point to :root vars ─────────────────────── */
   --color-primary:  var(--primary);
   --color-primary-dark:  var(--primary-dark);
+  --color-primary-light:  var(--primary-light);
 
   /* ── Secondary → point to :root vars ───────────────────── */
   --color-secondary: var(--secondary);
@@ -314,6 +317,10 @@ html.dark {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .scrollbar{
+    scrollbar-color: var(--primary) var(--primary-light); 
   }
 
   .scrollbar-hide {
