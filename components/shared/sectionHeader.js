@@ -3,7 +3,9 @@
 import { cn } from "@/lib/cn"
 
 export function SectionHeader({
-    className,
+    className="",
+    titleClassName="",
+    subTitleClassName="",
 
     // content
     title,
@@ -22,7 +24,7 @@ export function SectionHeader({
     return (
         <section
             className={ cn(
-                "w-full flex gap-6 flex-wrap",
+                "flex gap-20",
                 align === "between" && "md:justify-between",
                 align === "center" && "md:justify-center text-center",
                 align === "start" && "md:justify-start",
@@ -32,13 +34,13 @@ export function SectionHeader({
             {/* LEFT: Subtitle + Title */ }
             <section className="flex flex-col shrink-0 max-md:shrink gap-1">
                 { subtitle && (
-                    <SubtitleTag className="text-sm font-primary-medium text-text-primary mb-2 uppercase tracking-[0.2em]">
+                    <SubtitleTag className={ cn("text-sm font-primary-medium text-text-primary mb-2 uppercase tracking-[0.2em]", subTitleClassName) }>
                         { subtitle }
                     </SubtitleTag>
                 ) }
 
                 { title && (
-                    <TitleTag className="leading-20 text-[57px] md:text-[57px] font-primary-medium text-text-primary">
+                    <TitleTag className={cn("leading-20 text-[57px] font-primary-medium text-text-primary", titleClassName)}>
                         { title }
                     </TitleTag>
                 ) }

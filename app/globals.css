@@ -16,7 +16,7 @@
   /* Text */
   --text-primary:#ffffff;
   --text-dark:#052029;
-  --text-opacity-90:#042A3714;
+  --text-opacity-90:#ffffff46;
   
   /* colors */
   --white:#ffffff;
@@ -28,7 +28,9 @@
   --dark-yellow:#D19F2A;  
   --dark-orange:#EF412A; 
   --dark-red:#C22033; 
-  --dark-blue :#007DBB; 
+  --dark-blue :#007DBB;
+  --dark-blue:#171f47;
+  --dark-brown:#785634;
 
   /* Semantic */
   --success: #22c55e;
@@ -37,6 +39,8 @@
   --info:    #06b6d4;
 
   /* ── 3. SHADOWS ─────────────────────────────────────────── */
+  --shadow-back-color-brown:    0px 0px 400px 300px var(--dark-brown);
+  --shadow-back-color-blue:    0px 0px 150px 300px var(--dark-blue);
   /* --shadow-sm:    0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow:       0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md:    0 4px 6px -1px rgb(0 0 0 / 0.1);
@@ -83,6 +87,8 @@
   --color-dark-orange:  var(--dark-orange); 
   --color-dark-red: var(--dark-red); 
   --color-dark-blue:  var(--dark-blue); 
+  --color-dark-blue:  var(--dark-blue); 
+  --color-dark-brown:  var(--dark-brown); 
 
   /* ── Semantic → point to :root vars ────────────────────── */
   --color-success: var(--success);
@@ -91,6 +97,8 @@
   --color-info:    var(--info);
 
   /* ── Shadows → point to :root vars ─────────────────────── */
+  --shadow-back-color-brown:    var(--shadow-back-color-brown);
+  --shadow-back-color-blue:    var(--shadow-back-color-blue);
   /* --shadow-sm:    var(--shadow-sm);
   --shadow:       var(--shadow);
   --shadow-md:    var(--shadow-md);
@@ -207,7 +215,7 @@
   }
 
   body {
-    background-color: var(--primary);
+    position: relative;
     color: var(--text-primary);
     line-height: 1.75;
   }

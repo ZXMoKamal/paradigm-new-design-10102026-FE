@@ -33,7 +33,7 @@ export default function Navbar() {
     return (
         <>
             {/* NAVBAR */ }
-            <nav className="fixed top-0 left-0 w-full z-[var(--z-sticky)] bg-primary text-text-primary">
+            <nav className="fixed top-0 left-0 w-full z-[var(--z-sticky)] text-text-primary">
                 <section className="flex items-center justify-between px-6 lg:px-16 py-5 lg:py-7">
 
                     {/* LEFT: Logo */ }
