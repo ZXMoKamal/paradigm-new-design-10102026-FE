@@ -5,7 +5,7 @@ import Image from 'next/image'
 function OurStorySection() {
   return (
     <section className='w-fit grid grid-cols-1 lg:grid-cols-2 py-20 lg:py-40 m-auto max-xl:px-5 max-sm:px-5 gap-20'>
-        <section>
+        <section> 
                    <SectionHeader
                     subtitle={"Our Story"} 
                     title={"WHO WE ARE"}
