@@ -3,7 +3,7 @@
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
-/* ─── Variants ───────────────────────────────────────── */
+/*  Variants  */
 const statisticVariants = cva(
     'relative flex items-center justify-center',
     {
@@ -19,7 +19,7 @@ const statisticVariants = cva(
     }
 );
 
-/* ─── Component ─────────────────────────────────────── */
+/*  Component  */
 export default function StatisticNumber({
     number,
     title,
@@ -36,7 +36,7 @@ export default function StatisticNumber({
             {/* OVERLAY VARIANT */ }
             { variant === 'overlay' && (
                 <>
-                    <TitleTag className={cn("absolute m-auto text-sm text-text-primary font-primary-regular", titleClassName)}>
+                    <TitleTag className={cn("absolute m-auto text-sm text-text-primary font-primary-regular text-center", titleClassName)}>
                         { title }
                     </TitleTag>
 

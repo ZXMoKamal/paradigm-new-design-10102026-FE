@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
-/* ─── Variants ───────────────────────────────────────────────────────────── */
+/*  Variants  */
 const buttonVariants = cva(
-    'group relative inline-flex items-center justify-center rounded-[30px] font-primary-regular leading-none cursor-pointer select-none overflow-hidden border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
+    'group relative inline-flex items-center justify-center rounded-[30px] font-primary-regular leading-none cursor-pointer select-none overflow-hidden border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none overflow-hidden',
     {
         variants: {
             variant: {
@@ -34,7 +34,7 @@ const buttonVariants = cva(
     }
 );
 
-/* ─── Component ──────────────────────────────────────────────────────────── */
+/*  Component  */
 export default function LinkButton({
     children,
     icon,
@@ -51,15 +51,15 @@ export default function LinkButton({
             className={ cn(buttonVariants({ variant, size }), className) }
             { ...props }
         >
-            {/* ── Sliding bg layer (only for animated variant) ── */ }
+            {/*  Sliding bg layer (only for animated variant)  */ }
             { variant === 'solidAnimated' && (
                 <span
                     aria-hidden="true"
-                    className="absolute inset-y-0 -left-2.5 z-0 w-0 skew-x-20 bg-primary-light transition-[width] duration-500 ease-in-out group-hover:w-[102%]"
+                    className="absolute inset-0 -left-2.5 z-0 w-0 skew-x-20 bg-primary-light border border-primary-light transition-[width] duration-500 ease-in-out group-hover:w-[82%]"
                 />
             ) }
 
-            {/* ── Content ── */ }
+            {/*  Content  */ }
             <span
                 className={ cn(
                     'relative z-10 inline-flex items-center gap-2',

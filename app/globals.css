@@ -20,7 +20,7 @@
   
   /* colors */
   --white:#ffffff;
-  --light-red:#EA1D2D; 
+  --light-red:#EA1D2D;
   --light-blue:#00ADD8; 
   --light-yellow:#FDB714; 
   --light-orange:#F36E24; 
@@ -28,9 +28,10 @@
   --dark-yellow:#D19F2A;  
   --dark-orange:#EF412A; 
   --dark-red:#C22033; 
-  --dark-blue :#007DBB;
+  --dark-cyan:#007DBB;
   --dark-blue:#171f47;
-  --dark-brown:#785634;
+  /* --dark-brown:#785634; */
+  --dark-brown:rgb(81, 51, 21);
 
   /* Semantic */
   --success: #22c55e;
@@ -147,7 +148,8 @@
   /* ── Gradients ──────────────────────────────────────────── */
   /* --bg-gradient-brand: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   --bg-gradient-dark:  linear-gradient(180deg, #0f172a 0%, #1e293b 100%); */
-
+  --bg-vertical-image-ticker-gradient-up: linear-gradient(0deg, transparent 0%, var(--primary) 100%);
+  --bg-vertical-image-ticker-gradient-down: linear-gradient(180deg, transparent 0%, var(--primary) 100%);
   /* ── Animations ─────────────────────────────────────────── */
   /* --animate-fade-in:   fade-in 0.3s ease-out;
   --animate-slide-up:  slide-up 0.4s ease-out;
@@ -165,6 +167,36 @@
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
   } */
+
+  @keyframes tickerNormal {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+  @keyframes tickerReversed {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+
+@keyframes verticalImageTicker {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+
+
 }
 
 @font-face {
@@ -213,7 +245,7 @@
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
-
+  
   body {
     position: relative;
     color: var(--text-primary);
@@ -317,6 +349,23 @@ html.dark {
            text-sm placeholder:text-muted-fg bg-surface
            focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
   } */
+
+  .animate-ticker-Normal {
+    animation: tickerNormal linear infinite;
+  }
+  .animate-ticker-Reversed {
+    animation: tickerReversed linear infinite;
+  }
+  .ticker-text {
+    @apply text-[140px] font-primary-semibold;
+    background: linear-gradient(to bottom, var(--secondary), var(--primary-light), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .animate-verticalTicker {
+  animation: verticalImageTicker linear infinite;
+}
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -338,4 +387,13 @@ html.dark {
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+
+  .vertical-image-ticker-gradient-up{
+    background-image: var(--bg-vertical-image-ticker-gradient-up);
+  }
+  .vertical-image-ticker-gradient-down{
+    background-image: var(--bg-vertical-image-ticker-gradient-down);
+  }
+
 }

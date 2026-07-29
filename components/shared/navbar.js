@@ -34,15 +34,15 @@ export default function Navbar() {
         <>
             {/* NAVBAR */ }
             <nav className="fixed top-0 left-0 w-full z-[var(--z-sticky)] text-text-primary">
-                <section className="flex items-center justify-between px-6 lg:px-16 py-5 lg:py-7">
+                <section className="w-full flex items-center justify-between px-6 lg:px-16 py-5 lg:py-7">
 
                     {/* LEFT: Logo */ }
                     <div className="text-xl font-primary-bold">
-                        <img src="" alt="logo" />
+                        <img src="/images/logo/paradigm full logo.png" alt="paradigm capital group company logo" fetchPriority="high" width="143" className="max-sm:w-[114px]"/>
                     </div>
 
                     {/* DESKTOP TABS */ }
-                    <section className="flex items-center gap-8">
+                    <section className="flex items-center md:gap-8 gap-2">
 
                         <ul className="hidden 2xl:flex gap-8">
                             { tabs.map((tab) => {
@@ -70,6 +70,14 @@ export default function Navbar() {
                             }) }
                         </ul>
 
+                        {/* Search */ }
+                        <button
+                            onClick={ () => setSearchOpen(true) }
+                            className="p-3 hover:text-secondary transition max-sm:hidden"
+                        >
+                            <Search className="w-8 h-8 fill-text-primary cursor-pointer" />
+                        </button>
+
                         {/* MOBILE MENU BUTTON */ }
                         <button
                             onClick={ () => setMenuOpen(true) }
@@ -78,16 +86,8 @@ export default function Navbar() {
                             <Menu className="w-8 h-8 fill-text-primary cursor-pointer" />
                         </button>
 
-                        {/* Search */ }
-                        <button
-                            onClick={ () => setSearchOpen(true) }
-                            className="p-3 hover:text-secondary transition"
-                        >
-                            <Search className="w-8 h-8 fill-text-primary cursor-pointer" />
-                        </button>
-
                         {/* CTA */ }
-                        <Button variant="solid" size="sm" className="font-[600]">
+                        <Button variant="solid" size="sm" className="font-[600] px-6 text-sm">
                             GET A QUOTE
                         </Button>
                     </section>
@@ -97,7 +97,7 @@ export default function Navbar() {
             {/* ================= MOBILE DRAWER ================= */ }
             <section
                 className={ `
-                    fixed top-0 left-0 h-full w-[80%] max-w-sm
+                    fixed top-0 left-0 h-full w-full max-w-sm
                     bg-primary z-[var(--z-overlay)]
                     transition-transform duration-500
                     ${menuOpen ? "translate-x-0" : "-translate-x-full"}
@@ -108,12 +108,21 @@ export default function Navbar() {
                     {/* Header */ }
                     <div className="flex justify-between items-center">
                         <div className="text-xl font-primary-bold">
-                            <img src="" alt="logo" />
+                            <img src="/images/logo/paradigm full logo.png" alt="paradigm capital group company logo" fetchPriority="high" width="120"/>
                         </div>
 
-                        <button onClick={ () => setMenuOpen(false) }>
-                            <X className="w-6 h-6 fill-text-primary cursor-pointer" />
-                        </button>
+                        <div className="flex justify-center items-center gap-6">
+                            {/* Search */ }
+                            <button
+                                onClick={ () => {setSearchOpen(true);setMenuOpen(false);} }
+                            >
+                                <Search className="w-6 h-6 fill-text-primary cursor-pointer" />
+                            </button>
+
+                            <button onClick={ () => setMenuOpen(false) }>
+                                <X className="w-6 h-6 fill-text-primary cursor-pointer" />
+                            </button>
+                        </div>
                     </div>
 
                     {/* Links */ }
@@ -169,7 +178,7 @@ export default function Navbar() {
 
                     <div className="flex justify-between items-center">
                         <div className="text-2xl font-primary-bold">
-                            <img src="" alt="logo" />
+                            <img src="/images/logo/paradigm full logo.png" alt="paradigm capital group company logo" fetchPriority="high" width="120"/>
                         </div>
 
                         <button onClick={ () => setSearchOpen(false) }>
@@ -177,15 +186,15 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    <div className="flex items-center justify-center gap-4 border-b border-text-opacity-90 pb-2">
+                    <div className="flex items-center justify-center gap-4 border-text-opacity-90 pb-2">
                         <input
                             type="text"
                             placeholder="Type words and hit enter"
                             className="
-                                w-[80%] bg-transparent
+                                w-full md:mx-30 bg-transparent
                                 outline-none
                                 placeholder:text-primary-light
-                                text-3xl lg:text-5xl
+                                md:text-3xl lg:text-5xl
                                 border-b border-white
                             "
                         />

@@ -56,13 +56,13 @@ export default function Suggestions({ items=[], titleTag: TitleTag = "h2" }) {
     };
 
     return (
-        <section className="relative p-12">
+        <section className="relative xl:p-12">
             { items.map((item, i) => (
                 <TitleTag
                     key={ i }
                     onMouseOver={ () => showImage(item.img,item.alt) }
                     onMouseLeave={ hideImage }
-                    className="text-[34px] py-5 border-b border-white cursor-pointer font-primary-medium"
+                    className="xl:text-[34px] md:text-[24px] text-[18px] py-5 border-b border-white cursor-pointer font-primary-medium"
                 >
                     { item.title }
                 </TitleTag>
@@ -72,7 +72,7 @@ export default function Suggestions({ items=[], titleTag: TitleTag = "h2" }) {
             <img
                 ref={ imgRef }
                 alt=""
-                className="fixed top-0 left-0 w-[350px] pointer-events-none opacity-0 transition-opacity duration-300 will-change-transform"
+                className="fixed z-1000 top-0 left-0 sm:w-[350px] w-[250px] pointer-events-none opacity-0 transition-opacity duration-300 will-change-transform"
             />
         </section>
     );

@@ -24,7 +24,7 @@ export function SectionHeader({
     return (
         <section
             className={ cn(
-                "flex gap-20",
+                "flex max-2xl:flex-col 2xl:gap-20",
                 align === "between" && "md:justify-between",
                 align === "center" && "md:justify-center text-center",
                 align === "start" && "md:justify-start",
@@ -40,7 +40,7 @@ export function SectionHeader({
                 ) }
 
                 { title && (
-                    <TitleTag className={cn("leading-20 text-[57px] font-primary-medium text-text-primary", titleClassName)}>
+                    <TitleTag className={cn("leading-20 lg:text-[57px] md:text-[47px] sm:text-[37px] text-[27px] font-primary-medium text-text-primary", titleClassName)}>
                         { title }
                     </TitleTag>
                 ) }
@@ -48,14 +48,14 @@ export function SectionHeader({
 
             {/* MIDDLE: Description */ }
             { description && (
-                <p className="w-[570px] max-xl:w-full text-[18px] text-text-primary pt-15 max-2xl:pt-0 font-primary-light">
+                <p className="w-[570px] max-xl:w-full lg:text-[18px] text-[16px] text-text-primary pt-15 max-2xl:pt-0 font-primary-light">
                     { description }
                 </p>
             ) }
 
             {/* RIGHT: Button */ }
             { buttons && (
-                <section className="pt-15 max-2xl:pt-0 justify-center flex items-center max-xl:w-full">
+                <section className="pt-15 max-2xl:pt-0 justify-end flex items-center max-xl:w-full shrink-0">
                     {buttons}
                 </section>
             ) }

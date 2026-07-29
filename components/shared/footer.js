@@ -17,14 +17,14 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-primary text-text-primary mt-20 px-60">
+        <footer className="bg-primary text-text-primary max-w-[1400px] m-auto">
 
             {/* ================= ROW 1 ================= */ }
             <section className="px-6 lg:px-16 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[30%_25%_20%_15%] gap-10">
 
                 {/* COL 1 */ }
                 <section className="space-y-5 font-primary-light">
-                    <Image src="" alt="logo" className="w-32" />
+                    <Image src="/images/logo/paradigm full logo.png" alt="paradigm capital group company logo" width="186" height="65" className="w-32 w-[186px] h-[65px]" />
 
                     <h3 className="font-primary-semibold text-lg">
                         Contact Us
@@ -44,7 +44,7 @@ export default function Footer() {
                     <ul className="space-y-3 text-lg font-primary-light">
                         <li>8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</li>
                         <li className="group">
-                            <a href="mailto:recipient@example.com" className="hover:opacity-100 relative transition">
+                            <a href="mailto:info@company.com" className="hover:opacity-100 relative transition">
                                 info@company.com
                             
                                 {/* underline animation */ }

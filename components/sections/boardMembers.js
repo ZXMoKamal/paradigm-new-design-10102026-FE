@@ -2,11 +2,12 @@ import React from 'react'
 import { SectionHeader } from '../shared/sectionHeader'
 import Link from 'next/link'
 import ArrowRight from '../icons/arrowRight'
+import MembersGrid from '../shared/membersGrid'
 
 function BoardMembers() {
   return (
-      <section className='w-full flex flex-col items-center justify-center pb-40'>
-          <section className='max-w-[1300px] flex flex-col gap-8 mt-40'>
+
+          <section className='m-auto max-w-[1300px] flex flex-col gap-8 sm:pt-40 pt-20 max-2xl:px-20 max-sm:px-5 pb-30'>
               <SectionHeader title="The Minds Behind the Story" titleTag='h2' subtitle={ "Board members" } subtitleTag='h3'
                   description={ <>
                       Discover the visionary leaders shaping Paradigm’s 
@@ -18,7 +19,7 @@ function BoardMembers() {
                       <span className="group">
                           <Link
                               href={ ""}
-                              className="text-lg hover:opacity-100 relative font-primary-semibold transition"
+                              className="lg:text-lg text-md hover:opacity-100 relative font-primary-semibold transition"
                           >
                               Read Our Story <ArrowRight className='w-5 h-5 fill-text-primary inline-block ml-2' />
 
@@ -33,11 +34,29 @@ function BoardMembers() {
                       </span>
                   </> }
               />
-
-
+<br/>
+<br/>
+                  <MembersGrid
+        members={[
+        {
+          image: '/images/ceo.jpg',
+          name: 'Adham Badawi',
+          position: 'CEO',
+          alt: 'Adham Badawi CEO',
+        },
+        {
+          image: '/images/ezgif-649111cac58523a0.webp',
+          name: 'Mahmoud Amer',
+          position: 'CFO',
+          alt: 'Mahmoud Amer CFO',
+        }
+      ]}
+        nameTag="h3"
+        positionTag="h4"
+      />
               
           </section>
-      </section>
+
   )
 }
 

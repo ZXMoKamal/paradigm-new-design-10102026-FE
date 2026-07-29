@@ -3,7 +3,7 @@
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
 
-/* ─── Variants ───────────────────────────────────────────────────────────── */
+/*  Variants  */
 const buttonVariants = cva(
     'group relative inline-flex items-center justify-center rounded-[30px] font-primary-regular leading-none cursor-pointer select-none overflow-hidden border-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none',
     {
@@ -29,7 +29,7 @@ const buttonVariants = cva(
     }
 );
 
-/* ─── Component ──────────────────────────────────────────────────────────── */
+/*  Component  */
 export default function Button({ children, icon, iconPosition = 'left', variant = 'solid', size = 'md', className, disabled, type = 'button', ...props }) {
 
     return (
