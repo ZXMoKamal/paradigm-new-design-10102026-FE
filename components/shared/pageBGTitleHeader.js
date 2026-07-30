@@ -17,7 +17,7 @@ export default function PageBGTitleHeader({
   return (
     <section
       className={cn(
-        'relative w-full flex justify-center items-center',
+        'relative w-full flex justify-center items-center overflow-hidden',
         height,
         className
       )}
@@ -30,7 +30,7 @@ export default function PageBGTitleHeader({
           width={100}
           height={100}
           fetchPriority='high'
-          className="object-cover absolute -z-1"
+          className="w-full h-full object-cover absolute -z-1"
         />
       )}
 
