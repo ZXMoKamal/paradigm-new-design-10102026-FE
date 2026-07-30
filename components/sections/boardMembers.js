@@ -7,7 +7,7 @@ import MembersGrid from '../shared/membersGrid'
 function BoardMembers() {
   return (
 
-          <section className='m-auto max-w-[1300px] flex flex-col gap-8 sm:pt-40 pt-20 max-2xl:px-20 max-sm:px-5 pb-30'>
+          <section className='m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-10 max-sm:px-5 pt-20 pb-20 xl:mt-20'>
               <SectionHeader title="The Minds Behind the Story" titleTag='h2' subtitle={ "Board members" } subtitleTag='h3'
                   description={ <>
                       Discover the visionary leaders shaping Paradigm’s 

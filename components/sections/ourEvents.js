@@ -6,7 +6,7 @@ import Suggestions from '../shared/suggestions'
 
 function OurEvents() {
   return (
-      <section className="m-auto max-w-[1300px] flex flex-col gap-8 mt-40 max-2xl:px-20 max-sm:px-5 pb-30">
+      <section className="m-auto max-w-[1300px] flex flex-col gap-8 pt-20 max-2xl:px-10 max-sm:px-5 pb-20">
 
         <SectionHeader subtitle="our events" 
         title="Take a Look" description="Check out our latest groundbreaking events!"

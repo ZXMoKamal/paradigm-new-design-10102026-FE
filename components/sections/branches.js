@@ -4,7 +4,7 @@ import { SectionHeader } from '../shared/sectionHeader'
 
 function Branches() {
   return (
-    <section className="m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-20 max-sm:px-5 pb-10">
+    <section className="m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-10 max-sm:px-5 pt-20 pb-20">
 
          <SectionHeader subtitle="branches" 
         title="Come and visit us at one of our branches"

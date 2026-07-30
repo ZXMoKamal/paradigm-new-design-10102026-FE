@@ -3,7 +3,7 @@ import VerticalImageTicker from '../shared/verticalImageTicker'
 
 function OurClients() {
   return (
-        <section className="m-auto max-w-[1300px] grid grid-cols-1 max-lg:gap-10 lg:grid-cols-[30%_70%] items-center lg:pb-30 pb-20">
+        <section className="m-auto max-w-[1300px] grid grid-cols-1 max-lg:gap-10 lg:grid-cols-[30%_70%] items-center lg:pb-30 pt-10 pb-10">
             <h2 className="text-5xl text-center font-primary-regular uppercase max-lg:tracking-widest max-lg:leading-20">our <br/>valuable <br/>clients</h2>
             <section className="flex relative">
 

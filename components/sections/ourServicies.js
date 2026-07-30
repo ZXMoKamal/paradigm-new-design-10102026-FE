@@ -7,7 +7,7 @@ import ServicesGrid from '../shared/servicesGrid'
 function OurServicies() {
   return (
 
-        <section className="m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-20 max-sm:px-5 lg:pb-30 pb-10">
+        <section className="m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-10 max-sm:px-5 lg:pb-30 pt-20 pb-20">
             <SectionHeader subtitle="OUR SERVICES" 
             title="Take a Look" description="Paradigm Capital Group offers a comprehensive range of services that support event management solutions, ensuring your event is expertly handled from A to Z."
             titleTag="h3"
