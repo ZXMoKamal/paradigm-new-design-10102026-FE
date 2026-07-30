@@ -20,7 +20,7 @@ export default function Accordion({
     <section className={cn('w-full xl:w-[1100px] 2xl:w-[1300px]', className)} onClick={() => setOpen(!open)}>
       
       {/* Header */}
-      <section className="flex items-start gap-6">
+      <section className="flex max-sm:flex-col items-start gap-6">
         
         {/* Icon */}
         <section className="flex items-center justify-center rounded-full bg-primary-dark shrink-0">
@@ -28,9 +28,9 @@ export default function Accordion({
         </section>
 
         {/* Text */}
-        <section className="flex flex-col gap-6">
+        <section className="w-full flex flex-col gap-6">
             {/* <section className='flex items-center justify-between'> */}
-          <TitleTag className="flex justify-between w-full text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-primary-medium text-text-primary">
+          <TitleTag className="w-full flex justify-between w-full text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-primary-medium text-text-primary">
             {title}
                 {/* Clickable Description */}
                 <button

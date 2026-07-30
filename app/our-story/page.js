@@ -11,13 +11,13 @@ function OurStory() {
         <OurStoryHeader/>
         <OurStorySection/>
         <OurFoundation/>
-         <VideoSection
-                            images={ [
-                                { image: "/images/ezgif-60778de8042c2163.webp", alt: "" },
-                                { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "" },
-                            ] }
-              />
-              <OurEvents/>
+        <VideoSection
+            images={ [
+                { image: "/images/ezgif-6f9383a7f4f93ea9.webp", alt: "" },
+                { image: "/images/ezgif-622bc5fdefea9c0f.webp", alt: "" },
+            ] }
+        />
+        <OurEvents/>
     </main>
   )
 }
