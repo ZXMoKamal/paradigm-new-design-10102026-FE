@@ -30,7 +30,7 @@ export default function Accordion({
         {/* Text */}
         <section className="w-full flex flex-col gap-6">
             {/* <section className='flex items-center justify-between'> */}
-          <TitleTag className="w-full flex justify-between w-full text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-primary-medium text-text-primary">
+          <TitleTag className="w-full flex justify-between w-full text-xl md:text-2xl lg:text-3xl xl:text-4xl font-primary-medium text-text-primary">
             {title}
                 {/* Clickable Description */}
                 <button
@@ -38,11 +38,11 @@ export default function Accordion({
                     className="group mx-5"
                 >
                     {/* + / - Icon */}
-                    {open ? <ArrowAngleUp className="lg:w-10 lg:h-10 w-5 h-5 fill-text-primary" /> :  <ArrowAngleDown className="lg:w-10 lg:h-10 w-5 h-5 fill-text-primary" />}
+                    {open ? <ArrowAngleUp className="lg:w-7 lg:h-7 w-5 h-5 fill-text-primary" /> :  <ArrowAngleDown className="lg:w-7 lg:h-7 w-5 h-5 fill-text-primary" />}
                 </button>
           </TitleTag>
             {/* </section> */}
-                <p className={cn("text-text-primary opacity-80 group-hover:opacity-100 transition text-md sm:text-lg md:text-xl xl:text-2xl mb-5")}>
+                <p className={cn("text-text-primary opacity-80 group-hover:opacity-100 transition text-md sm:text-lg mb-5")}>
                     {description}
                 </p>
 
@@ -53,7 +53,7 @@ export default function Accordion({
       {/* Collapsible Content */}
       <section
         className={cn(
-          'transition-all duration-500 overflow-hidden mx-5 lg:mx-25 border-b',
+          'transition-all duration-500 overflow-hidden mx-5 lg:mx-20 border-b',
           open ? 'max-h-[1000px] mt-6 pb-10' : 'max-h-0'
         )}
       >
