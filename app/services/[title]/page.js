@@ -1,9 +1,12 @@
+import ServiceHighlightSection from '@/components/sections/serviceHighlightSection'
 import React from 'react'
 
-function page() {
+function Services() {
   return (
-    <div>page</div>
+    <main className="relative w-full overflow-hidden pt-30">
+      <ServiceHighlightSection/> 
+    </main>
   )
 }
 
-export default page
+export default Services
