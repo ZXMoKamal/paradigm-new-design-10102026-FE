@@ -49,7 +49,7 @@ export default function StatisticNumber({
             {/* STACKED VARIANT */ }
             { variant === 'stacked' && (
                 <>
-                    <TitleTag className={ cn("text-sm text-text-primary opacity-80", titleClassName) }>
+                    <TitleTag className={ cn("text-sm text-text-primary", titleClassName) }>
                         { title }
                     </TitleTag>
 
