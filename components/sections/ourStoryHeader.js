@@ -6,7 +6,7 @@ function OurStoryHeader() {
             <PageBGTitleHeader
             title="We're Here to Make Your Event Unforgettable."
             subtitle="about us"
-            bgImage="/images/ourStory/header/header.jpg"
+            bgImage="/images/ourStory/header/header.webp"
             />
   )
 }
