@@ -11,7 +11,7 @@ function OurServicies() {
             <SectionHeader subtitle="OUR SERVICES" 
             title="Take a Look" description="Paradigm Capital Group offers a comprehensive range of services that support event management solutions, ensuring your event is expertly handled from A to Z."
             titleTag="h3"
-            subTitleTag="h2"
+            subtitleTag="h2"
             buttons={
             <LinkButton
                         href="/about"
