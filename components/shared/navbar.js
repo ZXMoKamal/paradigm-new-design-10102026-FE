@@ -18,7 +18,7 @@ export default function Navbar() {
     const tabs = [
         { name: "Home", href: "/" },
         { name: "Our Story", href: "/our-story" },
-        { name: "Our Services", href: "/services" },
+        { name: "Our Services", href: "/our-services" },
         { name: "Past Events", href: "/events" },
         { name: "Social Responsibility", href: "/social" },
         { name: "Contact Us", href: "/contact" },

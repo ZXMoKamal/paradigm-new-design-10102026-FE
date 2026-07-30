@@ -1,9 +1,14 @@
+import OurServicies from '@/components/sections/ourServicies'
+import ServicesIntro from '@/components/sections/servicesIntro'
 import React from 'react'
 
-function page() {
+function OurServices() {
   return (
-    <div>page</div>
+    <main className="relative w-full overflow-hidden pt-30">
+      <ServicesIntro/>
+      <OurServicies/>
+    </main>
   )
 }
 
-export default page
+export default OurServices
