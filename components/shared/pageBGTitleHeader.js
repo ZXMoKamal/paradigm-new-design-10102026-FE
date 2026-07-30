@@ -24,12 +24,12 @@ export default function PageBGTitleHeader({
     >
       {/* Background Image */}
       {bgImage && (
-        <Image
+        <img
           src={bgImage}
           alt={title}
-          fill
-          sizes={100}
-          priority
+          width={100}
+          height={100}
+          fetchPriority='high'
           className="object-cover absolute -z-1"
         />
       )}
