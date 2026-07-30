@@ -1,9 +1,14 @@
+import EventStatistics from '@/components/sections/eventStatistics'
+import PastEventsSection from '@/components/sections/pastEventsSection'
 import React from 'react'
 
-function page() {
+function PastEvents() {
   return (
-    <div>page</div>
+    <main className="relative w-full overflow-hidden pt-30">
+      <EventStatistics/>
+      <PastEventsSection/>
+    </main>
   )
 }
 
-export default page
+export default PastEvents

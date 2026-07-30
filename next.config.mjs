@@ -2,6 +2,7 @@
 const nextConfig = {
   /* config options here */
   //  output: 'export',
+  trailingSlash: true,
 };
 
 export default nextConfig;
