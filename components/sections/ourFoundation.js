@@ -4,12 +4,17 @@ import ArrowDown from '../icons/arrowDown'
 import Eye from '../icons/eye'
 import Gem from '../icons/gem'
 import Aim from '../icons/aim'
+import { SectionHeader } from '../shared/sectionHeader'
+import LinkButton from '../shared/linkButton'
+import ArrowRight from '../icons/arrowRight'
 
 function OurFoundation() {
   return (
     <section className='flex flex-col gap-20 m-auto w-fit pb-40 px-5' > 
+
+
         <Accordion
-      icon={<Eye className="w-10 h-10 lg:w-20 lg:h-20 fill-secondary" />}
+      icon={<Eye className="w-10 h-10 lg:w-15 lg:h-15 fill-secondary" />}
       title="Our Vision"
       description="To be the leading choice for event management by pioneering innovative, sustainable practices and leveraging a robust global network."
       faqs={[
@@ -32,7 +37,7 @@ function OurFoundation() {
 ]}
     />
         <Accordion
-      icon={<Aim className="w-10 h-10 lg:w-20 lg:h-20 fill-secondary" />}
+      icon={<Aim className="w-10 h-10 lg:w-15 lg:h-15 fill-secondary" />}
       title="Our Mission"
       description="To guide clients in clear communication, optimal resource use, and goal achievement, delivering unforgettable experiences as a trusted partner."
       faqs={[
@@ -55,7 +60,7 @@ function OurFoundation() {
 ]}
     />
         <Accordion
-      icon={<Gem className="w-10 h-10 lg:w-20 lg:h-20 fill-secondary" />}
+      icon={<Gem className="w-10 h-10 lg:w-15 lg:h-15 fill-secondary" />}
       title="Core Values"
       description="Paradigm Capital Group (PCG) emphasizes several core values that shape its operations and interactions with clients:"
       faqs={[
