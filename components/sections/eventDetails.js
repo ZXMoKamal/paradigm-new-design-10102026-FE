@@ -41,25 +41,27 @@ export default function EventDetails({
   ].filter((item) => item.value);
 
   return (
-      <section className="grid md:grid-cols-[40%_60%] m-auto w-full lg:w-[1300px] py-10">
+    <>
+      <h1 className="px-5 w-full lg:w-[1400px] m-auto text-[36px] sm:text-[42px] lg:text-[57px] lg:pt-10 lg:pb-10">{ title}</h1>
+      <section className="px-5 grid lg:grid-cols-[40%_60%] m-auto w-full lg:w-[1300px] pb-10">
         
         {/* LEFT: INFO */}
-        <div>
-          <div className="space-y-3">
+        <section className="py-5">
+          {/* <section className="space-y-3"> */}
             {info.map((item, i) => (
-              <div key={i} className="flex gap-2">
+              <section key={i} className="flex gap-2 py-1 lg:py-2">
                 <h2 className="font-semibold text-[20px]">
                   {item.label}:
                 </h2>
                 <h3 className="text-[20px] font-primary-regular">{item.value}</h3>
                 <br/>
                 <br/>
-              </div>
+              </section>
             ))}
-          </div>
+          {/* </section> */}
 
           {/* SHARE */}
-          <div className="mt-6 flex flex-wrap gap-10">
+          <section className="mt-6 flex flex-wrap gap-10">
             
             <a
               href={shareLinks.facebook}
@@ -86,20 +88,21 @@ export default function EventDetails({
             >
               <LinkIcon className={"w-8 h-8 fill-text-primary"}/>
             </button>
-          </div>
-        </div>
+          </section>
+        </section>
 
         {/* RIGHT: SLIDER + DESC */}
-        <div className="w-[815px]">
-          <ImageSlider images={images} className={"w-[815px] h-[457px]"} />
+        <section className="w-full min-[1024px]:w-[515px] min-[1150px]:w-[615px] xl:w-[715px] 2xl:w-[815px]">
+          <ImageSlider images={ images } className={"w-full  min-[1024px]:h-[300px] min-[1150px]:h-[400px] xl:h-[457px]"} />
 
           {description && (
-            <p className="mt-4 text-[18px] text-text-primary font-primary-light">
+            <p className="mt-4 text-[16px] lg:text-[18px] text-text-primary font-primary-light">
               {description}
             </p>
           )}
-        </div>
+        </section>
 
       </section>
+    </>
   );
 }

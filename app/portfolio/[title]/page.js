@@ -1,4 +1,5 @@
 import EventDetails from '@/components/sections/eventDetails'
+import EventSuggestions from '@/components/sections/eventSuggestions'
 import React from 'react'
 
 function portfolio() {
@@ -13,8 +14,8 @@ function portfolio() {
           "/images/ezgif-608a1f2271991c70.webp",
           "/images/ezgif-622bc5fdefea9c0f.webp",
         ]}
-        description="
-As part of strengthening bilateral economic relations, the Egypt – Spain Business Forum highlighted opportunities for collaboration across trade, investment, and innovation sectors. Paradigm Capital Group proudly executed the full event setup, providing a seamless environment for sessions, discussions, and networking. The forum brought together ministers, business leaders, and key international stakeholders, including His Majesty King Felipe VI of Spain and H.E Dr. Mostafa Madbouly, the Egyptian Prime Minister, to explore strategic partnerships that drive economic growth and cooperation between the two nations."/>
+        description="As part of strengthening bilateral economic relations, the Egypt – Spain Business Forum highlighted opportunities for collaboration across trade, investment, and innovation sectors. Paradigm Capital Group proudly executed the full event setup, providing a seamless environment for sessions, discussions, and networking. The forum brought together ministers, business leaders, and key international stakeholders, including His Majesty King Felipe VI of Spain and H.E Dr. Mostafa Madbouly, the Egyptian Prime Minister, to explore strategic partnerships that drive economic growth and cooperation between the two nations." />
+      <EventSuggestions/>
       </main>
   )
 }
