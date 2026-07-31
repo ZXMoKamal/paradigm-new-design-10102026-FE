@@ -1,7 +1,8 @@
 "use client";
+import { cn } from "@/lib/cn";
 import { useEffect, useRef } from "react";
 
-export default function Suggestions({ items=[], titleTag: TitleTag = "h2" }) {
+export default function Suggestions({ items = [], titleTag: TitleTag = "h2", className="" }) {
 
     const imgRef = useRef(null);
 
@@ -56,7 +57,7 @@ export default function Suggestions({ items=[], titleTag: TitleTag = "h2" }) {
     };
 
     return (
-        <section className="relative xl:p-12">
+        <section className={ cn("relative xl:p-12",className) }>
             { items.map((item, i) => (
                 <TitleTag
                     key={ i }
