@@ -20,7 +20,7 @@ export default function Footer() {
         <footer className="bg-primary text-text-primary max-w-[1400px] m-auto">
 
             {/* ================= ROW 1 ================= */ }
-            <section className="px-10 lg:px-16 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[30%_25%_20%_15%] gap-10">
+            <section className="px-5 lg:px-16 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[30%_25%_20%_15%] gap-10">
 
                 {/* COL 1 */ }
                 <section className="space-y-5 font-primary-light">
