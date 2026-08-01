@@ -20,7 +20,7 @@ export default function Navbar() {
         { name: "Our Story", href: "/our-story" },
         { name: "Our Services", href: "/our-services" },
         { name: "Past Events", href: "/past-events" },
-        { name: "Social Responsibility", href: "/social" },
+        { name: "Social Responsibility", href: "/csr" },
         { name: "Contact Us", href: "/contact" },
         { name: "Careers", href: "/careers" },
     ];
