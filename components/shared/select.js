@@ -17,7 +17,7 @@ const selectVariants = cva(
             },
             hasIcon: {
                 true: "px-12",
-                false: "px-12",
+                false: "px-6",
             },
         },
         defaultVariants: {
@@ -56,7 +56,7 @@ export function Select({
                 {/* Select */ }
                 <select
                     className={ cn(
-                        "h-6 w-full bg-primary outline-none font-primary-regular",
+                        "h-6 w-full bg-primary outline-none font-primary-light",
                         className
                     ) }
                     { ...props }

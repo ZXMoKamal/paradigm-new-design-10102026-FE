@@ -1,9 +1,14 @@
+import Branches from '@/components/sections/branches'
+import ContactLocation from '@/components/sections/contactLocation'
 import React from 'react'
 
-function page() {
+function Contacts() {
   return (
-    <div>page</div>
+    <main className="relative w-full overflow-hidden pt-30">
+      <ContactLocation/>
+      <Branches/>
+    </main>
   )
 }
 
-export default page
+export default Contacts

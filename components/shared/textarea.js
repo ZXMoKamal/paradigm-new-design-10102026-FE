@@ -58,7 +58,7 @@ export function Textarea({
                             border,
                             hasIcon: !!icon,
                         }),
-                        "min-h-[100px]",
+                        "min-h-[100px] font-primary-light",
                         className
                     ) }
                     placeholder={ label ? "" : placeholder }

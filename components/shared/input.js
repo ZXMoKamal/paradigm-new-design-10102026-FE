@@ -55,7 +55,7 @@ export function Input({
                             border,
                             hasIcon: !!icon,
                         }),
-                        "h-12",
+                        "h-12 font-primary-light",
                         className
                     ) }
                     placeholder={ label ? "" : placeholder }
