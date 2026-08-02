@@ -14,6 +14,7 @@ import { Textarea } from "./textarea";
 import Message from "../icons/message";
 import Button from "./button";
 import Send from "../icons/send";
+import { contactUsSchema } from "@/form/schema/contactUsSchema";
 
 export default function ContactForm() {
     const [token, setToken] = useState("");
@@ -29,39 +30,7 @@ export default function ContactForm() {
             terms: false,
         },
 
-        validationSchema: Yup.object({
-            name: Yup.string()
-                .min(3, "Name must be at least 3 characters")
-                .max(50, "Name must be less than 50 characters")
-                .required("Name is required"),
-
-            email: Yup.string()
-                .email("Invalid email")
-                .min(5, "Email is too short")
-                .max(100, "Email is too long")
-                .required("Email is required"),
-
-            phone: Yup.string()
-                .min(8, "Phone must be at least 8 digits")
-                .max(15, "Phone must be less than 15 digits")
-                .required("Phone is required"),
-
-            service: Yup.string()
-                .required("Please select a service"),
-                
-            subject: Yup.string()
-                .min(5, "Subject must be at least 5 characters")
-                .max(100, "Subject must be less than 100 characters")
-                .required("Subject is required"),
-
-            message: Yup.string()
-                .min(10, "Message must be at least 10 characters")
-                .max(1000, "Message must be less than 1000 characters")
-                .required("Message is required"),
-
-            terms: Yup.boolean()
-                .oneOf([true], "You must accept terms"),
-        }),
+        validationSchema: contactUsSchema,
 
         onSubmit: async (values, { resetForm }) => {
             if (!token) {
@@ -91,7 +60,8 @@ export default function ContactForm() {
         >
             {/* Name */ }
             <div>
-                <Input
+                <Input 
+                className="max-md:text-[14px]"
                     type="text"
                     rounded="full"
                     icon={ <Person className={ 'w-5 h-5 fill-secondary' } /> }
@@ -111,7 +81,8 @@ export default function ContactForm() {
 
             {/* Email */ }
             <div>
-                <Input
+                <Input 
+                className="max-md:text-[14px]"
                     type="email"
                     rounded="full"
                     icon={ <Email className={ 'w-5 h-5 fill-secondary' } /> }
@@ -131,7 +102,8 @@ export default function ContactForm() {
 
             {/* Phone */ }
             <div>
-                <Input
+                <Input 
+                className="max-md:text-[14px]"
                     type="text"
                     rounded="full"
                     icon={ <Phone className={ 'w-5 h-5 fill-secondary' } /> }
@@ -151,9 +123,10 @@ export default function ContactForm() {
 
             {/* Service Select */ }
             <div>
-                <Select
+                <Select 
+                className="max-md:text-[14px] px-0"
                     { ...formik.getFieldProps("service") }
-                    rounded="full" border="thin" className={"px-0"}>
+                    rounded="full" border="thin" >
                     <option value="">Select a Service</option>
                     <option value="us">USA</option>
                     <option value="uk">UK</option>
@@ -175,7 +148,8 @@ export default function ContactForm() {
 
             {/* Subject */ }
             <div className="md:col-span-2">
-                <Input
+                <Input 
+                className="max-md:text-[14px]"
                     type="text"
                     rounded="full"
                     icon={ <Info className={'w-5 h-5 fill-secondary'}/> }
@@ -195,7 +169,9 @@ export default function ContactForm() {
 
             {/* Message */ }
             <div className="md:col-span-2">
-                <Textarea
+                <Textarea 
+
+                className="max-md:text-[14px]"
                               rounded="md"
                               border="thin"
                     icon={ <Message className={ 'w-5 h-5 fill-secondary' } /> }
@@ -216,7 +192,7 @@ export default function ContactForm() {
             </div>
 
             {/* Terms */ }
-            <div className="flex flex-col justify-center gap-2 col-span-2">
+            <div className="flex flex-col justify-center gap-2 md:col-span-2">
                 <div>
                     <input
                         type="checkbox"
@@ -232,7 +208,7 @@ export default function ContactForm() {
 
 
             {/* Turnstile */ }
-            <div className="col-span-2">
+            <div className="md:col-span-2">
                 <Turnstile
                     sitekey={ process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY }
                     onVerify={ (t) => setToken(t) }

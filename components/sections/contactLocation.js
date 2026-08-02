@@ -4,7 +4,7 @@ import ContactForm from '../shared/contactForm'
 
 function ContactLocation() {
   return (
-    <section className='relative max-lg:px-5 lg:py-10 w-full xl:w-[1300px] m-auto flex flex-col'>
+    <section className='relative px-5 lg:py-10 w-full xl:w-[1320px] m-auto flex flex-col'>
           <SectionHeader title={ 'LET\'s WORK TOGETHER' } subtitle={ 'Contact Us' }/>
           <iframe
               loading="lazy"
@@ -12,7 +12,7 @@ function ContactLocation() {
               data-ll-status="loaded"
               className='w-full xl:w-[740px] h-[635px] my-10 order-2'
           ></iframe>
-          <section className='xl:absolute bottom-0 right-0 lg:bg-primary-dark w-full xl:w-[600px] p-10 order-1'>
+          <section className='rounded-2xl xl:absolute bottom-0 right-0 lg:bg-primary-dark w-full xl:w-[600px] py-10 px-2 md:px-10 order-1'>
               <ContactForm/>
           </section>
     </section>
