@@ -17,12 +17,12 @@ export default function Navbar() {
 
     const tabs = [
         { name: "Home", href: "/" },
-        { name: "Our Story", href: "/our-story" },
-        { name: "Our Services", href: "/our-services" },
-        { name: "Past Events", href: "/past-events" },
-        { name: "Social Responsibility", href: "/csr" },
-        { name: "Contact Us", href: "/contacts" },
-        { name: "Careers", href: "/careers" },
+        { name: "Our Story", href: "/our-story/" },
+        { name: "Our Services", href: "/our-services/" },
+        { name: "Past Events", href: "/past-events/" },
+        { name: "Social Responsibility", href: "/csr/" },
+        { name: "Contact Us", href: "/contacts/" },
+        { name: "Careers", href: "/careers/" },
     ];
 
     // lock scroll when menu open
