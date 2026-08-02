@@ -1,0 +1,22 @@
+export const rules = {
+    name:{
+        min:3,
+        max:100
+    },
+    email:{
+        min:7,
+        max:100
+    },
+    subject:{
+        min:3,
+        max:100
+    },
+    phone:{
+        min:7,
+        max:20
+    },
+    message:{
+        min:10,
+        max:2000
+    },
+} 
