@@ -1,9 +1,12 @@
+import CareersForm from '@/components/sections/careersForm'
 import React from 'react'
 
-function page() {
+function Careers() {
   return (
-    <div>page</div>
+    <main className="relative w-full overflow-hidden pt-30">
+      <CareersForm/>
+    </main>
   )
 }
 
-export default page
+export default Careers

@@ -75,7 +75,7 @@ export default function ContactForm() {
                     className="w-full border p-2 rounded"
                 /> */}
                 { formik.touched.name && formik.errors.name && (
-                    <p className="text-red-500 text-sm mt-2">{ formik.errors.name }</p>
+                    <p className="text-light-red text-sm mt-2">{ formik.errors.name }</p>
                 ) }
             </div>
 
@@ -96,7 +96,7 @@ export default function ContactForm() {
                     className="w-full border p-2 rounded"
                 /> */}
                 { formik.touched.email && formik.errors.email && (
-                    <p className="text-red-500 text-sm mt-2">{ formik.errors.email }</p>
+                    <p className="text-light-red text-sm mt-2">{ formik.errors.email }</p>
                 ) }
             </div>
 
@@ -117,7 +117,7 @@ export default function ContactForm() {
                     className="w-full border p-2 rounded"
                 /> */}
                 { formik.touched.phone && formik.errors.phone && (
-                    <p className="text-red-500 text-sm mt-2">{ formik.errors.phone }</p>
+                    <p className="text-light-red text-sm mt-2">{ formik.errors.phone }</p>
                 ) }
             </div>
 
@@ -142,7 +142,7 @@ export default function ContactForm() {
                     <option value="seo">SEO</option>
                 </select> */}
                 { formik.touched.service && formik.errors.service && (
-                    <p className="text-red-500 text-sm mt-2">{ formik.errors.service }</p>
+                    <p className="text-light-red text-sm mt-2">{ formik.errors.service }</p>
                 ) }
             </div>
 
@@ -163,7 +163,7 @@ export default function ContactForm() {
                     className="w-full border p-2 rounded"
                 /> */}
                 { formik.touched.subject && formik.errors.subject && (
-                    <p className="text-red-500 text-sm mt-2">{ formik.errors.subject }</p>
+                    <p className="text-light-red text-sm mt-2">{ formik.errors.subject }</p>
                 ) }
             </div>
 
@@ -187,7 +187,7 @@ export default function ContactForm() {
                     className="w-full border p-2 rounded"
                 /> */}
                 { formik.touched.message && formik.errors.message && (
-                    <p className="text-red-500 text-sm mt-2">{ formik.errors.message }</p>
+                    <p className="text-light-red text-sm mt-2">{ formik.errors.message }</p>
                 ) }
             </div>
 
@@ -202,7 +202,7 @@ export default function ContactForm() {
                     <span className="mx-2 text-sm font-primary-light">I agree that my submitted data is being collected and stored.</span>
                 </div>
                 { formik.touched.terms && formik.errors.terms && (
-                    <p className="text-red-500 text-sm">{ formik.errors.terms }</p>
+                    <p className="text-light-red text-sm">{ formik.errors.terms }</p>
                 ) }
             </div>
 
