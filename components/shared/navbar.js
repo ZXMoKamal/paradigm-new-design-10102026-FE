@@ -8,10 +8,13 @@ import Search from "../icons/search";
 import X from "../icons/x";
 import Button from "./button";
 import Menu from "../icons/menu";
+import ContactForm from "./contactForm";
+import ContactSection from "../sections/contactSection";
 
 export default function Navbar() {
     const [openSearch, setSearchOpen] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [contactOpen, setContactOpen] = useState(false);
 
     const pathname = usePathname();
 
@@ -87,7 +90,7 @@ export default function Navbar() {
                         </button>
 
                         {/* CTA */ }
-                        <Button variant="solid" size="sm" className="font-[600] px-6 text-sm">
+                        <Button variant="solid" size="sm" className="font-[600] px-6 text-sm"  onClick={ () => setContactOpen(true) }>
                             GET A QUOTE
                         </Button>
                     </section>
@@ -205,6 +208,22 @@ export default function Navbar() {
                     </div>
                 </div>
             </section>
+
+            {/* ================= Contact PANEL ================= */ }
+
+            <section className={ `fixed top-0 left-0 right-0 bottom-0 h-full w-full flex xl:justify-center xl:items-center
+                    bg-primary/80 z-[10000] overflow-y-scroll
+                    transition-opacity duration-500 
+                    ${contactOpen ? "opacity-100" : "opacity-0 pointer-events-none"}
+                `}>
+                    <button onClick={ () => setContactOpen(false) }>
+                        <X className="w-6 h-6 fill-text-primary cursor-pointer absolute top-10 right-10 z-1000" />
+                    </button>
+                    <div className={`w-full xl:w-[1300px] transition-transform duration-500 ${contactOpen ? "scale-100" : "scale-0"}`}>
+                        <ContactSection/>
+                    </div>
+            </section>
+
         </>
     );
 }
