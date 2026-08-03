@@ -10,6 +10,9 @@ function Services() {
   return (
     <main className="relative w-full overflow-hidden pt-30">
       <ServiceHighlightSection/>
+      <hr className="border-border-primary" />
+      <br/>
+      <br/>
       <ContactSection/>
     </main>
   )
