@@ -3,6 +3,14 @@ export const rules = {
         min:3,
         max:100
     },
+    firstName:{
+        min:3,
+        max:50
+    },
+    lastName:{
+        min:3,
+        max:50
+    },
     email:{
         min:7,
         max:100
@@ -19,4 +27,21 @@ export const rules = {
         min:10,
         max:2000
     },
+    address:{
+        min:5,
+        max:500
+    },
+    city:{
+        min:2,
+        max:100
+    },
+    state:{
+        min:2,
+        max:100
+    },
+    country:{
+        min:2,
+        max:100
+    },
+    resumeFileSize:2
 } 
