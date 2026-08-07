@@ -2,11 +2,12 @@ import ContactSection from '@/components/sections/contactSection'
 import ServiceHighlight from '@/components/shared/serviceHighlight'
 import React from 'react'
 
-function Services() {
-
+async function Services({params}) {
+  const { title } = await params;
+  console.log(title);
   return (
     <main className="relative w-full overflow-hidden pt-30">
-      <ServiceHighlight />
+      <ServiceHighlight serviceTitle={ title }/>
       <hr className="border-border-primary" />
       <br/>
       <br/>
