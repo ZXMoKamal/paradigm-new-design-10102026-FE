@@ -33,4 +33,7 @@ export const contactUsSchema = Yup.object({
 
             terms: Yup.boolean()
                 .oneOf([true], "You must accept terms"),
+            
+            token: Yup.string()
+                .required("Please complete the captcha"),
         })
