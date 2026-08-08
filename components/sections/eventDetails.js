@@ -1,48 +1,31 @@
 // components/EventDetails.js
-"use client";
+// "use client";
 
-import Facebook from "../icons/facebook";
-import LinkIcon from "../icons/link";
-import Mail from "../icons/mail";
-import Twitter from "../icons/twitter";
+import { getEvent } from "@/api/events";
+
 import ImageSlider from "../shared/imageSlider";
+import ShareButtons from "../shared/shareButtons";
 
 
 
-export default function EventDetails({
-  title,
-  client,
-  date,
-  location,
-  images = [],
-  description,
+export default async function EventDetails({
+  eventTitle,
 }) {
-  const eventUrl =
-    typeof window !== "undefined" ? window.location.href : "";
 
-  const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${eventUrl}`,
-    twitter: `https://twitter.com/intent/tweet?url=${eventUrl}`,
-    mail: `mailto:?subject=${encodeURIComponent(
-      title || "Event"
-    )}&body=${encodeURIComponent(eventUrl)}`,
-  };
 
-  const copyLink = async () => {
-    await navigator.clipboard.writeText(eventUrl);
-    alert("Link copied!");
-  };
+  const event = await getEvent(eventTitle);
+
 
   const info = [
-    { label: "Event Name", value: title },
-    { label: "Client", value: client },
-    { label: "Date", value: date },
-    { label: "Location", value: location },
+    { label: "Event Name", value: event.name },
+    { label: "Client", value: event.client },
+    { label: "Date", value: event.date },
+    { label: "Location", value: event.location },
   ].filter((item) => item.value);
 
   return (
     <>
-      <h1 className="px-5 w-full lg:w-[1400px] m-auto text-[36px] sm:text-[42px] lg:text-[57px] lg:pt-10 lg:pb-10">{ title}</h1>
+      <h1 className="px-5 w-full lg:w-[1400px] m-auto text-[36px] sm:text-[42px] lg:text-[57px] lg:pt-10 lg:pb-10">{ event.name }</h1>
       <section className="px-5 grid lg:grid-cols-[40%_60%] m-auto w-full lg:w-[1300px] pb-10">
         
         {/* LEFT: INFO */}
@@ -61,43 +44,16 @@ export default function EventDetails({
           {/* </section> */}
 
           {/* SHARE */}
-          <section className="mt-6 flex flex-wrap gap-10">
-            
-            <a
-              href={shareLinks.facebook}
-              target="_blank"
-            >
-              <Facebook className={"w-8 h-8 fill-text-primary"}/>
-            </a>
-
-            <a
-              href={shareLinks.twitter}
-              target="_blank"
-            >
-              <Twitter className={"w-8 h-8 fill-text-primary"}/>
-            </a>
-
-            <a
-              href={shareLinks.mail}
-            >
-              <Mail className={"w-8 h-8 fill-text-primary"}/>
-            </a>
-
-            <button
-              onClick={copyLink}
-            >
-              <LinkIcon className={"w-8 h-8 fill-text-primary"}/>
-            </button>
-          </section>
+          <ShareButtons title={ event.name } />
         </section>
 
         {/* RIGHT: SLIDER + DESC */}
         <section className="w-full min-[1024px]:w-[515px] min-[1150px]:w-[615px] xl:w-[715px] 2xl:w-[815px]">
-          <ImageSlider images={ images } className={"w-full  min-[1024px]:h-[300px] min-[1150px]:h-[400px] xl:h-[457px]"} />
+          <ImageSlider images={ event.images } className={"w-full  min-[1024px]:h-[300px] min-[1150px]:h-[400px] xl:h-[457px]"} />
 
-          {description && (
+          { event.description && (
             <p className="mt-4 text-[16px] lg:text-[18px] text-text-primary font-primary-light">
-              {description}
+              {event.description}
             </p>
           )}
         </section>

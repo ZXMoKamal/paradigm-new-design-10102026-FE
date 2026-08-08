@@ -168,7 +168,7 @@ export default function ImageSlider({ images = [], className = "" }) {
 
         {/* SLIDER TRACK */ }
         <div
-          className="flex transition-transform duration-700 ease-in-out"
+          className="h-full w-full flex transition-transform duration-700 ease-in-out"
           style={ {
             transform: `translateX(-${current * 100}%)`,
           } }
@@ -179,7 +179,7 @@ export default function ImageSlider({ images = [], className = "" }) {
               key={ i }
               src={ img }
               alt="event"
-              className="w-full shrink-0 object-cover"
+              className="w-full shrink-0 h-full object-cover"
             />
           )) }
         </div>
