@@ -287,7 +287,7 @@ export default function ContactForm() {
             try {
                 console.log(values);
 
-                const res = await fetch("/api/contact", {
+                const res = await fetch("http://localhost/paradigm/backend/paradigm-portfolio-backend/query/contactUs.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
