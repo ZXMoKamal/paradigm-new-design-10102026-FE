@@ -285,8 +285,6 @@ export default function ContactForm() {
 
         onSubmit: async (values, { resetForm }) => {
             try {
-                console.log(values);
-
                 const res = await fetch("http://localhost/paradigm/backend/paradigm-portfolio-backend/query/contactUs.php", {
                     method: "POST",
                     headers: {
