@@ -3,6 +3,7 @@ import OurFoundation from '@/components/sections/ourFoundation'
 import OurStoryHeader from '@/components/sections/ourStoryHeader'
 import OurStorySection from '@/components/sections/ourStorySection'
 import { VideoSection } from '@/components/shared/videoSection'
+import { SEO } from '@/data/SEO'
 import React from 'react'
 
 
