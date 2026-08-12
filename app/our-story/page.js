@@ -5,6 +5,12 @@ import OurStorySection from '@/components/sections/ourStorySection'
 import { VideoSection } from '@/components/shared/videoSection'
 import React from 'react'
 
+
+export const metadata = {
+    title: "Our Story",
+};
+
+
 function OurStory() {
   return (
     <main className="relative w-full overflow-hidden">
