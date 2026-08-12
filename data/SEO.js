@@ -155,7 +155,7 @@ export const SEO = {
     
         icon: "/images/logo/paradigm icon logo.png",
     
-        type: "website",
+        type: "article",
     
         locale: "en_US",
     }

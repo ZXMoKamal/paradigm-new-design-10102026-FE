@@ -8,6 +8,68 @@ import React from 'react'
 
 export const metadata = {
     title: "Our Story",
+    
+    description:SEO.ourStory.description,
+
+    keywords: SEO.ourStory.keywords,
+
+    authors: [
+        {
+            name: SEO.ourStory.fullTitle,
+        },
+    ],
+
+    creator: SEO.ourStory.fullTitle,
+
+    applicationName: "Paradigm Capital Group",
+
+    icons: {
+        icon: SEO.ourStory.icon,
+    },
+
+    openGraph: {
+        title: SEO.ourStory.fullTitle,
+        description: SEO.ourStory.description,
+
+        url: SEO.ourStory.siteUrl,
+
+        siteName: "Paradigm Capital Group",
+
+        images: [
+            {
+                url: SEO.ourStory.image,
+                width: 230,
+                height: 80,
+                alt: SEO.ourStory.fullTitle,
+            },
+        ],
+
+        locale: SEO.ourStory.locale,
+        type: SEO.ourStory.type,
+    },
+
+    twitter: {
+        card: "summary_large_image",
+        title: SEO.ourStory.fullTitle,
+        description:SEO.ourStory.description,
+
+        images: [SEO.ourStory.image],
+
+        label1: "Written by",
+        data1: "admin",
+        label2: "Time to read",
+        data2: "4 minute",
+
+        creator: "@Paradigm",//need real paradigm twitter account
+    },
+
+    alternates: {
+        canonical: "/",
+        // languages: {
+        //     en: "/en",
+        //     ar: "/ar",
+        // },
+    },
 };
 
 
