@@ -29,55 +29,55 @@ export const metadata = {
     },
 
     title: {
-        default: SEO.title,
-        template: "%s-"+SEO.title
+        default: SEO.home.title,
+        template: "%s-"+SEO.home.title
     },
 
-    description:SEO.description,
+    description:SEO.home.description,
 
-    keywords: SEO.keywords,
+    keywords: SEO.home.keywords,
 
     authors: [
         {
-            name: SEO.fullTitle,
+            name: SEO.home.fullTitle,
         },
     ],
 
-    creator: SEO.fullTitle,
+    creator: SEO.home.fullTitle,
 
     applicationName: "Paradigm Company Portfolio",
 
     icons: {
-        icon: SEO.icon,
+        icon: SEO.home.icon,
     },
 
     openGraph: {
-        title: SEO.fullTitle,
-        description: SEO.description,
+        title: SEO.home.fullTitle,
+        description: SEO.home.description,
 
-        url: SEO.siteUrl,
+        url: SEO.home.siteUrl,
 
         siteName: "Paradigm Company Portfolio",
 
         images: [
             {
-                url: SEO.image,
+                url: SEO.home.image,
                 width: 230,
                 height: 80,
-                alt: SEO.fullTitle,
+                alt: SEO.home.fullTitle,
             },
         ],
 
-        locale: SEO.locale,
-        type: SEO.type,
+        locale: SEO.home.locale,
+        type: SEO.home.type,
     },
 
     twitter: {
         card: "summary_large_image",
-        title: SEO.fullTitle,
-        description:SEO.description,
+        title: SEO.home.fullTitle,
+        description:SEO.home.description,
 
-        images: [SEO.image],
+        images: [SEO.home.image],
 
         label1: "Written by",
         data1: "admin",
