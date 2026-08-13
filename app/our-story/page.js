@@ -28,7 +28,7 @@ export const metadata = {
     },
 
     openGraph: {
-        title: SEO.ourStory.fullTitle,
+        title: "Our Story - "+SEO.ourStory.fullTitle,
         description: SEO.ourStory.description,
 
         url: SEO.ourStory.siteUrl,
@@ -50,7 +50,7 @@ export const metadata = {
 
     twitter: {
         card: "summary_large_image",
-        title: SEO.ourStory.fullTitle,
+        title: "Our Story - "+SEO.ourStory.fullTitle,
         description:SEO.ourStory.description,
 
         images: [SEO.ourStory.image],
@@ -64,7 +64,7 @@ export const metadata = {
     },
 
     alternates: {
-        canonical: "/",
+        canonical: SEO.ourStory.siteUrl,
         // languages: {
         //     en: "/en",
         //     ar: "/ar",
