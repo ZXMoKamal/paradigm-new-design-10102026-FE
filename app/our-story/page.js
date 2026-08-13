@@ -22,7 +22,7 @@ export const metadata = {
 
     creator: SEO.ourStory.fullTitle,
 
-    applicationName: "Paradigm Capital Group",
+    applicationName: SEO.ourStory.fullTitle,
 
     icons: {
         icon: SEO.ourStory.icon,
@@ -34,7 +34,7 @@ export const metadata = {
 
         url: SEO.ourStory.siteUrl,
 
-        siteName: "Paradigm Capital Group",
+        siteName: SEO.ourStory.fullTitle,
 
         images: [
             {
