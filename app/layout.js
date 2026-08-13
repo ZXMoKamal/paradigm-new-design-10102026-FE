@@ -88,7 +88,7 @@ export const metadata = {
     },
 
     alternates: {
-        canonical: "/",
+        canonical: SEO.ourStory.siteUrl,
         // languages: {
         //     en: "/en",
         //     ar: "/ar",
