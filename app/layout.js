@@ -4,6 +4,7 @@ import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import WhatsAppButton from "@/components/shared/whatsAppButton";
 import { SEO } from "@/data/SEO";
+import JsonLd from "@/components/seo/ld-json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -103,7 +104,8 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-      <Navbar/>
+        <JsonLd />
+        <Navbar/>
         {children}
         <WhatsAppButton phone="201080034190"/>
         <Footer/>
