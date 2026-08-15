@@ -18,7 +18,7 @@ function Branches() {
     image: '/images/home/branches/eg.jpg',
     alt: 'Cairo Branch',
     location: 'Giza, Egypt',
-    phone: ['+20 1026655200','+20 2 37489149'],
+    phone: ['+20 2 37489149'],
     email: ['info@company.com'],
     contactEmail: 'info@company.com',
   }}
