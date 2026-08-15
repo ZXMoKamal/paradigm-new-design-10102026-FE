@@ -295,6 +295,8 @@ export default function ContactForm() {
 
                 if (res.ok) {
                     alert("Message sent!");
+                    const s = await res.text();
+                    console.log(s);
                     resetForm();
                 } else {
                     alert("Error sending message");
