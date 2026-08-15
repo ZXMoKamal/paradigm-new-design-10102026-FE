@@ -44,7 +44,7 @@ console.log(services)
                     {service.title}
                 </NameTag>
 
-                <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/services/${service.title}/` || '#'} className="flex items-center justify-start gap-2 relative overflow-hidden" >
+                <Link href={`${process.env.NEXT_PUBLIC_SITE_URL}/services/${service.title.replaceAll(" ","-")}/` || '#'} className="flex items-center justify-start gap-2 relative overflow-hidden" >
                     <span className=" relative text-text-primary opacity-80 transition-transform duration-300 lg:-translate-x-100 translate-x-0 group-hover:-translate-x-0 " >
                         Read more
                     </span>
