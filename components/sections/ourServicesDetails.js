@@ -4,7 +4,7 @@ import ArrowRight from '../icons/arrowRight'
 import LinkButton from '../shared/linkButton'
 import ServicesGrid from '../shared/servicesGrid'
 
-function OurServicies() {
+function OurServicesDetails() {
   return (
 
         <section className="m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-10 max-sm:px-5 lg:pb-30 pt-20 pb-20">
@@ -101,4 +101,4 @@ function OurServicies() {
   )
 }
 
-export default OurServicies
+export default OurServicesDetails

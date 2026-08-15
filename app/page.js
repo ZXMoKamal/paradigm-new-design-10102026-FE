@@ -10,7 +10,7 @@ import Navbar from "@/components/shared/navbar";
 import { VideoSection } from "@/components/shared/videoSection";
 import Shared from "@/components/temp/shared";
 import OurEvents from "../components/sections/ourEvents";
-import OurServicies from "@/components/sections/ourServicies";
+import OurServicesDetails from "@/components/sections/ourServicesDetails";
 import OurClients from "@/components/sections/ourClients";
 import Branches from "@/components/sections/branches";
 import Footer from "@/components/shared/footer";
@@ -22,29 +22,29 @@ export default function Home() {
       <WelcomeHeader welcomeTitleTag="div" />
       <AboutUs />
       <VideoSection
-                    images={ [
-                        { image: "/images/ezgif-60778de8042c2163.webp", alt: "" },
-                        { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "" },
-                    ] }
+                images={ [
+                    { image: "/images/ezgif-60778de8042c2163.webp", alt: "" },
+                    { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "" },
+                ] }
       />
       <BoardMembers/>
       <Ticker
-  text="commitment to excellence."
-  speed="80s"
-  direction="normal"
-/>
+        text="commitment to excellence."
+        speed="80s"
+        direction="normal"
+      />
       <Ticker
-  text="commitment to excellence."
-  speed="80s"
-  direction="reversed"
-/>
-<OurEvents/>
+        text="commitment to excellence."
+        speed="80s"
+        direction="reversed"
+      />
+      <OurEvents/>
 
-<OurServicies/>
+      <OurServicesDetails/>
 
-<OurClients/>
+      <OurClients/>
 
-<Branches/>
+      <Branches/>
 
     </main>
 

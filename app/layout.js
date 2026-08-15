@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
         <JsonLd />
         <Navbar/>
         {children}
-        <WhatsAppButton phone="201080034190"/>
+        {/* <WhatsAppButton phone="201080034190"/> */}
         <Footer/>
         </body>
     </html>
