@@ -7,7 +7,7 @@ export default function ImagesGrid({ items = [], path="/" }) {
       <section className="m-auto w-full xl:w-[1220px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-5">
         
         {items.map((item, index) => (
-          <Link key={index} href={path + item.name}>
+          <Link key={ index } href={ path + item.name.replaceAll(" ", "-") }>
             <div className="group cursor-pointer overflow-hidden transition duration-300">
               {console.log(item.thumb)}
               {/* Image Container */}
