@@ -13,7 +13,7 @@ export default async function EventDetails({
 }) {
 
 
-  const event = await getEvent(eventTitle);
+  const event = await getEvent(eventTitle.replaceAll("-", " "));
 
 
   const info = [
