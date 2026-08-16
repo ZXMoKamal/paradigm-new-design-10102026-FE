@@ -13,7 +13,7 @@ function ContactSection({className=''}) {
             <ul className='font-primary-light'>
                 <li className="text-text-primary py-3 text-[18px] md:text-[20px] lg:text-[28px]"><a className="flex items-center gap-5" href="https://maps.google.com/?q=8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt" target="_blank" rel="noopener noreferrer"><Location className="w-8 lg:w-14 h-8 lg:h-14 fill-secondary"/>8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</a></li>
                 <li className="text-text-primary py-3 text-[18px] md:text-[20px] lg:text-[28px]"><a className="flex items-center gap-5" href="mailto:info@paradigm-eg.com" target="_blank" rel="noopener noreferrer"><Email className="w-8 lg:w-10 h-8 lg:h-10 fill-secondary"/>info@paradigm-eg.com</a></li>
-                <li className="text-text-primary py-3 text-[18px] md:text-[20px] lg:text-[28px]"><a className="flex items-center gap-5" href="tel:+201026655200" target="_blank" rel="noopener noreferrer"><Phone className="w-8 lg:w-10 h-8 lg:h-10 fill-secondary"/>+201026655200</a></li>
+                {/* <li className="text-text-primary py-3 text-[18px] md:text-[20px] lg:text-[28px]"><a className="flex items-center gap-5" href="tel:+201026655200" target="_blank" rel="noopener noreferrer"><Phone className="w-8 lg:w-10 h-8 lg:h-10 fill-secondary"/>+201026655200</a></li> */}
                 <li className="text-text-primary py-3 text-[18px] md:text-[20px] lg:text-[28px]"><a className="flex items-center gap-5" href="tel:+20237489149" target="_blank" rel="noopener noreferrer"><Phone className="w-8 lg:w-10 h-8 lg:h-10 fill-secondary"/>+20 2 37489149</a></li>
             </ul>
         </section>

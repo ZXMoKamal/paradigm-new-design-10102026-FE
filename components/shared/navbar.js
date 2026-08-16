@@ -74,12 +74,12 @@ export default function Navbar() {
                         </ul>
 
                         {/* Search */ }
-                        <button
+                        {/* <button
                             onClick={ () => setSearchOpen(true) }
                             className="p-3 hover:text-secondary transition max-sm:hidden"
                         >
                             <Search className="w-8 h-8 fill-text-primary cursor-pointer" />
-                        </button>
+                        </button> */}
 
                         {/* MOBILE MENU BUTTON */ }
                         <button
