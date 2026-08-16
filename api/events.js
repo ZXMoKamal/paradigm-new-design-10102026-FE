@@ -11,10 +11,10 @@ export async function getEvents() {
   return res.json();
 }
 
-export async function getEvent(name) {
-  name = encodeURIComponent(name); // Encode the name to handle special characters
-  console.log(name);
-  const res = await fetch(`http://localhost/paradigm/backend/paradigm-portfolio-backend/query/events.php?name=${name}`, {
+export async function getEvent(requestTitle) {
+  requestTitle = encodeURIComponent(requestTitle); // Encode the requestTitle to handle special characters
+  // console.log(requestTitle);
+  const res = await fetch(`http://localhost/paradigm/backend/paradigm-portfolio-backend/query/events.php?requestTitle=${requestTitle}`, {
     cache: "default", // or use revalidate if needed
   });
   

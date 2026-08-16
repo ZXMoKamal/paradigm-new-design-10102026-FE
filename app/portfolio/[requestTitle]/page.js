@@ -6,9 +6,9 @@ import React from 'react'
 
 
 export async function generateMetadata({ params }) {
-  const { name } = await params;
-  const event = await getEvent(name.replaceAll("-", " "));
-  const portfolioSeo = SEO.portfolio(event.name, event.description, event.thumb, [event.name, event.clint, event.location], name);
+  const { requestTitle } = await params;
+  const event = await getEvent(requestTitle);
+  const portfolioSeo = SEO.portfolio(event.name, event.description, event.thumb, [event.name, event.clint, event.location], requestTitle);
   // const serviceTitle = decodeURIComponent(title);
 
 
@@ -81,10 +81,10 @@ export async function generateMetadata({ params }) {
 
 
 async function portfolio({ params }) {
-  const { name } = await params;
+  const { requestTitle } = await params;
   return (
     <main className="relative w-full overflow-hidden pt-30">
-      <EventDetails eventTitle={ name } />
+      <EventDetails eventRequestTitle={ requestTitle } />
       <EventSuggestions/>
       </main>
   )
