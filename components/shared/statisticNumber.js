@@ -2,6 +2,7 @@
 
 import { cva } from 'class-variance-authority';
 import { cn } from '@/lib/cn';
+import NumberCounter from '../animation/counter';
 
 /*  Variants  */
 const statisticVariants = cva(
@@ -29,20 +30,27 @@ export default function StatisticNumber({
     className,
     titleClassName,
     numberClassName,
+    suffix=""
 }) {
     return (
-        <section className={ cn(statisticVariants({ variant }), className) }>
+        <section data-aos="zoom-out-up" className={ cn(statisticVariants({ variant }), className) }>
 
             {/* OVERLAY VARIANT */ }
             { variant === 'overlay' && (
                 <>
-                    <TitleTag className={cn("absolute m-auto text-sm text-text-primary font-primary-regular text-center", titleClassName)}>
+                    <TitleTag className={cn("absolute m-auto text-sm text-text-primary font-primary-medium text-center", titleClassName)}>
                         { title }
                     </TitleTag>
 
-                    <NumberTag className={cn("text-4xl font-primary-medium text-text-primary", numberClassName)}>
+                    <NumberCounter value={number}
+    suffix={suffix}
+    tag={NumberTag}
+    className={cn("text-4xl font-primary-medium text-text-primary", numberClassName)}>
+
+                    </NumberCounter>
+                    {/* <NumberTag className={cn("text-4xl font-primary-medium text-text-primary", numberClassName)}>
                         { number }
-                    </NumberTag>
+                    </NumberTag> */}
                 </>
             ) }
 
@@ -53,9 +61,15 @@ export default function StatisticNumber({
                         { title }
                     </TitleTag>
 
-                    <NumberTag className={ cn("text-4xl font-primary-semibold text-text-primary", numberClassName)}>
+                                        <NumberCounter value={number}
+    suffix={suffix}
+    tag={NumberTag}
+    className={cn("text-4xl font-primary-semibold text-text-primary", numberClassName)}>
+
+                    </NumberCounter>
+                    {/* <NumberTag className={ cn("text-4xl font-primary-semibold text-text-primary", numberClassName)}>
                         { number }
-                    </NumberTag>
+                    </NumberTag> */}
                 </>
             ) }
         </section>

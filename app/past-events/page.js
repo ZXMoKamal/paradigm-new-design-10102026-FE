@@ -1,5 +1,6 @@
 import EventStatistics from '@/components/sections/eventStatistics'
 import PastEventsSection from '@/components/sections/pastEventsSection'
+import { SEO } from '@/data/SEO';
 import React from 'react'
 
 
