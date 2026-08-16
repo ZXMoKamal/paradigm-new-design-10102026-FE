@@ -6,6 +6,7 @@ import WhatsAppButton from "@/components/shared/whatsAppButton";
 import { SEO } from "@/data/SEO";
 import Aos from "aos";
 import AosInit from "@/components/animation/AOS";
+import JsonLd from "@/components/seo/ld-json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -105,6 +106,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd />
       <Navbar/>
       <AosInit/>
         {children}
