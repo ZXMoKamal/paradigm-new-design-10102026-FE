@@ -5,7 +5,7 @@ import LinkButton from '../shared/linkButton'
 import ServicesGrid from '../shared/servicesGrid'
 import { getServices } from '@/api/services'
 
-function OurServicies() {
+function OurServicesDetails() {
 
 
   return (
@@ -40,4 +40,4 @@ function OurServicies() {
   )
 }
 
-export default OurServicies
+export default OurServicesDetails
