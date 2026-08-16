@@ -16,7 +16,7 @@ function OurServicesDetails() {
             subtitleTag="h2"
             buttons={
             <LinkButton
-                        href="/about"
+                        href="/our-services/#"
                         variant={ "outline" }
                         size='md'
                         className={'max-lg:px-5 max-lg:my-5 max-sm:text-sm'}
