@@ -18,9 +18,9 @@ function Branches() {
     image: '/images/home/branches/eg.jpg',
     alt: 'Cairo Branch',
     location: 'Giza, Egypt',
-    phone: ['+20 2 37489149'],
-    email: ['info@company.com'],
-    contactEmail: 'info@company.com',
+    phone: ['+20 1026655200','+20 2 37489149'],
+    email: ['info@paradigm-eg.com'],
+    contactEmail: 'info@paradigm-eg.com',
   }}
 />
             <BranchCard
@@ -29,8 +29,8 @@ function Branches() {
     alt: 'Dubai, United Arab of Emirates',
     location: 'Dubai, United Arab of Emirates',
     phone: ['+971 588966041','+971 589404624'],
-    email: ['info@company.com'],
-    contactEmail: 'info@company.com',
+    email: ['info@paradigm-ae.com'],
+    contactEmail: 'info@paradigm-ae.com',
   }}
 />
             <BranchCard
@@ -39,8 +39,8 @@ function Branches() {
     alt: 'Riyadh, KSA',
     location: 'Riyadh, KSA',
     phone: ['+966 509974859'],
-    email: ['info@company.com'],
-    contactEmail: 'info@company.com',
+    email: ['info@paradigm-sa.com'],
+    contactEmail: 'info@paradigm-sa.com',
   }}
 />
         </section>

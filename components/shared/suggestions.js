@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/cn";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function Suggestions({ items = [], titleTag: TitleTag = "h2", className="" }) {
@@ -59,14 +60,18 @@ export default function Suggestions({ items = [], titleTag: TitleTag = "h2", cla
     return (
         <section className={ cn("relative xl:p-12",className) }>
             { items.map((item, i) => (
-                <TitleTag
-                    key={ i }
-                    onMouseOver={ () => showImage(item.img,item.alt) }
-                    onMouseLeave={ hideImage }
-                    className="xl:text-[34px] md:text-[24px] text-[18px] py-5 border-b border-white cursor-pointer font-primary-medium"
-                >
-                    { item.title }
-                </TitleTag>
+                <Link href={process.env.NEXT_PUBLIC_SITE_URL+"/portfolio/"+item.requestTitle+"/"}>
+                    <TitleTag
+                    data-aos="fade-left"
+                    data-aos-duration={1000+(1000*i)}
+                        key={ i }
+                        onMouseOver={ () => showImage(item.img,item.alt) }
+                        onMouseLeave={ hideImage }
+                        className="xl:text-[34px] md:text-[24px] text-[18px] py-5 border-b border-white cursor-pointer font-primary-medium"
+                    >
+                        { item.title }
+                    </TitleTag>
+                </Link>
             )) }
 
             {/* floating image */ }

@@ -26,6 +26,8 @@ export default async function ServicesGrid({
 
         return (
           <li
+           data-aos="fade-left"
+           data-aos-duration={1000+(1000*index)}
             key={index}
             className="group sm:p-6 transition hover:border-white/30 flex items-start gap-4 mb-4"
           >

@@ -2,12 +2,13 @@ import Image from "next/image";
 
 export default function VerticalImageTicker({
   images,
-  speed = 20
+  speed = 20,
+  aosAnimation,
 }) {
   const duplicatedImages = [...images, ...images];
 
   return (
-    <div className="overflow-hidden w-[330px] h-[500px] md:h-[600px] relative">
+    <div {...aosAnimation} className="overflow-hidden w-[330px] h-[500px] md:h-[600px] relative">
       <div
         className="flex flex-col animate-verticalTicker"
         style={{

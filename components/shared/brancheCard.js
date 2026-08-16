@@ -8,7 +8,7 @@ import ArrowRight from '../icons/arrowRight';
 
 export default function BranchCard({branch}) {
   return (
-    <section className="relative w-full lg:w-[430px] 2xl:w-[400px] min-h-[480px] rounded-lg overflow-hidden group font-primary-medium">
+    <section data-aos="zoom-out-down" className="relative w-full lg:w-[430px] 2xl:w-[400px] min-h-[480px] rounded-lg overflow-hidden group font-primary-medium">
       
       {/* Background Image */}
       <Image

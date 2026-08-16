@@ -22,10 +22,12 @@ export default function Home() {
       <WelcomeHeader welcomeTitleTag="div" />
       <AboutUs />
       <VideoSection
-                images={ [
-                    { image: "/images/ezgif-60778de8042c2163.webp", alt: "" },
-                    { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "" },
-                ] }
+                    images={ [
+                        { image: "/images/ezgif-60778de8042c2163.webp", alt: "" },
+                        { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "" },
+                    ] }
+
+                    video="/video/WEBSITE-Recap-2024-Finaaaal-Draft-HORIZONTAL.mp4"
       />
       <BoardMembers />
       <Ticker
