@@ -3,8 +3,8 @@
 import { getService } from '@/api/services';
 import { cn } from '@/lib/cn';
 
-export default async function ServiceHighlight({className, serviceTitle}) {
-  console.log(serviceTitle);
+export default async function ServiceHighlight({className, serviceRequestTitle}) {
+  // console.log(serviceRequestTitle);
   
   
 
@@ -12,7 +12,7 @@ export default async function ServiceHighlight({className, serviceTitle}) {
   console.log(s);
 
 
-  const service = await getService(serviceTitle);
+  const service = await getService(serviceRequestTitle);
 console.log(service);
   return (
     <section className={cn('w-full py-5 sm:py-10 lg:py-20 px-5', className)}>
