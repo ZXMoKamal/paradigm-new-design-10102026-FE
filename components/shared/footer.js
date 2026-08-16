@@ -9,11 +9,11 @@ import Image from "next/image";
 export default function Footer() {
     const links = [
         { name: "Home", href: "/" },
-        { name: "Our Story", href: "/our-story" },
-        { name: "Our Services", href: "/services" },
-        { name: "Past Events", href: "/events" },
-        { name: "Contact Us", href: "/contact" },
-        { name: "Careers", href: "/careers" },
+        { name: "Our Story", href: "/our-story/" },
+        { name: "Our Services", href: "/our-services/" },
+        { name: "Past Events", href: "/past-events/" },
+        { name: "Contact Us", href: "/contacts/" },
+        { name: "Careers", href: "/careers/" },
     ];
 
     return (
@@ -44,8 +44,8 @@ export default function Footer() {
                     <ul className="space-y-3 text-lg font-primary-light">
                         <li>8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</li>
                         <li className="group">
-                            <a href="mailto:info@company.com" className="hover:opacity-100 relative transition">
-                                info@company.com
+                            <a href="mailto:info@paradigm-eg.com" className="hover:opacity-100 relative transition">
+                                info@paradigm-eg.com
                             
                                 {/* underline animation */ }
                                 <span className="
