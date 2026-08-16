@@ -13,12 +13,12 @@ function OurStorySection() {
                     subTitleTag={'h2'}
                     className='mx-5'
                      />
-                     <p className='w-full xl:max-w-[600px] px-5 lg:px-10 text-[18px]'>
+                     <p data-aos="fade-down" className='w-full xl:max-w-[600px] px-5 lg:px-10 text-[18px]'>
                       Influenced by 15 years of find values and enriched by professional academic training spanning three years across Egypt and the UK under the Young Leaders program—a collaboration between the British Council in Egypt & the UK and the UK Ministry of Youth & Sports—our founding members underwent the Event Managers Training program and subsequent TOT for Events Managers. This journey laid the foundation for shaping the vision of Paradigm.
                      </p>
         </section>
         <section>
-            <Image src="/images/ourStory/bref/bref.webp" width="630" height="420" alt="" className='rounded-[20px] max-xl:w-full' />
+            <Image data-aos="zoom-in-up" src="/images/ourStory/bref/bref.webp" width="630" height="420" alt="" className='rounded-[20px] max-xl:w-full' />
         </section>
     </section>
   )

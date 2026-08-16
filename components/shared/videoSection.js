@@ -3,13 +3,17 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { cn } from "@/lib/cn"
+import X from "../icons/x"
 
 export function VideoSection({
     images = [],
+    video = "",
     interval = 5000,
     className,
 }) {
     const [index, setIndex] = useState(0)
+
+    const [openVideo, setOpenVideo] = useState(false)
 
     const containerRef = useRef(null)
     const buttonRef = useRef(null)
@@ -74,7 +78,9 @@ export function VideoSection({
     }, [])
 
     return (
+        <>
         <section
+        data-aos="zoom-out-up"
             ref={ containerRef }
             className={ cn(
                 "relative w-full h-[700px] overflow-hidden",
@@ -113,17 +119,25 @@ export function VideoSection({
             {/* Play Button */ }
             <div
                 ref={ buttonRef }
-                className="absolute pointer-events-none"
+                className="absolute"
                 style={ {
                     left: 0,
                     top: 0,
                     scale:1
                 } }
             >
-                <button className="w-25 h-25 rounded-full text-text-primary border border-white text-black flex items-center justify-center text-sm font-semibold shadow-lg tracking-[2] uppercase">
+                <button onClick={()=>setOpenVideo(!openVideo)} className="w-25 h-25 rounded-full text-text-primary border border-white text-black flex items-center justify-center text-sm font-semibold shadow-lg tracking-[2] uppercase">
                     Play
                 </button>
             </div>
+
+
         </section>
+            { openVideo && <div className="flex flex-col bg-primary/80 fixed top-0 z-2000 flex justify-center items-center w-full h-full">
+                <button onClick={()=>setOpenVideo(false)} className=" absolute top-30 right-0">
+                    <X className={"w-[48px] h-[48px] fill-light-red"}/></button>
+                    <video src={video} controls preload="metadata" className="object-cover w-[1200px] max-h-[800px]"/>
+                </div>}
+                </>
     )
 }

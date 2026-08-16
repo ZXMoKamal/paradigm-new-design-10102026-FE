@@ -3,6 +3,7 @@ import OurFoundation from '@/components/sections/ourFoundation'
 import OurStoryHeader from '@/components/sections/ourStoryHeader'
 import OurStorySection from '@/components/sections/ourStorySection'
 import { VideoSection } from '@/components/shared/videoSection'
+import { SEO } from '@/data/SEO'
 import React from 'react'
 
 
@@ -84,6 +85,7 @@ function OurStory() {
                 { image: "/images/ezgif-6f9383a7f4f93ea9.webp", alt: "" },
                 { image: "/images/ezgif-622bc5fdefea9c0f.webp", alt: "" },
             ] }
+            video="/video/paradigmv.mp4"
         />
         <OurEvents/>
     </main>

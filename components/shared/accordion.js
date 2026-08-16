@@ -12,12 +12,13 @@ export default function Accordion({
   faqs = [],
   className,
   titleTag:TitleTag="h3",
-  QTag:QTag="h4"
+  QTag:QTag="h4",
+  aosAnimation
 }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className={cn('w-full xl:w-[1100px] 2xl:w-[1300px]', className)} onClick={() => setOpen(!open)}>
+    <section {...aosAnimation} className={cn('w-full xl:w-[1100px] 2xl:w-[1300px]', className)} onClick={() => setOpen(!open)}>
       
       {/* Header */}
       <section className="flex max-sm:flex-col items-start gap-6">
