@@ -43,12 +43,15 @@ function BoardMembers() {
           name: 'Adham Badawi',
           position: 'CEO',
           alt: 'Adham Badawi CEO',
+          requestTitle:"adham-badawi",
+
         },
         {
           image: '/images/ezgif-649111cac58523a0.webp',
           name: 'Mahmoud Amer',
           position: 'CFO',
           alt: 'Mahmoud Amer CFO',
+          requestTitle:"mahmoud-amer",
         }
       ]}
         nameTag="h3"

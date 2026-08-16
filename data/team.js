@@ -1,5 +1,6 @@
 export const teamData={
     ["adham-badawi"]:{
+        requestTitle:"adham-badawi",
         photo:"/images/ceo.jpg",
         name:"Adham Badawi",
         position:"CEO",
@@ -9,6 +10,7 @@ export const teamData={
             'Adham holds a Bachelor’s degree in Computer Systems Engineering, which provides him with a strong analytical and technical foundation. He also possesses certifications in Agile Foundation and ITIL® Foundation, enhancing his capabilities in strategic planning, process improvement, and operational efficiency. These qualifications complement his leadership style, allowing him to effectively integrate technology and agile methodologies to drive innovation and success at Paradigm Capital Group.']
     },
     ["mahmoud-amer"]:{
+        requestTitle:"mahmoud-amer",
         photo:"/images/ezgif-649111cac58523a0.webp",
         name:"Mahmoud Amer",
         position:"CFO",
