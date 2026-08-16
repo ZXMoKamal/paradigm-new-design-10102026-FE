@@ -5,8 +5,8 @@ import React from 'react'
 
 
 export async function generateMetadata({ params }) {
-    const { name } = await params;
-    const teamSeo = SEO.team(teamData[name].name,teamData[name].bio,teamData[name].photo,name);
+    const { requestTitle } = await params;
+    const teamSeo = SEO.team(teamData[requestTitle].name,teamData[requestTitle].bio,teamData[requestTitle].photo,requestTitle);
 
     // const serviceTitle = decodeURIComponent(title);
 
@@ -80,10 +80,10 @@ export async function generateMetadata({ params }) {
 
 
 async function TeamMember({ params }){
-  const { name } = await params;
+  const { requestTitle } = await params;
   return (
     <main className="relative w-full overflow-hidden">
-        <TeamMemberSection name={name}/>
+        <TeamMemberSection TeamRequestTitle={requestTitle}/>
     </main>
   )
 }
