@@ -9,11 +9,11 @@ import ShareButtons from "../shared/shareButtons";
 
 
 export default async function EventDetails({
-  eventTitle,
+  eventRequestTitle,
 }) {
 
 
-  const event = await getEvent(eventTitle.replaceAll("-", " "));
+  const event = await getEvent(eventRequestTitle);
 
 
   const info = [
