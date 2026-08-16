@@ -133,10 +133,10 @@ export function VideoSection({
 
 
         </section>
-            { openVideo && <div className="flex flex-col bg-primary/80 fixed top-0 z-1000 flex justify-center items-center w-full h-full">
+            { openVideo && <div className="flex flex-col bg-primary/80 fixed top-0 z-2000 flex justify-center items-center w-full h-full">
                 <button onClick={()=>setOpenVideo(false)} className=" absolute top-30 right-0">
                     <X className={"w-[48px] h-[48px] fill-light-red"}/></button>
-                    <video src={video} controls preload="metadata" className="w-[1200px]"/>
+                    <video src={video} controls preload="metadata" className="object-cover w-[1200px] max-h-[800px]"/>
                 </div>}
                 </>
     )

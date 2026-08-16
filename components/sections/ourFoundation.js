@@ -14,6 +14,7 @@ function OurFoundation() {
 
 
         <Accordion
+        aosAnimation = {{["data-aos"]:"fade-down"}}
       icon={<Eye className="w-10 h-10 lg:w-15 lg:h-15 fill-secondary" />}
       title="Our Vision"
       description="To be the leading choice for event management by pioneering innovative, sustainable practices and leveraging a robust global network."
@@ -37,6 +38,7 @@ function OurFoundation() {
 ]}
     />
         <Accordion
+        aosAnimation = {{["data-aos"]:"fade-down"}}
       icon={<Aim className="w-10 h-10 lg:w-15 lg:h-15 fill-secondary" />}
       title="Our Mission"
       description="To guide clients in clear communication, optimal resource use, and goal achievement, delivering unforgettable experiences as a trusted partner."
@@ -60,6 +62,7 @@ function OurFoundation() {
 ]}
     />
         <Accordion
+        aosAnimation = {{["data-aos"]:"fade-down"}}
       icon={<Gem className="w-10 h-10 lg:w-15 lg:h-15 fill-secondary" />}
       title="Core Values"
       description="Paradigm Capital Group (PCG) emphasizes several core values that shape its operations and interactions with clients:"

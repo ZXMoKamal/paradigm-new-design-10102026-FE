@@ -85,6 +85,7 @@ function OurStory() {
                 { image: "/images/ezgif-6f9383a7f4f93ea9.webp", alt: "" },
                 { image: "/images/ezgif-622bc5fdefea9c0f.webp", alt: "" },
             ] }
+            video="/video/paradigmv.mp4"
         />
         <OurEvents/>
     </main>
