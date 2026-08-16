@@ -5,7 +5,8 @@ export async function getEvents() {
 
   if (!res.ok) {
     // 🔥 THIS triggers error.js automatically
-    throw new Error("Failed to fetch events");
+    // throw new Error("Failed to fetch events");
+    return [];
   }
 
   return res.json();
@@ -20,7 +21,8 @@ export async function getEvent(requestTitle) {
   
   if (!res.ok) {
     // 🔥 THIS triggers error.js automatically
-    throw new Error("Failed to fetch event");
+    // throw new Error("Failed to fetch event");
+    return [];
   }
 
   return res.json();
