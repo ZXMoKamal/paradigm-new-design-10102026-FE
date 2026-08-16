@@ -83,11 +83,11 @@ export async function generateMetadata({ params }) {
 
 
 async function Services({params}) {
-  const { title } = await params;
-  console.log(title);
+  const { requestTitle } = await params;
+  // console.log(requestTitle);
   return (
     <main className="relative w-full overflow-hidden pt-30">
-      <ServiceHighlight serviceTitle={ title.replaceAll("-", " ") }/>
+      <ServiceHighlight serviceRequestTitle={ requestTitle }/>
       <hr className="border-border-primary" />
       <br/>
       <br/>
