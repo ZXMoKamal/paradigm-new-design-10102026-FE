@@ -8,6 +8,7 @@ import Search from "../icons/search";
 import X from "../icons/x";
 import Button from "./button";
 import Menu from "../icons/menu";
+import { cn } from "@/lib/cn";
 
 export default function Navbar() {
     const [openSearch, setSearchOpen] = useState(false);
@@ -30,10 +31,26 @@ export default function Navbar() {
         document.body.style.overflow = menuOpen ? "hidden" : "";
     }, [menuOpen]);
 
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        // Check initial position
+        handleScroll();
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
         <>
             {/* NAVBAR */ }
-            <nav className="fixed top-0 left-0 w-full z-[var(--z-sticky)] text-text-primary">
+            <nav className={cn("fixed top-0 left-0 w-full z-[var(--z-sticky)] text-text-primary", scrolled ? "bg-primary" : "bg-transparent")}>
                 <section className="w-full flex items-center justify-between px-6 lg:px-16 py-5 lg:py-7">
 
                     {/* LEFT: Logo */ }

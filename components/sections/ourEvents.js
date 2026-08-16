@@ -31,13 +31,13 @@ function OurEvents() {
 
             <Suggestions TitleTag={ "h3" } items={ [
                 {
-                    title: "Egypt- France Business Forum", img: "/images/ezgif-608a1f2271991c70.webp", alt: ""
+                    title: "Egypt- France Business Forum", img: "/images/ezgif-608a1f2271991c70.webp", alt: "Egypt- France Business Forum", requestTitle:"egypt-france-business-forum-economic-opportunities-for-strategic-partnership"
                 },
                 {
-                    title: "2nd Ministerial Conference Khartoum Process", img: "/images/ezgif-6704f832b48fff58.webp", alt: ""
+                    title: "2nd Ministerial Conference Khartoum Process", img: "/images/ezgif-6704f832b48fff58.webp", alt: "2nd Ministerial Conference Khartoum Process", requestTitle:"2nd-ministerial-conference-khartoum-process"
                 },
                 {
-                    title: "The National Initiative for Smart Green Projects", img: "/images/ezgif-6f3d8c1d6cb46c68.webp", alt: ""
+                    title: "The National Initiative for Smart Green Projects", img: "/images/ezgif-6f3d8c1d6cb46c68.webp", alt: "The National Initiative for Smart Green Projects", requestTitle:"egypts-narrative-for-economic-development"
                 },
             ] } />
 

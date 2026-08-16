@@ -12,7 +12,7 @@ export default function MembersGrid({
   return (
     <section className={cn('grid md:grid-cols-2 grid-cols-1 gap-8 justify-items-center', className)}>
       {members.map((member, index) => (
-        <div key={index} className="flex flex-col gap-4 items-center text-center group lg:w-[420px] w-[320px]">
+        <div data-aos="zoom-out-up" key={index} className="flex flex-col gap-4 items-center text-center group lg:w-[420px] w-[320px]">
           
           {/* IMAGE */}
           <div className="relative w-full aspect-square overflow-hidden">
