@@ -9,11 +9,11 @@ import Image from "next/image";
 export default function Footer() {
     const links = [
         { name: "Home", href: "/" },
-        { name: "Our Story", href: "/our-story" },
-        { name: "Our Services", href: "/services" },
-        { name: "Past Events", href: "/events" },
-        { name: "Contact Us", href: "/contact" },
-        { name: "Careers", href: "/careers" },
+        { name: "Our Story", href: "/our-story/" },
+        { name: "Our Services", href: "/our-services/" },
+        { name: "Past Events", href: "/past-events/" },
+        { name: "Contact Us", href: "/contacts/" },
+        { name: "Careers", href: "/careers/" },
     ];
 
     return (
@@ -42,10 +42,10 @@ export default function Footer() {
                     </h3>
 
                     <ul className="space-y-3 text-lg font-primary-light">
-                        <li>8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</li>
+                        <li><a href="https://www.google.com/maps/place/Paradigm+Ltd./data=!4m2!3m1!1s0x0:0x3b312a21bb17f95f?sa=X&ved=1t:2428&ictx=111" target="_blank">8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</a></li>
                         <li className="group">
-                            <a href="mailto:info@company.com" className="hover:opacity-100 relative transition">
-                                info@company.com
+                            <a href="mailto:info@paradigm-eg.com" className="hover:opacity-100 relative transition">
+                                info@paradigm-eg.com
                             
                                 {/* underline animation */ }
                                 <span className="
@@ -97,13 +97,13 @@ export default function Footer() {
                     </h3>
 
                     <ul className="flex flex-col gap-4 text-lg font-primary-light">
-                        <li><a href="#" className="flex items-center gap-2 hover:opacity-100 transition">
+                        <li><a href="https://www.facebook.com/Paradigm4events" className="flex items-center gap-2 hover:opacity-100 transition">
                             <Facebook className={"w-6 h-6 fill-text-primary"} /> Facebook
                         </a></li>
-                        <li><a href="#" className="flex items-center gap-2 hover:opacity-100 transition">
+                        <li><a href="https://www.instagram.com/paradigm_ltd_eg/" className="flex items-center gap-2 hover:opacity-100 transition">
                             <Instagram className={"w-6 h-6 fill-text-primary"} /> Instagram
                         </a></li>
-                        <li><a href="#" className="flex items-center gap-2 hover:opacity-100 transition">
+                        <li><a href="https://www.linkedin.com/company/paradigm4events/" className="flex items-center gap-2 hover:opacity-100 transition">
                             <Linkedin className={"w-6 h-6 fill-text-primary"} /> LinkedIn
                         </a></li>
                     </ul>
