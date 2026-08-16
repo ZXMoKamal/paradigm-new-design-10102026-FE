@@ -14,7 +14,7 @@ function OurEvents() {
         subTitleTag="h2"
          buttons={
           <LinkButton
-                    href="/about"
+                    href="/past-events/"
                     variant={ "outline" }
                     size='md'
                     className={'max-lg:px-5 max-lg:my-5 max-sm:text-sm'}

@@ -33,7 +33,7 @@ export default function StatisticNumber({
     suffix=""
 }) {
     return (
-        <section data-aos="fade-up" className={ cn(statisticVariants({ variant }), className) }>
+        <section data-aos="zoom-out-up" className={ cn(statisticVariants({ variant }), className) }>
 
             {/* OVERLAY VARIANT */ }
             { variant === 'overlay' && (

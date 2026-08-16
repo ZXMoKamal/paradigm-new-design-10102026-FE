@@ -72,7 +72,7 @@ function AboutUs() {
                 </p>
 
                 <LinkButton
-                    href="/about"
+                    href="/our-story/"
                     variant={ "outlineDark" }
                     size='lg'
                     className='w-fit m-auto mt-10 max-sm:text-md max-sm:px-5 bg-transparent'

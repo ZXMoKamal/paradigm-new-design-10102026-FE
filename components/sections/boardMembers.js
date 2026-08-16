@@ -18,7 +18,7 @@ function BoardMembers() {
                       <br/>
                       <span className="group">
                           <Link
-                              href={ ""}
+                              href={ "/our-story/"}
                               className="lg:text-lg text-md hover:opacity-100 relative font-primary-semibold transition"
                           >
                               Read Our Story <ArrowRight className='w-5 h-5 fill-text-primary inline-block ml-2' />

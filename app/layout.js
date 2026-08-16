@@ -108,7 +108,7 @@ export default function RootLayout({ children }) {
       <Navbar/>
       <AosInit/>
         {children}
-        <WhatsAppButton phone="201080034190"/>
+        <WhatsAppButton phone="+201020799277"/>
         <Footer/>
         </body>
     </html>
