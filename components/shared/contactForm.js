@@ -38,7 +38,7 @@ export default function ContactForm() {
 
         onSubmit: async (values, { resetForm }) => {
             try {
-                const res = await fetch(process.env.API_URL+"/contactUs.php", {
+                const res = await fetch(process.env.NEXT_PUBLIC_API_URL+"/contactUs.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
