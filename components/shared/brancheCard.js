@@ -28,20 +28,20 @@ export default function BranchCard({branch}) {
 
         {/* Location */}
         <div className="">
-          <p className="text-sm uppercase tracking-wider mb-5">Location</p>
-          <p className="text-2xl">{branch.location}</p>
+          <h3 className="text-sm uppercase tracking-wider mb-5">Location</h3>
+          <h4 className="text-2xl">{branch.location}</h4>
         </div>
 
         {/* Phone */}
         <div className="">
-          <p className="text-sm uppercase tracking-wider mb-5">Phone</p>
+          <h3 className="text-sm uppercase tracking-wider mb-5">Phone</h3>
           {
             branch.phone.map((phone,inx)=>{
               return (
-                <><a key={inx} href={`tel:${phone}`} className="hover:underline text-2xl">
+                <h4><a key={inx} href={`tel:${phone}`} className="hover:underline text-2xl">
                   {phone}
                 </a>
-                <br/></>
+                <br/></h4>
               )
             })
         }
@@ -49,14 +49,14 @@ export default function BranchCard({branch}) {
 
         {/* Email */}
         <div className="">
-          <p className="text-sm uppercase tracking-wider mb-5">E-mail</p>
+          <h3 className="text-sm uppercase tracking-wider mb-5">E-mail</h3>
           {
             branch.email.map((email,inx)=>{
               return (
-                <><a key={inx}href={`mailto:${email}`} className="hover:underline text-2xl">
+                <h4><a key={inx}href={`mailto:${email}`} className="hover:underline text-2xl">
                   {email}
                 </a>
-                <br/></>
+                <br/></h4>
               )
             })
           }

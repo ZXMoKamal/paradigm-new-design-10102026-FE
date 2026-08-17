@@ -9,7 +9,7 @@ function Branches() {
          <SectionHeader subtitle="branches" 
         title="Come and visit us at one of our branches"
         titleTag="h3"
-        subTitleTag="h2"
+        subtitleTag="h2"
        />
 
         <section className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 justify-items-center">
