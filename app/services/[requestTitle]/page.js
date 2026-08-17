@@ -9,7 +9,7 @@ import React from 'react'
 export async function generateMetadata({ params }) {
   const { requestTitle } = await params;
   const service = await getService(requestTitle);
-  const serviceSeo = SEO.services(service.title, service.points.map((v) => v.point.split("#").join(", ")).join(", "), service.points.map((v) => v.point.split("#")), title);
+  const serviceSeo = SEO.services(service.title, service.points.map((v) => v.point.split("#").join(", ")).join(", "), service.points.map((v) => v.point.split("#")), requestTitle);
   // const serviceTitle = decodeURIComponent(title);
   
 
