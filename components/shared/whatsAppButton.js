@@ -24,6 +24,7 @@ export default function WhatsAppButton({
       "
     >
       <Image
+      unoptimized
         src="/images/pages/whatsapp.png" // your icon
         alt="WhatsApp"
         width={100}

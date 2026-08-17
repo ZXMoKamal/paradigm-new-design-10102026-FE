@@ -19,6 +19,7 @@ export default function MembersGrid({
             {/* IMAGE */}
             <div className="relative w-full aspect-square overflow-hidden">
               <Image
+              unoptimized
                 src={member.image}
                 alt={member.alt}
                 fill
