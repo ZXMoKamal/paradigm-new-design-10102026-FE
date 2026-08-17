@@ -23,10 +23,10 @@ export default function WhatsAppButton({
         overflow-hidden
       "
     >
-      <Image
-      unoptimized
-        src="/images/pages/whatsapp.png" // your icon
-        alt="WhatsApp"
+      <img
+      fetchPriority='high'
+        src="/images/global/whatsapp.png" // your icon
+        alt="paradigm WhatsApp phone nummber"
         width={100}
         height={100}
         className="object-cover"
