@@ -1,5 +1,5 @@
 export async function getServices() {
-  const res = await fetch(process.env.API_URL+"/services.php", {
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL+"/services.php", {
     cache: "default", // or use revalidate if needed
   });
 
@@ -14,8 +14,7 @@ export async function getServices() {
 
 export async function getService(requestTitle) {
   requestTitle = encodeURIComponent(requestTitle); // Encode the requestTitle to handle special characters
-  console.log(requestTitle);
-  const res = await fetch(process.env.API_URL+`/services.php?requestTitle=${requestTitle}`, {
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL+`/services.php?requestTitle=${requestTitle}`, {
     cache: "default", // or use revalidate if needed
   });
   
