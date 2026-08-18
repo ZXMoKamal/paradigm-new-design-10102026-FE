@@ -10,6 +10,7 @@ export default function PageBGTitleHeader({
   titleTag="p",
   subtitleTag="h1",
   bgImage="",
+  alt="",
   height = 'lg:h-[710px] h-[410px]',
   overlay = true,
   className="",
@@ -26,7 +27,7 @@ export default function PageBGTitleHeader({
       {bgImage && (
         <img
           src={bgImage}
-          alt={title}
+          alt={alt}
           width={100}
           height={100}
           fetchPriority='high'
@@ -44,7 +45,7 @@ export default function PageBGTitleHeader({
         subtitle={subtitle} 
         title={title}
         titleTag={titleTag}
-        subTitleTag={subtitleTag}
+        subtitleTag={subtitleTag}
         className='mx-10'
          />
 

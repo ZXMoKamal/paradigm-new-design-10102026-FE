@@ -10,7 +10,7 @@ function OurStorySection() {
                     subtitle={"Our Story"} 
                     title={"WHO WE ARE"}
                     titleTag={'h3'}
-                    subTitleTag={'h2'}
+                    subtitleTag={'h2'}
                     className='mx-5'
                      />
                      <p data-aos="fade-down" className='w-full xl:max-w-[600px] px-5 lg:px-10 text-[18px]'>
@@ -18,7 +18,7 @@ function OurStorySection() {
                      </p>
         </section>
         <section>
-            <Image data-aos="zoom-in-up" src="/images/ourStory/bref/bref.webp" width="630" height="420" alt="" className='rounded-[20px] max-xl:w-full' />
+            <Image data-aos="zoom-in-up" src="/images/ourStory/bref/bref.webp" width="630" height="420" alt="last event by paradigm" className='rounded-[20px] max-xl:w-full' />
         </section>
     </section>
   )
