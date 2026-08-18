@@ -19,9 +19,9 @@ console.log(service);
       
       {/* Header */}
       <section className="text-center max-w-[800px] mx-auto mb-12">
-        <h2 className="text-3xl sm:text-5xl md:text-[47px] font-primary-medium text-text-primary">
+        <h1 className="text-3xl sm:text-5xl md:text-[47px] font-primary-medium text-text-primary">
           { service.title }
-        </h2>
+        </h1>
 
         <p className="mt-3 text-2xl sm:text-3xl md:text-[35px] text-secondary opacity-80">
           Our Main Services
