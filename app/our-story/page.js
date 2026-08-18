@@ -82,8 +82,8 @@ function OurStory() {
         <OurFoundation/>
         <VideoSection
             images={ [
-                { image: "/images/ezgif-6f9383a7f4f93ea9.webp", alt: "" },
-                { image: "/images/ezgif-622bc5fdefea9c0f.webp", alt: "" },
+                { image: "/images/ezgif-6f9383a7f4f93ea9.webp", alt: "paradigm last events" },
+                { image: "/images/ezgif-622bc5fdefea9c0f.webp", alt: "The Inaugural Joint Steering Committee Meeting of the Arab Republic of Egypt & United Nations Sustainable Development Cooperation Framework2023-2027" },
             ] }
             video="/video/paradigmv.mp4"
         />
