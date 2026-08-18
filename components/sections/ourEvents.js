@@ -11,7 +11,7 @@ function OurEvents() {
         <SectionHeader subtitle="our events" 
         title="Take a Look" description="Check out our latest groundbreaking events!"
         titleTag="h3"
-        subTitleTag="h2"
+        subtitleTag="h2"
          buttons={
           <LinkButton
                     href="/past-events/"
@@ -29,7 +29,7 @@ function OurEvents() {
           <section></section>
           <section>
 
-            <Suggestions TitleTag={ "h3" } items={ [
+            <Suggestions titleTag={ "h3" } items={ [
                 {
                     title: "Egypt- France Business Forum", img: "/images/ezgif-608a1f2271991c70.webp", alt: "Egypt- France Business Forum", requestTitle:"egypt-france-business-forum-economic-opportunities-for-strategic-partnership"
                 },

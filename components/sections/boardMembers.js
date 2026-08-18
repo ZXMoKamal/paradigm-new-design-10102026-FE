@@ -8,7 +8,7 @@ function BoardMembers() {
   return (
 
           <section className='m-auto max-w-[1300px] flex flex-col gap-8 max-2xl:px-10 max-sm:px-5 pt-20 pb-20 xl:mt-20'>
-              <SectionHeader title="The Minds Behind the Story" titleTag='h2' subtitle={ "Board members" } subtitleTag='h3'
+              <SectionHeader title="The Minds Behind the Story" titleTag='h3'subtitle={ "Board members" } subtitleTag='h2'
                   description={ <>
                       Discover the visionary leaders shaping Paradigm’s 
                       journey. Our board members bring a wealth of experience 

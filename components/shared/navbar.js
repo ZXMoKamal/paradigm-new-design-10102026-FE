@@ -133,11 +133,11 @@ export default function Navbar() {
 
                         <div className="flex justify-center items-center gap-6">
                             {/* Search */ }
-                            <button
+                            {/* <button
                                 onClick={ () => {setSearchOpen(true);setMenuOpen(false);} }
                             >
                                 <Search className="w-6 h-6 fill-text-primary cursor-pointer" />
-                            </button>
+                            </button> */}
 
                             <button onClick={ () => setMenuOpen(false) }>
                                 <X className="w-6 h-6 fill-text-primary cursor-pointer" />

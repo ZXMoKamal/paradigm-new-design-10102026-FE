@@ -26,9 +26,9 @@ export default function Footer() {
                 <section className="space-y-5 font-primary-light">
                     <Image src="/images/logo/paradigm full logo.png" alt="paradigm capital group company logo" width="186" height="65" className="w-32 w-[186px] h-[65px]" />
 
-                    <h3 className="font-primary-semibold text-lg">
+                    <h2 className="font-primary-semibold text-lg">
                         Contact Us
-                    </h3>
+                    </h2>
 
                     <p className="text-lg leading-relaxed">
                         Contact us to explore exciting collaboration opportunities and take your events to the next level!
@@ -37,9 +37,9 @@ export default function Footer() {
 
                 {/* COL 2 */ }
                 <section className="space-y-5">
-                    <h3 className="font-primary-semibold text-lg">
+                    <h2 className="font-primary-semibold text-lg">
                         Office
-                    </h3>
+                    </h2>
 
                     <ul className="space-y-3 text-lg font-primary-light">
                         <li><a href="https://www.google.com/maps/place/Paradigm+Ltd./data=!4m2!3m1!1s0x0:0x3b312a21bb17f95f?sa=X&ved=1t:2428&ictx=111" target="_blank">8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</a></li>
@@ -64,9 +64,9 @@ export default function Footer() {
 
                 {/* COL 3 */ }
                 <section className="space-y-5">
-                    <h3 className="font-primary-semibold text-lg">
+                    <h2 className="font-primary-semibold text-lg">
                         Links
-                    </h3>
+                    </h2>
 
                     <ul className="space-y-3 font-primary-light">
                         { links.map((link) => (
@@ -92,9 +92,9 @@ export default function Footer() {
 
                 {/* COL 4 */ }
                 <section className="space-y-5">
-                    <h3 className="font-primary-semibold text-lg">
+                    <h2 className="font-primary-semibold text-lg">
                         Get in Touch
-                    </h3>
+                    </h2>
 
                     <ul className="flex flex-col gap-4 text-lg font-primary-light">
                         <li><a href="https://www.facebook.com/Paradigm4events" className="flex items-center gap-2 hover:opacity-100 transition">
