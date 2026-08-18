@@ -16,7 +16,7 @@ function Branches() {
             <BranchCard
   branch={{
     image: '/images/home/branches/eg.jpg',
-    alt: 'Cairo Branch',
+    alt: 'paradigm capital group Cairo egypt branch',
     location: 'Giza, Egypt',
     phone: ['+20 1026655200','+20 2 37489149'],
     email: ['info@paradigm-eg.com'],
@@ -26,7 +26,7 @@ function Branches() {
             <BranchCard
   branch={{
     image: '/images/home/branches/ue.webp',
-    alt: 'Dubai, United Arab of Emirates',
+    alt: 'paradigm capital group Dubai, United Arab of Emirates branch',
     location: 'Dubai, United Arab of Emirates',
     phone: ['+971 588966041','+971 589404624'],
     email: ['info@paradigm-ae.com'],
@@ -36,7 +36,7 @@ function Branches() {
             <BranchCard
   branch={{
     image: '/images/home/branches/sa.webp',
-    alt: 'Riyadh, KSA',
+    alt: 'paradigm capital group Riyadh, KSA branch',
     location: 'Riyadh, KSA',
     phone: ['+966 509974859'],
     email: ['info@paradigm-sa.com'],

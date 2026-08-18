@@ -11,7 +11,7 @@ function OurClients() {
                 aosAnimation={{["data-aos"]:"fade-up",["data-aos-duration"]:1000+(1000*1)}}
   speed={15}
   images={[
-    { src: "/images/home/clients/clientsBar2.webp", alt: "team member 1" },
+    { src: "/images/home/clients/clientsBar2.webp", alt: "paradigm capital group clients list" },
   ]}
 />
                 <VerticalImageTicker
@@ -19,7 +19,7 @@ function OurClients() {
 
   speed={15}
   images={[
-    { src: "/images/home/clients/clientsBar1.webp", alt: "team member 1" },
+    { src: "/images/home/clients/clientsBar1.webp", alt: "paradigm capital group clients list" },
   ]}
 />
                 <VerticalImageTicker
@@ -27,7 +27,7 @@ function OurClients() {
 
 speed={15}
   images={[
-    { src: "/images/home/clients/clientsBar3.webp", alt: "team member 1" },
+    { src: "/images/home/clients/clientsBar3.webp", alt: "paradigm capital group clients list" },
   ]}
 />
 

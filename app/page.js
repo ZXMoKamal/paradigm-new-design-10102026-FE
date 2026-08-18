@@ -23,8 +23,8 @@ export default function Home() {
       <AboutUs />
       <VideoSection
                     images={ [
-                        { image: "/images/ezgif-60778de8042c2163.webp", alt: "" },
-                        { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "" },
+                        { image: "/images/ezgif-60778de8042c2163.webp", alt: "NDB Seminar in Egypt Navigating New Horizons" },
+                        { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "event organized by paradigm" },
                     ] }
 
                     video="/video/WEBSITE-Recap-2024-Finaaaal-Draft-HORIZONTAL.mp4"

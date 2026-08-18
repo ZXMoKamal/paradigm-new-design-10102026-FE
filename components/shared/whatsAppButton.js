@@ -25,7 +25,7 @@ export default function WhatsAppButton({
     >
       <Image
         src="/images/pages/whatsapp.png" // your icon
-        alt="WhatsApp"
+        alt="paradigm capital group whatsapp number"
         width={100}
         height={100}
         className="object-cover"
