@@ -15,6 +15,11 @@ export default async function EventDetails({
 
   const event = await getEvent(eventRequestTitle);
 
+  const imagesWithAlt =[];
+  for (let src of event.images){
+    imagesWithAlt.push({image:src,alt:event.name });
+  }
+
 
   const info = [
     { label: "Event Name", value: event.name },
@@ -49,7 +54,7 @@ export default async function EventDetails({
 
         {/* RIGHT: SLIDER + DESC */}
         <section className="w-full min-[1024px]:w-[515px] min-[1150px]:w-[615px] xl:w-[715px] 2xl:w-[815px]">
-          <ImageSlider images={ event.images } className={"w-full  min-[1024px]:h-[300px] min-[1150px]:h-[400px] xl:h-[457px]"} />
+          <ImageSlider images={ imagesWithAlt } className={"w-full  min-[1024px]:h-[300px] min-[1150px]:h-[400px] xl:h-[457px]"} />
 
           { event.description && (
             <p className="mt-4 text-[16px] lg:text-[18px] text-text-primary font-primary-light">

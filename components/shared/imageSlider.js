@@ -173,12 +173,12 @@ export default function ImageSlider({ images = [], className = "" }) {
             transform: `translateX(-${current * 100}%)`,
           } }
         >
-          { images.map((img, i) => (
+          { images.map((item, i) => (
             <img
               fetchPriority="high"
               key={ i }
-              src={ img }
-              alt="event"
+              src={ item.image }
+              alt={item.alt}
               className="w-full shrink-0 h-full object-cover"
             />
           )) }
