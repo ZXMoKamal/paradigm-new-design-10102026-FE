@@ -2,6 +2,7 @@
 
 import { getService } from '@/api/services';
 import { cn } from '@/lib/cn';
+import { notFound } from 'next/navigation';
 
 export default async function ServiceHighlight({className, serviceRequestTitle}) {
   // console.log(serviceRequestTitle);
@@ -13,6 +14,9 @@ export default async function ServiceHighlight({className, serviceRequestTitle})
 
 
   const service = await getService(serviceRequestTitle);
+  if(!service){
+    notFound();
+  }
 console.log(service);
   return (
     <section className={cn('w-full py-5 sm:py-10 lg:py-20 px-5', className)}>

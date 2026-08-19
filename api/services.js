@@ -20,8 +20,8 @@ export async function getService(requestTitle) {
   
   if (!res.ok) {
     // 🔥 THIS triggers error.js automatically
+    return false;
     // throw new Error("Failed to fetch service");
-    return [];
   }
   // const s = await res.text();console.log(s);
 
