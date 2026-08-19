@@ -22,7 +22,7 @@ export async function getEvent(requestTitle) {
   if (!res.ok) {
     // 🔥 THIS triggers error.js automatically
     // throw new Error("Failed to fetch event");
-    return [];
+    return false;
   }
 
   return res.json();
