@@ -5,6 +5,7 @@ import { getEvent } from "@/api/events";
 
 import ImageSlider from "../shared/imageSlider";
 import ShareButtons from "../shared/shareButtons";
+import { notFound } from "next/navigation";
 
 
 
@@ -14,6 +15,10 @@ export default async function EventDetails({
 
 
   const event = await getEvent(eventRequestTitle);
+
+  if(!event){
+    notFound();
+  }
 
   const imagesWithAlt =[];
   for (let src of event.images){
