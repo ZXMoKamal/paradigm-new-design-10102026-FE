@@ -5,7 +5,7 @@ function EventSuggestions() {
   return (
     <section className='m-auto w-full lg:w-[1300px] py-10 px-5'>
         <h2 className='text-[35px] font-primary-medium'>You May Also Like</h2>
-        <Suggestions TitleTag={ "h3" } items={ [
+        <Suggestions titleTag={ "h3" } items={ [
             {
                 title: "Egypt- France Business Forum", img: "/images/ezgif-608a1f2271991c70.webp", alt: ""
             },
