@@ -32,9 +32,9 @@ export function SectionHeader({
             ) }
         >
             {/* LEFT: Subtitle + Title */ }
-            <section data-aos="fade-left" className="flex flex-col shrink-0 max-md:shrink gap-1">
+            <section  className="flex flex-col shrink-0 max-md:shrink gap-1">
                 { subtitle && (
-                    <SubtitleTag className={ cn("text-sm font-primary-medium text-text-primary mb-2 uppercase tracking-[0.2em]", subTitleClassName) }>
+                    <SubtitleTag data-aos="fade-left" className={ cn("text-sm font-primary-medium text-text-primary mb-2 uppercase tracking-[0.2em]", subTitleClassName) }>
                         { subtitle }
                     </SubtitleTag>
                 ) }
