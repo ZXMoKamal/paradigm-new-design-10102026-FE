@@ -5,7 +5,8 @@ export async function getServices() {
 
   if (!res.ok) {
     // 🔥 THIS triggers error.js automatically
-    throw new Error("Failed to fetch services");
+    return [];
+    // throw new Error("Failed to fetch services");
   }
 
   return res.json();
@@ -20,7 +21,8 @@ export async function getService(requestTitle) {
   
   if (!res.ok) {
     // 🔥 THIS triggers error.js automatically
-    throw new Error("Failed to fetch service");
+    return false;
+    // throw new Error("Failed to fetch service");
   }
   // const s = await res.text();console.log(s);
 
