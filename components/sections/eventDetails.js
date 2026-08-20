@@ -54,7 +54,7 @@ export default async function EventDetails({
           {/* </section> */}
 
           {/* SHARE */}
-          <ShareButtons title={ event.name } />
+          <ShareButtons title={ event.name } requestTitle={eventRequestTitle} />
         </section>
 
         {/* RIGHT: SLIDER + DESC */}
