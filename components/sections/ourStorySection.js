@@ -18,7 +18,7 @@ function OurStorySection() {
                      </p>
         </section>
         <section>
-            <Image data-aos="zoom-in-up" src="/images/ourStory/bref/bref.webp" width="630" height="420" alt="last event by paradigm" className='rounded-[20px] max-xl:w-full' />
+            <Image data-aos="zoom-in-up" src="/images/ourStory/bref/bref.webp" width="630" height="420" alt="last event by paradigm" className='rounded-[20px] max-xl:w-full h-auto w-[630px]' />
         </section>
     </section>
   )
