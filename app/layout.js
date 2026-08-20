@@ -108,8 +108,8 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <JsonLd />
-        <Navbar/>
       <AosInit/>
+        <Navbar/>
         {children}
         <WhatsAppButton phone="+201020799277"/>
         <Footer/>
