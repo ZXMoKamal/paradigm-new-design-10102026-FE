@@ -60,7 +60,7 @@ export default function Suggestions({ items = [], titleTag: TitleTag = "h2", cla
     return (
         <section className={ cn("relative xl:p-12",className) }>
             { items.map((item, i) => (
-                <Link href={process.env.NEXT_PUBLIC_SITE_URL+"/portfolio/"+item.requestTitle+"/"}>
+                <Link key={i} href={process.env.NEXT_PUBLIC_SITE_URL+"/portfolio/"+item.requestTitle+"/"}>
                     <TitleTag
                     data-aos="fade-left"
                     data-aos-duration={1000+(1000*i)}
