@@ -6,11 +6,10 @@ import LinkIcon from "../icons/link";
 import Mail from "../icons/mail";
 import Twitter from "../icons/twitter";
 
-function ShareButtons({title}) {
+function ShareButtons({title,requestTitle}) {
 
 
-    const eventUrl =
-        typeof window !== "undefined" ? window.location.href : "";
+    const eventUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/portfolio/${requestTitle}/`;
     
     
     const shareLinks = {
