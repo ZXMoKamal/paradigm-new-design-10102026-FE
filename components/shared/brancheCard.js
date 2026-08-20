@@ -38,7 +38,7 @@ export default function BranchCard({branch}) {
           {
             branch.phone.map((phone,inx)=>{
               return (
-                <h4><a key={inx} href={`tel:${phone}`} className="hover:underline text-2xl">
+                <h4 key={inx}><a href={`tel:${phone}`} className="hover:underline text-2xl">
                   {phone}
                 </a>
                 <br/></h4>
@@ -53,7 +53,7 @@ export default function BranchCard({branch}) {
           {
             branch.email.map((email,inx)=>{
               return (
-                <h4><a key={inx}href={`mailto:${email}`} className="hover:underline text-2xl">
+                <h4 key={inx}><a href={`mailto:${email}`} className="hover:underline text-2xl">
                   {email}
                 </a>
                 <br/></h4>
