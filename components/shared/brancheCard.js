@@ -12,6 +12,7 @@ export default function BranchCard({branch}) {
       
       {/* Background Image */}
       <Image
+      unoptimized
         src={branch.image}
         alt={branch.alt}
         fill
