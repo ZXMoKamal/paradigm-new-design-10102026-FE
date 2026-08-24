@@ -34,27 +34,30 @@ export default async function SearchResultsSection({searchParams}){
 
     const search = params.search || "";
 
-    const results = await getSearchResults(search);
-console.log(results)
+    let results = [];
+    if(search.trim()!==""){
+        results = await getSearchResults(search);
+        console.log(results)
+    }
 
     return(
         <section className="m-auto max-w-[1300px] flex flex-col gap-8 pt-30 max-2xl:px-10 max-sm:px-5 pb-20">
-            <h1 className="text-[57px]">Search about : {search}</h1>
-            <>{!search.trim() && <p className="text-2xl">Please enter something to search.</p>}</>
+            <h1 className="text-[24px] min-sm:text-[32px] min-xl:text-[57px]">Search about : {search}</h1>
+            <>{!search.trim() && <p className="text-[20px] min-sm:text-[28px] min-xl:text-2xl">Please enter something to search.</p>}</>
             {results.length === 0 ? (
-                <p className="text-2xl">No results found.</p>
+                <p className="text-[20px] min-sm:text-[28px] min-xl:text-2xl">No results found.</p>
             ) : (<>
-                <p className="text-[32px]">Found results : {results.length}</p>
+                <p className="text-[20px] min-sm:text-[28px] min-xl:text-[32px]">Found results : {results.length}</p>
                 <section>
                     {results.map((item,index) => (
                         <Fragment key={index}><Link  href={getPageLink(item.page,item.requestTitle)}>
-                            <h2 className="text-xl">{item.page}</h2>
+                            <h2 className="text-xl uppercase">{item.page}</h2>
                             <br/>
                             {item.image && <img src={item.image} width={300}/>}
                             {item.icon_code && <section className="sm:w-12 w-8 sm:h-12 h-8 shrink-0 flex items-center justify-center rounded-full stroke-1!" style={{ fill: "var(--secondary)" }}>{servicesIconCode[item.icon_code]}</section>}
                             <br/>
-                            <h3 className="text-xl">{item.title}</h3>
-                            <p className="text-lg font-primary-light">{item.description}</p>
+                            <h3 className="text-[16px] min-sm:text-[18px] min-xl:text-xl">{item.title}</h3>
+                            <p className="text-[14px] min-sm:text-[16px] min-xl:text-lg font-primary-light">{item.description}</p>
                         </Link>
                         <hr/>
                         <br/></Fragment>

@@ -55,6 +55,15 @@ export default function Navbar() {
         };
     }, []);
 
+    function handleSearchButton(){
+        if(searchQuery.current.value.length<=100){
+            router.push(`/search/?search=${searchQuery.current.value}`);
+            setSearchOpen(false); 
+        }else{
+            alert("search should be less than or equal 100 char");
+        }
+    }
+
     return (
         <>
             {/* NAVBAR */ }
@@ -223,10 +232,13 @@ export default function Navbar() {
                                 border-b border-white
                             "
                             ref={searchQuery}
+                            onKeyDown={
+                                 (e)=> {if (e.key === "Enter") {handleSearchButton()}}
+                            }
                         />
 
-                        <button onClick={ ()=>{router.push(`/search/?search=${searchQuery.current.value}`); setSearchOpen(false); }}>
-                            <Search className="w-8 h-8 fill-text-primary cursor-pointer" />
+                        <button onClick={ handleSearchButton }>
+                            <Search className="w-8 h-8 fill-text-primary cursor-pointer" onClick={handleSearchButton}/>
                         </button>
                     </div>
                 </div>
