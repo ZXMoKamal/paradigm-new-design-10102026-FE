@@ -52,6 +52,8 @@ export default function ContactForm() {
                     console.log(s);
                     resetForm();
                 } else {
+                      const s = await res.text();
+                    console.log(s);
                     alert("Error sending message");
                 }
             } catch (error) {

@@ -7,6 +7,7 @@ import { SEO } from "@/data/SEO";
 import JsonLd from "@/components/seo/ld-json";
 import Aos from "aos";
 import AosInit from "@/components/animation/AOS";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -112,6 +113,7 @@ export default function RootLayout({ children }) {
         <Navbar/>
         {children}
         <WhatsAppButton phone="+201020799277"/>
+        <Toaster position="top-right" />
         <Footer/>
         </body>
     </html>

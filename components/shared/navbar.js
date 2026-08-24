@@ -12,6 +12,7 @@ import ContactForm from "./contactForm";
 import ContactSection from "../sections/contactSection";
 import { cn } from "@/lib/cn";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function Navbar() {
     const [openSearch, setSearchOpen] = useState(false);
@@ -60,7 +61,7 @@ export default function Navbar() {
             router.push(`/search/?search=${searchQuery.current.value}`);
             setSearchOpen(false); 
         }else{
-            alert("search should be less than or equal 100 char");
+            toast.warning("Search should be less than or equal 100 char");
         }
     }
 
