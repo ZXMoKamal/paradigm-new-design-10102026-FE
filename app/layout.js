@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import WhatsAppButton from "@/components/shared/whatsAppButton";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
       <Navbar/>
         {children}
         <WhatsAppButton phone="201080034190"/>
+         <Toaster position="top-right" />
         <Footer/>
         </body>
     </html>
