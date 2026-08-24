@@ -1,10 +1,10 @@
 import SearchResultsSection from "@/components/sections/searchResultsSection";
 
-export default function Search(){
+export default function Search({searchParams}){
 
     return(
         <main className="relative w-full overflow-hidden">
-            <SearchResultsSection/>
+            <SearchResultsSection searchParams={searchParams}/>
         </main>
     )
 }

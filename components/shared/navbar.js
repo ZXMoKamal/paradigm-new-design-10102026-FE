@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -11,6 +11,7 @@ import Menu from "../icons/menu";
 import ContactForm from "./contactForm";
 import ContactSection from "../sections/contactSection";
 import { cn } from "@/lib/cn";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
     const [openSearch, setSearchOpen] = useState(false);
@@ -18,6 +19,10 @@ export default function Navbar() {
     const [contactOpen, setContactOpen] = useState(false);
 
     const pathname = usePathname();
+
+    const router = useRouter();
+
+    const searchQuery = useRef();
 
     const tabs = [
         { name: "Home", href: "/" },
@@ -91,12 +96,12 @@ export default function Navbar() {
                         </ul>
 
                         {/* Search */ }
-                        {/* <button
+                        <button
                             onClick={ () => setSearchOpen(true) }
                             className="p-3 hover:text-secondary transition max-sm:hidden"
                         >
                             <Search className="w-8 h-8 fill-text-primary cursor-pointer" />
-                        </button> */}
+                        </button>
 
                         {/* MOBILE MENU BUTTON */ }
                         <button
@@ -133,11 +138,11 @@ export default function Navbar() {
 
                         <div className="flex justify-center items-center gap-6">
                             {/* Search */ }
-                            {/* <button
+                            <button
                                 onClick={ () => {setSearchOpen(true);setMenuOpen(false);} }
                             >
                                 <Search className="w-6 h-6 fill-text-primary cursor-pointer" />
-                            </button> */}
+                            </button>
 
                             <button onClick={ () => setMenuOpen(false) }>
                                 <X className="w-6 h-6 fill-text-primary cursor-pointer" />
@@ -217,9 +222,10 @@ export default function Navbar() {
                                 md:text-3xl lg:text-5xl
                                 border-b border-white
                             "
+                            ref={searchQuery}
                         />
 
-                        <button>
+                        <button onClick={ ()=>{router.push(`/search/?search=${searchQuery.current.value}`); setSearchOpen(false); }}>
                             <Search className="w-8 h-8 fill-text-primary cursor-pointer" />
                         </button>
                     </div>
