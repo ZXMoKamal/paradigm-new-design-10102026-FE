@@ -18,6 +18,7 @@ import Send from "../icons/send";
 
 import { contactUsSchema } from "@/form/schema/contactUsSchema";
 import { getServices } from "@/api/services";
+import { toast } from "sonner";
 
 export default function ContactForm() {
     const [services, setServices] = useState([]);
@@ -47,14 +48,14 @@ export default function ContactForm() {
                 });
 
                 if (res.ok) {
-                    alert("Message sent!");
-                    const s = await res.text();
-                    console.log(s);
+                    toast.success("Message sent!");
+                    // const s = await res.text();
+                    // console.log(s);
                     resetForm();
                 } else {
-                      const s = await res.text();
-                    console.log(s);
-                    alert("Error sending message");
+                    // const s = await res.text();
+                    // console.log(s);
+                    toast.error("Error sending message");
                 }
             } catch (error) {
                 console.error(error);
