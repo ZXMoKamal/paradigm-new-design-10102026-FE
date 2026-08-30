@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { auth } from "@/configs/firebase";
 import Button from "@/components/shared/button";
 import { Input } from "@/components/shared/input";
+import { toast } from "sonner";
 
 export default function AdminLogin() {
     const router = useRouter();
@@ -19,10 +20,12 @@ export default function AdminLogin() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
+    const [verifyToken, setVerifyToken] = useState(false);
+
     async function handleLogin(e) {
         e.preventDefault();
 
-        setError("");
+        // setError("");
         setLoading(true);
 
         try {
@@ -50,15 +53,56 @@ export default function AdminLogin() {
             //     return;
             // }
 
-            router.replace("/admin/dashboard");
+
+            setVerifyToken(true);
+
         } catch (error) {
             console.log(error);
 
-            setError("Invalid email or password.");
+            toast.error("Invalid email or password.");
         } finally {
             setLoading(false);
         }
     }
+
+    useEffect(()=>{
+        async function sendVerify(verifyTokenState){ 
+        if(verifyTokenState){
+
+            const user = auth.currentUser;
+    
+            if (!user) {
+                throw new Error("Not authenticated");
+            }
+    
+            const token = await user.getIdToken();
+    
+            const response = await fetch(
+                process.env.NEXT_PUBLIC_API_URL+"/admin/verifyUser.php",
+                {
+                    method: "GET",
+    
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+    
+            if(response.ok){
+                
+                const data = await response.json();
+        
+                console.log(data);
+        
+                router.replace("/admin/dashboard");
+            }else{
+                toast.error("login failed!")
+            }
+        }
+    }
+    sendVerify(verifyToken);
+    },[verifyToken])
 
     return (
         <main className="min-h-screen flex items-center justify-center px-5">
@@ -74,11 +118,11 @@ export default function AdminLogin() {
                     Sign in to access the dashboard.
                 </p>
 
-                { error && (
+                {/* { error && (
                     <div className="mb-5 rounded-lg bg-red-50 p-3 text-sm text-red-600">
                         { error }
                     </div>
-                ) }
+                ) } */}
 
                 <div className="mb-4">
                     <label id="email" className="mb-2 block text-sm">
