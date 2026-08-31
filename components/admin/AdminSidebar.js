@@ -44,7 +44,7 @@ export default function AdminSidebar() {
         <aside className="sticky top-0 h-screen w-64 shrink-0 p-5 text-text-primary bg-primary-dark pt-30">
             <div className="mb-10">
                 <h1 className="text-xl font-bold text-text-primary">
-                    Admin Name
+                    {localStorage.getItem("adminName")}
                 </h1>
 
                 <p className="text-sm text-secondary">

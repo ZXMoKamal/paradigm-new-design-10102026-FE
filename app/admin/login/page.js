@@ -60,9 +60,10 @@ export default function AdminLogin() {
             console.log(error);
 
             toast.error("Invalid email or password.");
-        } finally {
-            setLoading(false);
         }
+        //  finally {
+        //     setLoading(false);
+        // }
     }
 
     useEffect(()=>{
@@ -94,7 +95,9 @@ export default function AdminLogin() {
                 const data = await response.json();
         
                 console.log(data);
-        
+                
+                localStorage.setItem("adminName",data.name)
+                setLoading(false);
                 router.replace("/admin/dashboard");
             }else{
                 toast.error("login failed!")
