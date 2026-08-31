@@ -1,9 +1,8 @@
 "use client"
-import { deleteBlogs } from "@/api/admin/events";
-import { getBlogs } from "@/api/events";
-import AddBlogForm from "@/components/admin/addEventForm";
+import { deleteBlog } from "@/api/admin/blogs";
+import { getBlogs } from "@/api/blogs";
+import AddBlogForm from "@/components/admin/addBlogForm";
 import ImagesGrid from "@/components/shared/imageGrid";
-// import AdminPastEventsSection from "@/components/sections/adminPastEventsSection";
 import TabNav from "@/components/shared/tabNav";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -13,14 +12,14 @@ export default function Blog() {
 
     const tabs = [
         {
-            label: "Add Event",
+            label: "Add Blog",
             value: "add",
-            content: <AddEventForm />,
+            content: <AddBlogForm />,
         },
         {
-            label: "Events",
-            value: "events",
-            content: <AdminPastEventsSection/>,
+            label: "Blogs",
+            value: "blogs",
+            content: <AdminBlogsSection/>,
         },
     ];
 
@@ -34,22 +33,22 @@ export default function Blog() {
 }
 
 
-function AdminPastEventsSection() {
+function AdminBlogsSection() {
 
-  const [events,setEvents] = useState([]);
+  const [blogs,setBlogs] = useState([]);
 
   useEffect(()=>{
     async function getData(){
-      const events = await getEvents();
-      setEvents(events);
+      const blogs = await getBlogs();
+      setBlogs(blogs);
     }
     getData();
   },[]);
 
 
   return (
-    <ImagesGrid items={ events } path={"/portfolio/"} deleteButton={true} onDelete={async (id)=>{
-      const result = await deleteEvent(id);
+    <ImagesGrid items={ blogs } path={"/blog/"} deleteButton={true} onDelete={async (id)=>{
+      const result = await deleteBlog(id);
       if(result.success){
         toast.success(result.message);
       }else{
