@@ -156,7 +156,7 @@ export default function AddEventForm() {
             if (!response.ok) {
                 throw new Error(
                     data.error ||
-                        "Failed to add event"
+                        "Failed to add article"
                 );
             }
 
@@ -165,7 +165,7 @@ export default function AddEventForm() {
             // -------------------------------------------------
 
             toast.success(
-                "Event added successfully"
+                "Article added successfully"
             );
 
             // Reset
@@ -202,7 +202,7 @@ export default function AddEventForm() {
             className="space-y-8"
         >
             {/* ------------------------------------------------ */}
-            {/* Event Information */}
+            {/* Article Information */}
             {/* ------------------------------------------------ */}
 
             <div className="grid grid-cols-2 gap-5">
@@ -210,7 +210,7 @@ export default function AddEventForm() {
                 {/* Name */}
                 <div>
                     <label className="mb-2 block">
-                        Event Name
+                        Article Name
                     </label>
 
                     <Input
