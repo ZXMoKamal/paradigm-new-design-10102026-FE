@@ -47,7 +47,7 @@ function AdminBlogsSection() {
 
 
   return (
-    <ImagesGrid items={ blogs } path={"/blog/"} deleteButton={true} onDelete={async (id)=>{
+    <ImagesGrid items={ blogs } path={"/article/"} deleteButton={true} onDelete={async (id)=>{
       const result = await deleteBlog(id);
       if(result.success){
         toast.success(result.message);
