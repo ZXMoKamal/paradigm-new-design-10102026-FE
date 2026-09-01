@@ -9,7 +9,7 @@ async function BlogsSection() {
 
 
   return (
-    <ImagesGrid items={ blogs } path={"/blog/"}/>
+    <ImagesGrid items={ blogs } path={"/article/"}/>
   )
 }
 
