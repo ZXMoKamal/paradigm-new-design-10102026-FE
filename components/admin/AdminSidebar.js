@@ -21,6 +21,10 @@ const menu = [
         href: "/admin/dashboard/blog",
     },
     {
+        name: "Services",
+        href: "/admin/dashboard/services",
+    },
+    {
         name: "Contacts",
         href: "/admin/dashboard/contacts",
     },
