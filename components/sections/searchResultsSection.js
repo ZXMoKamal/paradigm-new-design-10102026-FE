@@ -75,7 +75,7 @@ function getPageLink(page,requestTitle){
         return `/portfolio/${requestTitle}`;
     }else if(page==="services"){
         return `/services/${requestTitle}`;
-    }else if(page==="blog"){
-        return `/blog/${requestTitle}`;
+    }else if(page==="article"){
+        return `/article/${requestTitle}`;
     }
 }
