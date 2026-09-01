@@ -12,7 +12,7 @@ export default function Footer() {
         { name: "Our Story", href: "/our-story/" },
         { name: "Our Services", href: "/our-services/" },
         { name: "Past Events", href: "/past-events/" },
-        { name: "Blog", href: "/blogs/" },
+        { name: "Blog", href: "/blog/" },
         { name: "Contact Us", href: "/contacts/" },
         { name: "Careers", href: "/careers/" },
     ];
