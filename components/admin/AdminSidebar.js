@@ -8,10 +8,10 @@ import { auth } from "@/configs/firebase";
 import Button from "../shared/button";
 
 const menu = [
-    {
-        name: "Dashboard",
-        href: "/admin/dashboard",
-    },
+    // {
+    //     name: "Dashboard",
+    //     href: "/admin/dashboard",
+    // },
     {
         name: "Events",
         href: "/admin/dashboard/events",
@@ -27,6 +27,36 @@ const menu = [
     {
         name: "Contacts",
         href: "/admin/dashboard/contacts",
+    },
+];
+const pages = [
+    {
+        name: "Home",
+        href: "/admin/404",
+    },
+    {
+        name: "Our Story",
+        href: "/admin/dashboard/404",
+    },
+    {
+        name: "Past Events",
+        href: "/admin/dashboard/404",
+    },
+    {
+        name: "Blog",
+        href: "/admin/dashboard/404",
+    },
+    {
+        name: "Social Responsibility",
+        href: "/admin/dashboard/404",
+    },
+    {
+        name: "Contact Us",
+        href: "/admin/dashboard/404",
+    },
+    {
+        name: "Careers",
+        href: "/admin/dashboard/404",
     },
 ];
 
@@ -57,7 +87,32 @@ export default function AdminSidebar() {
             </div>
 
             <nav className="space-y-2">
+                <Link
+                    href={ "/admin/dashboard" }
+                    className={ `block rounded-lg px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
+                >
+                    { "Dashboard" }
+                </Link>
+                <hr/>
                 { menu.map((item) => {
+                    const active =
+                        pathname === item.href;
+
+                    return (
+                        <Link
+                            key={ item.href }
+                            href={ item.href }
+                            className={ `block rounded-lg px-4 py-3 transition ${active
+                                    ? "bg-white text-black"
+                                : "text-text-primary hover:bg-secondary hover:text-primary-dark"
+                                }` }
+                        >
+                            { item.name }
+                        </Link>
+                    );
+                }) }
+                <hr/>
+                { pages.map((item) => {
                     const active =
                         pathname === item.href;
 
