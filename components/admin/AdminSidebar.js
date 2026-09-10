@@ -7,7 +7,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "@/configs/firebase";
 import Button from "../shared/button";
 
-const menu = [
+const data = [
     // {
     //     name: "Dashboard",
     //     href: "/admin/dashboard",
@@ -59,6 +59,12 @@ const pages = [
         href: "/admin/dashboard/404",
     },
 ];
+const admin = [
+    {
+        name: "admins",
+        href: "/admin/dashboard/admins",
+    },
+];
 
 export default function AdminSidebar() {
     const pathname = usePathname();
@@ -75,13 +81,13 @@ export default function AdminSidebar() {
     }
 
     return (
-        <aside className="sticky top-0 h-screen w-64 shrink-0 p-5 text-text-primary bg-primary-dark pt-30">
-            <div className="mb-10">
-                <h1 className="text-xl font-bold text-text-primary">
+        <aside className="sticky top-0 h-screen w-64 shrink-0  text-text-primary bg-primary-dark pt-30">
+            <div className="mb-3">
+                <h1 className="text-xl font-bold text-text-primary text-center">
                     {localStorage.getItem("adminName")}
                 </h1>
 
-                <p className="text-sm text-secondary">
+                <p className="text-sm text-secondary text-center">
                     Admin Dashboard
                 </p>
             </div>
@@ -94,7 +100,7 @@ export default function AdminSidebar() {
                     { "Dashboard" }
                 </Link>
                 <hr/>
-                { menu.map((item) => {
+                { data.map((item) => {
                     const active =
                         pathname === item.href;
 
@@ -113,6 +119,24 @@ export default function AdminSidebar() {
                 }) }
                 <hr/>
                 { pages.map((item) => {
+                    const active =
+                        pathname === item.href;
+
+                    return (
+                        <Link
+                            key={ item.href }
+                            href={ item.href }
+                            className={ `block rounded-lg px-4 py-3 transition ${active
+                                    ? "bg-white text-black"
+                                : "text-text-primary hover:bg-secondary hover:text-primary-dark"
+                                }` }
+                        >
+                            { item.name }
+                        </Link>
+                    );
+                }) }
+                <hr/>
+                { admin.map((item) => {
                     const active =
                         pathname === item.href;
 

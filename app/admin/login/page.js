@@ -100,8 +100,8 @@ export default function AdminLogin() {
                 |--------------------------------------------------------------------------
                 */
 
-                // const tokenResult =
-                //     await credential.user.getIdTokenResult(true);
+                const tokenResult =
+                    await credential.user.getIdTokenResult(true);
 
 
                 /*
@@ -110,16 +110,19 @@ export default function AdminLogin() {
                 |--------------------------------------------------------------------------
                 */
 
-                // if (tokenResult.claims.admin !== true) {
+                if (tokenResult.claims.admin !== true) {
 
-                //     await signOut(auth);
+                    await signOut(auth);
 
-                //     toast.error(
-                //         "You are not authorized to access the admin dashboard"
-                //     );
+                    toast.error(
+                        "You are not authorized to access the admin dashboard"
+                    );
 
-                //     return;
-                // }
+                    setLoading(false);
+
+
+                    return;
+                }
 
 
                 //----------------

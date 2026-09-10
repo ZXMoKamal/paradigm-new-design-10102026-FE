@@ -7,6 +7,7 @@ import { servicesIconCode } from "@/components/icons/iconCodes.js/servicesIconCo
 import Trash from "@/components/icons/trash";
 // import AdminPastEventsSection from "@/components/sections/adminPastEventsSection";
 import TabNav from "@/components/shared/tabNav";
+import { auth } from "@/configs/firebase";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -57,33 +58,51 @@ export default function Event() {
 const colors=['var(--light-red)', 'var(--light-blue)', 'var(--light-yellow)', 'var(--light-green)', 'var(--light-orange)','var(--dark-red)', 'var(--dark-cyan)', 'var(--dark-yellow)', 'var(--dark-orange)'];
 
 function AdminServicesSection({
-  nameTag: NameTag = 'h3',
-  className = '',
+  nameTag: NameTag = "h3",
+  className = "",
 }) {
 
-    const [services,setServices] = useState([]);
-  
-    useEffect(()=>{
-      async function getData(){
-        const services = await getServices();
-        setServices(services);
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+
+    async function getData() {
+      setLoading(true);
+
+      const user = auth.currentUser;
+
+      let fbToken = null;
+
+      if (user) {
+        fbToken = await user.getIdToken();
       }
-      getData();
-    },[]);
+
+      const services = await getServices(fbToken);
+
+      setServices(services);
+      setLoading(false);
+    }
+
+    getData();
+
+  }, []);
 
 
 
 // console.log(services)
 
   return (
+    <>
+    {loading && <p>Loading...</p>}
     <ul className={cn('grid grid-cols-1 min-[400px]:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8', className)}>
       {services.map((service, index) => {
         const color = colors[index % colors.length];
 
-        return (
+        return (<>
           <li
-           data-aos="fade-left"
-           data-aos-duration={1000+(1000*index)}
+          //  data-aos="fade-left"
+          //  data-aos-duration={1000+(1000*index)}
             key={index}
             className="group sm:p-6 transition hover:border-white/30 flex items-start gap-4 mb-4"
           >
@@ -127,12 +146,23 @@ function AdminServicesSection({
                     </span>
                 </div>
 
+                <div >
+                  <span className="text-sm text-dark-red ">
+                    Created on: {service.createdOn}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-sm text-dark-red ">
+                    Created by: {service.createdBy}
+                  </span>
+                </div>
               </section>
             </Link>
-
           </li>
+                </>
         );
       })}
     </ul>
+    </>
   );
 }

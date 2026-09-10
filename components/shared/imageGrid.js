@@ -33,8 +33,26 @@ export default function ImagesGrid({ items = [], path="/", deleteButton=false, o
                 </h2>
               </div>
 
+
             </div>
-          </Link></div>
+          </Link>
+          
+              {/* timing */}
+              {item.createdOn && (
+                <div className="p-1 text-center">
+                  <h2 className="text-sm text-light-red font-primary-medium">
+                    Created on: {item.createdOn}
+                  </h2>
+                </div>
+              )}
+              {item.createdBy && (
+                <div className="p-1 text-center">
+                  <h2 className="text-sm text-light-red font-primary-medium">
+                    Created by: {item.createdBy}
+                  </h2>
+                </div>
+              )}
+          </div>
         ))}
 
       </section>

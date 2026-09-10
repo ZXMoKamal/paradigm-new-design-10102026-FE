@@ -2,6 +2,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import { getContacts } from "@/api/admin/contactUs";
+import { Input } from "@/components/shared/input";
+import Search from "@/components/icons/search";
+import Button from "@/components/shared/button";
 
 
 
@@ -46,9 +49,30 @@ function Contacts() {
         return <div>{error}</div>;
     }
 
-console.log(contacts);
+
+    async function handleSearch(query) {
+        try {
+            setLoading(true);
+
+                const data = await getContacts(query);
+
+                setContacts(data);
+
+            } catch (error) {
+
+                console.error(error);
+
+                setError(error.message);
+
+            } finally {
+
+                setLoading(false);
+            }
+    }
+
+
     return (
-        <ContactsTable contacts={contacts}/>
+        <ContactsTable contacts={contacts} search={handleSearch}/>
     );
 }
 
@@ -58,18 +82,22 @@ export default Contacts
 
 
 
-function ContactsTable({ contacts = [] }) {
+function ContactsTable({ contacts = [], search }) {
+
+    const inputRef = useRef(null);
 
     const [columnWidths, setColumnWidths] = useState({
-        id: 70,
+        id: 50,
         name: 180,
         email: 230,
         phone: 160,
-        subject: 200,
+        subject: 150,
         service: 220,
-        message: 400,
+        message: 350,
         adminMail: 120,
         customerMail: 140,
+        createdOn: 140,
+        createdBy: 140,
     });
 
     const resizingRef = useRef(null);
@@ -155,15 +183,26 @@ function ContactsTable({ contacts = [] }) {
 
         <div
             className="
-                w-full
-                overflow-x-auto
+                w-full 
                 rounded-xl
                 border
                 border-primary
                 bg-brimary-dark
                 shadow-sm
+                flex
+                flex-col
+               
             "
         >
+            <div className="flex justify-center items-center gap-5 p-4 text-lg font-semibold text-text-primary w-200">
+                <h1 className="shrink-0 text-3xl">Search : </h1>
+                <Input placeholder="" ref={inputRef} />
+                <Button className="w-1" onClick={() => search(inputRef.current.value)}>
+                    <Search className="w-8 h-8" />
+                </Button>
+            </div>
+
+            <br/>
 
             <table
                 className="
@@ -243,6 +282,14 @@ function ContactsTable({ contacts = [] }) {
                         <th className="relative px-4 py-4 text-center">
                             Customer Mail
                             <ResizeHandle column="customerMail" />
+                        </th>
+                        <th className="relative px-4 py-4 text-center">
+                            Created On
+                            <ResizeHandle column="createdOn" />
+                        </th>
+                        <th className="relative px-4 py-4 text-center">
+                            Created By
+                            <ResizeHandle column="createdBy" />
                         </th>
 
                     </tr>
@@ -424,6 +471,35 @@ function ContactsTable({ contacts = [] }) {
                                         `}
                                     />
 
+                                </div>
+
+                            </td>
+
+                            <td className="px-4 py-4">
+
+                                <div
+                                    title={contact.createdOn}
+                                    className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                                >
+                                    {contact.createdOn}
+                                </div>
+
+                            </td>
+                            <td className="px-4 py-4">
+
+                                <div
+                                    title={contact.createdBy}
+                                    className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                                >
+                                    {contact.createdBy}
                                 </div>
 
                             </td>

@@ -2,7 +2,7 @@
 
 import { auth } from "@/configs/firebase";
 
-export async function getContacts() {
+export async function getContacts(searchquery) {
     const user = auth.currentUser;
 
     if (!user) {
@@ -13,7 +13,7 @@ export async function getContacts() {
     const token = await user.getIdToken();
 
     const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/admin/getContactUs.php`,
+        `${process.env.NEXT_PUBLIC_API_URL}/admin/getContactUs.php${searchquery?"?search="+encodeURIComponent(searchquery):""}`,
         {
             method: "GET",
             headers: {
