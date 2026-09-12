@@ -314,7 +314,7 @@ function ContactsTable({ contacts = [], search }) {
                         >
 
                             <td className="px-4 py-4">
-                                #{contact.id}
+                                {contact.id}
                             </td>
 
 

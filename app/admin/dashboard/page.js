@@ -138,7 +138,7 @@ const statCards = [
 function Card({ children, className = "" }) {
     return (
         <div
-            className={ `rounded-2xl border border-gray-200 bg-white p-5 shadow-sm ${className}` }
+            className={ `rounded-2xl border border-secondary bg-primary-dark p-5 shadow-sm ${className}` }
         >
             { children }
         </div>
@@ -148,12 +148,12 @@ function Card({ children, className = "" }) {
 function CardTitle({ title, subtitle }) {
     return (
         <div className="mb-5">
-            <h2 className="text-lg font-semibold text-[#042a37]">
+            <h2 className="text-lg font-semibold text-text-primary">
                 { title }
             </h2>
 
             { subtitle && (
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-text-primary">
                     { subtitle }
                 </p>
             ) }
@@ -163,9 +163,9 @@ function CardTitle({ title, subtitle }) {
 
 function ProgressBar({ value }) {
     return (
-        <div className="h-2 w-full overflow-hidden rounded-full bg-gray-100">
+        <div className="h-2 w-full overflow-hidden rounded-full bg-primary-dark">
             <div
-                className="h-full rounded-full bg-[#042a37]"
+                className="h-full rounded-full bg-secondary"
                 style={ { width: `${value}%` } }
             />
         </div>
@@ -175,24 +175,24 @@ function ProgressBar({ value }) {
 export default function AdminDashboard() {
     return (
         <section>
-            <h1 className="text-3xl font-bold">
+            {/* <h1 className="text-3xl font-bold">
                 Dashboard
             </h1>
 
             <p className="mt-2 text-secondary">
                 Welcome to Paradigm admin dashboard.
-            </p>
+            </p> */}
 
-            <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8">
+            <div className="min-h-screen p-4 md:p-6 lg:p-8">
 
                 {/* Header */ }
                 <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
                     <div>
-                        <h1 className="text-2xl font-bold text-[#042a37] md:text-3xl">
+                        <h1 className="text-2xl font-bold text-text-primary md:text-3xl">
                             Statistics
                         </h1>
 
-                        <p className="mt-1 text-sm text-gray-500">
+                        <p className="mt-1 text-sm text-secondary">
                             Monitor your website visitors, content performance,
                             and user activity.
                         </p>
@@ -200,7 +200,7 @@ export default function AdminDashboard() {
 
                     <select
                         defaultValue="7"
-                        className="rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-[#042a37] outline-none focus:border-[#60daef]"
+                        className="rounded-xl border border-secondary bg-primary px-4 py-2.5 text-sm font-medium text-text-primary outline-none"
                     >
                         <option value="1">Today</option>
                         <option value="7">Last 7 days</option>
@@ -216,16 +216,16 @@ export default function AdminDashboard() {
                         <Card key={ stat.title }>
                             <div className="flex items-start justify-between">
                                 <div>
-                                    <p className="text-sm text-gray-500">
+                                    <p className="text-sm text-text-primary">
                                         { stat.title }
                                     </p>
 
-                                    <p className="mt-2 text-2xl font-bold text-[#042a37]">
+                                    <p className="mt-2 text-2xl font-bold text-text-primary">
                                         { stat.value }
                                     </p>
                                 </div>
 
-                                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#042a37]/5 text-lg">
+                                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/50 text-lg">
                                     { stat.icon }
                                 </div>
                             </div>
@@ -237,7 +237,7 @@ export default function AdminDashboard() {
                                     }` }
                             >
                                 { stat.change }{ " " }
-                                <span className="font-normal text-gray-400">
+                                <span className="font-normal text-secondary">
                                     vs previous period
                                 </span>
                             </p>
@@ -278,8 +278,8 @@ export default function AdminDashboard() {
                                     <Area
                                         type="monotone"
                                         dataKey="visitors"
-                                        stroke="#042a37"
-                                        fill="#042a37"
+                                        stroke="var(--light-green)"
+                                        fill="var(--light-green)"
                                         fillOpacity={ 0.12 }
                                         strokeWidth={ 2 }
                                     />
@@ -287,8 +287,8 @@ export default function AdminDashboard() {
                                     <Area
                                         type="monotone"
                                         dataKey="pageViews"
-                                        stroke="#60daef"
-                                        fill="#60daef"
+                                        stroke="var(--light-blue)"
+                                        fill="var(--light-blue)"
                                         fillOpacity={ 0.12 }
                                         strokeWidth={ 2 }
                                     />
@@ -298,12 +298,12 @@ export default function AdminDashboard() {
 
                         <div className="mt-4 flex gap-6 text-sm">
                             <div className="flex items-center gap-2">
-                                <span className="h-2.5 w-2.5 rounded-full bg-[#042a37]" />
+                                <span className="h-2.5 w-2.5 rounded-full bg-light-green" />
                                 Visitors
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <span className="h-2.5 w-2.5 rounded-full bg-[#60daef]" />
+                                <span className="h-2.5 w-2.5 rounded-full bg-light-blue" />
                                 Page Views
                             </div>
                         </div>
@@ -334,11 +334,11 @@ export default function AdminDashboard() {
                                                 key={ entry.name }
                                                 fill={
                                                     [
-                                                        "#042a37",
-                                                        "#60daef",
-                                                        "#315c68",
-                                                        "#7199a3",
-                                                        "#a8c2c8",
+                                                        "var(--light-blue)",
+                                                        "var(--light-red)",
+                                                        "var(--light-green)",
+                                                        "var(--light-yellow)",
+                                                        "var(--dark-blue)",
                                                     ][index]
                                                 }
                                             />
@@ -356,11 +356,11 @@ export default function AdminDashboard() {
                                     key={ source.name }
                                     className="flex items-center justify-between text-sm"
                                 >
-                                    <span className="text-gray-600">
+                                    <span className="text-text-primary">
                                         { source.name }
                                     </span>
 
-                                    <span className="font-semibold text-[#042a37]">
+                                    <span className="font-semibold text-secondary">
                                         { source.value }%
                                     </span>
                                 </div>
@@ -381,7 +381,7 @@ export default function AdminDashboard() {
                         <div className="overflow-x-auto">
                             <table className="w-full min-w-[600px] text-left text-sm">
                                 <thead>
-                                    <tr className="border-b border-gray-100 text-xs uppercase text-gray-400">
+                                    <tr className="border-b border-secondary text-xs uppercase text-text-primary">
                                         <th className="pb-3 font-medium">
                                             Page
                                         </th>
@@ -404,21 +404,21 @@ export default function AdminDashboard() {
                                     { topPages.map((page) => (
                                         <tr
                                             key={ page.page }
-                                            className="border-b border-gray-50 last:border-0"
+                                            className="border-b border-secondary last:border-0"
                                         >
-                                            <td className="py-4 font-medium text-[#042a37]">
+                                            <td className="py-4 font-medium text-text-primary">
                                                 { page.page }
                                             </td>
 
-                                            <td className="py-4 text-gray-600">
+                                            <td className="py-4 text-secondary">
                                                 { page.views.toLocaleString() }
                                             </td>
 
-                                            <td className="py-4 text-gray-600">
+                                            <td className="py-4 text-secondary">
                                                 { page.visitors.toLocaleString() }
                                             </td>
 
-                                            <td className="py-4 text-gray-600">
+                                            <td className="py-4 text-secondary">
                                                 { page.duration }
                                             </td>
                                         </tr>
@@ -438,11 +438,11 @@ export default function AdminDashboard() {
                             { topServices.map((service, index) => (
                                 <div key={ service.name }>
                                     <div className="mb-2 flex justify-between gap-4">
-                                        <span className="text-sm font-medium text-[#042a37]">
+                                        <span className="text-sm font-medium text-text-primary">
                                             { index + 1 }. { service.name }
                                         </span>
 
-                                        <span className="text-sm text-gray-500">
+                                        <span className="text-sm text-secondary">
                                             { service.views }
                                         </span>
                                     </div>
@@ -501,7 +501,7 @@ export default function AdminDashboard() {
 
                                     <Bar
                                         dataKey="value"
-                                        fill="#042a37"
+                                        fill="var(--secondary)"
                                         radius={ [0, 6, 6, 0] }
                                         barSize={ 24 }
                                     />
@@ -522,16 +522,16 @@ export default function AdminDashboard() {
                                 <div key={ country.country }>
                                     <div className="mb-2 flex items-center justify-between">
                                         <div className="flex items-center gap-3">
-                                            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gray-100 text-xs font-semibold text-gray-500">
+                                            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-secondary/20 text-xs font-semibold text-text-primary">
                                                 { index + 1 }
                                             </span>
 
-                                            <span className="text-sm font-medium text-[#042a37]">
+                                            <span className="text-sm font-medium text-text-primary">
                                                 { country.country }
                                             </span>
                                         </div>
 
-                                        <span className="text-sm font-semibold text-gray-600">
+                                        <span className="text-sm font-semibold text-secondary">
                                             { country.visitors.toLocaleString() }
                                         </span>
                                     </div>
@@ -556,14 +556,14 @@ export default function AdminDashboard() {
                         subtitle="Latest visitor interactions"
                     />
 
-                    <div className="divide-y divide-gray-100">
+                    <div className="divide-y divide-secondary">
                         { recentActivity.map((activity, index) => (
                             <div
                                 key={ index }
                                 className="flex items-center justify-between gap-4 py-4"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#042a37]/5 text-sm">
+                                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/5 text-sm">
                                         { activity.action ===
                                             "Contact Submitted"
                                             ? "✉"
@@ -574,17 +574,17 @@ export default function AdminDashboard() {
                                     </div>
 
                                     <div>
-                                        <p className="text-sm font-semibold text-[#042a37]">
+                                        <p className="text-sm font-semibold text-text-primary">
                                             { activity.action }
                                         </p>
 
-                                        <p className="mt-0.5 text-xs text-gray-500">
+                                        <p className="mt-0.5 text-xs text-secondary">
                                             { activity.page }
                                         </p>
                                     </div>
                                 </div>
 
-                                <span className="whitespace-nowrap text-xs text-gray-400">
+                                <span className="whitespace-nowrap text-xs text-secondary">
                                     { activity.time }
                                 </span>
                             </div>

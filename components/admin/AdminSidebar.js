@@ -81,7 +81,7 @@ export default function AdminSidebar() {
     }
 
     return (
-        <aside className="sticky top-0 h-screen w-64 shrink-0  text-text-primary bg-primary-dark pt-30">
+        <aside className="sticky top-0 h-screen w-64 shrink-0 flex flex-col  text-text-primary bg-primary-dark pt-30">
             <div className="mb-3">
                 <h1 className="text-xl font-bold text-text-primary text-center">
                     {localStorage.getItem("adminName")}
@@ -92,14 +92,17 @@ export default function AdminSidebar() {
                 </p>
             </div>
 
-            <nav className="space-y-2">
+            <nav className="space-y-2 flex-1 h-[80%] overflow-y-auto py-5">
                 <Link
                     href={ "/admin/dashboard" }
-                    className={ `block rounded-lg px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
+                    className={ `block px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
                 >
                     { "Dashboard" }
                 </Link>
-                <hr/>
+                <hr className="m-0"/>
+                <div className="px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
+                    Data
+                </div>
                 { data.map((item) => {
                     const active =
                         pathname === item.href;
@@ -108,7 +111,7 @@ export default function AdminSidebar() {
                         <Link
                             key={ item.href }
                             href={ item.href }
-                            className={ `block rounded-lg px-4 py-3 transition ${active
+                            className={ `block px-4 py-3 transition ${active
                                     ? "bg-white text-black"
                                 : "text-text-primary hover:bg-secondary hover:text-primary-dark"
                                 }` }
@@ -117,7 +120,10 @@ export default function AdminSidebar() {
                         </Link>
                     );
                 }) }
-                <hr/>
+                <hr className="m-0"/>
+                <div className="px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
+                    Edit Pages
+                </div>
                 { pages.map((item) => {
                     const active =
                         pathname === item.href;
@@ -126,7 +132,7 @@ export default function AdminSidebar() {
                         <Link
                             key={ item.href }
                             href={ item.href }
-                            className={ `block rounded-lg px-4 py-3 transition ${active
+                            className={ `block px-4 py-3 transition ${active
                                     ? "bg-white text-black"
                                 : "text-text-primary hover:bg-secondary hover:text-primary-dark"
                                 }` }
@@ -135,7 +141,10 @@ export default function AdminSidebar() {
                         </Link>
                     );
                 }) }
-                <hr/>
+                <hr className="m-0"/>
+                <div className="px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
+                    Manage Admin
+                </div>
                 { admin.map((item) => {
                     const active =
                         pathname === item.href;
@@ -144,7 +153,7 @@ export default function AdminSidebar() {
                         <Link
                             key={ item.href }
                             href={ item.href }
-                            className={ `block rounded-lg px-4 py-3 transition ${active
+                            className={ `block px-4 py-3 transition ${active
                                     ? "bg-white text-black"
                                 : "text-text-primary hover:bg-secondary hover:text-primary-dark"
                                 }` }
@@ -157,7 +166,7 @@ export default function AdminSidebar() {
 
             <Button
                 onClick={ handleLogout }
-                className="absolute bottom-5 left-5 right-5"
+                className="m-4"
             >
                 Logout
             </Button>
