@@ -1,0 +1,280 @@
+"use client";
+
+import AddAdminForm from "@/components/admin/addAdminForm";
+import TabNav from "@/components/shared/tabNav";
+
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
+
+import { auth } from "@/configs/firebase";
+import Button from "@/components/shared/button";
+
+
+export default function Admins() {
+    const [activeTab, setActiveTab] = useState("add");
+
+    const tabs = [
+        {
+            label: "Add Admin",
+            value: "add",
+            content: <AddAdminForm />,
+        },
+        {
+            label: "Admins",
+            value: "admins",
+            content: <AdminsTable/>,
+        },
+    ];
+
+    return (
+        <TabNav
+            tabs={tabs}
+            activeTab={activeTab}
+            onChange={setActiveTab}
+        />
+    );
+}
+
+
+
+
+
+
+function AdminsTable() {
+
+    const [admins, setAdmins] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [deletingUid, setDeletingUid] = useState(null);
+
+
+    const getAdmins = async () => {
+
+        try {
+
+            const currentUser = auth.currentUser;
+
+            if (!currentUser) {
+                toast.error("You must be logged in");
+                return;
+            }
+
+            const token = await currentUser.getIdToken();
+
+            const response = await fetch(
+                 `${process.env.NEXT_PUBLIC_API_URL}/admin/getAdmins.php`,
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                toast.error(data.error || "Failed to load admins");
+                return;
+            }
+
+            setAdmins(data);
+
+        } catch (error) {
+
+            console.error(error);
+
+            toast.error("Failed to load admins");
+
+        } finally {
+
+            setLoading(false);
+
+        }
+    };
+
+
+    useEffect(() => {
+        getAdmins();
+    }, []);
+
+
+    const removeAdmin = async (uid) => {
+
+        const confirmed = window.confirm(
+            "Are you sure you want to remove this admin?"
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
+
+        try {
+
+            setDeletingUid(uid);
+
+            const currentUser = auth.currentUser;
+
+            if (!currentUser) {
+                toast.error("You must be logged in");
+                return;
+            }
+
+            const token = await currentUser.getIdToken();
+
+            const response = await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/admin/deleteAdmin.php?uid=${encodeURIComponent(uid)}`,
+                {
+                    method: "DELETE",
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                toast.error(data.error || "Failed to remove admin");
+                return;
+            }
+
+            toast.success("Admin removed successfully");
+
+            // Remove from table immediately
+            setAdmins((prev) =>
+                prev.filter((admin) => admin.uid !== uid)
+            );
+
+        } catch (error) {
+
+            console.error(error);
+
+            toast.error("Failed to remove admin");
+
+        } finally {
+
+            setDeletingUid(null);
+
+        }
+    };
+
+
+    if (loading) {
+        return (
+            <div>
+                Loading admins...
+            </div>
+        );
+    }
+
+
+    return (
+        <div className="w-full overflow-x-auto">
+
+            <table className="w-full border-collapse">
+
+                <thead>
+                    <tr className="border-b">
+                        <th className="px-4 py-3 text-left">
+                            Name
+                        </th>
+
+                        <th className="px-4 py-3 text-left">
+                            Email
+                        </th>
+
+                        <th className="px-4 py-3 text-left">
+                            Action
+                        </th>
+                        <th className="px-4 py-3 text-left">
+                            Created On
+                        </th>
+                        <th className="px-4 py-3 text-left">
+                            Created By
+                        </th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    {admins.length === 0 ? (
+
+                        <tr>
+                            <td
+                                colSpan={3}
+                                className="px-4 py-8 text-center"
+                            >
+                                No admins found
+                            </td>
+                        </tr>
+
+                    ) : (
+
+                        admins.map((admin) => (
+
+                            <tr
+                                key={admin.uid}
+                                className="border-b"
+                            >
+
+                                <td className="px-4 py-3">
+                                    {admin.name}
+                                </td>
+
+                                <td className="px-4 py-3">
+                                    {admin.email || "No email"}
+                                </td>
+
+                                <td className="px-4 py-3">
+
+                                    {admin.uid === auth.currentUser?.uid ? (
+
+                                        <span className="text-sm">
+                                            Current account
+                                        </span>
+
+                                    ) : (
+
+                                        <Button
+                                        className="bg-light-red border-0 text-text-primary"
+
+                                            type="button"
+                                            onClick={() =>
+                                                removeAdmin(admin.uid)
+                                            }
+                                            disabled={
+                                                deletingUid === admin.uid
+                                            }
+                                        >
+                                            {deletingUid === admin.uid
+                                                ? "Removing..."
+                                                : "Remove"}
+                                        </Button>
+
+                                    )}
+
+                                </td>
+
+                                <td className="px-4 py-3">
+                                    {admin.createdOn}
+                                </td>
+
+                                <td className="px-4 py-3">
+                                    {admin.createdBy}
+                                </td>
+
+                            </tr>
+
+                        ))
+
+                    )}
+
+                </tbody>
+
+            </table>
+
+        </div>
+    );
+}

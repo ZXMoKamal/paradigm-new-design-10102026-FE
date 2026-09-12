@@ -1,0 +1,27 @@
+import { getBlog } from '@/api/blogs';
+import React from 'react'
+
+async function BlogContent({ blogRequestTitle }) {
+      const blog = await getBlog(blogRequestTitle);
+    
+      if(!blog){
+        notFound();
+      }
+
+  return (
+      <section className='px-5 m-auto w-full lg:w-[1300px] pb-10'>
+          <h1 className='text-[34px] md:text-[42px] xl:text-[57px]'>{ blog.name }</h1>
+          <br/>
+          <img src={blog.thumb} className='w-[800px] m-auto'/>
+          { JSON.parse(blog.content).map((item, inx) =>
+              <fragment key={ inx }>
+                  <br/>
+                  <h2 className='text-[20px] md:text-[28px] xl:text-[34px]'>{ item.title }</h2>
+                  <br/>
+                  <p className='text-[16px] md:text-[18px] xl:text-[20px]'>{ item.paragraph }</p>
+              </fragment>) }
+    </section>
+  )
+}
+
+export default BlogContent
