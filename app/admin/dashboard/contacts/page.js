@@ -179,6 +179,86 @@ function ContactsTable({ contacts = [], search }) {
     );
 
 
+
+    ///row hight
+    const [rowHeights, setRowHeights] = useState({});
+
+const rowResizingRef = useRef(null);
+
+const startRowResize = (rowId, event) => {
+    event.preventDefault();
+
+    rowResizingRef.current = {
+        rowId,
+        startY: event.clientY,
+        startHeight: rowHeights[rowId] || event.currentTarget.parentElement.offsetHeight,
+    };
+
+    document.addEventListener("mousemove", handleRowResize);
+    document.addEventListener("mouseup", stopRowResize);
+
+    document.body.style.cursor = "row-resize";
+    document.body.style.userSelect = "none";
+};
+
+const handleRowResize = (event) => {
+    if (!rowResizingRef.current) return;
+
+    const {
+        rowId,
+        startY,
+        startHeight,
+    } = rowResizingRef.current;
+
+    const difference = event.clientY - startY;
+
+    const newHeight = Math.max(
+        50,
+        startHeight + difference
+    );
+
+    setRowHeights((prev) => ({
+        ...prev,
+        [rowId]: newHeight,
+    }));
+};
+
+const stopRowResize = () => {
+    rowResizingRef.current = null;
+
+    document.removeEventListener(
+        "mousemove",
+        handleRowResize
+    );
+
+    document.removeEventListener(
+        "mouseup",
+        stopRowResize
+    );
+
+    document.body.style.cursor = "";
+    document.body.style.userSelect = "";
+};
+
+    const RowResizeHandle = ({ rowId }) => (
+    <span
+        onMouseDown={(event) =>
+            startRowResize(rowId, event)
+        }
+        className="
+            absolute
+            bottom-0
+            left-0
+            w-full
+            h-2
+            cursor-row-resize
+            select-none
+            hover:bg-blue-400
+            active:bg-blue-600
+            z-50
+        "
+    />
+);
     return (
 
         <div
@@ -302,15 +382,21 @@ function ContactsTable({ contacts = [], search }) {
                     {contacts.map((contact) => (
 
                         <tr
-                            key={contact.id}
-                            className="
-                                border-b
-                                border-white
-                                transition-colors
-                                hover:bg-secondary
-                                hover:text-primary-dark
-                                even:bg-primary-dark
-                            "
+                             key={contact.id}
+    style={{
+        height: rowHeights[contact.id]
+            ? `${rowHeights[contact.id]}px`
+            : undefined,
+    }}
+    className="
+        relative
+        border-b
+        border-white
+        transition-colors
+        hover:bg-secondary
+        hover:text-primary-dark
+        even:bg-primary-dark
+    "
                         >
 
                             <td className="px-4 py-4">
@@ -402,11 +488,11 @@ function ContactsTable({ contacts = [], search }) {
 
                                 <div
                                     title={contact.message}
-                                    className="
-                                        overflow-hidden
-                                        text-ellipsis
-                                        whitespace-nowrap
-                                    "
+                                     className="
+        overflow-hidden
+        break-words
+        whitespace-normal
+    "
                                 >
                                     {contact.message}
                                 </div>
@@ -503,7 +589,7 @@ function ContactsTable({ contacts = [], search }) {
                                 </div>
 
                             </td>
-
+<RowResizeHandle rowId={contact.id} />
                         </tr>
 
                     ))}

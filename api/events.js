@@ -20,7 +20,7 @@ export async function getEvents(fbToken = null) {
   return res.json();
 }
 
-export async function getEvent(requestTitle, fbToken = null) {
+export async function getEvent(requestTitle, fbToken = null, visitorId = null) {
   requestTitle = encodeURIComponent(requestTitle);
 
   const headers = {};
@@ -31,7 +31,7 @@ export async function getEvent(requestTitle, fbToken = null) {
 
   const res = await fetch(
     process.env.NEXT_PUBLIC_API_URL +
-      `/events.php?requestTitle=${requestTitle}`,
+      `/events.php?requestTitle=${requestTitle}${visitorId ? `&visitorId=${visitorId}` : ''}`,
     {
       cache: "default",
       headers,

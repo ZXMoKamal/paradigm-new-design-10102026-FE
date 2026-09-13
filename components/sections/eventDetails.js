@@ -6,6 +6,7 @@ import { getEvent } from "@/api/events";
 import ImageSlider from "../shared/imageSlider";
 import ShareButtons from "../shared/shareButtons";
 import { notFound } from "next/navigation";
+import { getVisitorIdServer } from "@/lib/visitorIdServer";
 
 
 
@@ -14,7 +15,7 @@ export default async function EventDetails({
 }) {
 
 
-  const event = await getEvent(eventRequestTitle);
+  const event = await getEvent(eventRequestTitle, null, await getVisitorIdServer());
 
   if(!event){
     notFound();

@@ -20,7 +20,7 @@ export async function getServices(fbToken = null) {
   return res.json();
 }
 
-export async function getService(requestTitle, fbToken = null) {
+export async function getService(requestTitle, fbToken = null, visitorId = null) {console.log("visitorId", visitorId);
   requestTitle = encodeURIComponent(requestTitle);
 
   const headers = {};
@@ -31,7 +31,7 @@ export async function getService(requestTitle, fbToken = null) {
 
   const res = await fetch(
     process.env.NEXT_PUBLIC_API_URL +
-      `/services.php?requestTitle=${requestTitle}`,
+      `/services.php?requestTitle=${requestTitle}${visitorId ? `&visitorId=${visitorId}` : ''}`,
     {
       cache: "default",
       headers,

@@ -1,5 +1,8 @@
 "use client";
 
+import { getDataStatistics } from "@/api/admin/statistics";
+import { auth } from "@/configs/firebase";
+import { useEffect, useState } from "react";
 import {
     Area,
     AreaChart,
@@ -34,19 +37,17 @@ const topPages = [
 ];
 
 const topServices = [
-    { name: "Event Management", views: 431 },
-    { name: "Public Relations", views: 328 },
-    { name: "Corporate Events", views: 281 },
-    { name: "Digital Marketing", views: 192 },
-    { name: "Media Production", views: 147 },
+    { name: "Event Management", value: 431 },
+    { name: "Public Relations", value: 328 },
+    { name: "Corporate Events", value: 281 },
+    { name: "Digital Marketing", value: 192 },
+    { name: "Media Production", value: 147 },
 ];
 
 const trafficSources = [
-    { name: "Direct", value: 34 },
-    { name: "Google", value: 29 },
-    { name: "Instagram", value: 18 },
-    { name: "LinkedIn", value: 11 },
-    { name: "Facebook", value: 8 },
+    { name: "Instagram", value: 18, totalClicks: 50 },
+    { name: "LinkedIn", value: 11, totalClicks: 50 },
+    { name: "Facebook", value: 8, totalClicks: 50 },
 ];
 
 const devices = [
@@ -95,45 +96,45 @@ const statCards = [
     {
         title: "Visitors",
         value: "2,841",
-        change: "+18.4%",
-        positive: true,
+        // change: "+18.4%",
+        // positive: true,
         icon: "👥",
     },
-    {
-        title: "Sessions",
-        value: "1,934",
-        change: "+11.2%",
-        positive: true,
-        icon: "◉",
-    },
+    // {
+    //     title: "Session",
+    //     value: "1,934",
+    //     change: "+11.2%",
+    //     positive: true,
+    //     icon: "◉",
+    // },
     {
         title: "Page Views",
         value: "6,721",
-        change: "+24.8%",
-        positive: true,
+        // change: "+24.8%",
+        // positive: true,
         icon: "◫",
     },
     {
         title: "Avg. Duration",
         value: "2m 14s",
-        change: "+8.7%",
-        positive: true,
+        // change: "+8.7%",
+        // positive: true,
         icon: "◷",
     },
-    {
-        title: "Bounce Rate",
-        value: "31.4%",
-        change: "-5.2%",
-        positive: true,
-        icon: "↗",
-    },
-    {
-        title: "Conversions",
-        value: "127",
-        change: "+14.3%",
-        positive: true,
-        icon: "✓",
-    },
+    // {
+    //     title: "Bounce Rate",
+    //     value: "31.4%",
+    //     change: "-5.2%",
+    //     positive: true,
+    //     icon: "↗",
+    // },
+    // {
+    //     title: "Conversions",
+    //     value: "127",
+    //     change: "+14.3%",
+    //     positive: true,
+    //     icon: "✓",
+    // },
 ];
 function Card({ children, className = "" }) {
     return (
@@ -161,18 +162,40 @@ function CardTitle({ title, subtitle }) {
     );
 }
 
-function ProgressBar({ value }) {
-    return (
-        <div className="h-2 w-full overflow-hidden rounded-full bg-primary-dark">
-            <div
-                className="h-full rounded-full bg-secondary"
-                style={ { width: `${value}%` } }
-            />
-        </div>
-    );
-}
+// function ProgressBar({ value }) {
+//     return (
+//         <div className="h-2 w-full overflow-hidden rounded-full bg-primary-dark">
+//             <div
+//                 className="h-full rounded-full bg-secondary"
+//                 style={ { width: `${value}%` } }
+//             />
+//         </div>
+//     );
+// }
 
 export default function AdminDashboard() {
+    const [duration,setDuration]=useState("LAST_7_DAYS");
+    const [dataStatistics, setDataStatistics] = useState(null);
+    useEffect(() => {
+        async function fetchStatistics() {
+            try {
+                      const user = auth.currentUser;
+                
+                      let fbToken = null;
+                
+                      if (user) {
+                        fbToken = await user.getIdToken();
+                      }
+
+                const data = await getDataStatistics(duration, fbToken);
+                setDataStatistics(data);
+            } catch (error) {
+                console.error("Error fetching dataStatistics:", error);
+            }
+        }
+        fetchStatistics();
+    },[]);
+    console.log(dataStatistics);
     return (
         <section>
             {/* <h1 className="text-3xl font-bold">
@@ -199,19 +222,20 @@ export default function AdminDashboard() {
                     </div>
 
                     <select
-                        defaultValue="7"
+                        defaultValue="LAST_7_DAYS"
                         className="rounded-xl border border-secondary bg-primary px-4 py-2.5 text-sm font-medium text-text-primary outline-none"
+                        onChange={(e) => setDuration(e.target.value)}
                     >
-                        <option value="1">Today</option>
-                        <option value="7">Last 7 days</option>
-                        <option value="30">Last 30 days</option>
-                        <option value="90">Last 90 days</option>
-                        <option value="365">This year</option>
+                        <option value="TODAY">Today</option>
+                        <option value="LAST_7_DAYS">Last 7 days</option>
+                        <option value="LAST_30_DAYS">Last 30 days</option>
+                        <option value="LAST_90_DAYS">Last 90 days</option>
+                        <option value="THIS_YEAR">This year</option>
                     </select>
                 </div>
 
                 {/* Stat Cards */ }
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                     { statCards.map((stat) => (
                         <Card key={ stat.title }>
                             <div className="flex items-start justify-between">
@@ -236,10 +260,10 @@ export default function AdminDashboard() {
                                         : "text-red-500"
                                     }` }
                             >
-                                { stat.change }{ " " }
+                                {/* { stat.change }{ " " }
                                 <span className="font-normal text-secondary">
                                     vs previous period
-                                </span>
+                                </span> */}
                             </p>
                         </Card>
                     )) }
@@ -312,8 +336,8 @@ export default function AdminDashboard() {
                     {/* Traffic Sources */ }
                     <Card>
                         <CardTitle
-                            title="Traffic Sources"
-                            subtitle="Where your visitors come from"
+                            title="Site Visits from Social Media"
+                            subtitle="Traffic sources driving visitors to your website"
                         />
 
                         <div className="h-[220px]">
@@ -351,10 +375,26 @@ export default function AdminDashboard() {
                         </div>
 
                         <div className="space-y-3">
+                                <div
+                                    
+                                    className="  grid grid-cols-3  text-sm bg-primary border-b"
+                                >
+                                    <span className="text-text-primary">
+                                        Social media 
+                                    </span>
+
+                                    <span className="font-semibold text-secondary">
+                                        Rate
+                                    </span>
+                                   
+                                    <span className="font-semibold text-secondary">
+                                        Total Clicks
+                                    </span>
+                                </div>
                             { trafficSources.map((source) => (
                                 <div
                                     key={ source.name }
-                                    className="flex items-center justify-between text-sm"
+                                    className=" grid grid-cols-3  text-sm"
                                 >
                                     <span className="text-text-primary">
                                         { source.name }
@@ -362,6 +402,10 @@ export default function AdminDashboard() {
 
                                     <span className="font-semibold text-secondary">
                                         { source.value }%
+                                    </span>
+                                   
+                                    <span className="font-semibold text-secondary">
+                                        { source.totalClicks }
                                     </span>
                                 </div>
                             )) }
@@ -428,7 +472,7 @@ export default function AdminDashboard() {
                         </div>
                     </Card>
 
-                    <Card>
+                    {/* <Card>
                         <CardTitle
                             title="Top Services"
                             subtitle="Services receiving the most views"
@@ -457,14 +501,16 @@ export default function AdminDashboard() {
                                 </div>
                             )) }
                         </div>
-                    </Card>
+                    </Card> */}
+
+                   
                 </div>
 
                 {/* Devices + Countries */ }
-                <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+                <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
 
                     {/* Devices */ }
-                    <Card>
+                    {/* <Card>
                         <CardTitle
                             title="Devices"
                             subtitle="Devices used by your visitors"
@@ -508,10 +554,10 @@ export default function AdminDashboard() {
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
-                    </Card>
+                    </Card> */}
 
                     {/* Countries */ }
-                    <Card>
+                    {/* <Card>
                         <CardTitle
                             title="Visitors by Country"
                             subtitle="Top countries by visitor count"
@@ -543,6 +589,228 @@ export default function AdminDashboard() {
                                             100
                                         }
                                     />
+                                </div>
+                            )) }
+                        </div>
+                    </Card> */} 
+                    <Card>
+                        <CardTitle
+                            title="Services visits"
+                            subtitle=""
+                        />
+
+                        <div className="h-[220px]">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <PieChart>
+                                    <Pie
+                                        data={ dataStatistics?.services || [] }
+                                        dataKey="visits"
+                                        nameKey="name"
+                                        cx="50%"
+                                        cy="50%"
+                                        innerRadius={ 55 }
+                                        outerRadius={ 85 }
+                                        paddingAngle={ 3 }
+                                    >
+                                        { dataStatistics?.services?.map((entry, index) => (
+                                            <Cell
+                                                key={ entry.name }
+                                                fill={
+                                                    [
+                                                        "var(--light-blue)",
+                                                        "var(--light-red)",
+                                                        "var(--light-green)",
+                                                        "var(--light-yellow)",
+                                                        "var(--dark-blue)",
+                                                    ][index]
+                                                }
+                                            />
+                                        )) }
+                                    </Pie>
+
+                                    <Tooltip />
+                                </PieChart>
+                            </ResponsiveContainer>
+                        </div>
+
+                        <div className="space-y-3">
+                                <div
+                                    
+                                    className="  grid grid-cols-2  text-sm bg-primary border-b justify-items-center"
+                                >
+                                    <span className="text-text-primary justify-self-start">
+                                        Service 
+                                    </span>
+
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        Total Clicks
+                                    </span>
+                                   
+                           
+                                </div>
+                            { dataStatistics?.services?.map((service) => (
+                                <div
+                                    key={ service.name }
+                                    className=" grid grid-cols-2  text-sm justify-items-center hover:bg-secondary/50"
+                                >
+                                    <span className="text-text-primary justify-self-start">
+                                        { service.name }
+                                    </span>
+
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        { service.visits }
+                                    </span>
+                                   
+                                   
+                                </div>
+                            )) }
+                        </div>
+                    </Card>
+
+                       <Card>
+                        <CardTitle
+                            title="Events visits"
+                            subtitle=""
+                        />
+
+                        <div className="h-[220px]">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <PieChart>
+                                    <Pie
+                                        data={ dataStatistics?.events || [] }
+                                        dataKey="visits"
+                                        nameKey="name"
+                                        cx="50%"
+                                        cy="50%"
+                                        innerRadius={ 55 }
+                                        outerRadius={ 85 }
+                                        paddingAngle={ 3 }
+                                    >
+                                        { dataStatistics?.events?.map((entry, index) => (
+                                            <Cell
+                                                key={ entry.name }
+                                                fill={
+                                                    [
+                                                        "var(--light-blue)",
+                                                        "var(--light-red)",
+                                                        "var(--light-green)",
+                                                        "var(--light-yellow)",
+                                                        "var(--dark-blue)",
+                                                    ][index]
+                                                }
+                                            />
+                                        )) }
+                                    </Pie>
+
+                                    <Tooltip />
+                                </PieChart>
+                            </ResponsiveContainer>
+                        </div>
+
+                        <div className="space-y-3">
+                                <div
+                                    
+                                    className="  grid grid-cols-2  text-sm bg-primary border-b justify-items-center"
+                                >
+                                    <span className="text-text-primary justify-self-start">
+                                        Event 
+                                    </span>
+
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        Total Clicks
+                                    </span>
+                                   
+                           
+                                </div>
+                            { dataStatistics?.events?.map((event) => (
+                                <div
+                                    key={ event.name }
+                                    className=" grid grid-cols-2  text-sm justify-items-center hover:bg-secondary/50"
+                                >
+                                    <span className="text-text-primary justify-self-start">
+                                        { event.name }
+                                    </span>
+
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        { event.visits }
+                                    </span>
+                                   
+                                   
+                                </div>
+                            )) }
+                        </div>
+                    </Card>
+                   
+                   
+                       <Card>
+                        <CardTitle
+                            title="Blog visits"
+                            subtitle=""
+                        />
+
+                        <div className="h-[220px]">
+                            <ResponsiveContainer width="100%" height="100%">
+                                <PieChart>
+                                    <Pie
+                                        data={ dataStatistics?.blogs || [] }
+                                        dataKey="visits"
+                                        nameKey="name"
+                                        cx="50%"
+                                        cy="50%"
+                                        innerRadius={ 55 }
+                                        outerRadius={ 85 }
+                                        paddingAngle={ 3 }
+                                    >
+                                        { dataStatistics?.blogs?.map((entry, index) => (
+                                            <Cell
+                                                key={ entry.name }
+                                                fill={
+                                                    [
+                                                        "var(--light-blue)",
+                                                        "var(--light-red)",
+                                                        "var(--light-green)",
+                                                        "var(--light-yellow)",
+                                                        "var(--dark-blue)",
+                                                    ][index]
+                                                }
+                                            />
+                                        )) }
+                                    </Pie>
+
+                                    <Tooltip />
+                                </PieChart>
+                            </ResponsiveContainer>
+                        </div>
+
+                        <div className="space-y-3">
+                                <div
+                                    
+                                    className="  grid grid-cols-2  text-sm bg-primary border-b hover:bg-secondary/50"
+                                >
+                                    <span className="text-text-primary justify-self-start">
+                                        Article 
+                                    </span>
+
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        Total Clicks
+                                    </span>
+                                   
+                           
+                                </div>
+                            { dataStatistics?.blogs?.map((article) => (
+                                <div
+                                    key={ article.name }
+                                    className=" grid grid-cols-2  text-sm hover:bg-secondary/50"
+                                >
+                                    <span className="text-text-primary justify-self-start">
+                                        { article.name }
+                                    </span>
+
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        { article.visits }
+                                    </span>
+                                   
+                                   
                                 </div>
                             )) }
                         </div>

@@ -342,7 +342,7 @@ function EventsTable({
                       e.stopPropagation();
 
                       const i = await onDelete(event.id);
-                      i.ok && sde(event.id)
+                      i.success && sde(event.id)
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
@@ -416,12 +416,13 @@ function AdminServicesSection({
       toast.success(result.message);
 
       // Remove deleted event immediately from the table
-      setEvents((prev) =>
-        prev.filter((event) => event.id !== id)
+      setServices((prev) =>
+        prev.filter((service) => service.id !== id)
       );
     } else {
       toast.error(result.message);
     }
+    return result;
   };
 
 // console.log(services)

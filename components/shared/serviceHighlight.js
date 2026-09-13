@@ -2,6 +2,7 @@
 
 import { getService } from '@/api/services';
 import { cn } from '@/lib/cn';
+import { getVisitorIdServer } from '@/lib/visitorIdServer';
 import { notFound } from 'next/navigation';
 
 export default async function ServiceHighlight({className, serviceRequestTitle}) {
@@ -13,7 +14,7 @@ export default async function ServiceHighlight({className, serviceRequestTitle})
   console.log(s);
 
 
-  const service = await getService(serviceRequestTitle);
+  const service = await getService(serviceRequestTitle, null, await getVisitorIdServer());
   if(!service){
     notFound();
   }
