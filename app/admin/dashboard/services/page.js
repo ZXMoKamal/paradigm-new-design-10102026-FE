@@ -59,6 +59,8 @@ function EventsTable({
   onDelete = async () => { },
   path = "/portfolio/",
 }) {
+  const [de, sde] = useState(0);
+
   const [columnWidths, setColumnWidths] = useState({
     id: 70,
     thumb: 200,
@@ -339,7 +341,8 @@ function EventsTable({
                     onClick={ async (e) => {
                       e.stopPropagation();
 
-                      await onDelete(event.id);
+                      const i = await onDelete(event.id);
+                      i.ok && sde(event.id)
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
