@@ -6,6 +6,14 @@ import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "firebase/auth";
 import { auth } from "@/configs/firebase";
 import Button from "../shared/button";
+import Chart from "../icons/chart";
+import Table from "../icons/table";
+import Calendar from "../icons/calendar";
+import Newspaper from "../icons/newspaper";
+import Msg from "../icons/msg";
+import HandShake from "../icons/handshake";
+import UserTie from "../icons/userTie";
+import Gear from "../icons/gear";
 
 const data = [
     // {
@@ -15,18 +23,22 @@ const data = [
     {
         name: "Events",
         href: "/admin/dashboard/events",
+        icon: <Calendar className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Blog",
         href: "/admin/dashboard/blog",
+        icon: <Newspaper className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Services",
         href: "/admin/dashboard/services",
+        icon: <HandShake className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Contacts",
         href: "/admin/dashboard/contacts",
+        icon: <Msg className={"w-6 h-6 fill-secondary"}/>
     },
 ];
 const pages = [
@@ -63,6 +75,7 @@ const admin = [
     {
         name: "admins",
         href: "/admin/dashboard/admins",
+        icon:<UserTie className={"w-6 h-6 fill-secondary"}/>
     },
 ];
 
@@ -95,13 +108,15 @@ export default function AdminSidebar() {
             <nav className="space-y-2 flex-1 h-[80%] overflow-y-auto py-5">
                 <Link
                     href={ "/admin/dashboard" }
-                    className={ `block px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
+                    className={ `flex gap-4 items-center px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
                 >
+                    <Chart className={"w-6 h-6 fill-secondary"}/>
                     { "Dashboard" }
                 </Link>
                 <hr className="m-0"/>
-                <div className="px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
-                    Data
+                <div className="flex gap-4 items-center px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
+                    <Table className={"w-6 h-6"}/>
+                    <span>Data</span>
                 </div>
                 { data.map((item) => {
                     const active =
@@ -111,11 +126,12 @@ export default function AdminSidebar() {
                         <Link
                             key={ item.href }
                             href={ item.href }
-                            className={ `block px-4 py-3 transition ${active
+                            className={ `flex items-center gap-4 px-4 py-3 transition ${active
                                     ? "bg-white text-black"
-                                : "text-text-primary hover:bg-secondary hover:text-primary-dark"
+                                : "text-text-primary hover:bg-secondary/80 hover:text-primary-dark "
                                 }` }
                         >
+                            {item.icon}
                             { item.name }
                         </Link>
                     );
@@ -134,7 +150,7 @@ export default function AdminSidebar() {
                             href={ item.href }
                             className={ `block px-4 py-3 transition ${active
                                     ? "bg-white text-black"
-                                : "text-text-primary hover:bg-secondary hover:text-primary-dark"
+                                : "text-text-primary hover:bg-secondary/80 hover:text-primary-dark"
                                 }` }
                         >
                             { item.name }
@@ -142,8 +158,9 @@ export default function AdminSidebar() {
                     );
                 }) }
                 <hr className="m-0"/>
-                <div className="px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
-                    Manage Admin
+                <div className="flex items-center gap-4 px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
+                    <Gear className={"w-6 h-6"}/>
+                    <span>Manage</span>
                 </div>
                 { admin.map((item) => {
                     const active =
@@ -153,11 +170,12 @@ export default function AdminSidebar() {
                         <Link
                             key={ item.href }
                             href={ item.href }
-                            className={ `block px-4 py-3 transition ${active
+                            className={ `flex items-center gap-4 px-4 py-3 transition ${active
                                     ? "bg-white text-black"
-                                : "text-text-primary hover:bg-secondary hover:text-primary-dark"
+                                : "text-text-primary hover:bg-secondary/80 hover:text-primary-dark"
                                 }` }
                         >
+                            {item.icon}
                             { item.name }
                         </Link>
                     );

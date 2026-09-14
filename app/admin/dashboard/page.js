@@ -194,7 +194,7 @@ export default function AdminDashboard() {
             }
         }
         fetchStatistics();
-    },[]);
+    },[duration]);
     console.log(dataStatistics);
     return (
         <section>

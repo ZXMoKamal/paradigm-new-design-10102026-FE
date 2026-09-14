@@ -2,7 +2,9 @@
 import { deleteEvent } from "@/api/admin/events";
 import { getEvents } from "@/api/events";
 import AddEventForm from "@/components/admin/addEventForm";
+import EditEventForm from "@/components/admin/editEventForm";
 import ArrowRight from "@/components/icons/arrowRight";
+import Pencil from "@/components/icons/pencil";
 import Trash from "@/components/icons/trash";
 import ImagesGrid from "@/components/shared/imageGrid";
 // import AdminPastEventsSection from "@/components/sections/adminPastEventsSection";
@@ -46,6 +48,9 @@ function EventsTable({
   path = "/portfolio/",
 }) {
   const [de, sde] = useState(0);
+
+    const [requestTitle, setRequestTitle] = useState("");
+  const [editFormOpen, setEditFormOpen] = useState(false);
 
   const [columnWidths, setColumnWidths] = useState({
     id: 70,
@@ -302,18 +307,18 @@ function EventsTable({
                   </Link >
 
                   {/* Edit */ }
-                  {/* < button
+                  < button
                     type="button"
                     title="Edit event"
                     onClick={ async (e) => {
                       e.stopPropagation();
-
-                      // await onDelete(event.id);
+                      setEditFormOpen(true);
+                      setRequestTitle(event.requestTitle);
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
-                    <Trash className="h-5 w-5 fill-light-red" />
-                  </ button> */}
+                    <Pencil className="h-5 w-5 fill-light-blue" />
+                  </ button>
 
                   {/* Delete */ }
                   < button
@@ -322,8 +327,11 @@ function EventsTable({
                     onClick={ async (e) => {
                       e.stopPropagation();
 
-                      const i = await onDelete(event.id);
-                      i.ok && sde(event.id)
+                      if(confirm("are you sure to delete : "+event.name)){
+
+                        const i = await onDelete(event.id);
+                        i.ok && sde(event.id)
+                      }
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
@@ -354,6 +362,7 @@ function EventsTable({
           </div>
         )
       }
+      <EditEventForm requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
     </div >
   );
 }
