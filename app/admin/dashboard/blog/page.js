@@ -51,12 +51,14 @@ const [requestTitle, setRequestTitle] = useState("");
   const [editFormOpen, setEditFormOpen] = useState(false);
 
   const [columnWidths, setColumnWidths] = useState({
-    id: 70,
+    id: 50,
     thumb: 200,
-    name: 500,
+    name: 300,
     requestTitle: 220,
     createdOn: 160,
     createdBy: 160,
+    lastUpdateOn: 160,
+    lastUpdateBy: 160,
     actions: 200,
   });
 
@@ -199,6 +201,16 @@ const [requestTitle, setRequestTitle] = useState("");
               <ResizeHandle column="createdBy" />
             </th>
 
+            <th className="relative px-4 py-4 text-left">
+              Last Update On
+              <ResizeHandle column="createdOn" />
+            </th>
+
+            <th className="relative px-4 py-4 text-left">
+              Last Update By
+              <ResizeHandle column="createdBy" />
+            </th>
+
             <th className="relative px-4 py-4 text-center">
               Actions
               <ResizeHandle column="actions" />
@@ -288,6 +300,34 @@ const [requestTitle, setRequestTitle] = useState("");
                 </div>
               </td>
 
+              {/*Last Update On */ }
+              <td className="px-4 py-4">
+                <div
+                  title={ event.lastUpdateOn }
+                  className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                >
+                  { event.lastUpdateOn || "-" }
+                </div>
+              </td>
+
+              {/*Last Update By */ }
+              <td className="px-4 py-4">
+                <div
+                  title={ event.lastUpdateBy }
+                  className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                >
+                  { event.lastUpdateBy || "-" }
+                </div>
+              </td>
+
               {/* Actions */ }
               <td className="px-4 py-4">
                 <div className="flex items-center justify-center gap-3">
@@ -324,9 +364,11 @@ const [requestTitle, setRequestTitle] = useState("");
                     title="Delete event"
                     onClick={ async (e) => {
                       e.stopPropagation();
+                      if(confirm("are you sure to delete : "+event.name)){
+                        const i =await onDelete(event.id);
+                        i.success && sde(event.id);
+                      }
 
-                      const i =await onDelete(event.id);
-i.success && sde(event.id)
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >

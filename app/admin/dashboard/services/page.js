@@ -2,8 +2,10 @@
 import { deleteService } from "@/api/admin/services";
 import { getServices } from "@/api/services";
 import AddServicesForm from "@/components/admin/addServicesForm";
+import EditServicesForm from "@/components/admin/editServiceForm";
 import ArrowRight from "@/components/icons/arrowRight";
 import { servicesIconCode } from "@/components/icons/iconCodes.js/servicesIconCode";
+import Pencil from "@/components/icons/pencil";
 import Trash from "@/components/icons/trash";
 // import AdminPastEventsSection from "@/components/sections/adminPastEventsSection";
 import TabNav from "@/components/shared/tabNav";
@@ -60,14 +62,19 @@ function EventsTable({
   path = "/portfolio/",
 }) {
   const [de, sde] = useState(0);
+  
+  const [requestTitle, setRequestTitle] = useState("");
+  const [editFormOpen, setEditFormOpen] = useState(false);
 
   const [columnWidths, setColumnWidths] = useState({
     id: 70,
-    thumb: 200,
-    name: 500,
+    thumb: 100,
+    name: 300,
     requestTitle: 220,
     createdOn: 160,
     createdBy: 160,
+    lastUpdateOn: 160,
+    lastUpdateBy: 160,
     actions: 200,
   });
 
@@ -210,6 +217,16 @@ function EventsTable({
               <ResizeHandle column="createdBy" />
             </th>
 
+            <th className="relative px-4 py-4 text-left">
+              Last Update On
+              <ResizeHandle column="createdOn" />
+            </th>
+
+            <th className="relative px-4 py-4 text-left">
+              Last Update By
+              <ResizeHandle column="createdBy" />
+            </th>
+
             <th className="relative px-4 py-4 text-center">
               Actions
               <ResizeHandle column="actions" />
@@ -303,6 +320,35 @@ function EventsTable({
                   { event.createdBy || "-" }
                 </div>
               </td>
+              
+              
+              {/* Last Update On */ }
+              <td className="px-4 py-4">
+                <div
+                  title={ event.lastUpdateOn }
+                  className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                >
+                  { event.lastUpdateOn || "-" }
+                </div>
+              </td>
+
+              {/* Last Update By */ }
+              <td className="px-4 py-4">
+                <div
+                  title={ event.lastUpdateBy }
+                  className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                >
+                  { event.lastUpdateBy || "-" }
+                </div>
+              </td>
 
               {/* Actions */ }
               <td className="px-4 py-4">
@@ -320,19 +366,19 @@ function EventsTable({
                     <ArrowRight className="h-5 w-5" />
                   </Link >
 
-                  {/* Edit */ }
-                  {/* < button
+                   {/* Edit */ }
+                  < button
                     type="button"
                     title="Edit event"
                     onClick={ async (e) => {
                       e.stopPropagation();
-
-                      // await onDelete(event.id);
+                      setEditFormOpen(true);
+                      setRequestTitle(event.requestTitle);
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
-                    <Trash className="h-5 w-5 fill-light-red" />
-                  </ button> */}
+                    <Pencil className="h-5 w-5 fill-light-blue" />
+                  </ button>
 
                   {/* Delete */ }
                   < button
@@ -340,9 +386,10 @@ function EventsTable({
                     title="Delete event"
                     onClick={ async (e) => {
                       e.stopPropagation();
-
-                      const i = await onDelete(event.id);
-                      i.success && sde(event.id)
+                      if(confirm("are you sure to delete : "+event.title)){
+                        const i = await onDelete(event.id);
+                        i.success && sde(event.id)
+                      }
                     } }
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
@@ -373,6 +420,9 @@ function EventsTable({
           </div>
         )
       }
+            
+      <EditServicesForm requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
+      
     </div >
   );
 }

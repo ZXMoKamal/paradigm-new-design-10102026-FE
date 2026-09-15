@@ -25,6 +25,8 @@ const [paragraphs, setParagraphs] = useState([
     },
 ]);
 
+const [blogId, setBlogId] = useState(null);
+
 const [currentThumb, setCurrentThumb] = useState(null);
 const [newThumb, setNewThumb] = useState(null);
 
@@ -72,7 +74,7 @@ useEffect(() => {
             }
 
             const blog = data;
-
+            setBlogId(blog.id);
             // -------------------------------------------------
             // Article information
             // -------------------------------------------------
@@ -108,16 +110,11 @@ try {
     console.error("Failed to parse blog content:", error);
     parsedContent = [];
 }
-
-
-console.log(parsedContent);
-
-
             if (
                 Array.isArray(parsedContent) &&
                 parsedContent.length > 0
             ) {
-                console.log("igsasasasasasasasasasa");
+
                 setParagraphs(
                     parsedContent.map((item) => ({
                         title: item.title || "",
@@ -278,7 +275,7 @@ const handleSubmit = async (e) => {
         // -------------------------------------------------
 
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}/admin/editBlog.php`,
+            `${process.env.NEXT_PUBLIC_API_URL}/admin/editArticle.php`,
             {
                 method: "POST",
 

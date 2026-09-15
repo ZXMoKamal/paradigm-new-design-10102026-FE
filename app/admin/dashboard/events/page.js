@@ -59,6 +59,8 @@ function EventsTable({
     requestTitle: 220,
     createdOn: 160,
     createdBy: 160,
+    lastUpdateOn: 160,
+    lastUpdateBy: 160,
     actions: 200,
   });
 
@@ -201,6 +203,16 @@ function EventsTable({
               <ResizeHandle column="createdBy" />
             </th>
 
+            <th className="relative px-4 py-4 text-left">
+              Last Update On
+              <ResizeHandle column="lastUpdateOn" />
+            </th>
+
+            <th className="relative px-4 py-4 text-left">
+              Last Update By
+              <ResizeHandle column="lastUpdateBy" />
+            </th>
+
             <th className="relative px-4 py-4 text-center">
               Actions
               <ResizeHandle column="actions" />
@@ -290,6 +302,34 @@ function EventsTable({
                 </div>
               </td>
 
+              {/* Last Update On */ }
+              <td className="px-4 py-4">
+                <div
+                  title={ event.lastUpdateOn }
+                  className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                >
+                  { event.lastUpdateOn || "-" }
+                </div>
+              </td>
+
+              {/* Last Update By */ }
+              <td className="px-4 py-4">
+                <div
+                  title={ event.lastUpdateBy }
+                  className="
+                                        overflow-hidden
+                                        text-ellipsis
+                                        whitespace-nowrap
+                                    "
+                >
+                  { event.lastUpdateBy || "-" }
+                </div>
+              </td>
+
               {/* Actions */ }
               <td className="px-4 py-4">
                 <div className="flex items-center justify-center gap-3">
@@ -328,7 +368,6 @@ function EventsTable({
                       e.stopPropagation();
 
                       if(confirm("are you sure to delete : "+event.name)){
-
                         const i = await onDelete(event.id);
                         i.ok && sde(event.id)
                       }
