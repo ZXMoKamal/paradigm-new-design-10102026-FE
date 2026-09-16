@@ -7,7 +7,10 @@ import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { auth } from "@/configs/firebase";
-import Button from "@/components/shared/button";
+
+import Trash from "@/components/icons/trash";
+import Pencil from "@/components/icons/pencil";
+import EditAdminForm from "@/components/admin/editAdminForm";
 
 
 export default function Admins() {
@@ -45,6 +48,9 @@ function AdminsTable() {
     const [admins, setAdmins] = useState([]);
     const [loading, setLoading] = useState(true);
     const [deletingUid, setDeletingUid] = useState(null);
+
+    const [selectedAdmin, setSelectedAdmin] = useState(null);
+const [showEditAdmin, setShowEditAdmin] = useState(false);
 
 
     const getAdmins = async () => {
@@ -236,23 +242,39 @@ function AdminsTable() {
                                         </span>
 
                                     ) : (
-
-                                        <Button
-                                        className="bg-light-red border-0 text-text-primary"
-
+<>
+                                        <button
+                                        className="p-2 m-2 cursor-pointer"
                                             type="button"
-                                            onClick={() =>
-                                                removeAdmin(admin.uid)
+                                            onClick={() =>{
+                                                 if (deletingUid !== admin.uid){
+                                                    setSelectedAdmin(admin);
+                                                    setShowEditAdmin(true);
+                                                 }
+                                                // removeAdmin(admin.uid)
+                                            }}
+                                            disabled={
+                                                deletingUid === admin.uid
                                             }
+                                        >
+                                            {<Pencil className={"w-6 h-6 fill-light-blue"}/>}
+                                        </button>
+                                        <button
+                                        className="p-2 m-2 cursor-pointer"
+                                            type="button"
+                                            onClick={() =>{
+                                                if (deletingUid !== admin.uid)
+                                                removeAdmin(admin.uid)
+                                            }}
                                             disabled={
                                                 deletingUid === admin.uid
                                             }
                                         >
                                             {deletingUid === admin.uid
                                                 ? "Removing..."
-                                                : "Remove"}
-                                        </Button>
-
+                                                : <Trash className={"w-6 h-6 fill-light-red"}/>}
+                                        </button>
+</>
                                     )}
 
                                 </td>
@@ -274,7 +296,21 @@ function AdminsTable() {
                 </tbody>
 
             </table>
+                {showEditAdmin && selectedAdmin && (
+                    <EditAdminForm
+                        admin={selectedAdmin}
+                        onClose={() => {
+                            setShowEditAdmin(false);
+                            setSelectedAdmin(null);
+                        }}
+                        onUpdated={(updatedAdmin) => {
 
+                            // Refresh your admins list here
+                            getAdmins();
+
+                        }}
+                    />
+                )}
         </div>
     );
 }

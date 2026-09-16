@@ -191,7 +191,7 @@ export default function AdminLogin() {
                 
                 const data = await response.json();
         
-                // console.log(data);
+                console.log(data);
                 
                 localStorage.setItem("adminName",data.name)
                 setLoading(false);
