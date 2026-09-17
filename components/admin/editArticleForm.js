@@ -12,6 +12,7 @@ requestTitle,
 open,
 onClose,
 onSuccess,
+allowEdit
 }) {
 const [form, setForm] = useState({
 name: "",
@@ -204,6 +205,7 @@ const removeParagraph = (index) => {
 // ---------------------------------------------------------
 
 const handleSubmit = async (e) => {
+    if(allowEdit){
     e.preventDefault();
 
     // -----------------------------------------------------
@@ -318,7 +320,10 @@ const handleSubmit = async (e) => {
     } finally {
         setSaving(false);
     }
-};
+}else{
+    toast.error( "you don't have access to Edit article");
+}
+}
 
 // ---------------------------------------------------------
 // Don't render when closed

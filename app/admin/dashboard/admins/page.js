@@ -11,9 +11,25 @@ import { auth } from "@/configs/firebase";
 import Trash from "@/components/icons/trash";
 import Pencil from "@/components/icons/pencil";
 import EditAdminForm from "@/components/admin/editAdminForm";
+import { useAdminAuth } from "@/context/adminACLProvider";
 
 
 export default function Admins() {
+
+    const {
+        permissions,
+        loading
+    } = useAdminAuth();
+    
+    function hasAccess(module, action) {
+    
+        if (loading || !permissions) {
+            return false;
+        }
+    
+        return permissions?.[module]?.[action] === true;
+    }
+
     const [activeTab, setActiveTab] = useState("add");
 
     const tabs = [
@@ -21,15 +37,18 @@ export default function Admins() {
             label: "Add Admin",
             value: "add",
             content: <AddAdminForm />,
+            hasAccess: hasAccess("ManageAdmins","create")
         },
         {
             label: "Admins",
             value: "admins",
-            content: <AdminsTable/>,
+            content: <AdminsTable allowEdit={hasAccess("ManageAdmins","edit")} allowDelete={hasAccess("ManageAdmins","delete")}/>,
+            hasAccess: hasAccess("ManageAdmins","view")
         },
     ];
 
     return (
+         loading?<span>Loading...</span>:
         <TabNav
             tabs={tabs}
             activeTab={activeTab}
@@ -43,7 +62,7 @@ export default function Admins() {
 
 
 
-function AdminsTable() {
+function AdminsTable({allowDelete,allowEdit}) {
 
     const [admins, setAdmins] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -243,11 +262,11 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
 
                                     ) : (
 <>
-                                        <button
+                                        {allowEdit && <button
                                         className="p-2 m-2 cursor-pointer"
                                             type="button"
                                             onClick={() =>{
-                                                 if (deletingUid !== admin.uid){
+                                                 if (allowEdit && deletingUid !== admin.uid){
                                                     setSelectedAdmin(admin);
                                                     setShowEditAdmin(true);
                                                  }
@@ -258,13 +277,15 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
                                             }
                                         >
                                             {<Pencil className={"w-6 h-6 fill-light-blue"}/>}
-                                        </button>
-                                        <button
+                                        </button>}
+                                        {allowDelete && <button
                                         className="p-2 m-2 cursor-pointer"
                                             type="button"
                                             onClick={() =>{
-                                                if (deletingUid !== admin.uid)
-                                                removeAdmin(admin.uid)
+                                                if(allowDelete && confirm("are you shure to delete")){
+                                                    if (deletingUid !== admin.uid)
+                                                    removeAdmin(admin.uid)
+                                                }
                                             }}
                                             disabled={
                                                 deletingUid === admin.uid
@@ -273,7 +294,7 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
                                             {deletingUid === admin.uid
                                                 ? "Removing..."
                                                 : <Trash className={"w-6 h-6 fill-light-red"}/>}
-                                        </button>
+                                        </button>}
 </>
                                     )}
 
@@ -298,6 +319,7 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
             </table>
                 {showEditAdmin && selectedAdmin && (
                     <EditAdminForm
+                    allowEdit={allowEdit}
                         admin={selectedAdmin}
                         onClose={() => {
                             setShowEditAdmin(false);

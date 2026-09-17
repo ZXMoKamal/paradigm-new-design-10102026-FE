@@ -9,11 +9,27 @@ import Trash from "@/components/icons/trash";
 import ImagesGrid from "@/components/shared/imageGrid";
 import TabNav from "@/components/shared/tabNav";
 import { auth } from "@/configs/firebase";
+import { useAdminAuth } from "@/context/adminACLProvider";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { toast } from "sonner";
 
 export default function Blog() {
+
+    const {
+        permissions,
+        loading
+    } = useAdminAuth();
+    
+    function hasAccess(module, action) {
+    
+        if (loading || !permissions) {
+            return false;
+        }
+    
+        return permissions?.[module]?.[action] === true;
+    }
+
     const [activeTab, setActiveTab] = useState("add");
 
     const tabs = [
@@ -21,15 +37,18 @@ export default function Blog() {
             label: "Add Blog",
             value: "add",
             content: <AddBlogForm />,
+            hasAccess:hasAccess("Blog","create")
         },
         {
             label: "Blogs",
             value: "blogs",
-            content: <AdminBlogsSection/>,
+            content: <AdminBlogsSection allowEdit={hasAccess("Blog","edit")} allowDelete={hasAccess("Blog","delete")} />,
+            hasAccess:hasAccess("Blog","view")
         },
     ];
 
     return (
+      loading?<span>Loading...</span>:
         <TabNav
             tabs={tabs}
             activeTab={activeTab}
@@ -43,8 +62,10 @@ export default function Blog() {
 function EventsTable({
   events = [],
   onDelete = async () => { },
+  allowDelete,
+  allowEdit,
   path = "/portfolio/",
-}) {
+}) {console.log(allowDelete,allowEdit)
 
   const [de,sde] = useState(0);
 const [requestTitle, setRequestTitle] = useState("");
@@ -55,7 +76,7 @@ const [requestTitle, setRequestTitle] = useState("");
     thumb: 200,
     name: 300,
     requestTitle: 220,
-    createdOn: 160,
+    createdOn: 120,
     createdBy: 160,
     lastUpdateOn: 160,
     lastUpdateBy: 160,
@@ -345,7 +366,7 @@ const [requestTitle, setRequestTitle] = useState("");
                   </Link >
 
                   {/* Edit */ }
-                  < button
+                  {allowEdit && <button
                     type="button"
                     title="Edit event"
                     onClick={ async (e) => {
@@ -356,15 +377,15 @@ const [requestTitle, setRequestTitle] = useState("");
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
                     <Pencil className="h-5 w-5 fill-light-blue" />
-                  </ button>
+                  </ button>}
 
                   {/* Delete */ }
-                  < button
+                  {allowDelete && <button
                     type="button"
                     title="Delete event"
                     onClick={ async (e) => {
                       e.stopPropagation();
-                      if(confirm("are you sure to delete : "+event.name)){
+                      if(allowDelete && confirm("are you sure to delete : "+event.name)){
                         const i =await onDelete(event.id);
                         i.success && sde(event.id);
                       }
@@ -373,7 +394,7 @@ const [requestTitle, setRequestTitle] = useState("");
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
                     <Trash className="h-5 w-5 fill-light-red" />
-                  </ button>
+                  </ button>}
 
                 </div >
               </td >
@@ -399,17 +420,17 @@ const [requestTitle, setRequestTitle] = useState("");
           </div>
         )
       }
-            <EditArticleForm requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
+            <EditArticleForm allowEdit={allowEdit} requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
       
     </div >
   );
 }
 
 
-function AdminBlogsSection() {
+function AdminBlogsSection({allowDelete,allowEdit}) {
 
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
@@ -467,6 +488,8 @@ function AdminBlogsSection() {
         events={ blogs }
         path="/article/"
         onDelete={ handleDelete }
+        allowDelete={allowDelete}
+        allowEdit={allowEdit}
       />
   </>
 

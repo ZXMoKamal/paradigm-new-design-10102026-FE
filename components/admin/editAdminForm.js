@@ -66,7 +66,8 @@ const initialPermissions = {
 export default function EditAdminForm({
     admin,
     onClose,
-    onUpdated
+    onUpdated,
+    allowEdit
 }) {
 
     const [loading, setLoading] = useState(false);
@@ -106,7 +107,7 @@ export default function EditAdminForm({
         onSubmit: async (values) => {
 
             try {
-
+                if(allowEdit){
                 setLoading(true);
 
 
@@ -204,10 +205,12 @@ export default function EditAdminForm({
                     onClose();
                 }
 
-
+            } else{
+                toast.error( "you don't have access to Edit event");
+            }
             } catch (error) {
 
-                console.error(error);
+                // console.error(error);
 
                 toast.error(
                     "Something went wrong while updating the admin"

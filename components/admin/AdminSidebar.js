@@ -14,6 +14,9 @@ import Msg from "../icons/msg";
 import HandShake from "../icons/handshake";
 import UserTie from "../icons/userTie";
 import Gear from "../icons/gear";
+import { useAdminAuth } from "@/context/adminACLProvider";
+import Pencil from "../icons/pencil";
+import Loading from "@/app/loading";
 
 const data = [
     // {
@@ -22,21 +25,25 @@ const data = [
     // },
     {
         name: "Events",
+        module: "Events",
         href: "/admin/dashboard/events",
         icon: <Calendar className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Blog",
+        module: "Blog",
         href: "/admin/dashboard/blog",
         icon: <Newspaper className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Services",
+        module: "Services",
         href: "/admin/dashboard/services",
         icon: <HandShake className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Contacts",
+        module: "Contacts",
         href: "/admin/dashboard/contacts",
         icon: <Msg className={"w-6 h-6 fill-secondary"}/>
     },
@@ -74,6 +81,7 @@ const pages = [
 const admin = [
     {
         name: "admins",
+        module: "ManageAdmins",
         href: "/admin/dashboard/admins",
         icon:<UserTie className={"w-6 h-6 fill-secondary"}/>
     },
@@ -82,6 +90,20 @@ const admin = [
 export default function AdminSidebar() {
     const pathname = usePathname();
     const router = useRouter();
+
+    const {
+    permissions,
+    loading
+} = useAdminAuth();
+
+function hasAccess(module, action) {
+
+    if (loading || !permissions) {
+        return false;
+    }
+
+    return permissions?.[module]?.[action] === true;
+}
 
     async function handleLogout() {
         try {
@@ -105,20 +127,24 @@ export default function AdminSidebar() {
                 </p>
             </div>
 
+            {loading && <span className="m-auto">loading...</span>}
+
             <nav className="space-y-2 flex-1 h-[80%] overflow-y-auto py-5">
-                <Link
+                { hasAccess("Dashboard", "view") && <Link
                     href={ "/admin/dashboard" }
                     className={ `flex gap-4 items-center px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
                 >
                     <Chart className={"w-6 h-6 fill-secondary"}/>
                     { "Dashboard" }
-                </Link>
+                </Link>}
                 <hr className="m-0"/>
                 <div className="flex gap-4 items-center px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
                     <Table className={"w-6 h-6"}/>
                     <span>Data</span>
                 </div>
-                { data.map((item) => {
+                { data  .filter((item) =>
+        hasAccess(item.module, "view")
+    ).map((item) => {
                     const active =
                         pathname === item.href;
 
@@ -137,10 +163,11 @@ export default function AdminSidebar() {
                     );
                 }) }
                 <hr className="m-0"/>
-                <div className="px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
-                    Edit Pages
+                <div className="flex items-center gap-4 px-4 py-2 text-lg tracking-widest font-semibold text-primary-dark bg-secondary">
+                    <Pencil className={"w-6 h-6"}/>
+                    <span>Edit Pages</span>
                 </div>
-                { pages.map((item) => {
+                {  hasAccess("EditPages", "view") && pages.map((item) => {
                     const active =
                         pathname === item.href;
 
@@ -162,7 +189,9 @@ export default function AdminSidebar() {
                     <Gear className={"w-6 h-6"}/>
                     <span>Manage</span>
                 </div>
-                { admin.map((item) => {
+                { admin.filter((item) =>
+        hasAccess(item.module, "view")
+    ).map((item) => {
                     const active =
                         pathname === item.href;
 

@@ -5,6 +5,7 @@ import { getContacts } from "@/api/admin/contactUs";
 import { Input } from "@/components/shared/input";
 import Search from "@/components/icons/search";
 import Button from "@/components/shared/button";
+import { useAdminAuth } from "@/context/adminACLProvider";
 
 
 
@@ -14,19 +15,40 @@ function Contacts() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+
+        const {
+            permissions,
+            loadingAccess
+        } = useAdminAuth();
+        
+        function hasAccess(module, action) {
+        
+            if (loadingAccess || !permissions) {
+                return false;
+            }
+        
+            return permissions?.[module]?.[action] === true;
+        }
+
     useEffect(() => {
 
         async function loadContacts() {
 
             try {
 
-                const data = await getContacts();
-
-                setContacts(data);
+                if(hasAccess("Contacts","view")){
+                    const data = await getContacts();
+                    
+                    setContacts(data);
+                    
+                }else{
+                    
+                    setError("You don't have access right to view contacts");
+                }
 
             } catch (error) {
 
-                console.error(error);
+                // console.error(error);
 
                 setError(error.message);
 
@@ -38,7 +60,7 @@ function Contacts() {
 
         loadContacts();
 
-    }, []);
+    }, [loadingAccess]);
 
 
     if (loading) {
@@ -88,16 +110,16 @@ function ContactsTable({ contacts = [], search }) {
 
     const [columnWidths, setColumnWidths] = useState({
         id: 50,
-        name: 180,
-        email: 230,
-        phone: 160,
-        subject: 150,
-        service: 220,
-        message: 350,
+        name: 160,
+        email: 200,
+        phone: 130,
+        subject: 120,
+        service: 180,
+        message: 280,
         adminMail: 120,
         customerMail: 140,
-        createdOn: 140,
-        createdBy: 140,
+        createdOn: 120,
+        createdBy: 120,
     });
 
     const resizingRef = useRef(null);

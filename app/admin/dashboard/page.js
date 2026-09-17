@@ -2,6 +2,7 @@
 
 import { getDataStatistics } from "@/api/admin/statistics";
 import { auth } from "@/configs/firebase";
+import { useAdminAuth } from "@/context/adminACLProvider";
 import { useEffect, useState } from "react";
 import {
     Area,
@@ -176,6 +177,25 @@ function CardTitle({ title, subtitle }) {
 export default function AdminDashboard() {
     const [duration,setDuration]=useState("LAST_7_DAYS");
     const [dataStatistics, setDataStatistics] = useState(null);
+
+    const {
+        permissions,
+        loading
+    } = useAdminAuth();
+    
+    function hasAccess(module, action) {
+    
+        if (loading || !permissions) {
+            return false;
+        }
+    
+        return permissions?.[module]?.[action] === true;
+    }
+
+    if(!hasAccess("dashboard","view")){
+        return <span>You don't have access right to view statistics</span>
+    }
+
     useEffect(() => {
         async function fetchStatistics() {
             try {

@@ -7,7 +7,7 @@ import { auth } from "@/configs/firebase";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-export default function EditEventForm({ requestTitle, open, onClose, onSuccess }) {
+export default function EditEventForm({ allowEdit, requestTitle, open, onClose, onSuccess }) {
     const [form, setForm] = useState({
         name: "",
         description: "",
@@ -154,7 +154,7 @@ export default function EditEventForm({ requestTitle, open, onClose, onSuccess }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+if(allowEdit){
         try {
             setSaving(true);
 
@@ -247,6 +247,7 @@ export default function EditEventForm({ requestTitle, open, onClose, onSuccess }
         } finally {
             setSaving(false);
         }
+    }
     };
 
     // --------------------------------------------------

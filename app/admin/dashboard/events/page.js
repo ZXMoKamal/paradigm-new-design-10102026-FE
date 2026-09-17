@@ -10,11 +10,29 @@ import ImagesGrid from "@/components/shared/imageGrid";
 // import AdminPastEventsSection from "@/components/sections/adminPastEventsSection";
 import TabNav from "@/components/shared/tabNav";
 import { auth } from "@/configs/firebase";
+import { useAdminAuth } from "@/context/adminACLProvider";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
 import { toast } from "sonner";
 
 export default function Event() {
+
+
+  const {
+      permissions,
+      loading
+  } = useAdminAuth();
+  
+  function hasAccess(module, action) {
+  
+      if (loading || !permissions) {
+          return false;
+      }
+  
+      return permissions?.[module]?.[action] === true;
+  }
+
+
   const [activeTab, setActiveTab] = useState("add");
 
   const tabs = [
@@ -22,15 +40,18 @@ export default function Event() {
       label: "Add Event",
       value: "add",
       content: <AddEventForm />,
+      hasAccess:hasAccess("Events","create")
     },
     {
       label: "Events",
       value: "events",
-      content: <AdminPastEventsSection />,
+      content: <AdminPastEventsSection allowDelete={hasAccess("Events","delete")} allowEdit={hasAccess("Events","edit")}/>,
+      hasAccess:hasAccess("Events","view")
     },
   ];
 
   return (
+    loading?<span>Loading...</span>:
     <TabNav
       tabs={ tabs }
       activeTab={ activeTab }
@@ -45,6 +66,7 @@ export default function Event() {
 function EventsTable({
   events = [],
   onDelete = async () => { },
+  allowDelete,allowEdit,
   path = "/portfolio/",
 }) {
   const [de, sde] = useState(0);
@@ -53,13 +75,13 @@ function EventsTable({
   const [editFormOpen, setEditFormOpen] = useState(false);
 
   const [columnWidths, setColumnWidths] = useState({
-    id: 70,
+    id: 50,
     thumb: 200,
-    name: 500,
+    name: 250,
     requestTitle: 220,
-    createdOn: 160,
+    createdOn: 120,
     createdBy: 160,
-    lastUpdateOn: 160,
+    lastUpdateOn: 150,
     lastUpdateBy: 160,
     actions: 200,
   });
@@ -347,7 +369,7 @@ function EventsTable({
                   </Link >
 
                   {/* Edit */ }
-                  < button
+                  {allowEdit && <button
                     type="button"
                     title="Edit event"
                     onClick={ async (e) => {
@@ -358,16 +380,16 @@ function EventsTable({
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
                     <Pencil className="h-5 w-5 fill-light-blue" />
-                  </ button>
+                  </ button>}
 
                   {/* Delete */ }
-                  < button
+                  {allowDelete && <button
                     type="button"
                     title="Delete event"
                     onClick={ async (e) => {
                       e.stopPropagation();
 
-                      if(confirm("are you sure to delete : "+event.name)){
+                      if(allowDelete && confirm("are you sure to delete : "+event.name)){
                         const i = await onDelete(event.id);
                         i.ok && sde(event.id)
                       }
@@ -375,7 +397,7 @@ function EventsTable({
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
                     <Trash className="h-5 w-5 fill-light-red" />
-                  </ button>
+                  </ button>}
 
                 </div >
               </td >
@@ -401,16 +423,16 @@ function EventsTable({
           </div>
         )
       }
-      <EditEventForm requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
+      <EditEventForm requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)} allowEdit={allowEdit}/>
     </div >
   );
 }
 
 
 
-function AdminPastEventsSection() {
+function AdminPastEventsSection({allowDelete,allowEdit}) {
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
@@ -468,6 +490,8 @@ function AdminPastEventsSection() {
       events={ events }
       path="/portfolio/"
       onDelete={ handleDelete }
+      allowDelete={allowDelete}
+      allowEdit={allowEdit}
     />
   );
 }

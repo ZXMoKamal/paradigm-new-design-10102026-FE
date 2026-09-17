@@ -10,12 +10,30 @@ import Trash from "@/components/icons/trash";
 // import AdminPastEventsSection from "@/components/sections/adminPastEventsSection";
 import TabNav from "@/components/shared/tabNav";
 import { auth } from "@/configs/firebase";
+import { useAdminAuth } from "@/context/adminACLProvider";
 import { cn } from "@/lib/cn";
 import Link from "next/link";
 import { useEffect, useState,useRef } from "react";
 import { toast } from "sonner";
 
 export default function Event() {
+
+
+  const {
+          permissions,
+          loading
+      } = useAdminAuth();
+      
+      function hasAccess(module, action) {
+      
+          if (loading || !permissions) {
+              return false;
+          }
+      
+          return permissions?.[module]?.[action] === true;
+      }
+
+
     const [activeTab, setActiveTab] = useState("add");
 
     const tabs = [
@@ -23,11 +41,15 @@ export default function Event() {
             label: "Add Service",
             value: "add",
             content: <AddServicesForm />,
+            hasAccess:hasAccess("Services","create")
+
         },
         {
             label: "Services",
             value: "services",
-            content: <AdminServicesSection/>,
+            content: <AdminServicesSection allowDelete={hasAccess("Services","delete")} allowEdit={hasAccess("Services","edit")}/>,
+            hasAccess:hasAccess("Services","view")
+
         },
     ];
 
@@ -59,6 +81,8 @@ export default function Event() {
 function EventsTable({
   events = [],
   onDelete = async () => { },
+  allowDelete,
+  allowEdit,
   path = "/portfolio/",
 }) {
   const [de, sde] = useState(0);
@@ -367,7 +391,7 @@ function EventsTable({
                   </Link >
 
                    {/* Edit */ }
-                  < button
+                  {allowEdit && < button
                     type="button"
                     title="Edit event"
                     onClick={ async (e) => {
@@ -378,15 +402,15 @@ function EventsTable({
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
                     <Pencil className="h-5 w-5 fill-light-blue" />
-                  </ button>
+                  </ button>}
 
                   {/* Delete */ }
-                  < button
+                  {allowDelete && < button
                     type="button"
                     title="Delete event"
                     onClick={ async (e) => {
                       e.stopPropagation();
-                      if(confirm("are you sure to delete : "+event.title)){
+                      if(allowDelete && confirm("are you sure to delete : "+event.title)){
                         const i = await onDelete(event.id);
                         i.success && sde(event.id)
                       }
@@ -394,7 +418,7 @@ function EventsTable({
                     className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-light-red cursor-pointer transition hover: scale-105"
                   >
                     <Trash className="h-5 w-5 fill-light-red" />
-                  </ button>
+                  </ button>}
 
                 </div >
               </td >
@@ -421,7 +445,7 @@ function EventsTable({
         )
       }
             
-      <EditServicesForm requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
+      <EditServicesForm allowDelete={allowDelete} allowEdit={allowEdit} requestTitle={requestTitle} open={editFormOpen} onClose={()=>setEditFormOpen(false)}/>
       
     </div >
   );
@@ -431,10 +455,12 @@ function EventsTable({
 function AdminServicesSection({
   nameTag: NameTag = "h3",
   className = "",
+  allowDelete,
+  allowEdit
 }) {
 
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
 
@@ -489,6 +515,8 @@ function AdminServicesSection({
         events={ services }
         path="/services/"
         onDelete={ handleDelete }
+        allowDelete={allowDelete}
+        allowEdit={allowEdit}
       />
    
     </>

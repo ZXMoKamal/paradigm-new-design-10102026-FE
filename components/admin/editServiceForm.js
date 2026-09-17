@@ -11,6 +11,7 @@ requestTitle,
 open,
 onClose,
 onSuccess,
+allowDelete
 }) {
 
 const [form, setForm] = useState({
@@ -202,6 +203,7 @@ const removeHighlight = (index) => {
 // ---------------------------------------------------------
 
 const handleSubmit = async (e) => {
+    if(allowDelete){
     e.preventDefault();
 
     // -----------------------------------------------------
@@ -351,6 +353,7 @@ const handleSubmit = async (e) => {
     } finally {
         setSaving(false);
     }
+}
 };
 
 // ---------------------------------------------------------
