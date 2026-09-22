@@ -6,19 +6,21 @@ export default function AdminLayout({ children }) {
     return (
         <AdminAuthProvider>
 
-            <div className="min-h-screen">
+            {/* <div className=""> */}
 
-                <div className="flex">
+                <div className="flex min-h-screen">
 
                     <AdminSidebar />
 
-                    <main className="min-h-screen flex-1 p-8 pt-30 overflow-x-scroll">
-                        {children}
+                    <main className="flex-1 pb-10 overflow-scroll h-[92vh] mt-[60px] ml-[30px] overflow-x-scroll overflow-y-hidden scrollbar">
+                        <div className="min-w-[99%] w-fit flex-1 p-8 ml-[30px] mt-[35px] rounded-tl-2xl h-full overflow-y-scroll overflow-x-visible bg-priamry shadow scrollbar-hide">
+                            {children}
+                        </div>
                     </main>
 
                 </div>
 
-            </div>
+            {/* </div> */}
 
         </AdminAuthProvider>
     );

@@ -192,30 +192,35 @@ export default function AdminDashboard() {
         return permissions?.[module]?.[action] === true;
     }
 
-    if(!hasAccess("dashboard","view")){
-        return <span>You don't have access right to view statistics</span>
-    }
-
+    
     useEffect(() => {
         async function fetchStatistics() {
             try {
+                if(hasAccess("dashboard","view")){
                       const user = auth.currentUser;
-                
+                      
                       let fbToken = null;
-                
+                      
                       if (user) {
                         fbToken = await user.getIdToken();
                       }
 
-                const data = await getDataStatistics(duration, fbToken);
+                      const data = await getDataStatistics(duration, fbToken);
                 setDataStatistics(data);
+                    }
             } catch (error) {
-                console.error("Error fetching dataStatistics:", error);
+                console.log("Error fetching dataStatistics:", error);
             }
         }
         fetchStatistics();
     },[duration]);
+
     console.log(dataStatistics);
+
+    if(!hasAccess("dashboard","view")){
+        return <span>You don't have access right to view statistics</span>
+    }
+
     return (
         <section>
             {/* <h1 className="text-3xl font-bold">

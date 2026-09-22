@@ -40,13 +40,13 @@ export default function Event() {
       label: "Add Event",
       value: "add",
       content: <AddEventForm />,
-      hasAccess:hasAccess("Events","create")
+      hasAccess:hasAccess("events","create")
     },
     {
       label: "Events",
       value: "events",
-      content: <AdminPastEventsSection allowDelete={hasAccess("Events","delete")} allowEdit={hasAccess("Events","edit")}/>,
-      hasAccess:hasAccess("Events","view")
+      content: <AdminPastEventsSection allowDelete={hasAccess("events","delete")} allowEdit={hasAccess("events","edit")}/>,
+      hasAccess:hasAccess("events","view")
     },
   ];
 

@@ -25,25 +25,25 @@ const data = [
     // },
     {
         name: "Events",
-        module: "Events",
+        module: "events",
         href: "/admin/dashboard/events",
         icon: <Calendar className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Blog",
-        module: "Blog",
+        module: "blog",
         href: "/admin/dashboard/blog",
         icon: <Newspaper className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Services",
-        module: "Services",
+        module: "services",
         href: "/admin/dashboard/services",
         icon: <HandShake className={"w-6 h-6 fill-secondary"}/>
     },
     {
         name: "Contacts",
-        module: "Contacts",
+        module: "contacts",
         href: "/admin/dashboard/contacts",
         icon: <Msg className={"w-6 h-6 fill-secondary"}/>
     },
@@ -81,7 +81,7 @@ const pages = [
 const admin = [
     {
         name: "admins",
-        module: "ManageAdmins",
+        module: "manageAdmins",
         href: "/admin/dashboard/admins",
         icon:<UserTie className={"w-6 h-6 fill-secondary"}/>
     },
@@ -116,7 +116,7 @@ function hasAccess(module, action) {
     }
 
     return (
-        <aside className="sticky top-0 h-screen w-64 shrink-0 flex flex-col  text-text-primary bg-primary-dark pt-30">
+        <aside className="sticky top-0 h-screen w-64 shrink-0 flex flex-col  text-text-primary pt-30">
             <div className="mb-3">
                 <h1 className="text-xl font-bold text-text-primary text-center">
                     {localStorage.getItem("adminName")}
@@ -130,7 +130,7 @@ function hasAccess(module, action) {
             {loading && <span className="m-auto">loading...</span>}
 
             <nav className="space-y-2 flex-1 h-[80%] overflow-y-auto py-5">
-                { hasAccess("Dashboard", "view") && <Link
+                { (hasAccess("dashboard", "view")) && <Link
                     href={ "/admin/dashboard" }
                     className={ `flex gap-4 items-center px-4 py-3 transition "text-text-primary hover:bg-secondary hover:text-primary-dark` }
                 >
@@ -143,7 +143,7 @@ function hasAccess(module, action) {
                     <span>Data</span>
                 </div>
                 { data  .filter((item) =>
-        hasAccess(item.module, "view")
+        hasAccess(item.module, "view") || hasAccess(item.module, "create")
     ).map((item) => {
                     const active =
                         pathname === item.href;
@@ -167,7 +167,7 @@ function hasAccess(module, action) {
                     <Pencil className={"w-6 h-6"}/>
                     <span>Edit Pages</span>
                 </div>
-                {  hasAccess("EditPages", "view") && pages.map((item) => {
+                {  (hasAccess("editPages", "view")||hasAccess("editPages", "create")) && pages.map((item) => {
                     const active =
                         pathname === item.href;
 
@@ -190,7 +190,7 @@ function hasAccess(module, action) {
                     <span>Manage</span>
                 </div>
                 { admin.filter((item) =>
-        hasAccess(item.module, "view")
+        hasAccess(item.module, "view") || hasAccess(item.module, "create")
     ).map((item) => {
                     const active =
                         pathname === item.href;

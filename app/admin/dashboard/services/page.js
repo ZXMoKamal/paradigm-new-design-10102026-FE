@@ -41,14 +41,14 @@ export default function Event() {
             label: "Add Service",
             value: "add",
             content: <AddServicesForm />,
-            hasAccess:hasAccess("Services","create")
+            hasAccess:hasAccess("services","create")
 
         },
         {
             label: "Services",
             value: "services",
-            content: <AdminServicesSection allowDelete={hasAccess("Services","delete")} allowEdit={hasAccess("Services","edit")}/>,
-            hasAccess:hasAccess("Services","view")
+            content: <AdminServicesSection allowDelete={hasAccess("services","delete")} allowEdit={hasAccess("services","edit")}/>,
+            hasAccess:hasAccess("services","view")
 
         },
     ];

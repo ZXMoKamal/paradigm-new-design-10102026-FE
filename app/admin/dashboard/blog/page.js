@@ -37,13 +37,13 @@ export default function Blog() {
             label: "Add Blog",
             value: "add",
             content: <AddBlogForm />,
-            hasAccess:hasAccess("Blog","create")
+            hasAccess:hasAccess("blog","create")
         },
         {
             label: "Blogs",
             value: "blogs",
-            content: <AdminBlogsSection allowEdit={hasAccess("Blog","edit")} allowDelete={hasAccess("Blog","delete")} />,
-            hasAccess:hasAccess("Blog","view")
+            content: <AdminBlogsSection allowEdit={hasAccess("blog","edit")} allowDelete={hasAccess("blog","delete")} />,
+            hasAccess:hasAccess("blog","view")
         },
     ];
 

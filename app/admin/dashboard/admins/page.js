@@ -37,13 +37,13 @@ export default function Admins() {
             label: "Add Admin",
             value: "add",
             content: <AddAdminForm />,
-            hasAccess: hasAccess("ManageAdmins","create")
+            hasAccess: hasAccess("manageAdmins","create")
         },
         {
             label: "Admins",
             value: "admins",
-            content: <AdminsTable allowEdit={hasAccess("ManageAdmins","edit")} allowDelete={hasAccess("ManageAdmins","delete")}/>,
-            hasAccess: hasAccess("ManageAdmins","view")
+            content: <AdminsTable allowEdit={hasAccess("manageAdmins","edit")} allowDelete={hasAccess("manageAdmins","delete")}/>,
+            hasAccess: hasAccess("manageAdmins","view")
         },
     ];
 
@@ -218,6 +218,12 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
                         <th className="px-4 py-3 text-left">
                             Created By
                         </th>
+                        <th className="px-4 py-3 text-left">
+                            Last Updated On
+                        </th>
+                        <th className="px-4 py-3 text-left">
+                            Last Updated By
+                        </th>
                     </tr>
                 </thead>
 
@@ -228,7 +234,7 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
 
                         <tr>
                             <td
-                                colSpan={3}
+                                colSpan={7}
                                 className="px-4 py-8 text-center"
                             >
                                 No admins found
@@ -282,7 +288,7 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
                                         className="p-2 m-2 cursor-pointer"
                                             type="button"
                                             onClick={() =>{
-                                                if(allowDelete && confirm("are you shure to delete")){
+                                                if(allowDelete ){ //&& confirm("are you sure to delete")
                                                     if (deletingUid !== admin.uid)
                                                     removeAdmin(admin.uid)
                                                 }
@@ -306,6 +312,14 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
 
                                 <td className="px-4 py-3">
                                     {admin.createdBy}
+                                </td>
+
+                                <td className="px-4 py-3">
+                                    {admin.lastUpdateOn}
+                                </td>
+
+                                <td className="px-4 py-3">
+                                    {admin.lastUpdateBy}
                                 </td>
 
                             </tr>
