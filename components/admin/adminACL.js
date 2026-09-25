@@ -37,6 +37,11 @@ const permissionsConfig = [
         key: "manageAdmins",
         label: "Manage Admins",
         actions: ["view", "create", "edit", "delete"],
+    },
+    {
+        key: "googleCloude",
+        label: "Google Cloud",
+        actions: ["view"],
     }
 ];
 

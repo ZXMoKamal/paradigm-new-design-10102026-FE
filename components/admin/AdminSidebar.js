@@ -17,6 +17,8 @@ import Gear from "../icons/gear";
 import { useAdminAuth } from "@/context/adminACLProvider";
 import Pencil from "../icons/pencil";
 import Loading from "@/app/loading";
+import Google from "../icons/google";
+import { useEffect, useState } from "react";
 
 const data = [
     // {
@@ -85,9 +87,22 @@ const admin = [
         href: "/admin/dashboard/admins",
         icon:<UserTie className={"w-6 h-6 fill-secondary"}/>
     },
+    {
+        name: "Google Cloud",
+        module: "googleCloud",
+        href: "/admin/dashboard/googleCloud",
+        icon:<Google className={"w-6 h-6 fill-secondary"}/>
+    },
 ];
 
 export default function AdminSidebar() {
+
+    const [name, setName] = useState();
+
+    useEffect(()=>{
+        setName(localStorage.getItem("adminName"));
+    },[]);
+
     const pathname = usePathname();
     const router = useRouter();
 
@@ -119,7 +134,7 @@ function hasAccess(module, action) {
         <aside className="sticky top-0 h-screen w-64 shrink-0 flex flex-col  text-text-primary pt-30">
             <div className="mb-3">
                 <h1 className="text-xl font-bold text-text-primary text-center">
-                    {localStorage.getItem("adminName")}
+                    {name}
                 </h1>
 
                 <p className="text-sm text-secondary text-center">

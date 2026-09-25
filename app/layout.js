@@ -108,6 +108,8 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+        <meta name="google-site-verification" content="GIiC148BICfGxS_KnTrmYcQaqbToFVZb9PSVbx95wOE" />
+        
       <body className="min-h-full flex flex-col">
         <JsonLd />
         <VisitorInitializer />
