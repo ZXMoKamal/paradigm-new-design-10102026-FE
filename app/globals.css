@@ -378,6 +378,10 @@ html.dark {
     text-wrap: balance;
   }
 
+  .shadow{
+    box-shadow: 0px 0px 10px #00000027; 
+  }
+
   .scrollbar{
     scrollbar-color: var(--primary) var(--primary-light); 
   }

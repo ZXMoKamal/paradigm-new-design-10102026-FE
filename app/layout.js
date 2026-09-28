@@ -8,6 +8,9 @@ import JsonLd from "@/components/seo/ld-json";
 import Aos from "aos";
 import AosInit from "@/components/animation/AOS";
 import { Toaster } from "sonner";
+import VisitorInitializer from "@/components/analytics/visitorInitializer";
+import ChatBot from "@/components/ai/chatBot";
+import VoiceTest from "@/components/ai/voicetext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -107,9 +110,14 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+        <meta name="google-site-verification" content="GIiC148BICfGxS_KnTrmYcQaqbToFVZb9PSVbx95wOE" />
+        
       <body className="min-h-full flex flex-col">
         <JsonLd />
+        <VisitorInitializer />
       <AosInit/>
+{/* <VoiceTest/> */}
+<ChatBot/>
         <Navbar/>
         {children}
         <WhatsAppButton phone="+201020799277"/>
@@ -119,3 +127,5 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+

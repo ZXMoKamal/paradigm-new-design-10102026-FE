@@ -1,8 +1,9 @@
 import { getBlog } from '@/api/blogs';
+import { getVisitorIdServer } from '@/lib/visitorIdServer';
 import React from 'react'
 
 async function BlogContent({ blogRequestTitle }) {
-      const blog = await getBlog(blogRequestTitle);
+      const blog = await getBlog(blogRequestTitle, null, await getVisitorIdServer());
     
       if(!blog){
         notFound();

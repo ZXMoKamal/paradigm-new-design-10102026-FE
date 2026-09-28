@@ -1,29 +1,46 @@
-export async function getServices() {
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL+"/services.php", {
-    cache: "default", // or use revalidate if needed
-  });
+export async function getServices(fbToken = null) {
+  const headers = {};
+
+  if (fbToken) {
+    headers.Authorization = `Bearer ${fbToken}`;
+  }
+
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + "/services.php",
+    {
+      cache: "default",
+      headers,
+    }
+  );
 
   if (!res.ok) {
-    // 🔥 THIS triggers error.js automatically
-    // throw new Error("Failed to fetch services");
     return [];
   }
 
   return res.json();
 }
 
-export async function getService(requestTitle) {
-  requestTitle = encodeURIComponent(requestTitle); // Encode the requestTitle to handle special characters
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL+`/services.php?requestTitle=${requestTitle}`, {
-    cache: "default", // or use revalidate if needed
-  });
-  
-  if (!res.ok) {
-    // 🔥 THIS triggers error.js automatically
-    return false;
-    // throw new Error("Failed to fetch service");
+export async function getService(requestTitle, fbToken = null, visitorId = null) {console.log("visitorId", visitorId);
+  requestTitle = encodeURIComponent(requestTitle);
+
+  const headers = {};
+
+  if (fbToken) {
+    headers.Authorization = `Bearer ${fbToken}`;
   }
-  // const s = await res.text();console.log(s);
+
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_API_URL +
+      `/services.php?requestTitle=${requestTitle}${visitorId ? `&visitorId=${visitorId}` : ''}`,
+    {
+      cache: "default",
+      headers,
+    }
+  );
+
+  if (!res.ok) {
+    return false;
+  }
 
   return res.json();
 }
