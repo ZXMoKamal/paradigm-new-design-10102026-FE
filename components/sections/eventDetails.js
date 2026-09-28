@@ -36,6 +36,9 @@ export default async function EventDetails({
 
   return (
     <>
+  
+          <PageVisitDuration itemId={event.id} page={"event"} requestTitle={event.requestTitle}/>
+      
       <h1 className="px-5 w-full lg:w-[1400px] m-auto text-[36px] sm:text-[42px] lg:text-[57px] lg:pt-10 lg:pb-10">{ event.name }</h1>
       <section className="px-5 grid lg:grid-cols-[40%_60%] m-auto w-full lg:w-[1300px] pb-10">
         
