@@ -19,6 +19,9 @@ export default async function ServiceHighlight({className, serviceRequestTitle})
     notFound();
   }
 console.log(service);
+
+
+
   return (
     <section className={cn('w-full py-5 sm:py-10 lg:py-20 px-5', className)}>
       
