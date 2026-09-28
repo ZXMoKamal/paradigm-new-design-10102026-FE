@@ -11,12 +11,12 @@ import X from "../icons/x";
 
 export default function ChatBot() {
 
-    const { speak, stop, speaking,error } = useTTS();
-useEffect(()=>{
-    speak("Hello from Paradigm");
-console.log(speaking);
-console.log(error);
-},[])
+    // const { speak, stop, speaking,error } = useTTS();
+// useEffect(()=>{
+//     speak("Hello from Paradigm");
+// console.log(speaking);
+// console.log(error);
+// },[])
 
     const chatRef = useRef(null);
 

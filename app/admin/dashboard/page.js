@@ -174,6 +174,13 @@ function CardTitle({ title, subtitle }) {
 //     );
 // }
 
+function getRandomColors(count) {
+  return Array.from({ length: count }, () => 
+    '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
+  );
+}
+
+
 export default function AdminDashboard() {
     const [duration,setDuration]=useState("LAST_7_DAYS");
     const [dataStatistics, setDataStatistics] = useState(null);
@@ -197,6 +204,7 @@ export default function AdminDashboard() {
         async function fetchStatistics() {
             try {
                 if(hasAccess("dashboard","view")){
+
                       const user = auth.currentUser;
                       
                       let fbToken = null;
@@ -213,9 +221,9 @@ export default function AdminDashboard() {
             }
         }
         fetchStatistics();
-    },[duration]);
+    },[duration,hasAccess("dashboard","view")]);
 
-    console.log(dataStatistics);
+    // console.log(dataStatistics);
 
     if(!hasAccess("dashboard","view")){
         return <span>You don't have access right to view statistics</span>
@@ -378,7 +386,9 @@ export default function AdminDashboard() {
                                         outerRadius={ 85 }
                                         paddingAngle={ 3 }
                                     >
-                                        { trafficSources.map((entry, index) => (
+                                        { trafficSources.map((entry, index) => {
+                                            const RC = getRandomColors(trafficSources.length);
+                                            return (
                                             <Cell
                                                 key={ entry.name }
                                                 fill={
@@ -391,7 +401,7 @@ export default function AdminDashboard() {
                                                     ][index]
                                                 }
                                             />
-                                        )) }
+                                        )}) }
                                     </Pie>
 
                                     <Tooltip />
@@ -399,7 +409,7 @@ export default function AdminDashboard() {
                             </ResponsiveContainer>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-3  h-[150px] overflow-y-scroll">
                                 <div
                                     
                                     className="  grid grid-cols-3  text-sm bg-primary border-b"
@@ -658,7 +668,7 @@ export default function AdminDashboard() {
                             </ResponsiveContainer>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-3 h-[300px] overflow-y-scroll">
                                 <div
                                     
                                     className="  grid grid-cols-2  text-sm bg-primary border-b justify-items-center"
@@ -732,7 +742,7 @@ export default function AdminDashboard() {
                             </ResponsiveContainer>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-3  h-[300px] overflow-y-scroll">
                                 <div
                                     
                                     className="  grid grid-cols-2  text-sm bg-primary border-b justify-items-center"
@@ -807,7 +817,7 @@ export default function AdminDashboard() {
                             </ResponsiveContainer>
                         </div>
 
-                        <div className="space-y-3">
+                        <div className="space-y-3  h-[300px] overflow-y-scroll">
                                 <div
                                     
                                     className="  grid grid-cols-2  text-sm bg-primary border-b hover:bg-secondary/50"
