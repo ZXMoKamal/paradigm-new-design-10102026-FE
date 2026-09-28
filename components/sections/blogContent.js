@@ -9,7 +9,8 @@ async function BlogContent({ blogRequestTitle }) {
         notFound();
       }
 
-  return (
+  return (<>
+          <PageVisitDuration itemId={blog.id} page={"article"} requestTitle={blog.requestTitle}/>
       <section className='px-5 m-auto w-full lg:w-[1300px] pb-10'>
           <h1 className='text-[34px] md:text-[42px] xl:text-[57px]'>{ blog.name }</h1>
           <br/>
@@ -22,6 +23,7 @@ async function BlogContent({ blogRequestTitle }) {
                   <p className='text-[16px] md:text-[18px] xl:text-[20px]'>{ item.paragraph }</p>
               </fragment>) }
     </section>
+  </>
   )
 }
 

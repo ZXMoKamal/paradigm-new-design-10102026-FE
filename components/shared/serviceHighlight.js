@@ -1,28 +1,34 @@
 // 'use client';
 
 import { getService } from '@/api/services';
+import usePageDuration from '@/hooks/usePageVisitDuration';
 import { cn } from '@/lib/cn';
 import { getVisitorIdServer } from '@/lib/visitorIdServer';
 import { notFound } from 'next/navigation';
+import PageVisitDuration from './PageVisitDuration';
 
 export default async function ServiceHighlight({className, serviceRequestTitle}) {
   // console.log(serviceRequestTitle);
   
   
-
   const s = encodeURIComponent('Event Consultancy & Management'); // Encode the title to handle special characters
   console.log(s);
-
-
+  
+  
   const service = await getService(serviceRequestTitle, null, await getVisitorIdServer());
   if(!service){
     notFound();
   }
+  
+  // usePageDuration(service.id,service.requestTitle,"service");
+
 console.log(service);
 
 
 
   return (
+    <>
+    <PageVisitDuration itemId={service.id} page={"service"} requestTitle={service.requestTitle}/>
     <section className={cn('w-full py-5 sm:py-10 lg:py-20 px-5', className)}>
       
       {/* Header */}
@@ -66,6 +72,6 @@ console.log(service);
         ))}
       </ul>
 
-    </section>
+    </section></>
   );
 }

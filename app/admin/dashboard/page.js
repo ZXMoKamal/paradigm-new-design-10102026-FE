@@ -3,6 +3,7 @@
 import { getDataStatistics } from "@/api/admin/statistics";
 import { auth } from "@/configs/firebase";
 import { useAdminAuth } from "@/context/adminACLProvider";
+import { formatDuration } from "@/lib/formatDuration";
 import { useEffect, useState } from "react";
 import {
     Area,
@@ -185,6 +186,10 @@ export default function AdminDashboard() {
     const [duration,setDuration]=useState("LAST_7_DAYS");
     const [dataStatistics, setDataStatistics] = useState(null);
 
+    const [servicesColor,setServicesColor] = useState([]);
+    const [eventsColor,setEventsColor] = useState([]);
+    const [blogsColor,setBlogsColor] = useState([]);
+
     const {
         permissions,
         loading
@@ -214,7 +219,12 @@ export default function AdminDashboard() {
                       }
 
                       const data = await getDataStatistics(duration, fbToken);
+
+                      setServicesColor(getRandomColors(data.services.length));
+                      setEventsColor(getRandomColors(data.events.length));
+                      setBlogsColor(getRandomColors(data.blogs.length));
                 setDataStatistics(data);
+
                     }
             } catch (error) {
                 console.log("Error fetching dataStatistics:", error);
@@ -646,18 +656,13 @@ export default function AdminDashboard() {
                                         innerRadius={ 55 }
                                         outerRadius={ 85 }
                                         paddingAngle={ 3 }
+                                        
                                     >
                                         { dataStatistics?.services?.map((entry, index) => (
                                             <Cell
                                                 key={ entry.name }
                                                 fill={
-                                                    [
-                                                        "var(--light-blue)",
-                                                        "var(--light-red)",
-                                                        "var(--light-green)",
-                                                        "var(--light-yellow)",
-                                                        "var(--dark-blue)",
-                                                    ][index]
+                                                    servicesColor[index]
                                                 }
                                             />
                                         )) }
@@ -671,8 +676,11 @@ export default function AdminDashboard() {
                         <div className="space-y-3 h-[300px] overflow-y-scroll">
                                 <div
                                     
-                                    className="  grid grid-cols-2  text-sm bg-primary border-b justify-items-center"
+                                    className="sticky  grid grid-cols-[50px_1fr_1fr_1fr]  text-sm bg-primary border-b justify-items-center"
                                 >
+                                    <span className="text-text-primary justify-self-start">
+                                        Color 
+                                    </span>
                                     <span className="text-text-primary justify-self-start">
                                         Service 
                                     </span>
@@ -680,20 +688,31 @@ export default function AdminDashboard() {
                                     <span className="font-semibold text-secondary justify-self-center">
                                         Total Clicks
                                     </span>
+                                    
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        Duration
+                                    </span>
                                    
                            
                                 </div>
-                            { dataStatistics?.services?.map((service) => (
+                            { dataStatistics?.services?.map((service,inx) => (
                                 <div
                                     key={ service.name }
-                                    className=" grid grid-cols-2  text-sm justify-items-center hover:bg-secondary/50"
+                                    className=" grid grid-cols-[50px_1fr_1fr_1fr]  text-sm justify-items-center items-center hover:bg-secondary/50 "
                                 >
+                                    <span className="block w-4 h-4 rounded-full text-text-primary justify-self-start" style={{backgroundColor:servicesColor[inx]}}>
+                                        
+                                    </span>
                                     <span className="text-text-primary justify-self-start">
                                         { service.name }
                                     </span>
 
                                     <span className="font-semibold text-secondary justify-self-center">
                                         { service.visits }
+                                    </span>
+                                    
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        { formatDuration(service.duration) }
                                     </span>
                                    
                                    
@@ -708,7 +727,7 @@ export default function AdminDashboard() {
                             subtitle=""
                         />
 
-                        <div className="h-[220px]">
+                        <div className="h-[220px] flex">
                             <ResponsiveContainer width="100%" height="100%">
                                 <PieChart>
                                     <Pie
@@ -725,13 +744,7 @@ export default function AdminDashboard() {
                                             <Cell
                                                 key={ entry.name }
                                                 fill={
-                                                    [
-                                                        "var(--light-blue)",
-                                                        "var(--light-red)",
-                                                        "var(--light-green)",
-                                                        "var(--light-yellow)",
-                                                        "var(--dark-blue)",
-                                                    ][index]
+                                                    eventsColor[index]
                                                 }
                                             />
                                         )) }
@@ -739,14 +752,18 @@ export default function AdminDashboard() {
 
                                     <Tooltip />
                                 </PieChart>
-                            </ResponsiveContainer>
+                                </ResponsiveContainer>
+                            
                         </div>
 
                         <div className="space-y-3  h-[300px] overflow-y-scroll">
                                 <div
                                     
-                                    className="  grid grid-cols-2  text-sm bg-primary border-b justify-items-center"
+                                    className="  grid grid-cols-[50px_1fr_1fr_1fr]  text-sm bg-primary border-b justify-items-center "
                                 >
+                                    <span className="text-text-primary justify-self-start">
+                                        Color 
+                                    </span>
                                     <span className="text-text-primary justify-self-start">
                                         Event 
                                     </span>
@@ -754,14 +771,21 @@ export default function AdminDashboard() {
                                     <span className="font-semibold text-secondary justify-self-center">
                                         Total Clicks
                                     </span>
+                                    
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        Duration
+                                    </span>
                                    
                            
                                 </div>
-                            { dataStatistics?.events?.map((event) => (
+                            { dataStatistics?.events?.map((event,inx) => (
                                 <div
                                     key={ event.name }
-                                    className=" grid grid-cols-2  text-sm justify-items-center hover:bg-secondary/50"
+                                    className=" grid grid-cols-[50px_1fr_1fr_1fr]  text-sm justify-items-center items-center hover:bg-secondary/50"
                                 >
+                                    <span className="block w-4 h-4 rounded-full text-text-primary justify-self-start" style={{backgroundColor:eventsColor[inx]}}>
+                                        
+                                    </span>
                                     <span className="text-text-primary justify-self-start">
                                         { event.name }
                                     </span>
@@ -769,7 +793,10 @@ export default function AdminDashboard() {
                                     <span className="font-semibold text-secondary justify-self-center">
                                         { event.visits }
                                     </span>
-                                   
+                                    
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        { formatDuration(event.duration) }
+                                    </span>
                                    
                                 </div>
                             )) }
@@ -800,13 +827,7 @@ export default function AdminDashboard() {
                                             <Cell
                                                 key={ entry.name }
                                                 fill={
-                                                    [
-                                                        "var(--light-blue)",
-                                                        "var(--light-red)",
-                                                        "var(--light-green)",
-                                                        "var(--light-yellow)",
-                                                        "var(--dark-blue)",
-                                                    ][index]
+                                                    blogsColor[index]
                                                 }
                                             />
                                         )) }
@@ -820,8 +841,11 @@ export default function AdminDashboard() {
                         <div className="space-y-3  h-[300px] overflow-y-scroll">
                                 <div
                                     
-                                    className="  grid grid-cols-2  text-sm bg-primary border-b hover:bg-secondary/50"
+                                    className="  grid grid-cols-[50px_1fr_1fr_1fr]  text-sm bg-primary border-b hover:bg-secondary/50"
                                 >
+                                    <span className="text-text-primary justify-self-start">
+                                        Color 
+                                    </span>
                                     <span className="text-text-primary justify-self-start">
                                         Article 
                                     </span>
@@ -829,14 +853,21 @@ export default function AdminDashboard() {
                                     <span className="font-semibold text-secondary justify-self-center">
                                         Total Clicks
                                     </span>
+                                    
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        Duration
+                                    </span>
                                    
                            
                                 </div>
-                            { dataStatistics?.blogs?.map((article) => (
+                            { dataStatistics?.blogs?.map((article,inx) => (
                                 <div
                                     key={ article.name }
-                                    className=" grid grid-cols-2  text-sm hover:bg-secondary/50"
+                                    className=" grid grid-cols-[50px_1fr_1fr_1fr] text-sm justify-items-center items-center text-sm hover:bg-secondary/50"
                                 >
+                                    <span className="block w-4 h-4 rounded-full text-text-primary justify-self-start" style={{backgroundColor:blogsColor[inx]}}>
+                                        
+                                    </span>
                                     <span className="text-text-primary justify-self-start">
                                         { article.name }
                                     </span>
@@ -845,6 +876,9 @@ export default function AdminDashboard() {
                                         { article.visits }
                                     </span>
                                    
+                                    <span className="font-semibold text-secondary justify-self-center">
+                                        { formatDuration(article.duration) }
+                                    </span>
                                    
                                 </div>
                             )) }
