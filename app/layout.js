@@ -9,6 +9,8 @@ import Aos from "aos";
 import AosInit from "@/components/animation/AOS";
 import { Toaster } from "sonner";
 import VisitorInitializer from "@/components/analytics/visitorInitializer";
+import ChatBot from "@/components/ai/chatBot";
+import VoiceTest from "@/components/ai/voicetext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -114,7 +116,8 @@ export default function RootLayout({ children }) {
         <JsonLd />
         <VisitorInitializer />
       <AosInit/>
-
+{/* <VoiceTest/> */}
+<ChatBot/>
         <Navbar/>
         {children}
         <WhatsAppButton phone="+201020799277"/>

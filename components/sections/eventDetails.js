@@ -15,7 +15,7 @@ export default async function EventDetails({
 }) {
 
 
-  const event = await getEvent(eventRequestTitle, null, await getVisitorIdServer());
+  const event = await getEvent(eventRequestTitle, null, await getVisitorIdServer());console.log(event);
 
   if(!event){
     notFound();
