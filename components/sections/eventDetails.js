@@ -7,6 +7,7 @@ import ImageSlider from "../shared/imageSlider";
 import ShareButtons from "../shared/shareButtons";
 import { notFound } from "next/navigation";
 import { getVisitorIdServer } from "@/lib/visitorIdServer";
+import PageVisitDuration from "../shared/PageVisitDuration";
 
 
 

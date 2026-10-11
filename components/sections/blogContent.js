@@ -1,6 +1,7 @@
 import { getBlog } from '@/api/blogs';
 import { getVisitorIdServer } from '@/lib/visitorIdServer';
 import React from 'react'
+import PageVisitDuration from '../shared/PageVisitDuration';
 
 async function BlogContent({ blogRequestTitle }) {
       const blog = await getBlog(blogRequestTitle, null, await getVisitorIdServer());
