@@ -372,11 +372,14 @@ html.dark {
 
   /* Horizontal logo/text tickers (template carouselTicker) */
   .animate-ticker-Normal {
-    animation: tickerNormal linear infinite;
+  animation: tickerNormal linear infinite;
+  will-change: transform;
   }
   .animate-ticker-Reversed {
-    animation: tickerReversed linear infinite;
+  animation: tickerReversed linear infinite;
+  will-change: transform;
   }
+
   .ticker-text {
     @apply text-[clamp(3.5rem,10vw,8.75rem)] font-heading font-semibold whitespace-nowrap;
     background: linear-gradient(to bottom, var(--primary), var(--bg-2), var(--primary));
@@ -390,6 +393,11 @@ html.dark {
   .animate-verticalTicker {
     animation: verticalImageTicker linear infinite;
   }
+
+  .ticker-pause-hover:hover .animate-ticker-Normal,
+.ticker-pause-hover:hover .animate-ticker-Reversed {
+  animation-play-state: paused;
+}
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -434,6 +442,7 @@ html.dark {
     .animate-ticker-Reversed,
     .animate-verticalTicker {
       animation: none;
+      will-change: auto;
     }
     html {
       scroll-behavior: auto;
