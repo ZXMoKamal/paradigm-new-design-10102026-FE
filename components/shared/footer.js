@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+
 import Linkedin from "../icons/linkedin";
 import Instagram from "../icons/instagram";
 import Facebook from "../icons/facebook";
-import Image from "next/image";
 
 export default function Footer() {
     const links = [
@@ -17,107 +18,228 @@ export default function Footer() {
         { name: "Careers", href: "/careers/" },
     ];
 
+    const socialLinks = [
+        {
+            name: "Facebook",
+            href: "https://www.facebook.com/Paradigm4events",
+            Icon: Facebook,
+        },
+        {
+            name: "Instagram",
+            href: "https://www.instagram.com/paradigm_ltd_eg/",
+            Icon: Instagram,
+        },
+        {
+            name: "LinkedIn",
+            href: "https://www.linkedin.com/company/paradigm4events/",
+            Icon: Linkedin,
+        },
+    ];
+
+    const currentYear = new Date().getFullYear();
+
     return (
-        <footer className="bg-primary text-text-primary max-w-[1400px] m-auto">
+        <footer className="overflow-hidden bg-[#06192F] text-white">
+            {/* Contact CTA */}
+            <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+                <div className="border-b border-white/20 text-center">
+                    <Link
+                        href="/contacts/"
+                        className="group relative flex min-h-36 items-center justify-center py-10 sm:min-h-48 lg:min-h-64"
+                        aria-label="Contact Paradigm"
+                    >
+                        <span className="text-[clamp(2.5rem,10vw,11.25rem)] font-semibold uppercase leading-none tracking-tight">
+                            Let&apos;s Talk US
+                        </span>
 
-            {/* ================= ROW 1 ================= */ }
-            <section className="px-5 lg:px-16 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[30%_25%_20%_15%] gap-10">
+                        <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 scale-0 items-center justify-center rounded-full bg-[#90DD8C] text-2xl text-[#001023] opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 sm:h-16 sm:w-16 lg:h-[100px] lg:w-[100px] lg:text-4xl">
+                            <span className="inline-block transition-transform duration-300 group-hover:rotate-[-45deg]">
+                                ↗
+                            </span>
+                        </span>
+                    </Link>
+                </div>
 
-                {/* COL 1 */ }
-                <section className="space-y-5 font-primary-light">
-                    <Image src="/images/logo/paradigm full logo.png" alt="paradigm capital group company logo" width="186" height="65" className="w-32 w-[186px] h-[65px]" />
+                {/* Footer columns */}
+                <div className="grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-4 lg:gap-8 lg:py-24">
+                    {/* Company */}
+                    <div>
+                        <div className="mb-7">
+                            <Link
+                                href="/"
+                                className="inline-flex items-center"
+                                aria-label="Paradigm home"
+                            >
+                                <Image
+                                    src="/images/placeholder-logo.png"
+                                    alt="Paradigm"
+                                    width={170}
+                                    height={60}
+                                    className="h-auto max-h-[60px] w-auto max-w-[170px] object-contain"
+                                />
+                            </Link>
+                        </div>
 
-                    <h2 className="font-primary-semibold text-lg">
-                        Contact Us
-                    </h2>
+                        <p className="mb-6 max-w-xs text-base leading-7 text-[#E7E7E7]">
+                            Creating memorable experiences through event
+                            management and production.
+                        </p>
 
-                    <p className="text-lg leading-relaxed">
-                        Contact us to explore exciting collaboration opportunities and take your events to the next level!
-                    </p>
-                </section>
+                        <ul className="flex flex-wrap items-center gap-2">
+                            {socialLinks.map(({ name, href, Icon }) => (
+                                <li key={name}>
+                                    <a
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={name}
+                                        className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-300 hover:bg-[#90DD8C] hover:text-[#001023]"
+                                    >
+                                        <Icon className="h-5 w-5 fill-current" />
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-                {/* COL 2 */ }
-                <section className="space-y-5">
-                    <h2 className="font-primary-semibold text-lg">
-                        Office
-                    </h2>
+                    {/* Navigation */}
+                    <div>
+                        <h2 className="mb-7 text-xl font-medium">
+                            Quick Links
+                        </h2>
 
-                    <ul className="space-y-3 text-lg font-primary-light">
-                        <li><a href="https://www.google.com/maps/place/Paradigm+Ltd./data=!4m2!3m1!1s0x0:0x3b312a21bb17f95f?sa=X&ved=1t:2428&ictx=111" target="_blank">8, 10 Ahmed Nessim Street, 9th floor, Dokki, Giza, Egypt</a></li>
-                        <li className="group">
-                            <a href="mailto:info@paradigm-eg.com" className="hover:opacity-100 relative transition">
-                                info@paradigm-eg.com
-                            
-                                {/* underline animation */ }
-                                <span className="
-                    absolute left-0 -bottom-1 h-[1px] w-full
-                    bg-white origin-left scale-x-0
-                    transition-transform duration-300
-                    group-hover:scale-x-100
-                  " />
-                            </a>
+                        <ul className="space-y-5">
+                            {links.map(({ name, href }) => (
+                                <li key={href}>
+                                    <Link
+                                        href={href}
+                                        className="group inline-flex items-center gap-2 text-base text-white/80 transition-colors duration-300 hover:text-[#90DD8C]"
+                                    >
+                                        <span className="w-0 overflow-hidden text-sm opacity-0 transition-all duration-300 group-hover:w-3 group-hover:opacity-100">
+                                            ›
+                                        </span>
+                                        {name}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-                        </li>
-                        <li>+1 234 567 890</li>
-                        <li>+1 987 654 321</li>
-                    </ul>
-                </section>
+                    {/* Contact information */}
+                    <div>
+                        <h2 className="mb-7 text-xl font-medium">
+                            Contact Us
+                        </h2>
 
-                {/* COL 3 */ }
-                <section className="space-y-5">
-                    <h2 className="font-primary-semibold text-lg">
-                        Links
-                    </h2>
-
-                    <ul className="space-y-3 font-primary-light">
-                        { links.map((link) => (
-                            <li key={ link.name } className="group">
-                                <Link
-                                    href={ link.href }
-                                    className="text-lg hover:opacity-100 relative inline-block transition"
+                        <ul className="space-y-5 text-base leading-7 text-[#E7E7E7]">
+                            <li className="flex items-start gap-3">
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-1 text-[#90DD8C]"
                                 >
-                                    { link.name }
+                                    <span className="icon-placeholder">
+                                        {/* Replace with location icon */}
+                                        ◉
+                                    </span>
+                                </span>
 
-                                    {/* underline animation */ }
-                                    <span className="
-                    absolute left-0 -bottom-1 h-[1px] w-full
-                    bg-white origin-left scale-x-0
-                    transition-transform duration-300
-                    group-hover:scale-x-100
-                  " />
-                                </Link>
+                                <a
+                                    href="https://www.google.com/maps/place/Paradigm+Ltd./data=!4m2!3m1!1s0x0:0x3b312a21bb17f95f?sa=X&ved=1t:2428&ictx=111"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="transition-colors hover:text-[#90DD8C]"
+                                >
+                                    8, 10 Ahmed Nessim Street, 9th floor,
+                                    Dokki, Giza, Egypt
+                                </a>
                             </li>
-                        )) }
-                    </ul>
-                </section>
 
-                {/* COL 4 */ }
-                <section className="space-y-5">
-                    <h2 className="font-primary-semibold text-lg">
-                        Get in Touch
-                    </h2>
+                            <li className="flex items-start gap-3">
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-1 text-[#90DD8C]"
+                                >
+                                    <span className="icon-placeholder">
+                                        {/* Replace with phone icon */}
+                                        ◉
+                                    </span>
+                                </span>
 
-                    <ul className="flex flex-col gap-4 text-lg font-primary-light">
-                        <li><a href="https://www.facebook.com/Paradigm4events" className="flex items-center gap-2 hover:opacity-100 transition">
-                            <Facebook className={"w-6 h-6 fill-text-primary"} /> Facebook
-                        </a></li>
-                        <li><a href="https://www.instagram.com/paradigm_ltd_eg/" className="flex items-center gap-2 hover:opacity-100 transition">
-                            <Instagram className={"w-6 h-6 fill-text-primary"} /> Instagram
-                        </a></li>
-                        <li><a href="https://www.linkedin.com/company/paradigm4events/" className="flex items-center gap-2 hover:opacity-100 transition">
-                            <Linkedin className={"w-6 h-6 fill-text-primary"} /> LinkedIn
-                        </a></li>
-                    </ul>
-                </section>
-            </section>
+                                <div className="flex flex-col gap-2">
+                                    <a
+                                        href="tel:+1234567890"
+                                        className="transition-colors hover:text-[#90DD8C]"
+                                    >
+                                        +1 234 567 890
+                                    </a>
 
-            {/* DIVIDER */ }
-            <div className="h-[1px] bg-white/20 mx-6 lg:mx-16" />
+                                    <a
+                                        href="tel:+1987654321"
+                                        className="transition-colors hover:text-[#90DD8C]"
+                                    >
+                                        +1 987 654 321
+                                    </a>
+                                </div>
+                            </li>
 
-            {/* ================= ROW 2 ================= */ }
-            <section className="px-6 lg:px-16 py-6 text-center text-sm">
-                Paradigm © { new Date().getFullYear() }. All Rights Reserved.
-            </section>
+                            <li className="flex items-start gap-3">
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-1 text-[#90DD8C]"
+                                >
+                                    <span className="icon-placeholder">
+                                        {/* Replace with email icon */}
+                                        ◉
+                                    </span>
+                                </span>
+
+                                <a
+                                    href="mailto:info@paradigm-eg.com"
+                                    className="break-all transition-colors hover:text-[#90DD8C]"
+                                >
+                                    info@paradigm-eg.com
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Contact CTA */}
+                    <div>
+                        <h2 className="mb-7 text-xl font-medium">
+                            Let&apos;s Work Together
+                        </h2>
+
+                        <p className="mb-6 text-base leading-7 text-[#E7E7E7]">
+                            Have a project in mind? Get in touch with our team
+                            and let&apos;s create something memorable.
+                        </p>
+
+                        <Link
+                            href="/contacts/"
+                            className="inline-flex items-center gap-3 rounded-full bg-[#90DD8C] px-6 py-3 font-medium text-[#001023] transition-colors duration-300 hover:bg-white"
+                        >
+                            Contact Us
+                            <span aria-hidden="true">↗</span>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            {/* Copyright */}
+            <div className="border-t border-white/20">
+                <div className="mx-auto flex max-w-[1440px] flex-col items-center justify-between gap-4 px-4 py-8 text-center sm:px-6 md:flex-row md:text-left lg:px-10">
+                    <p className="text-sm text-white/80">
+                        © {currentYear} Paradigm Ltd. All Rights Reserved.
+                    </p>
+
+                    <Link
+                        href="/contacts/"
+                        className="text-sm text-white/80 transition-colors hover:text-[#90DD8C]"
+                    >
+                        Contact Us
+                    </Link>
+                </div>
+            </div>
         </footer>
     );
 }
