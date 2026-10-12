@@ -114,7 +114,14 @@ export function VideoSection({
             )) }
 
             {/* Overlay */ }
-            <div className="absolute inset-0 bg-black/30" />
+            {/* <div className="absolute inset-0 bg-black/30" /> */}
+
+                    {/* Contrast overlay */}
+                <div className="absolute inset-0 bg-[#001023]/0" />
+
+                <div className="absolute inset-0 bg-gradient-to-r from-[#001023]/50 via-[#001023]/30 to-[#001023]/40" />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001023]/50 via-transparent to-[#001023]/20" />
 
             {/* Play Button */ }
             <div
@@ -126,7 +133,7 @@ export function VideoSection({
                     scale:1
                 } }
             >
-                <button onClick={()=>setOpenVideo(!openVideo)} className="w-25 h-25 rounded-full text-text-primary border border-white text-black flex items-center justify-center text-sm font-semibold shadow-lg tracking-[2] uppercase">
+                <button onClick={()=>setOpenVideo(!openVideo)} className="w-25 h-25 rounded-full text-primary border border-primary backdrop-blur-[2px] text-black flex items-center justify-center text-sm font-semibold shadow-lg tracking-[2] uppercase">
                     Play
                 </button>
             </div>

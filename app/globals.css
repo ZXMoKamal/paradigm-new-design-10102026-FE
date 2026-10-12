@@ -2,53 +2,54 @@
 
 /* ═══════════════════════════════════════════════════════════
    ROOT VARS — source of truth, overridable by JS or .dark
+   (Values from the Agenik template design system)
    ═══════════════════════════════════════════════════════════ */
 :root {
 
   /* ── 1. COLORS — Primary brand ──────────────────────────── */
-  --primary:  #042a37;
-  --primary-dark:  #042834;
-  --primary-light:  #104a5d;
+  --primary:        #90DD8C;   /* Agenik theme green       */
+  --primary-dark:   #6BC465;   /* hover / active states    */
+  --primary-light:  #B9EBB5;   /* tints, badges, soft bg   */
 
   /* Secondary */
-  --secondary: #60daef;
+  --secondary:      #C8F2C4;   /* soft mint accent         */
+
+  /* Backgrounds (dark-first template) */
+  --bg-1:           #001023;   /* deepest navy — page bg   */
+  --bg-2:           #06192F;   /* cards / sections         */
 
   /* Text */
-  --text-primary:#ffffff;
-  --text-dark:#052029;
-  --text-opacity-90:#1c1b1b4d;
-  
-  /* colors */
-  --white:#ffffff;
-  --light-red:#EA1D2D;
-  --light-blue:#00ADD8; 
-  --light-yellow:#FDB714; 
-  --light-orange:#F36E24; 
-  --light-green:#2D9A47; 
-  --dark-yellow:#D19F2A;  
-  --dark-orange:#EF412A; 
-  --dark-red:#C22033; 
-  --dark-cyan:#007DBB;
-  --dark-blue:#171f47;
-  /* --dark-brown:#785634; */
-  --dark-brown:rgb(81, 51, 21);
+  --text-primary:   #FFFFFF;   /* headings                 */
+  --text-body:      #E7E7E7;   /* paragraph                */
+  --text-black:     #0E0E0E;   /* dark text (light mode)   */
+  --text-muted:     rgba(231, 231, 231, 0.70);
+
+  /* Colors */
+  --white:          #ffffff;
+  --black:          #000000;
+  --grey-1:         #EAEAEA;
+
+  /* Borders */
+  --border-1:       rgba(255, 255, 255, 0.20);
 
   /* Semantic */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger:  #ef4444;
-  --info:    #06b6d4;
+  --success:        #22c55e;
+  --warning:        #f59e0b;
+  --danger:         #ef4444;
+  --info:           #06b6d4;
 
-  /* ── 3. SHADOWS ─────────────────────────────────────────── */
-  --shadow-back-color-brown:    0px 0px 400px 300px var(--dark-brown);
-  --shadow-back-color-blue:    0px 0px 150px 300px var(--dark-blue);
-  /* --shadow-sm:    0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow:       0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md:    0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg:    0 10px 15px -3px rgb(0 0 0 / 0.1);
-  --shadow-xl:    0 20px 25px -5px rgb(0 0 0 / 0.1);
-  --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-  --shadow-brand: 0 4px 14px 0 rgb(59 130 246 / 0.4); */
+  /* ── 2. SHADOWS ─────────────────────────────────────────── */
+  --shadow-sm:      0 1px 2px 0 rgb(0 0 0 / 0.25);
+  --shadow:         0 1px 3px 0 rgb(0 0 0 / 0.35), 0 1px 2px -1px rgb(0 0 0 / 0.35);
+  --shadow-md:      0 4px 6px -1px rgb(0 0 0 / 0.35);
+  --shadow-lg:      0 10px 15px -3px rgb(0 0 0 / 0.40);
+  --shadow-xl:      0 20px 25px -5px rgb(0 0 0 / 0.45);
+  --shadow-inner:   inset 0 2px 4px 0 rgb(0 0 0 / 0.20);
+  --shadow-brand:   0 4px 24px 0 rgb(144 221 140 / 0.35);   /* primary glow  */
+  --shadow-brand-lg: 0 8px 40px 0 rgb(144 221 140 / 0.25);
+
+  /* ── 3. LAYOUT ──────────────────────────────────────────── */
+  --container:      1320px;    /* template container width */
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -66,96 +67,113 @@
   --breakpoint-2xl: 1536px;
 
   /* ── Primary → point to :root vars ─────────────────────── */
-  --color-primary:  var(--primary);
-  --color-primary-dark:  var(--primary-dark);
+  --color-primary:        var(--primary);
+  --color-primary-dark:   var(--primary-dark);
   --color-primary-light:  var(--primary-light);
 
   /* ── Secondary → point to :root vars ───────────────────── */
-  --color-secondary: var(--secondary);
+  --color-secondary:      var(--secondary);
 
-  /* ── Text → point to :root vars ───────────────────── */
-  --color-text-primary: var(--text-primary);
-  --color-text-dark:  var(--text-dark);
-  --color-text-opacity-90:  var(--text-opacity-90);
+  /* ── Backgrounds → point to :root vars ─────────────────── */
+  --color-bg-1:           var(--bg-1);
+  --color-bg-2:           var(--bg-2);
 
-  /* ── Colors → point to :root vars ───────────────────── */
-  --color-light-red:  var(--light-red); 
-  --color-light-blue: var(--light-blue); 
-  --color-light-yellow: var(--light-yellow); 
-  --color-light-orange: var(--light-orange); 
-  --color-light-green:  var(--light-green); 
-  --color-dark-yellow:  var(--dark-yellow);  
-  --color-dark-orange:  var(--dark-orange); 
-  --color-dark-red: var(--dark-red); 
-  --color-dark-blue:  var(--dark-blue); 
-  --color-dark-blue:  var(--dark-blue); 
-  --color-dark-brown:  var(--dark-brown); 
+  /* ── Text → point to :root vars ────────────────────────── */
+  --color-text-primary:   var(--text-primary);
+  --color-text-body:      var(--text-body);
+  --color-text-black:     var(--text-black);
+  --color-text-muted:     var(--text-muted);
+
+  /* ── Colors → point to :root vars ──────────────────────── */
+  --color-white:          var(--white);
+  --color-black:          var(--black);
+  --color-grey-1:         var(--grey-1);
+
+  /* ── Borders → point to :root vars ─────────────────────── */
+  --color-border-1:       var(--border-1);
 
   /* ── Semantic → point to :root vars ────────────────────── */
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-danger:  var(--danger);
-  --color-info:    var(--info);
+  --color-success:        var(--success);
+  --color-warning:        var(--warning);
+  --color-danger:         var(--danger);
+  --color-info:           var(--info);
 
   /* ── Shadows → point to :root vars ─────────────────────── */
-  --shadow-back-color-brown:    var(--shadow-back-color-brown);
-  --shadow-back-color-blue:    var(--shadow-back-color-blue);
-  /* --shadow-sm:    var(--shadow-sm);
-  --shadow:       var(--shadow);
-  --shadow-md:    var(--shadow-md);
-  --shadow-lg:    var(--shadow-lg);
-  --shadow-xl:    var(--shadow-xl);
-  --shadow-inner: var(--shadow-inner);
-  --shadow-brand: var(--shadow-brand); */
+  --shadow-sm:            var(--shadow-sm);
+  --shadow:               var(--shadow);
+  --shadow-md:            var(--shadow-md);
+  --shadow-lg:            var(--shadow-lg);
+  --shadow-xl:            var(--shadow-xl);
+  --shadow-inner:         var(--shadow-inner);
+  --shadow-brand:         var(--shadow-brand);
+  --shadow-brand-lg:      var(--shadow-brand-lg);
 
-  /* ── Typography ─────────────────────────────────────────── */
-  --font-primary-regular: "primary-regular", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
-  --font-primary-bold:  "primary-bold", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
-  --font-primary-light: "primary-light", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
-  
-  --font-primary-medium:  "primary-medium", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
-  --font-primary-semibold:  "primary-semibold", system-ui, sans-serif, Georgia, serif,  Menlo, monospace;
+  /* ── Typography ───────────────────────────────────────────
+     PLACEHOLDER font names — replace src URLs in @font-face
+     below with your real woff2 files                       */
+  --font-heading:         "heading", "Mona Sans", system-ui, sans-serif;
+  --font-body:            "body", "Euclid Circular B", system-ui, sans-serif;
 
-  --text-xs:   0.75rem;
-  --text-sm:   0.875rem;
-  --text-base: 1rem;
-  --text-lg:   1.125rem;
-  --text-xl:   1.25rem;
-  --text-2xl:  1.5rem;
-  --text-3xl:  1.875rem;
-  --text-4xl:  2.25rem;
-  --text-5xl:  3rem;
-  --text-6xl:  3.75rem;
+  --font-heading-regular: "heading-regular", "Mona Sans", system-ui, sans-serif;
+  --font-heading-medium:  "heading-medium", "Mona Sans", system-ui, sans-serif;
+  --font-heading-semibold:"heading-semibold", "Mona Sans", system-ui, sans-serif;
+  --font-heading-bold:    "heading-bold", "Mona Sans", system-ui, sans-serif;
+
+  --font-body-regular:    "body-regular", "Euclid Circular B", system-ui, sans-serif;
+  --font-body-medium:     "body-medium", "Euclid Circular B", system-ui, sans-serif;
+  --font-body-semibold:   "body-semibold", "Euclid Circular B", system-ui, sans-serif;
+  --font-body-bold:       "body-bold", "Euclid Circular B", system-ui, sans-serif;
+
+  /* ── Font sizes (fluid headings = better responsiveness) ── */
+  --text-xs:      0.75rem;
+  --text-sm:      0.875rem;
+  --text-base:    1rem;      /* body / p — 16px per template */
+  --text-lg:      1.125rem;
+  --text-xl:      1.25rem;
+  --text-2xl:     1.5rem;
+  --text-3xl:     1.75rem;   /* h3 — 28px per template */
+  --text-4xl:     clamp(1.75rem, 1.2rem + 2.5vw, 3rem);    /* h2 fluid */
+  --text-5xl:     clamp(2.25rem, 1.5rem + 3.5vw, 4.0625rem); /* h1 fluid: 36→65px */
+  --text-6xl:     clamp(2.5rem, 1.5rem + 5vw, 5rem);
+
+  --text-h1:      var(--text-5xl);
+  --text-h2:      var(--text-4xl);
+  --text-h3:      1.75rem;
+  --text-h4:      1.25rem;
+  --text-h5:      1.125rem;
+  --text-h6:      0.875rem;
 
   /* ── Border radius ──────────────────────────────────────── */
-  --radius-xs:   0.125rem;
-  --radius-sm:   0.25rem;
-  --radius-md:   0.5rem;
-  --radius-lg:   0.75rem;
-  --radius-xl:   1rem;
-  --radius-2xl:  1.5rem;
-  --radius-3xl:  2rem;
-  --radius-full: 9999px;
+  --radius-xs:    0.125rem;
+  --radius-sm:    0.25rem;
+  --radius-md:    0.5rem;
+  --radius-lg:    0.75rem;
+  --radius-xl:    1rem;
+  --radius-2xl:   1.5rem;
+  --radius-3xl:   2rem;
+  --radius-full:  9999px;
 
   /* ── Z-index ────────────────────────────────────────────── */
-  --z-dropdown: 1000;
-  --z-sticky:   1020;
-  --z-overlay:  1030;
-  --z-modal:    1040;
-  --z-toast:    1050;
-  --z-tooltip:  1060;
+  --z-dropdown:   1000;
+  --z-sticky:     1020;
+  --z-overlay:    1030;
+  --z-modal:      1040;
+  --z-toast:      1050;
+  --z-tooltip:    1060;
 
   /* ── Gradients ──────────────────────────────────────────── */
-  /* --bg-gradient-brand: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  --bg-gradient-dark:  linear-gradient(180deg, #0f172a 0%, #1e293b 100%); */
-  --bg-vertical-image-ticker-gradient-up: linear-gradient(0deg, transparent 0%, var(--primary) 100%);
-  --bg-vertical-image-ticker-gradient-down: linear-gradient(180deg, transparent 0%, var(--primary) 100%);
-  /* ── Animations ─────────────────────────────────────────── */
-  /* --animate-fade-in:   fade-in 0.3s ease-out;
-  --animate-slide-up:  slide-up 0.4s ease-out;
-  --animate-spin-slow: spin-slow 3s linear infinite; */
+  --bg-gradient-brand:  linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --bg-gradient-dark:   linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+  --bg-vertical-image-ticker-gradient-up:   linear-gradient(0deg, transparent 0%, var(--bg-1) 100%);
+  --bg-vertical-image-ticker-gradient-down: linear-gradient(180deg, transparent 0%, var(--bg-1) 100%);
 
-  /* @keyframes fade-in {
+  /* ── Animations ─────────────────────────────────────────── */
+  --animate-fade-in:    fade-in 0.4s ease-out;
+  --animate-slide-up:   slide-up 0.5s ease-out;
+  --animate-spin-slow:  spin-slow 12s linear infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+
+  @keyframes fade-in {
     from { opacity: 0; }
     to   { opacity: 1; }
   }
@@ -166,66 +184,77 @@
   @keyframes spin-slow {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
-  } */
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 0 0 rgb(144 221 140 / 0.35); }
+    50%      { box-shadow: 0 0 24px 4px rgb(144 221 140 / 0.20); }
+  }
 
+  /* ── Ticker keyframes (template carouselTicker / vertical) */
   @keyframes tickerNormal {
-  0% {
-    transform: translateX(0%);
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
   }
-  100% {
-    transform: translateX(-50%);
-  }
-}
   @keyframes tickerReversed {
-  0% {
-    transform: translateX(-50%);
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
   }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-
-@keyframes verticalImageTicker {
-  0% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(0%);
+  @keyframes verticalImageTicker {
+    0%   { transform: translateY(-50%); }
+    100% { transform: translateY(0%); }
   }
 }
 
-
-
-}
-
+/* ═══════════════════════════════════════════════════════════
+   FONT-FACE PLACEHOLDERS — swap src with real woff2 files
+   ═══════════════════════════════════════════════════════════ */
+/* TODO: replace /fonts/*.woff2 with your actual font files */
 @font-face {
-  font-family: "primary-regular";
-  src: url("/fonts/SemplicitaPro-Regular.woff2") format("woff2");
-  font-display: swap;   /* ← shows fallback font until loaded */
-}
-
-@font-face {
-  font-family: "primary-bold";
-  src: url("/fonts/SemplicitaPro-Bold.woff2") format("woff2");
+  font-family: "heading";
+  src: url("/fonts/heading-regular.woff2") format("woff2");
+  font-weight: 400;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "primary-light";
-  src: url("/fonts/SemplicitaPro-Light.woff2") format("woff2");
+  font-family: "heading";
+  src: url("/fonts/heading-medium.woff2") format("woff2");
+  font-weight: 500;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "primary-medium";
-  src: url("/fonts/SemplicitaPro-Medium.woff2") format("woff2");
+  font-family: "heading";
+  src: url("/fonts/heading-semibold.woff2") format("woff2");
+  font-weight: 600;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "primary-semibold";
-  src: url("/fonts/SemplicitaPro-SemiBold.woff2") format("woff2");
+  font-family: "heading";
+  src: url("/fonts/heading-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "body";
+  src: url("/fonts/body-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "body";
+  src: url("/fonts/body-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "body";
+  src: url("/fonts/body-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "body";
+  src: url("/fonts/body-bold.woff2") format("woff2");
+  font-weight: 700;
   font-display: swap;
 }
 
@@ -238,133 +267,136 @@
   }
 
   html {
-    background-color: var(--primary);
-    color: var(--text-primary);
-    font-family: var(--font-primary-regular);
+    background-color: var(--bg-1);
+    color: var(--text-body);
+    font-family: var(--font-body);
     font-size: 16px;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
-  
+
   body {
     position: relative;
-    color: var(--text-primary);
+    background-color: var(--bg-1);
+    color: var(--text-body);
     line-height: 1.75;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-primary-bold);
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 { font-size: var(--text-h1); }
+  h2 { font-size: var(--text-h2); }
+  h3 { font-size: var(--text-h3); }
+  h4 { font-size: var(--text-h4); }
+  h5 { font-size: var(--text-h5); }
+  h6 { font-size: var(--text-h6); }
+
+  p {
+    font-size: var(--text-base);
+    color: var(--text-body);
   }
 
   a, a:hover, a:link, a:visited {
-    color: var(--primary-600);
+    color: inherit;
     text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: var(--primary);
   }
 
-  /* img, video {
+  img, video {
     max-width: 100%;
     height: auto;
     display: block;
-  } */
+  }
 
-  code, pre {
-    font-family: var(--font-mono);
+  ::selection {
+    background-color: var(--primary);
+    color: var(--bg-1);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
   }
 }
 
 /* ═══════════════════════════════════════════════════════════
    DARK MODE — toggled via <html class="dark">
-   Only flip the UI tokens, brand colors stay the same
+   Template is dark-first; uncomment to build a light theme
    ═══════════════════════════════════════════════════════════ */
 html.dark {
-  /* ── 1. COLORS — Primary brand ──────────────────────────── */
-  /* --primary:  #042a37;
-  --primary-dark:  #042834; */
-
-  /* Secondary */
-  /* --secondary: #60deaf; */
-
-  /* Text */
-  /* --text-primary:#ffffff;
-  --text-dark:#052029;
-  --text-opacity-90:#042A3714; */
-
-  /* colors */
-  /* --light-red:#EA1D2D; 
-  --light-blue:#00ADD8; 
-  --light-yellow:#FDB714; 
-  --light-orange:#F36E24; 
-  --light-green:#2D9A47; 
-  --dark-yellow:#D19F2A;  
-  --dark-orange:#EF412A; 
-  --dark-red:#C22033; 
-  --dark-blue :#007DBB;  */
-
-  /* Semantic */
-  /* --success: #22c55e;
-  --warning: #f59e0b;
-  --danger:  #ef4444;
-  --info:    #06b6d4; */
-
-  /* ── 3. SHADOWS ─────────────────────────────────────────── */
-
-  /* --shadow-sm:    0 1px 2px 0 rgb(0 0 0 / 0.3);
-  --shadow:       0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-  --shadow-md:    0 4px 6px -1px rgb(0 0 0 / 0.4);
-  --shadow-lg:    0 10px 15px -3px rgb(0 0 0 / 0.4);
-  --shadow-xl:    0 20px 25px -5px rgb(0 0 0 / 0.4);  */
+  /* Light-mode flip example:
+  --bg-1:         #ffffff;
+  --bg-2:         #f4f6f5;
+  --text-primary: #0E0E0E;
+  --text-body:    #3d3d3d;
+  --text-muted:   rgba(14, 14, 14, 0.65);
+  --border-1:     rgba(0, 0, 0, 0.12);
+  --shadow-brand:   0 4px 24px 0 rgb(144 221 140 / 0.45);
+  --shadow-brand-lg: 0 8px 40px 0 rgb(144 221 140 / 0.35);
+  */
 }
-
 
 /* ═══════════════════════════════════════════════════════════
    COMPONENTS
    ═══════════════════════════════════════════════════════════ */
 @layer components {
-  /* .btn {
-    @apply inline-flex items-center justify-center gap-2
-           px-4 py-2 rounded-lg font-medium text-sm
-           transition-colors duration-200 cursor-pointer;
-  }
 
-  .btn-primary {
-    @apply btn bg-primary-600 text-white hover:bg-primary-700;
-  }
-
-  .btn-outline {
-    @apply btn border border-border text-muted hover:border-primary-500 hover:text-primary-600;
-  }
-
-  .card {
-    @apply rounded-xl border border-border shadow p-6;
-    background-color: var(--surface);
-  }
-
+  /* Reusable container matching template width */
   .container-content {
     @apply mx-auto w-full px-4;
-    max-width: var(--container-content);
+    max-width: var(--container);
   }
 
-  .input {
-    @apply w-full rounded-lg border border-border px-3 py-2
-           text-sm placeholder:text-muted-fg bg-surface
-           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  /* Buttons — Agenik style */
+  /* .btn {
+    @apply inline-flex items-center justify-center gap-2
+           px-7 py-3.5 rounded-full font-heading font-semibold text-sm
+           transition-all duration-300 cursor-pointer select-none;
+  }
+  .btn-primary {
+    @apply btn bg-primary text-bg-1 hover:bg-primary-dark hover:shadow-brand;
+  }
+  .btn-outline {
+    @apply btn border border-border-1 text-text-primary
+           hover:border-primary hover:text-primary hover:shadow-brand;
   } */
 
+  /* Horizontal logo/text tickers (template carouselTicker) */
   .animate-ticker-Normal {
-    animation: tickerNormal linear infinite;
+  animation: tickerNormal linear infinite;
+  will-change: transform;
   }
   .animate-ticker-Reversed {
-    animation: tickerReversed linear infinite;
+  animation: tickerReversed linear infinite;
+  will-change: transform;
   }
+
   .ticker-text {
-    @apply text-[140px] font-primary-semibold;
-    background: linear-gradient(to bottom, var(--secondary), var(--primary-light), var(--secondary));
+    @apply text-[clamp(3.5rem,10vw,8.75rem)] font-heading font-semibold whitespace-nowrap;
+    background: linear-gradient(to bottom, var(--primary), var(--bg-2), var(--primary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     line-height: 1;
   }
+
+  /* Vertical image ticker (template hero side ticker) */
   .animate-verticalTicker {
-  animation: verticalImageTicker linear infinite;
+    animation: verticalImageTicker linear infinite;
+  }
+
+  .ticker-pause-hover:hover .animate-ticker-Normal,
+.ticker-pause-hover:hover .animate-ticker-Reversed {
+  animation-play-state: paused;
 }
 }
 
@@ -376,8 +408,12 @@ html.dark {
     text-wrap: balance;
   }
 
-  .scrollbar{
-    scrollbar-color: var(--primary) var(--primary-light); 
+  .shadow-card {
+    box-shadow: 0px 0px 10px #00000027;
+  }
+
+  .scrollbar {
+    scrollbar-color: var(--primary) var(--bg-2);
   }
 
   .scrollbar-hide {
@@ -388,12 +424,28 @@ html.dark {
     display: none;
   }
 
+  /* Pause any ticker on hover — performance + UX nicety */
+  .ticker-pause-hover:hover > * {
+    animation-play-state: paused;
+  }
 
-  .vertical-image-ticker-gradient-up{
+  .vertical-image-ticker-gradient-up {
     background-image: var(--bg-vertical-image-ticker-gradient-up);
   }
-  .vertical-image-ticker-gradient-down{
+  .vertical-image-ticker-gradient-down {
     background-image: var(--bg-vertical-image-ticker-gradient-down);
   }
 
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ticker-Normal,
+    .animate-ticker-Reversed,
+    .animate-verticalTicker {
+      animation: none;
+      will-change: auto;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
 }

@@ -7,7 +7,7 @@ export default function NumberCounter({
     tag: Tag = "span",
     duration = 2000,
     className = "",
-    suffix = "",
+    sufix = "",
 }) {
     const numberRef = useRef(null);
     const hasStarted = useRef(false);
@@ -41,13 +41,13 @@ export default function NumberCounter({
                     easedProgress * target
                 );
 
-                element.textContent = `${currentValue}${suffix}`;
+                element.textContent = `${currentValue}${sufix}`;
 
                 if (progress < 1) {
                     animationRef.current =
                         requestAnimationFrame(animate);
                 } else {
-                    element.textContent = `${target}${suffix}`;
+                    element.textContent = `${target}${sufix}`;
                 }
             };
 
@@ -78,14 +78,14 @@ export default function NumberCounter({
                 cancelAnimationFrame(animationRef.current);
             }
         };
-    }, [value, duration, suffix]);
+    }, [value, duration, sufix]);
 
     return (
         <Tag
             ref={numberRef}
             className={className}
         >
-            0{suffix}
+            0{sufix}
         </Tag>
     );
 }
