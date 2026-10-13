@@ -1,0 +1,118 @@
+"use client";
+
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+
+export default function ClientTicker({
+  clients = [],
+  orientation = "horizontal", // "horizontal" | "vertical"
+  direction = "ltr",           // "ltr" | "rtl" (for horizontal) or "top-to-bottom" | "bottom-to-top" (for vertical)
+  speed = "30s",               // Animation duration (e.g. "20s", "40s")
+}) {
+
+const [shuffledSlides, setShuffledSlides] = useState([]);
+
+    // Shuffle slides randomly on mount
+  useEffect(() => {
+    if (!clients || clients.length === 0) return;
+    
+    // Copy array to avoid mutating original props
+    const arrayCopy = [...clients];
+    
+    // Fisher-Yates Shuffle Algorithm
+    for (let i = arrayCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+    }
+    
+    setShuffledSlides(arrayCopy);
+  }, [clients]);
+
+
+
+  if (!clients || clients.length === 0) return null;
+
+  // Determine keyframe animation class based on orientation and direction
+  let animationClass = "animate-ticker-Normal";
+  
+  if (orientation === "horizontal") {
+    if (direction === "rtl") {
+      animationClass = "animate-ticker-Reversed";
+    } else {
+      animationClass = "animate-ticker-Normal";
+    }
+  } else {
+    // Vertical ticker
+    if (direction === "bottom-to-top" || direction === "rtl") {
+      animationClass = "animate-verticalTicker";
+    } else {
+      animationClass = "animate-verticalTicker-reverse"; // or down-to-up
+    }
+  }
+
+  return (
+    <div className={`relative overflow-hidden w-full ticker-pause-hover ${orientation === "vertical" ? "h-[450px]" : "py-4"}`}>
+      
+      {/* Gradient Fade Masks for Smooth Edges */}
+      {orientation === "horizontal" ? (
+        <>
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-bg-1 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-bg-1 to-transparent z-10 pointer-events-none" />
+        </>
+      ) : (
+        <>
+          <div className="absolute top-0 left-0 right-0 h-24 vertical-image-ticker-gradient-up z-10 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 vertical-image-ticker-gradient-down z-10 pointer-events-none" />
+        </>
+      )}
+
+      {/* Ticker Track */}
+      {orientation === "horizontal" ? (
+        <div 
+          className={`flex gap-16 whitespace-nowrap items-center w-max ${animationClass}`}
+          style={{ animationDuration: speed }}
+        >
+          {/* Double map to ensure seamless infinite looping */}
+          {[...shuffledSlides, ...shuffledSlides].map((client, index) => (
+            <div key={index} className="flex items-center justify-center min-w-[150px]">
+              <a 
+                href={client.url || "#"} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <img
+                  src={client.logo || "/images/placeholder-logo.png"}
+                  alt={client.name || "Client Logo"}
+                  className="max-h-12 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                />
+              </a>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div 
+          className={`flex flex-col gap-8 items-center h-max ${animationClass}`}
+          style={{ animationDuration: speed }}
+        >
+          {[...shuffledSlides, ...shuffledSlides, ...shuffledSlides].map((client, index) => (
+            <div key={index} className="flex items-center justify-center w-full py-2">
+              <a 
+                href={client.url || "#"} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <img
+                  src={client.logo || "/images/placeholder-logo.png"}
+                  alt={client.name || "Client Logo"}
+                  className="max-h-14 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                />
+              </a>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}

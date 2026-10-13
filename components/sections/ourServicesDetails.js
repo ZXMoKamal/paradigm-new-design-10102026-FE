@@ -198,7 +198,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-24 bg-bg-1 relative overflow-hidden">
+    <section className="pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px] bg-bg-1 relative overflow-hidden">
       {/* Decorative background glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-5 right-5 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />

@@ -9,13 +9,15 @@ import MembersGrid from "@/components/shared/membersGrid";
 import Navbar from "@/components/shared/navbar";
 import { VideoSection } from "@/components/shared/videoSection";
 import Shared from "@/components/temp/shared";
-import OurEvents from "../components/sections/ourEvents";
+// import OurEvents from "../components/sections/ourEvents";
 // import OurServicesDetails from "@/components/sections/ourServicesDetails";
 import OurClients from "@/components/sections/ourClients";
 import Branches from "@/components/sections/branches";
 import Footer from "@/components/shared/footer";
 import Ticker from "@/components/shared/ticker";
 import ServicesSection from "@/components/sections/ourServicesDetails";
+import RecentWork from "@/components/sections/ourEvents";
+import NewsArticles from "@/components/sections/article";
 
 
 export default function Home() {
@@ -35,10 +37,10 @@ export default function Home() {
                     />
                     <ServicesSection/>
       {/* <BoardMembers/> */}
-      <OurEvents/>
-
+      <RecentWork/>
 
       <OurClients/>
+                    <NewsArticles/>
 
       <Branches/>
 
