@@ -1,53 +1,236 @@
-import React from 'react'
-import { SectionHeader } from '../shared/sectionHeader'
-import LinkButton from '../shared/linkButton'
-import ArrowRight from '../icons/arrowRight'
-import Suggestions from '../shared/suggestions'
+// import React from 'react'
+// import { SectionHeader } from '../shared/sectionHeader'
+// import LinkButton from '../shared/linkButton'
+// import ArrowRight from '../icons/arrowRight'
+// import Suggestions from '../shared/suggestions'
 
-function OurEvents() {
+// function OurEvents() {
+//   return (
+//       <section className="m-auto max-w-[1300px] flex flex-col gap-8 pt-20 max-2xl:px-10 max-sm:px-5 pb-20">
+
+//         <SectionHeader subtitle="our events" 
+//         title="Take a Look" description="Check out our latest groundbreaking events!"
+//         titleTag="h3"
+//         subtitleTag="h2"
+//          buttons={
+//           <LinkButton
+//                     href="/past-events/"
+//                     variant={ "outline" }
+//                     size='md'
+//                     className={'max-lg:px-5 max-lg:my-5 max-sm:text-sm'}
+//                     icon={ <ArrowRight className='w-5 h-5 fill-text-priamry' /> }
+//                     iconPosition='right'
+//                 >
+//                      View Our Gallery
+//                 </LinkButton>
+//          }/>
+
+//          <section className="grid grid-cols-1 xl:grid-cols-[26%_74%] gap-0">
+//           <section></section>
+//           <section>
+
+//             <Suggestions titleTag={ "h3" } items={ [
+//                 {
+//                     title: "Egypt- France Business Forum", img: "/images/ezgif-608a1f2271991c70.webp", alt: "Egypt- France Business Forum", requestTitle:"egypt-france-business-forum-economic-opportunities-for-strategic-partnership"
+//                 },
+//                 {
+//                     title: "2nd Ministerial Conference Khartoum Process", img: "/images/ezgif-6704f832b48fff58.webp", alt: "2nd Ministerial Conference Khartoum Process", requestTitle:"2nd-ministerial-conference-khartoum-process"
+//                 },
+//                 {
+//                     title: "The National Initiative for Smart Green Projects", img: "/images/ezgif-6f3d8c1d6cb46c68.webp", alt: "The National Initiative for Smart Green Projects", requestTitle:"egypts-narrative-for-economic-development"
+//                 },
+//             ] } />
+
+//           </section>
+//          </section>
+
+
+//       </section>
+
+//   )
+// }
+
+// export default OurEvents
+
+
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import ProjectSlider from "../shared/projectSlider";
+// import ProjectSlider from "@/components/ui/ProjectSlider";
+
+const projects = [
+  {
+    id: 1,
+    title: "UI/UX Design",
+    category: "UI/UX Design",
+    image: "/images/projects/project-5.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 2,
+    title: "Product development",
+    category: "UI/UX Design",
+    image: "/images/projects/project-6.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 3,
+    title: "File uploading System",
+    category: "UI/UX Design",
+    image: "/images/projects/project-5.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 4,
+    title: "File uploading System",
+    category: "UI/UX Design",
+    image: "/images/projects/project-6.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 1,
+    title: "UI/UX Design",
+    category: "UI/UX Design",
+    image: "/images/projects/project-5.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 2,
+    title: "Product development",
+    category: "UI/UX Design",
+    image: "/images/projects/project-6.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 3,
+    title: "File uploading System",
+    category: "UI/UX Design",
+    image: "/images/projects/project-5.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 4,
+    title: "File uploading System",
+    category: "UI/UX Design",
+    image: "/images/projects/project-6.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 1,
+    title: "UI/UX Design",
+    category: "UI/UX Design",
+    image: "/images/projects/project-5.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 2,
+    title: "Product development",
+    category: "UI/UX Design",
+    image: "/images/projects/project-6.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 3,
+    title: "File uploading System",
+    category: "UI/UX Design",
+    image: "/images/projects/project-5.png",
+    href: "/portfolio-details/",
+  },
+  {
+    id: 4,
+    title: "File uploading System",
+    category: "UI/UX Design",
+    image: "/images/projects/project-6.png",
+    href: "/portfolio-details/",
+  },
+];
+
+function ProjectCard({ project }) {
   return (
-      <section className="m-auto max-w-[1300px] flex flex-col gap-8 pt-20 max-2xl:px-10 max-sm:px-5 pb-20">
+    <article className="group">
+      <div className="relative mb-6 h-[400px] overflow-hidden rounded-2xl bg-bg-2 sm:h-[450px] lg:h-[550px]">
+        <Link
+          href={project.href}
+          aria-label={`View project: ${project.title}`}
+          className="absolute inset-0 z-10"
+        >
+          <span className="sr-only">View Project</span>
+        </Link>
 
-        <SectionHeader subtitle="our events" 
-        title="Take a Look" description="Check out our latest groundbreaking events!"
-        titleTag="h3"
-        subtitleTag="h2"
-         buttons={
-          <LinkButton
-                    href="/past-events/"
-                    variant={ "outline" }
-                    size='md'
-                    className={'max-lg:px-5 max-lg:my-5 max-sm:text-sm'}
-                    icon={ <ArrowRight className='w-5 h-5 fill-text-priamry' /> }
-                    iconPosition='right'
-                >
-                     View Our Gallery
-                </LinkButton>
-         }/>
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 767px) 100vw, 850px"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
 
-         <section className="grid grid-cols-1 xl:grid-cols-[26%_74%] gap-0">
-          <section></section>
-          <section>
+        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/40" />
 
-            <Suggestions titleTag={ "h3" } items={ [
-                {
-                    title: "Egypt- France Business Forum", img: "/images/ezgif-608a1f2271991c70.webp", alt: "Egypt- France Business Forum", requestTitle:"egypt-france-business-forum-economic-opportunities-for-strategic-partnership"
-                },
-                {
-                    title: "2nd Ministerial Conference Khartoum Process", img: "/images/ezgif-6704f832b48fff58.webp", alt: "2nd Ministerial Conference Khartoum Process", requestTitle:"2nd-ministerial-conference-khartoum-process"
-                },
-                {
-                    title: "The National Initiative for Smart Green Projects", img: "/images/ezgif-6f3d8c1d6cb46c68.webp", alt: "The National Initiative for Smart Green Projects", requestTitle:"egypts-narrative-for-economic-development"
-                },
-            ] } />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="flex size-20 scale-75 items-center justify-center rounded-full bg-white text-3xl text-bg-1 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
+            <span aria-hidden="true">↗</span>
+          </span>
+        </div>
+      </div>
 
-          </section>
-         </section>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-[22px] font-semibold leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-[28px]">
+          <Link href={project.href}>{project.title}</Link>
+        </h3>
 
-
-      </section>
-
-  )
+        <span className="text-sm text-text-muted">
+          {project.category}
+        </span>
+      </div>
+    </article>
+  );
 }
 
-export default OurEvents
+export default function RecentWork() {
+  return (
+    <section className="overflow-hidden bg-bg-1 pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px]">
+      <div className="container-content">
+        {/* Section heading and slider controls */}
+        <div
+          className="mb-10 flex flex-col justify-between gap-8 md:mb-14 md:flex-row md:items-end"
+          data-aos="fade-up"
+          data-aos-duration="900"
+        >
+          <div>
+            <h4 className="mb-5 text-sm font-semibold uppercase tracking-[0.12em] text-primary">
+              Recent Work
+            </h4>
+
+            <h2 className="text-h2 font-bold leading-[1.12] tracking-[-0.04em] text-text-primary">
+              We have Completed
+              <br />
+              <span className="text-primary">lot&apos;s of Work</span>
+            </h2>
+          </div>
+
+        </div>
+
+      </div>
+        {/* Custom React slider */}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="100"
+        >
+          <ProjectSlider
+            items={projects}
+            ariaLabel="Recent work projects"
+            className="w-full"
+            renderItem={(project) => (
+              <div className="w-full max-w-[850px]">
+                <ProjectCard project={project} />
+              </div>
+            )}
+          />
+        </div>
+    </section>
+  );
+}
