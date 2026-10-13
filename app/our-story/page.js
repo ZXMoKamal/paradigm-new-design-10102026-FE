@@ -2,6 +2,7 @@ import OurEvents from '@/components/sections/ourEvents'
 import OurFoundation from '@/components/sections/ourFoundation'
 import OurStoryHeader from '@/components/sections/ourStoryHeader'
 import OurStorySection from '@/components/sections/ourStorySection'
+import PageHeader from '@/components/shared/pageHeader'
 import { VideoSection } from '@/components/shared/videoSection'
 import { SEO } from '@/data/SEO'
 import React from 'react'
@@ -77,7 +78,12 @@ export const metadata = {
 function OurStory() {
   return (
     <main className="relative w-full overflow-hidden">
-        <OurStoryHeader/>
+        <PageHeader
+            title="Our Story"
+            highlight=""
+            breadcrumbLabel="Our Story"
+            breadcrumbHref="/our-story"
+        />
         <OurStorySection/>
         <OurFoundation/>
         <VideoSection
