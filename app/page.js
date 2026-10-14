@@ -18,6 +18,7 @@ import Ticker from "@/components/shared/ticker";
 import ServicesSection from "@/components/sections/ourServicesDetails";
 import RecentWork from "@/components/sections/ourEvents";
 import NewsArticles from "@/components/sections/article";
+import TeamGridSection from "@/components/sections/team";
 
 
 export default function Home() {
@@ -41,6 +42,7 @@ export default function Home() {
 
       <OurClients/>
                     <NewsArticles/>
+                    <TeamGridSection/>
 
       <Branches/>
 
