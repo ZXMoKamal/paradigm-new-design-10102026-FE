@@ -26,7 +26,6 @@ async function BlogContent({ blogRequestTitle }) {
                   <br/>
               </fragment>) }
     </section>
-  </>
   )
 }
 
