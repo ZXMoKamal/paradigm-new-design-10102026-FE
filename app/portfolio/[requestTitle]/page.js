@@ -1,6 +1,8 @@
 import { getEvent } from '@/api/events';
+import PortfolioDetails from '@/components/sections/eventDetails';
 import EventDetails from '@/components/sections/eventDetails'
 import EventSuggestions from '@/components/sections/eventSuggestions'
+import PageHeader from '@/components/shared/pageHeader';
 import { SEO } from '@/data/SEO';
 import React from 'react'
 
@@ -82,10 +84,33 @@ export async function generateMetadata({ params }) {
 
 async function portfolio({ params }) {
   const { requestTitle } = await params;
+
+
+    const event = await getEvent(requestTitle);
+
+  if(!event){
+    notFound();
+  }
+
+  const imagesWithAlt =[];
+  for (let src of event.images){
+    imagesWithAlt.push({image:src,alt:event.name });
+  }
+
+
+  const info = [
+    { label: "Event Name", value: event.name },
+    { label: "Client", value: event.client },
+    { label: "Date", value: event.date },
+    { label: "Location", value: event.location },
+  ].filter((item) => item.value);
+
   return (
-    <main className="relative w-full overflow-hidden pt-30">
-      <EventDetails eventRequestTitle={ requestTitle } />
-      <EventSuggestions/>
+    <main className="relative w-full overflow-hidden">
+      {/* <EventDetails eventRequestTitle={ requestTitle } />
+      <EventSuggestions/> */}
+      <PageHeader title={ event.name } highlight="" breadcrumbLabel={ event.name } breadcrumbHref={"/portfolio/" + requestTitle}  backgroundAlt={event.name + " Header Image"}/>
+      <PortfolioDetails project={{ ...event, imagesWithAlt, info }} />
       </main>
   )
 }
