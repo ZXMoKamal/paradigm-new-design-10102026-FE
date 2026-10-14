@@ -108,95 +108,97 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { getServices } from '@/api/services';
+import { servicesIconCode } from '../icons/iconCodes.js/servicesIconCode';
 
-export default function ServicesSection() {
-  const services = [
-    {
-      id: "01",
-      title: "UI/UX & Web Design",
-      description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
-      icon: "🎨",
-      href: "/service-details",
-    },
-    {
-      id: "02",
-      title: "Frontend & Next.js Development",
-      description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
-      icon: "⚡",
-      href: "/service-details",
-    },
-    {
-      id: "03",
-      title: "Brand Strategy & Identity",
-      description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
-      icon: "🚀",
-      href: "/service-details",
-    },
-    {
-      id: "04",
-      title: "Digital Marketing & SEO",
-      description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
-      icon: "📈",
-      href: "/service-details",
-    },
-    {
-      id: "01",
-      title: "UI/UX & Web Design",
-      description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
-      icon: "🎨",
-      href: "/service-details",
-    },
-    {
-      id: "02",
-      title: "Frontend & Next.js Development",
-      description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
-      icon: "⚡",
-      href: "/service-details",
-    },
-    {
-      id: "03",
-      title: "Brand Strategy & Identity",
-      description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
-      icon: "🚀",
-      href: "/service-details",
-    },
-    {
-      id: "04",
-      title: "Digital Marketing & SEO",
-      description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
-      icon: "📈",
-      href: "/service-details",
-    },
-    {
-      id: "01",
-      title: "UI/UX & Web Design",
-      description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
-      icon: "🎨",
-      href: "/service-details",
-    },
-    {
-      id: "02",
-      title: "Frontend & Next.js Development",
-      description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
-      icon: "⚡",
-      href: "/service-details",
-    },
-    {
-      id: "03",
-      title: "Brand Strategy & Identity",
-      description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
-      icon: "🚀",
-      href: "/service-details",
-    },
-    {
-      id: "04",
-      title: "Digital Marketing & SEO",
-      description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
-      icon: "📈",
-      href: "/service-details",
-    },
-  ];
-
+export default async function ServicesSection() {
+  // const services = [
+  //   {
+  //     id: "01",
+  //     title: "UI/UX & Web Design",
+  //     description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
+  //     icon: "🎨",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "02",
+  //     title: "Frontend & Next.js Development",
+  //     description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
+  //     icon: "⚡",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "03",
+  //     title: "Brand Strategy & Identity",
+  //     description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
+  //     icon: "🚀",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "04",
+  //     title: "Digital Marketing & SEO",
+  //     description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
+  //     icon: "📈",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "01",
+  //     title: "UI/UX & Web Design",
+  //     description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
+  //     icon: "🎨",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "02",
+  //     title: "Frontend & Next.js Development",
+  //     description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
+  //     icon: "⚡",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "03",
+  //     title: "Brand Strategy & Identity",
+  //     description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
+  //     icon: "🚀",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "04",
+  //     title: "Digital Marketing & SEO",
+  //     description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
+  //     icon: "📈",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "01",
+  //     title: "UI/UX & Web Design",
+  //     description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
+  //     icon: "🎨",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "02",
+  //     title: "Frontend & Next.js Development",
+  //     description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
+  //     icon: "⚡",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "03",
+  //     title: "Brand Strategy & Identity",
+  //     description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
+  //     icon: "🚀",
+  //     href: "/service-details",
+  //   },
+  //   {
+  //     id: "04",
+  //     title: "Digital Marketing & SEO",
+  //     description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
+  //     icon: "📈",
+  //     href: "/service-details",
+  //   },
+  // ];
+const services = await getServices();
   return (
     <section className="pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px] bg-bg-1 relative overflow-hidden">
       {/* Decorative background glow */}
@@ -260,7 +262,7 @@ export default function ServicesSection() {
                     {service.id}
                   </span>
                   <div className="w-14 h-14 rounded-xl bg-bg-1 border border-border-1 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-bg-1 transition-colors duration-300">
-                    <span className="icon-placeholder">{service.icon}</span>
+                    <span className="icon-placeholder">{servicesIconCode[service.icon_code]}</span>
                   </div>
                 </div>
 
@@ -278,7 +280,7 @@ export default function ServicesSection() {
               {/* Read More Link Arrow */}
               <div className="pt-8 mt-8 border-t border-border-1 flex items-center justify-between">
                 <Link
-                  href={service.href}
+                  href={`${process.env.NEXT_PUBLIC_SITE_URL}/services/${service.requestTitle}/` || '#'}
                   className="text-xs font-heading font-semibold text-text-primary group-hover:text-primary transition-colors flex items-center gap-2"
                 >
                   Explore Details
