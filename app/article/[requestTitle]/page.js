@@ -3,6 +3,7 @@ import BlogContent from '@/components/sections/blogContent';
 import BlogSuggestions from '@/components/sections/blogSuggestions';
 import EventDetails from '@/components/sections/eventDetails'
 import EventSuggestions from '@/components/sections/eventSuggestions'
+import PageHeader from '@/components/shared/pageHeader';
 import { SEO } from '@/data/SEO';
 import React from 'react'
 
@@ -85,9 +86,10 @@ import React from 'react'
 async function portfolio({ params }) {
   const { requestTitle } = await params;
   return (
-    <main className="relative w-full overflow-hidden pt-30">
+    <main className="relative w-full overflow-hidden">
+   <PageHeader title="article" highlight={requestTitle} breadcrumbLabel="article" breadcrumbHref="/article" />
       <BlogContent blogRequestTitle={ requestTitle } />
-      <BlogSuggestions/>
+       {/*<BlogSuggestions/> */}
       </main>
   )
 }
