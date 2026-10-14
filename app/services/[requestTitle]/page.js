@@ -1,5 +1,7 @@
 import { getService } from '@/api/services';
 import ContactSection from '@/components/sections/contactSection'
+import ServiceDetails from '@/components/sections/service';
+import PageHeader from '@/components/shared/pageHeader';
 import ServiceHighlight from '@/components/shared/serviceHighlight'
 import { SEO } from '@/data/SEO';
 import React from 'react'
@@ -85,13 +87,35 @@ export async function generateMetadata({ params }) {
 async function Services({params}) {
   const { requestTitle } = await params;
   // console.log(requestTitle);
+  
+  
+    const service = await getService(requestTitle);
+    if(!service){
+      notFound();
+    }
+
   return (
-    <main className="relative w-full overflow-hidden pt-30">
-      <ServiceHighlight serviceRequestTitle={ requestTitle }/>
+    <main className="relative w-full overflow-hidden">
+    <PageHeader title="Our Services" breadcrumbLabel="Our Services" breadcrumbHref="/our-services" backgroundAlt="Our Services Background Image" />
+      <ServiceDetails 
+          title={service.title} 
+          // highlightedTitle="Design solution" 
+          image="/images/services/service-details-img-1.png" 
+          imageAlt="Service overview" 
+          introduction="We provide a comprehensive range of services to help businesses achieve their goals. Our team of experts is dedicated to delivering innovative solutions that drive growth and success." 
+          description="Our services are designed to meet the unique needs of each client. We work closely with our clients to understand their objectives and develop customized strategies that deliver results." 
+          highlights={service.points} 
+          // processTitle="Our Process" 
+          // processSteps={[{ step: 1, description: "Initial Consultation" }, { step: 2, description: "Requirement Analysis" }, { step: 3, description: "Design & Development" }, { step: 4, description: "Testing & Deployment" }]} 
+          // approachTitle="Solution Approach" 
+          // approachParagraphs={["We follow a structured approach to ensure the successful delivery of our services.", "Our team collaborates closely with clients throughout the project lifecycle to ensure alignment with business objectives."]} 
+          // supportingImages={["/images/services/supporting-image-1.png", "/images/services/supporting-image-2.png"]} 
+      />
+      {/* <ServiceHighlight serviceRequestTitle={ requestTitle }/>
       <hr className="border-border-primary" />
       <br/>
       <br/>
-      <ContactSection/>
+      <ContactSection/> */}
     </main>
   )
 }
