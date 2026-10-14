@@ -78,7 +78,12 @@ export const metadata = {
 function OurStory() {
   return (
     <main className="relative w-full overflow-hidden">
-        <OurStoryHeader/>
+        <PageHeader
+            title="Our Story"
+            highlight=""
+            breadcrumbLabel="Our Story"
+            breadcrumbHref="/our-story"
+        />
         <OurStorySection/>
         <OurFoundation/>
         <VideoSection
