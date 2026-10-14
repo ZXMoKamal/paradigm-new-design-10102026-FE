@@ -1,6 +1,7 @@
 import EventStatistics from '@/components/sections/eventStatistics'
 import PastEventsSection from '@/components/sections/pastEventsSection'
 import { SEO } from '@/data/SEO';
+import PageHeader from '@/components/shared/pageHeader'
 import React from 'react'
 
 
@@ -74,8 +75,9 @@ export const metadata = {
 
 function PastEvents() {
   return (
-    <main className="relative w-full overflow-hidden pt-30">
-      <EventStatistics/>
+    <main className="relative w-full overflow-hidden pb-20">
+      <PageHeader title="Past Events" highlight="" breadcrumbLabel="Past Events" breadcrumbHref="/past-events" backgroundImage="/images/past-events/header.webp" backgroundAlt="Past Events Header Image"/>
+      {/* <EventStatistics/> */}
       <PastEventsSection/>
     </main>
   )
