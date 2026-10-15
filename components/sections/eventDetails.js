@@ -74,9 +74,55 @@
 // }
 
 
-
+"use client";
 
 import Image from "next/image";
+import ProjectSlider from "../shared/projectSlider";
+import Link from "next/link";
+
+
+function ProjectCard({ project }) {
+  return (
+    <article className="group">
+      <div className="relative mb-6 h-[400px] overflow-hidden rounded-2xl bg-bg-2 sm:h-[450px] lg:h-[550px]">
+        <Link
+          href={project}
+          aria-label={`View project: ${project.title}`}
+          className="absolute inset-0 z-10"
+        >
+          <span className="sr-only">View Project</span>
+        </Link>
+
+        <img
+          src={project}
+          alt={project}
+          fill
+          sizes="(max-width: 767px) 100vw, 850px"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
+
+        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/40" />
+
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="flex size-20 scale-75 items-center justify-center rounded-full bg-white text-3xl text-bg-1 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
+            <span aria-hidden="true">↗</span>
+          </span>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <h3 className="text-[22px] font-semibold leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-[28px]">
+          <Link href={project}>{project.title}</Link>
+        </h3>
+
+        <span className="text-sm text-text-muted">
+          {project.category}
+        </span>
+      </div>
+    </article>
+  );
+}
+
 
 function ProjectMetadata({ items }) {
   return (
@@ -186,7 +232,7 @@ export default function PortfolioDetails({
           </div>
 
           {/* Project gallery */}
-          {images.length > 0 && (
+          {/* {images.length > 0 && (
             <div className="mb-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mb-20 lg:grid-cols-3">
               {images.map((item, index) => (
                 <div
@@ -205,7 +251,7 @@ export default function PortfolioDetails({
                 </div>
               ))}
             </div>
-          )}
+            )} */}
 
           {/* Challenges */}
           {challenges.length > 0 && (
@@ -239,6 +285,19 @@ export default function PortfolioDetails({
           )}
         </div>
       </div>
+          {/* Project gallery */}
+          {images.length > 0 && (
+            <ProjectSlider
+            items={images}
+            ariaLabel="event photos"
+            className="w-full"
+            renderItem={(project) => (
+              <div className="w-full max-w-[850px]">{console.log(project)}
+                <ProjectCard project={project} />
+              </div>
+            )}
+          />
+            )}
     </section>
   );
 }
