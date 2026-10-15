@@ -74,9 +74,10 @@
 // }
 
 
-
+"use client";
 
 import Image from "next/image";
+import ProjectSlider from "../shared/projectSlider";
 
 function ProjectMetadata({ items }) {
   return (
@@ -187,25 +188,40 @@ export default function PortfolioDetails({
 
           {/* Project gallery */}
           {images.length > 0 && (
-            <div className="mb-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mb-20 lg:grid-cols-3">
-              {images.map((item, index) => (
-                <div
-                  key={item.image}
-                  data-aos="fade-up"
-                  data-aos-delay={index * 100}
-                  className="relative aspect-[4/5] overflow-hidden rounded-xl bg-bg-2"
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.alt || `Project gallery image ${index + 1}`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+            // <div className="mb-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mb-20 lg:grid-cols-3">
+            //   {images.map((item, index) => (
+            //     <div
+            //       key={item.image}
+            //       data-aos="fade-up"
+            //       data-aos-delay={index * 100}
+            //       className="relative aspect-[4/5] overflow-hidden rounded-xl bg-bg-2"
+            //     >
+            //       <Image
+            //         src={item.image}
+            //         alt={item.alt || `Project gallery image ${index + 1}`}
+            //         fill
+            //         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+            //         className="object-cover transition-transform duration-700 hover:scale-105"
+            //       />
+            //     </div>
+            //   ))}
+            // </div>
+            <ProjectSlider items={images} renderItem={(item, index) => (
+              <div
+                key={item.image}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+                className="relative aspect-[4/5] overflow-hidden rounded-xl bg-bg-2"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.alt || `Project gallery image ${index + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+            )} />)}
 
           {/* Challenges */}
           {challenges.length > 0 && (
