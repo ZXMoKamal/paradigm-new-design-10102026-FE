@@ -71,7 +71,7 @@ export default function Footer() {
                                 aria-label="Paradigm home"
                             >
                                 <Image
-                                    src="/images/placeholder-logo.png"
+                                    src="/images/logo/paradigm full logo.png"
                                     alt="Paradigm"
                                     width={170}
                                     height={60}
@@ -135,7 +135,7 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1 text-[#90DD8C]"
+                                    className=" text-[#90DD8C]"
                                 >
                                     <span className="icon-placeholder">
                                         {/* Replace with location icon */}
@@ -157,7 +157,7 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1 text-[#90DD8C]"
+                                    className=" text-[#90DD8C]"
                                 >
                                     <span className="icon-placeholder">
                                         {/* Replace with phone icon */}
@@ -185,7 +185,7 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className="mt-1 text-[#90DD8C]"
+                                    className=" text-[#90DD8C]"
                                 >
                                     <span className="icon-placeholder">
                                         {/* Replace with email icon */}

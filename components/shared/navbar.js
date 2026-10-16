@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Search from "../icons/search";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -91,12 +92,7 @@ export default function Navbar() {
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center font-heading font-bold text-bg-1 text-xl group-hover:bg-primary-dark transition-colors">
-              A
-            </span>
-            <span className="font-heading font-bold text-2xl text-text-primary tracking-tight">
-              Agenik<span className="text-primary">.</span>
-            </span>
+            <img src="/images/logo/paradigm full logo.png" alt="Agenik Logo" className="w-30" />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -123,16 +119,16 @@ export default function Navbar() {
             {/* Search Trigger Icon */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="w-10 h-10 rounded-full bg-bg-2/50 border border-border-1 flex items-center justify-center text-text-primary hover:border-primary hover:text-primary transition-all"
+              className="w-10 h-10 rounded-full flex items-center justify-center text-text-primary hover:border-primary hover:text-primary transition-all"
               aria-label="Open Search Bar"
             >
-              <span className="icon-placeholder font-bold text-sm">🔍</span>
+              <Search className="w-6 h-6 fill-white hover:fill-primary cursor-pointercursor-pointer" />
             </button>
 
             {/* Side Menu Trigger Button */}
-            <button
+            {/* <button
               onClick={() => setIsSidebarOpen(true)}
-              className="hidden sm:flex items-center justify-center w-11 h-11 rounded-full bg-bg-2/50 border border-border-1 hover:border-primary text-text-primary hover:text-primary transition-all duration-300"
+              className="hidden sm:flex items-center justify-center cursor-pointer w-11 h-11 rounded-full hover:border-primary text-text-primary hover:text-primary transition-all duration-300"
               aria-label="Open Sidebar Menu"
             >
               <span className="icon-placeholder flex flex-col gap-1 w-5">
@@ -140,17 +136,17 @@ export default function Navbar() {
                 <span className="block w-3 h-0.5 bg-current ml-auto" />
                 <span className="block w-5 h-0.5 bg-current" />
               </span>
-            </button>
+            </button> */}
 
             {/* CTA Button */}
-            <Link href="/contact" className="btn-primary hidden md:inline-flex py-2.5 px-5 text-xs">
+            {/* <Link href="/contact" className="btn-primary hidden md:inline-flex py-2.5 px-5 text-xs">
               Get In Touch
-            </Link>
+            </Link> */}
 
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg bg-bg-2/50 border border-border-1 text-text-primary focus:outline-none"
+              className="lg:hidden flex flex-col justify-center items-center w-10 h-10 rounded-lg text-text-primary focus:outline-none"
               aria-label="Toggle Mobile Navigation"
             >
               <span className={`block w-5 h-0.5 bg-current transition-transform duration-300 ${isMobileMenuOpen ? "rotate-45 translate-y-1" : "-translate-y-1"}`} />
