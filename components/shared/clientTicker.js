@@ -6,31 +6,24 @@ import Image from "next/image";
 export default function ClientTicker({
   clients = [],
   orientation = "horizontal", // "horizontal" | "vertical"
-  direction = "ltr",           // "ltr" | "rtl" (for horizontal) or "top-to-bottom" | "bottom-to-top" (for vertical)
+  direction = "ltr",           // "ltr" | "rtl" (horizontal) or "top-to-bottom" | "bottom-to-top" (vertical)
   speed = "30s",               // Animation duration (e.g. "20s", "40s")
 }) {
+  const [shuffledSlides, setShuffledSlides] = useState([]);
 
-const [shuffledSlides, setShuffledSlides] = useState([]);
-
-    // Shuffle slides randomly on mount
+  // Shuffle slides randomly on mount
   useEffect(() => {
     if (!clients || clients.length === 0) return;
     
-    // Copy array to avoid mutating original props
     const arrayCopy = [...clients];
-    
-    // Fisher-Yates Shuffle Algorithm
     for (let i = arrayCopy.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
     }
-    
     setShuffledSlides(arrayCopy);
   }, [clients]);
 
-
-
-  if (!clients || clients.length === 0) return null;
+  if (!shuffledSlides || shuffledSlides.length === 0) return null;
 
   // Determine keyframe animation class based on orientation and direction
   let animationClass = "animate-ticker-Normal";
@@ -42,11 +35,12 @@ const [shuffledSlides, setShuffledSlides] = useState([]);
       animationClass = "animate-ticker-Normal";
     }
   } else {
-    // Vertical ticker
-    if (direction === "bottom-to-top" || direction === "rtl") {
-      animationClass = "animate-verticalTicker";
+    // Vertical ticker directions
+    if (direction === "top-to-bottom") {
+      animationClass = "animate-verticalTicker-reverse";
     } else {
-      animationClass = "animate-verticalTicker-reverse"; // or down-to-up
+      // default bottom-to-top
+      animationClass = "animate-verticalTicker";
     }
   }
 
@@ -72,7 +66,6 @@ const [shuffledSlides, setShuffledSlides] = useState([]);
           className={`flex gap-16 whitespace-nowrap items-center w-max ${animationClass}`}
           style={{ animationDuration: speed }}
         >
-          {/* Double map to ensure seamless infinite looping */}
           {[...shuffledSlides, ...shuffledSlides].map((client, index) => (
             <div key={index} className="flex items-center justify-center min-w-[150px]">
               <a 

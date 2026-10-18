@@ -140,11 +140,38 @@ export function VideoSection({
 
 
         </section>
-            { openVideo && <div className="flex flex-col bg-primary/80 fixed top-0 z-2000 flex justify-center items-center w-full h-full">
-                <button onClick={()=>setOpenVideo(false)} className=" absolute top-30 right-0">
-                    <X className={"w-[48px] h-[48px] fill-light-red"}/></button>
-                    <video src={video} controls preload="metadata" className="xl:w-[1200px] sm:w-[800px] w-full"/>
-                </div>}
+            {openVideo && (
+  <div 
+    className="fixed inset-0 z-[1040] bg-bg-1/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 transition-all duration-300 animate-fade-in"
+    onClick={() => setOpenVideo(false)} // Optional: click backdrop to close
+  >
+    {/* Modal Box Container */}
+    <div 
+      className="relative w-full xl:w-[1200px] sm:w-[800px] bg-bg-2 border border-border-1 rounded-2xl p-4 shadow-2xl overflow-hidden"
+      onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside video box
+    >
+      {/* Close Button */}
+      <button 
+        onClick={() => setOpenVideo(false)} 
+        className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-bg-1 border border-border-1 flex items-center justify-center text-text-primary hover:border-primary hover:text-primary transition-all shadow-lg group"
+        aria-label="Close Video"
+      >
+        <X className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" />
+      </button>
+
+      {/* Video Element */}
+      <div className="relative w-full rounded-xl overflow-hidden bg-black aspect-video flex items-center justify-center">
+        <video 
+          src={video} 
+          controls 
+          autoPlay
+          preload="metadata" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
+)}
                 </>
     )
 }

@@ -203,6 +203,10 @@
     0%   { transform: translateY(-50%); }
     100% { transform: translateY(0%); }
   }
+  @keyframes verticalTickerReverse {
+    0%   { transform: translateY(0%); }
+    100% { transform: translateY(-50%); }
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -392,6 +396,9 @@ html.dark {
   /* Vertical image ticker (template hero side ticker) */
   .animate-verticalTicker {
     animation: verticalImageTicker linear infinite;
+  }
+  .animate-verticalTicker-reverse {
+    animation: verticalTickerReverse linear infinite;
   }
 
   .ticker-pause-hover:hover .animate-ticker-Normal,
