@@ -23,6 +23,8 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import ArrowDown from "../icons/arrowDown";
+import ArrowRight from "../icons/arrowRight";
 
 export default function HeroSection() {
     const videoRef = useRef(null);
@@ -137,14 +139,14 @@ export default function HeroSection() {
                         className="mr-8 hidden h-[300px] shrink-0 flex-col items-center justify-between self-center xl:flex 2xl:mr-16"
                         aria-label="Scroll to learn about Paradigm"
                     >
-                        <span className="[writing-mode:vertical-lr] text-xs font-medium tracking-[0.2em] text-white/60">
+                        <span className="text-center [writing-mode:vertical-lr] text-xs font-medium tracking-[0.2em] text-white/60">
                             SCROLL TO EXPLORE
                         </span>
 
-                        <span className="h-32 w-px bg-white/40" />
+                        <span className="mb-5 h-32 w-px bg-white/40" />
 
-                        <span className="flex h-10 w-10 rotate-90 items-center justify-center rounded-full bg-[#90DD8C]/20 text-lg text-[#90DD8C] transition-colors hover:bg-[#90DD8C] hover:text-[#001023]">
-                            →
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#90DD8C]/20 text-lg text-[#90DD8C] transition-colors hover:bg-[#90DD8C] hover:text-[#001023]">
+                            <ArrowDown className="h-5 w-5 fill-text-primary" />
                         </span>
                     </Link>
 
@@ -182,7 +184,7 @@ export default function HeroSection() {
                             data-aos="fade-up"
                             data-aos-delay="200"
                         >
-                            <p className="border-t border-white/30 pt-6 text-base leading-7 text-[#E7E7E7] sm:text-lg sm:leading-8">
+                            <p className="max-lg:border-t border-white/30 pt-6 text-base leading-7 text-[#E7E7E7] sm:text-lg sm:leading-8">
                                 From bold ideas to unforgettable moments, we
                                 bring people, brands, and experiences together
                                 through creative event management and
@@ -195,12 +197,7 @@ export default function HeroSection() {
                             >
                                 Explore Our Services
 
-                                <span
-                                    aria-hidden="true"
-                                    className="text-lg"
-                                >
-                                    ↗
-                                </span>
+                                <ArrowRight className="h-4 w-4 rotate-300 fill-[#001023] transition-colors duration-300 group-hover:fill-[#90DD8C]" />
                             </Link>
                         </div>
                     </div>

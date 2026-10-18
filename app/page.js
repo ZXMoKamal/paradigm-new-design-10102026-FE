@@ -19,6 +19,7 @@ import ServicesSection from "@/components/sections/ourServicesDetails";
 import RecentWork from "@/components/sections/ourEvents";
 import NewsArticles from "@/components/sections/article";
 import TeamGridSection from "@/components/sections/team";
+import BranchesModern from "@/components/sections/branchesModern";
 
 
 export default function Home() {
@@ -34,7 +35,7 @@ export default function Home() {
                         { image: "/images/ezgif-6e984ccb45b0aa96.webp", alt: "event organized by paradigm" },
                     ] }
 
-                    video="/video/WEBSITE-Recap-2024-Finaaaal-Draft-HORIZONTAL.mp4"
+                    video="/videos/WEBSITE-Recap-2024-Finaaaal-Draft-HORIZONTAL.mp4"
                     />
                     <ServicesSection/>
       {/* <BoardMembers/> */}
@@ -44,7 +45,8 @@ export default function Home() {
                     <NewsArticles/>
                     <TeamGridSection/>
 
-      <Branches/>
+      {/* <Branches/> */}
+      <BranchesModern/>
 
     </main>
 

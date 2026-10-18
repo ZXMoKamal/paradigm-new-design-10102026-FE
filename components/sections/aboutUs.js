@@ -102,6 +102,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Slider from "@/components/shared/slider";
 import NumberCounter from "../animation/counter";
+import ArrowRight from "../icons/arrowRight";
 
 const aboutStats = [
   {
@@ -240,12 +241,7 @@ export default function AboutCompany() {
                   >
                     <span>Discover More</span>
 
-                    <span
-                      aria-hidden="true"
-                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                    <ArrowRight className="w-4 h-4 fill-bg-1 transition-all duration-300 group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>
@@ -260,7 +256,7 @@ export default function AboutCompany() {
               data-aos-duration="1000"
             >
               <Image
-                src="/images/about-img-2.png"
+                src="/images/home/about/About us.jpeg"
                 alt="about"
                 fill
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 80vw, 38vw"

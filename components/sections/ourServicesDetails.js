@@ -108,6 +108,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import ArrowRight from '../icons/arrowRight';
 
 export default function ServicesSection() {
   const services = [
@@ -231,12 +232,7 @@ export default function ServicesSection() {
                   >
                     <span>Discover More</span>
 
-                    <span
-                      aria-hidden="true"
-                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                    <ArrowRight className="w-4 h-4 text-bg-1 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
           </div>
         </div>

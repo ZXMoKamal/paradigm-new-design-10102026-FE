@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import ArrowRight from "../icons/arrowRight";
 
 export default function ProjectSlider({
   items = [],
@@ -44,7 +45,7 @@ export default function ProjectSlider({
               aria-hidden={activeIndex !== index}
             >
               {renderItem(item, index)}
-              {/* {index + 1 < items.length ? renderItem(items[index + 1], index + 1) : null} */}
+              {index + 1 < items.length ? renderItem(items[index + 1], index + 1) : null}
             </div>
           ))}
         </div>
@@ -58,7 +59,7 @@ export default function ProjectSlider({
             aria-label="Previous project"
             className="flex size-14 items-center justify-center rounded-full bg-primary text-bg-1 transition-colors duration-300 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           >
-            <span aria-hidden="true" className="text-2xl">←</span>
+            <span aria-hidden="true" className="text-2xl"><ArrowRight className="w-6 h-6 rotate-180"/></span>
           </button>
 
           <button
@@ -67,7 +68,7 @@ export default function ProjectSlider({
             aria-label="Next project"
             className="flex size-14 items-center justify-center rounded-full bg-primary text-bg-1 transition-colors duration-300 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
           >
-            <span aria-hidden="true" className="text-2xl">→</span>
+            <span aria-hidden="true" className="text-2xl"><ArrowRight className="w-6 h-6"/></span>
           </button>
 
           <span className="ml-2 text-sm text-text-muted" aria-live="polite">
