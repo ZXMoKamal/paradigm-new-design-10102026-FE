@@ -40,8 +40,6 @@
 
 // export default OurClients
 
-
-
 import ClientTicker from "../shared/clientTicker";
 
 const sampleClients = [
@@ -122,54 +120,58 @@ const sampleClients = [
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-54.png", url: "https://example.com" },
 ];
 
+// Splits one flat array into `columns` sub-arrays, as evenly sized as
+// possible, in order, with no overlap between them. With 74 logos and
+// 12 columns that's ten 6-logo sets and two 7-logo sets — every ticker
+// ends up with its own distinct set instead of all 12 repeating the same list.
+function splitIntoSets(items, columns) {
+  const base = Math.floor(items.length / columns); // minimum logos every set gets
+  const remainder = items.length % columns; // extra logos to spread across the first sets
+  const sets = [];
+  let cursor = 0;
+  for (let i = 0; i < columns; i++) {
+    const size = base + (i < remainder ? 1 : 0); // first `remainder` sets get one extra logo
+    sets.push(items.slice(cursor, cursor + size));
+    cursor += size;
+  }
+  return sets;
+}
+
+// 12 non-overlapping sets, one per ticker column below.
+const clientSets = splitIntoSets(sampleClients, 12);
+
 export default function Page() {
-  return (<>
+  return (
+    <>
       <div className="container-content">
+        <div>
+          <h4 className="mb-5 text-sm font-semibold uppercase tracking-[0.12em] text-primary">
+            Our valuable clients
+          </h4>
 
-    <div>
-      <h4 className="mb-5 text-sm font-semibold uppercase tracking-[0.12em] text-primary">
-                  Our valuable clients
-                </h4>
-
-                <h2 className="max-w-[680px] uppercase text-h2 font-bold leading-[1.12] tracking-[-0.04em] text-text-primary">
-                  Our valuable 
-                  <span className="text-primary">
-                    {" "}clients
-                  </span>
-                </h2>
-</div>
-</div>
-    <div className="py-20 bg-bg-1">
-      {/* Example 1: Horizontal Left-to-Right (LTR) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="ltr" speed="100s" />
-
-      {/* Example 2: Horizontal Right-to-Left (RTL) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="rtl" speed="100s" />
-      {/* Example 1: Horizontal Left-to-Right (LTR) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="ltr" speed="100s" />
-
-      {/* Example 2: Horizontal Right-to-Left (RTL) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="rtl" speed="100s" />
-      {/* Example 1: Horizontal Left-to-Right (LTR) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="ltr" speed="100s" />
-
-      {/* Example 2: Horizontal Right-to-Left (RTL) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="rtl" speed="100s" />
-      {/* Example 1: Horizontal Left-to-Right (LTR) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="ltr" speed="100s" />
-
-      {/* Example 2: Horizontal Right-to-Left (RTL) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="rtl" speed="100s" />
-      {/* Example 1: Horizontal Left-to-Right (LTR) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="ltr" speed="100s" />
-
-      {/* Example 2: Horizontal Right-to-Left (RTL) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="rtl" speed="100s" />
-      {/* Example 1: Horizontal Left-to-Right (LTR) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="ltr" speed="100s" />
-
-      {/* Example 2: Horizontal Right-to-Left (RTL) */}
-      <ClientTicker clients={sampleClients} orientation="horizontal" direction="rtl" speed="100s" />
-    </div>
-  </>);
+          <h2 className="max-w-[680px] uppercase text-h2 font-bold leading-[1.12] tracking-[-0.04em] text-text-primary">
+            Our valuable
+            <span className="text-primary"> clients</span>
+          </h2>
+        </div>
+      </div>
+      <div className="py-20 bg-bg-1 flex">
+        {/* Each column now reads its own slice of clientSets instead of the
+            full sampleClients array, so no two tickers show the same logos.
+            Direction still alternates top-to-bottom / bottom-to-top per column. */}
+        <ClientTicker clients={clientSets[0]} orientation="vertical" direction="top-to-bottom" speed="20s" />
+        <ClientTicker clients={clientSets[1]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+        <ClientTicker clients={clientSets[2]} orientation="vertical" direction="top-to-bottom" speed="20s" />
+        <ClientTicker clients={clientSets[3]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+        <ClientTicker clients={clientSets[4]} orientation="vertical" direction="top-to-bottom" speed="20s" />
+        <ClientTicker clients={clientSets[5]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+        <ClientTicker clients={clientSets[6]} orientation="vertical" direction="top-to-bottom" speed="20s" />
+        <ClientTicker clients={clientSets[7]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+        <ClientTicker clients={clientSets[8]} orientation="vertical" direction="top-to-bottom" speed="20s" />
+        <ClientTicker clients={clientSets[9]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+        <ClientTicker clients={clientSets[10]} orientation="vertical" direction="top-to-bottom" speed="20s" />
+        <ClientTicker clients={clientSets[11]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+      </div>
+    </>
+  );
 }

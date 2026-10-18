@@ -53,152 +53,17 @@
 // export default OurEvents
 
 
-"use client"
-
-import Image from "next/image";
 import Link from "next/link";
 import ProjectSlider from "../shared/projectSlider";
 import { getEvents } from "@/api/events";
 import ArrowRight from "../icons/arrowRight";
-// import ProjectSlider from "@/components/ui/ProjectSlider";
 
-// const projects = [
-//   {
-//     id: 1,
-//     title: "UI/UX Design",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-5.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 2,
-//     title: "Product development",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-6.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 3,
-//     title: "File uploading System",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-5.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 4,
-//     title: "File uploading System",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-6.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 1,
-//     title: "UI/UX Design",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-5.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 2,
-//     title: "Product development",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-6.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 3,
-//     title: "File uploading System",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-5.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 4,
-//     title: "File uploading System",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-6.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 1,
-//     title: "UI/UX Design",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-5.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 2,
-//     title: "Product development",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-6.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 3,
-//     title: "File uploading System",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-5.png",
-//     href: "/portfolio-details/",
-//   },
-//   {
-//     id: 4,
-//     title: "File uploading System",
-//     category: "UI/UX Design",
-//     image: "/images/projects/project-6.png",
-//     href: "/portfolio-details/",
-//   },
-// ];
-
-
-function ProjectCard({ project }) {
-  return (
-    <article className="group">
-      <div className="relative mb-6 h-[400px] overflow-hidden rounded-2xl bg-bg-2 sm:h-[450px] lg:h-[550px] w-full">
-        <Link
-          href={"/portfolio/"+project.requestTitle}
-          aria-label={`View project: ${project.title}`}
-          className="absolute inset-0 z-10"
-        >
-          <span className="sr-only">View Project</span>
-        </Link>
-
-        <img
-          src={project.thumb}
-          alt={project.title}
-          // fill
-          // sizes="(max-width: 767px) 100vw, 850px"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 h-full w-full"
-        />
-
-        <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/40" />
-
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <span className="flex size-20 scale-75 items-center justify-center rounded-full bg-white text-3xl text-bg-1 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
-            <ArrowRight className="w-6 h-6 rotate-300" />
-          </span>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-2">
-        <h3 className="text-[22px] font-semibold leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-[28px]">
-          <Link  href={"/portfolio/"+project.requestTitle}>{project.name}</Link>
-        </h3>
-{/* 
-        <span className="text-sm text-text-muted">
-          {project.category}
-        </span> */}
-      </div>
-    </article>
-  );
-}
-
-export default function RecentWork() {//async
-const events =  getEvents(); //await
+export default async function RecentWork() {
+  const events = await getEvents();
 
   return (
-    <section className="overflow-hidden bg-bg-1 pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px]">
+    <section className="overflow-hidden bg-bg-1 pb-[20px] pt-[20px] md:pb-[28px] md:pt-[28px] xl:pb-[75px] xl:pt-[100px]">
       <div className="container-content">
-        {/* Section heading and slider controls */}
         <div
           className="mb-10 flex flex-col justify-between gap-8 md:mb-14 md:flex-row md:items-end"
           data-aos="fade-up"
@@ -216,36 +81,27 @@ const events =  getEvents(); //await
             </h2>
           </div>
 
-
-            <Link
-                    href="/events/"
-                    className="group inline-flex items-center gap-4 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-bg-1 transition-all duration-300 hover:bg-primary-dark hover:shadow-brand"
-                  >
-                    <span>Discover More</span>
-
-                    <ArrowRight className="w-4 h-4 text-bg-1 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-
+          <Link
+            href="/events/"
+            className="group inline-flex items-center gap-4 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-bg-1 transition-all duration-300 hover:bg-primary-dark hover:shadow-brand"
+          >
+            <span>Discover More</span>
+            <ArrowRight className="h-4 w-4 text-bg-1 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
 
-      </div>
-        {/* Custom React slider */}
         <div
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="100"
         >
-          <ProjectSlider
-            items={events}
-            ariaLabel="Recent work projects"
-            className="w-full"
-            renderItem={(event) => (
-              <div className="w-full max-w-[850px]">
-                <ProjectCard project={event} />
-              </div>
-            )}
-          />
         </div>
+      </div>
+     <ProjectSlider
+  items={events}
+  ariaLabel="Recent work projects"
+  className="w-full"
+/>
     </section>
   );
 }
