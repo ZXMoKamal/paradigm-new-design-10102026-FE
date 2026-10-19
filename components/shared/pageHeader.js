@@ -8,7 +8,7 @@ export default function PageHeader({
   highlight,
   breadcrumbLabel,
   breadcrumbHref,
-  backgroundImage = "/images/ourStory/header/header.webp",
+  backgroundImage = "/images/sectionHeader.jpeg",
   backgroundAlt = "",
 }) {
   return (
