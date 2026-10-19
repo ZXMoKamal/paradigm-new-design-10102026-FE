@@ -110,94 +110,10 @@ import React from 'react';
 import Link from 'next/link';
 import { getServices } from '@/api/services';
 import { servicesIconCode } from '../icons/iconCodes.js/servicesIconCode';
+import ArrowRight from '../icons/arrowRight';
 
 export default async function ServicesSection() {
-  // const services = [
-  //   {
-  //     id: "01",
-  //     title: "UI/UX & Web Design",
-  //     description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
-  //     icon: "🎨",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "02",
-  //     title: "Frontend & Next.js Development",
-  //     description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
-  //     icon: "⚡",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "03",
-  //     title: "Brand Strategy & Identity",
-  //     description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
-  //     icon: "🚀",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "04",
-  //     title: "Digital Marketing & SEO",
-  //     description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
-  //     icon: "📈",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "01",
-  //     title: "UI/UX & Web Design",
-  //     description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
-  //     icon: "🎨",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "02",
-  //     title: "Frontend & Next.js Development",
-  //     description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
-  //     icon: "⚡",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "03",
-  //     title: "Brand Strategy & Identity",
-  //     description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
-  //     icon: "🚀",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "04",
-  //     title: "Digital Marketing & SEO",
-  //     description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
-  //     icon: "📈",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "01",
-  //     title: "UI/UX & Web Design",
-  //     description: "Crafting immersive, intuitive user interfaces and digital experiences that engage audiences and drive conversions.",
-  //     icon: "🎨",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "02",
-  //     title: "Frontend & Next.js Development",
-  //     description: "Building lightning-fast, high-performance web applications using modern frameworks like React and Next.js.",
-  //     icon: "⚡",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "03",
-  //     title: "Brand Strategy & Identity",
-  //     description: "Developing memorable brand stories, logos, and guidelines that make your business stand out globally.",
-  //     icon: "🚀",
-  //     href: "/service-details",
-  //   },
-  //   {
-  //     id: "04",
-  //     title: "Digital Marketing & SEO",
-  //     description: "Optimizing your online visibility and executing campaigns that attract high-value traffic and loyal customers.",
-  //     icon: "📈",
-  //     href: "/service-details",
-  //   },
-  // ];
+
 const services = await getServices();
   return (
     <section className="pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px] bg-bg-1 relative overflow-hidden">
@@ -233,19 +149,14 @@ const services = await getServices();
                   >
                     <span>Discover More</span>
 
-                    <span
-                      aria-hidden="true"
-                      className="inline-block transition-transform duration-300 group-hover:translate-x-1"
-                    >
-                      →
-                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
           </div>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
+          {services.map((service, index) => ( 
             <div
               key={service.id}
               className="group relative rounded-2xl p-8 flex flex-col justify-between overflow-hidden hover:border-primary transition-all duration-500 hover:-translate-y-2"
@@ -255,14 +166,14 @@ const services = await getServices();
               {/* Top Accent Glow on Hover */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="space-y-6">
+              <div className="">
                 {/* Number & Icon Header */}
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-heading font-bold text-text-muted tracking-wider">
+                  {/* <span className="text-xs font-heading font-bold text-text-muted tracking-wider">
                     {service.id}
-                  </span>
-                  <div className="w-14 h-14 rounded-xl bg-bg-1 border border-border-1 flex items-center justify-center text-2xl group-hover:bg-primary group-hover:text-bg-1 transition-colors duration-300">
-                    <span className="icon-placeholder">{servicesIconCode[service.icon_code]}</span>
+                  </span> */}
+                  <div className="flex items-center justify-centergroup-hover:bg-primary group-hover:text-bg-1 transition-colors duration-300">
+                    <img src={service.thumb} alt={service.title} className="w-24 h-24" />
                   </div>
                 </div>
 
