@@ -47,7 +47,7 @@ import ArrowRight from "../icons/arrowRight";
     >
       {/* Article image */}
       <Link
-        href={"/blog/"+article.requestTitle}
+        href={"/article/"+article.requestTitle}
         aria-label={`${article.title} ${article.highlightedTitle}`}
         className="relative mb-6 block h-[300px] overflow-hidden rounded-2xl bg-bg-2 sm:h-[350px] lg:h-[400px]"
       >
