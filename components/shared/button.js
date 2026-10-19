@@ -9,10 +9,10 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                solid: 'bg-secondary fill-text-dark text-text-dark border-secondary transition-colors duration-500',
-                solidAnimated: 'bg-white fill-text-dark text-text-dark border-0 hover:text-white ',
-                outline: 'bg-primary text-secondary fill-secondary border-secondary hover:bg-secondary hover:fill-text-dark hover:text-text-dark transition-all duration-500',
-                outlineDark: 'bg-primary fill-text-dark text-text-dark border-dark hover:bg-secondary hover:border-secondary transition-all duration-500',
+                solid: 'bg-primary fill-text-dark text-black border-secondary transition-colors duration-500',
+                solidAnimated: 'bg-white fill-text-dark text-black border-0 hover:text-white ',
+                outline: 'bg-primary text-secondary fill-secondary border-secondary hover:bg-secondary hover:fill-text-dark hover:text-black transition-all duration-500',
+                outlineDark: 'bg-primary fill-text-dark text-black border-dark hover:bg-secondary hover:border-secondary transition-all duration-500',
             },
 
             size: {

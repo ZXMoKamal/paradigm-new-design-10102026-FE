@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/cn"
 
 const selectVariants = cva(
-    "w-full transition bg-primary py-2",
+    "w-full transition bg-bg-1 py-2",
     {
         variants: {
             rounded: {
@@ -12,8 +12,8 @@ const selectVariants = cva(
                 full: "rounded-full",
             },
             border: {
-                thin: "border border-secondary",
-                thick: "border-2 border-secondary",
+                thin: "",
+                thick: "",
             },
             hasIcon: {
                 true: "px-12",
@@ -56,7 +56,7 @@ export function Select({
                 {/* Select */ }
                 <select
                     className={ cn(
-                        "h-6 w-full bg-primary outline-none font-primary-light",
+                        "h-6 w-full bg-bg-1 outline-none font-primary-light",
                         className
                     ) }
                     { ...props }

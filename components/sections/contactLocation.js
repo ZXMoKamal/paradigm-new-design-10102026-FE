@@ -12,7 +12,7 @@ function ContactLocation() {
               data-ll-status="loaded"
               className='w-full xl:w-[740px] h-[635px] my-10 order-2'
           ></iframe>
-          <section className='rounded-2xl xl:absolute bottom-0 right-0 lg:bg-primary-dark w-full xl:w-[600px] py-10 px-2 md:px-10 order-1'>
+          <section className='rounded-2xl xl:absolute bottom-0 right-0 lg:bg-bg-2 w-full xl:w-[600px] py-10 px-2 md:px-10 order-1'>
               <ContactForm/>
           </section>
     </section>
