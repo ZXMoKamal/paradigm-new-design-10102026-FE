@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ReasonableConsumption({ className = '', internalFill = '#007DBB' }) {
+function ReasonableConsumption({ className = '', internalFill = '#ffffff' }) {
   return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75" className={ className }>
         

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ClimateAction({ className = '', internalFill = '#48773C' }) {
+function ClimateAction({ className = '', internalFill = '#ffffff' }) {
   return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75" fill="none" className={ className }>
         <path d="M0.104574 -1.24974e-05L0 74.8954L74.8954 75L75 0.104561L0.104574 -1.24974e-05Z" fill="#052A39"></path>
