@@ -22,6 +22,10 @@ import { toast } from "sonner";
 
 export default function ContactForm() {
     const [services, setServices] = useState([]);
+    // bumping this forces React to unmount + remount <Turnstile> below (via its key prop).
+    // A full remount is the one re-verify path that doesn't depend on react-turnstile's
+    // own imperative ref API, which is what wasn't reliably producing a fresh token.
+    const [turnstileKey, setTurnstileKey] = useState(0);
 
     const formik = useFormik({
         initialValues: {
@@ -49,12 +53,9 @@ export default function ContactForm() {
 
                 if (res.ok) {
                     toast.success("Message sent!");
-                    // const s = await res.text();
-                    // console.log(s);
-                    resetForm();
+                    resetForm(); // clears formik's token back to "" ...
+                    setTurnstileKey((k) => k + 1); // ... and remounts the widget so it re-verifies and repopulates token for the next submit
                 } else {
-                    // const s = await res.text();
-                    // console.log(s);
                     toast.error("Error sending message");
                 }
             } catch (error) {
@@ -118,7 +119,7 @@ export default function ContactForm() {
             <div>
                 <Input
                     className="max-md:text-[14px]"
-                    type="text"
+                    type="number"
                     rounded=""
                     icon={<Phone className="w-5 h-5 fill-secondary" />}
                     placeholder="Phone"
@@ -217,10 +218,15 @@ export default function ContactForm() {
             {/* Turnstile */}
             <div className="md:col-span-2">
                 <Turnstile
+                    key={turnstileKey} // changing this unmounts and remounts the widget, forcing a fresh verification
                     sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                     onVerify={(token) => {
+                        // only set the value here — do NOT also call setFieldTouched.
+                        // Calling both back-to-back raced two separate async validations,
+                        // and the touched-validation sometimes ran before the value had
+                        // actually updated, which is what flashed the "Please complete
+                        // the captcha" error right after a successful auto-verify.
                         formik.setFieldValue("token", token);
-                        formik.setFieldTouched("token", true);
                     }}
                     onExpire={() => {
                         formik.setFieldValue("token", "");
