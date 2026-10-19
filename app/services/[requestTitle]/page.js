@@ -103,7 +103,7 @@ async function Services({params}) {
           image="/images/services/service-details-img-1.png" 
           imageAlt="Service overview" 
           introduction="We provide a comprehensive range of services to help businesses achieve their goals. Our team of experts is dedicated to delivering innovative solutions that drive growth and success." 
-          description="Our services are designed to meet the unique needs of each client. We work closely with our clients to understand their objectives and develop customized strategies that deliver results." 
+          description={service.description}
           highlights={service.points} 
           // processTitle="Our Process" 
           // processSteps={[{ step: 1, description: "Initial Consultation" }, { step: 2, description: "Requirement Analysis" }, { step: 3, description: "Design & Development" }, { step: 4, description: "Testing & Deployment" }]} 
