@@ -6,6 +6,7 @@ import Image from "next/image";
 import Linkedin from "../icons/linkedin";
 import Instagram from "../icons/instagram";
 import Facebook from "../icons/facebook";
+import ArrowRight from "../icons/arrowRight";
 
 export default function Footer() {
     const links = [
@@ -54,7 +55,7 @@ export default function Footer() {
 
                         <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 scale-0 items-center justify-center rounded-full bg-[#90DD8C] text-2xl text-[#001023] opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 sm:h-16 sm:w-16 lg:h-[100px] lg:w-[100px] lg:text-4xl">
                             <span className="inline-block transition-transform duration-300 group-hover:rotate-[-45deg]">
-                                ↗
+                                <ArrowRight className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 rotate-300" />
                             </span>
                         </span>
                     </Link>
@@ -219,7 +220,7 @@ export default function Footer() {
                             className="inline-flex items-center gap-3 rounded-full bg-[#90DD8C] px-6 py-3 font-medium text-[#001023] transition-colors duration-300 hover:bg-white"
                         >
                             Contact Us
-                            <span aria-hidden="true">↗</span>
+                            
                         </Link>
                     </div>
                 </div>
