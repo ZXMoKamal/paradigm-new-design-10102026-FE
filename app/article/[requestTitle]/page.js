@@ -87,7 +87,7 @@ async function portfolio({ params }) {
   const { requestTitle } = await params;
   return (
     <main className="relative w-full overflow-hidden">
-   <PageHeader title="article" highlight={requestTitle} breadcrumbLabel="article" breadcrumbHref="/article" />
+   <PageHeader title="article" highlight={""} breadcrumbLabel="blog" breadcrumbHref="/blog" />
       <BlogContent blogRequestTitle={ requestTitle } />
        {/*<BlogSuggestions/> */}
       </main>
