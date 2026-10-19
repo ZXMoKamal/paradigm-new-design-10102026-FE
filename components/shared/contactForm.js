@@ -119,7 +119,7 @@ export default function ContactForm() {
             <div>
                 <Input
                     className="max-md:text-[14px]"
-                    type="number"
+                    type="text"
                     rounded=""
                     icon={<Phone className="w-5 h-5 fill-secondary" />}
                     placeholder="Phone"
