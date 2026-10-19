@@ -83,7 +83,7 @@ export default function ContactForm() {
                 <Input
                     className="max-md:text-[14px]"
                     type="text"
-                    rounded="full"
+                    rounded=""
                     icon={<Person className="w-5 h-5 fill-secondary" />}
                     placeholder="Name"
                     {...formik.getFieldProps("name")}
@@ -101,7 +101,7 @@ export default function ContactForm() {
                 <Input
                     className="max-md:text-[14px]"
                     type="email"
-                    rounded="full"
+                    rounded=""
                     icon={<Email className="w-5 h-5 fill-secondary" />}
                     placeholder="Email"
                     {...formik.getFieldProps("email")}
@@ -119,7 +119,7 @@ export default function ContactForm() {
                 <Input
                     className="max-md:text-[14px]"
                     type="text"
-                    rounded="full"
+                    rounded=""
                     icon={<Phone className="w-5 h-5 fill-secondary" />}
                     placeholder="Phone"
                     {...formik.getFieldProps("phone")}
@@ -137,7 +137,7 @@ export default function ContactForm() {
                 <Select
                     className="max-md:text-[14px] px-0"
                     {...formik.getFieldProps("service")}
-                    rounded="full"
+                    rounded=""
                     border="thin"
                 >
                     <option value="">Select a Service</option>
@@ -161,7 +161,7 @@ export default function ContactForm() {
                 <Input
                     className="max-md:text-[14px]"
                     type="text"
-                    rounded="full"
+                    rounded=""
                     icon={<Info className="w-5 h-5 fill-secondary" />}
                     placeholder="Subject"
                     {...formik.getFieldProps("subject")}
