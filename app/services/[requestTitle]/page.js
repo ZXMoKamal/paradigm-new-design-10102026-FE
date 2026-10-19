@@ -99,6 +99,7 @@ async function Services({params}) {
     <PageHeader title="Our Services" breadcrumbLabel="Our Services" breadcrumbHref="/our-services" backgroundAlt="Our Services Background Image" />
       <ServiceDetails 
           title={service.title} 
+          thumb={service.thumb} 
           // highlightedTitle="Design solution" 
           image="/images/services/service-details-img-1.png" 
           imageAlt="Service overview" 

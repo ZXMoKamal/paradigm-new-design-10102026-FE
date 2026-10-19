@@ -70,6 +70,7 @@ export default function ServiceDetails({
   approachTitle = "Solution Approach",
   approachParagraphs = [],
   supportingImages = [],
+  thumb
 }) {
   return (
     <section className="bg-bg-1 py-16 sm:py-20 lg:py-[120px]">
@@ -90,13 +91,16 @@ export default function ServiceDetails({
 
         {/* Service introduction */}
         <div className="mx-auto max-w-5xl">
-          <div data-aos="fade-up">
-            <h1 className="mb-7 text-3xl font-semibold leading-tight tracking-tight text-text-primary sm:text-4xl lg:text-6xl">
-              {title}{" "}
-              <span className="font-normal italic text-primary">
-                {highlightedTitle}
-              </span>
-            </h1>
+          <div data-aos="fade-up"> 
+            <div className="flex items-center">
+              <img src={thumb} alt={imageAlt} className="w-50 h-50"/>
+              <h1 className="mb-7 text-3xl font-semibold leading-tight tracking-tight text-text-primary sm:text-4xl lg:text-6xl">
+                {title}{" "}
+                <span className="font-normal italic text-primary">
+                  {highlightedTitle}
+                </span>
+              </h1>
+            </div>
 
             {introduction && (
               <p className="mb-5 text-base leading-8 text-text-body sm:text-lg">
