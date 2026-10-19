@@ -1,6 +1,6 @@
 import React from 'react'
 
-function GenderEquality({ className = '', internalFill = '#EF412A' }) {
+function GenderEquality({ className = '', internalFill = '#ffffff' }) {
   return (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75" className={ className }>
           <path d="M75 0H0V75H75V0Z" fill="#052A39"></path>
