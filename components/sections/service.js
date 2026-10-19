@@ -21,7 +21,11 @@ function ServiceHighlight({ item, index }) {
       </span>
 
       <h3 className="mb-3 text-xl font-semibold text-text-primary sm:text-2xl">
-        {item.point}
+        {item.point.split("#").map((word, i) => (
+          <span key={i} className="block">
+            {word}
+          </span>
+        ))}
       </h3>
 
       <p className="text-base leading-7 text-text-muted">
@@ -55,7 +59,7 @@ function ProcessStep({ step, index }) {
 
 export default function ServiceDetails({
   title = "Mobile apps",
-  highlightedTitle = "Design solution",
+  highlightedTitle = "",
   image = "/images/services/service-details-img-1.png",
   imageAlt = "Service overview",
   introduction,
