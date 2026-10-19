@@ -85,7 +85,7 @@ function BranchesLandmarks() {
   </div>
 </div>
 
-<img src="/images/home/branches/branches.png" alt="paradigm capital group Cairo egypt branch" width={100} height={100} className="rounded-lg w-full"/>
+<img src="/images/home/branches/branches.png" alt="paradigm capital group Cairo egypt branch" width={100} height={100} className="rounded-lg w-[80%]"/>
         </section>
     </section>
   )
