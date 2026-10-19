@@ -1,4 +1,5 @@
 import Branches from '@/components/sections/branches'
+import BranchesModern from '@/components/sections/branchesModern';
 import ContactLocation from '@/components/sections/contactLocation'
 import { SEO } from '@/data/SEO';
 import React from 'react'
@@ -76,7 +77,8 @@ function Contacts() {
   return (
     <main className="relative w-full overflow-hidden pt-30">
       <ContactLocation/>
-      <Branches/>
+      {/* <Branches/> */}
+      <BranchesModern/>
     </main>
   )
 }
