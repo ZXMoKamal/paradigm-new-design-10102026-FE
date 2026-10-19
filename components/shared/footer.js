@@ -40,7 +40,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="overflow-hidden bg-bg-1 text-white">
+        <footer className="overflow-hidden bg-bg-1 text-text-white">
             {/* Contact CTA */}
             <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                 <div className="border-b border-white/20 text-center">
@@ -53,9 +53,9 @@ export default function Footer() {
                             Let&apos;s Talk US
                         </span>
 
-                        <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 scale-0 items-center justify-center rounded-full bg-[#90DD8C] text-2xl text-[#001023] opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 sm:h-16 sm:w-16 lg:h-[100px] lg:w-[100px] lg:text-4xl">
+                        <span className="shadow absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 scale-0 items-center justify-center rounded-full bg-primary text-2xl text-[#001023] opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100 sm:h-16 sm:w-16 lg:h-[100px] lg:w-[100px] lg:text-4xl">
                             <span className="inline-block transition-transform duration-300 group-hover:rotate-[-45deg]">
-                                <ArrowRight className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 rotate-300" />
+                                <ArrowRight className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 rotate-330" />
                             </span>
                         </span>
                     </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label={name}
-                                        className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-300 hover:bg-[#90DD8C] hover:text-[#001023]"
+                                        className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-300 hover:bg-primary hover:text-[#001023]"
                                     >
                                         <Icon className="h-5 w-5 fill-current" />
                                     </a>
@@ -114,7 +114,7 @@ export default function Footer() {
                                 <li key={href}>
                                     <Link
                                         href={href}
-                                        className="group inline-flex items-center gap-2 text-base text-white/80 transition-colors duration-300 hover:text-[#90DD8C]"
+                                        className="group inline-flex items-center gap-2 text-base text-white/80 transition-colors duration-300 hover:text-primary"
                                     >
                                         <span className="w-0 overflow-hidden text-sm opacity-0 transition-all duration-300 group-hover:w-3 group-hover:opacity-100">
                                             ›
@@ -136,7 +136,7 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className=" text-[#90DD8C]"
+                                    className=" text-primary"
                                 >
                                     <span className="icon-placeholder">
                                         {/* Replace with location icon */}
@@ -148,7 +148,7 @@ export default function Footer() {
                                     href="https://www.google.com/maps/place/Paradigm+Ltd./data=!4m2!3m1!1s0x0:0x3b312a21bb17f95f?sa=X&ved=1t:2428&ictx=111"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="transition-colors hover:text-[#90DD8C]"
+                                    className="transition-colors hover:text-primary"
                                 >
                                     8, 10 Ahmed Nessim Street, 9th floor,
                                     Dokki, Giza, Egypt
@@ -158,7 +158,7 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className=" text-[#90DD8C]"
+                                    className=" text-primary"
                                 >
                                     <span className="icon-placeholder">
                                         {/* Replace with phone icon */}
@@ -169,14 +169,14 @@ export default function Footer() {
                                 <div className="flex flex-col gap-2">
                                     <a
                                         href="tel:+1234567890"
-                                        className="transition-colors hover:text-[#90DD8C]"
+                                        className="transition-colors hover:text-primary"
                                     >
                                         +1 234 567 890
                                     </a>
 
                                     <a
                                         href="tel:+1987654321"
-                                        className="transition-colors hover:text-[#90DD8C]"
+                                        className="transition-colors hover:text-primary"
                                     >
                                         +1 987 654 321
                                     </a>
@@ -186,7 +186,7 @@ export default function Footer() {
                             <li className="flex items-start gap-3">
                                 <span
                                     aria-hidden="true"
-                                    className=" text-[#90DD8C]"
+                                    className=" text-primary"
                                 >
                                     <span className="icon-placeholder">
                                         {/* Replace with email icon */}
@@ -196,7 +196,7 @@ export default function Footer() {
 
                                 <a
                                     href="mailto:info@paradigm-eg.com"
-                                    className="break-all transition-colors hover:text-[#90DD8C]"
+                                    className="break-all transition-colors hover:text-primary"
                                 >
                                     info@paradigm-eg.com
                                 </a>
@@ -217,7 +217,7 @@ export default function Footer() {
 
                         <Link
                             href="/contacts/"
-                            className="inline-flex items-center gap-3 rounded-full bg-[#90DD8C] px-6 py-3 font-medium text-[#001023] transition-colors duration-300 hover:bg-white"
+                            className="inline-flex items-center gap-3 rounded-full bg-primary px-6 py-3 font-medium text-[#001023] transition-colors duration-300 hover:bg-white"
                         >
                             Contact Us
                             
@@ -235,7 +235,7 @@ export default function Footer() {
 
                     <Link
                         href="/contacts/"
-                        className="text-sm text-white/80 transition-colors hover:text-[#90DD8C]"
+                        className="text-sm text-white/80 transition-colors hover:text-primary"
                     >
                         Contact Us
                     </Link>

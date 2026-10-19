@@ -83,7 +83,7 @@ export function VideoSection({
         data-aos="zoom-out-up"
             ref={ containerRef }
             className={ cn(
-                "relative w-full h-[700px] overflow-hidden",
+                "relative w-full h-[700px] overflow-hidden group",
                 className
             ) }
             onMouseMove={ handleMouseMove }
@@ -107,7 +107,7 @@ export function VideoSection({
                         fill
                         priority={ i === 0 }
                         sizes="100vw"
-                        className="object-cover"
+                        className="object-cover group-hover:grayscale-0"
                         unoptimized
                     />
                 </div>

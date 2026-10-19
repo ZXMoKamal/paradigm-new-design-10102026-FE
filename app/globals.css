@@ -6,7 +6,7 @@
     filter:grayscale();
   }
   *:hover>img,img:hover{
-    filter:unset;
+    filter:unset !important;
   }
 }
 

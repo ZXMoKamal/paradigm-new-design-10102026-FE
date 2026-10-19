@@ -85,6 +85,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { servicesIconCode } from "../icons/iconCodes.js/servicesIconCode";
+import ArrowRight from "../icons/arrowRight";
 
 async function getSearchResults(search) {
     const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -134,8 +135,7 @@ export default async function SearchResultsSection({ searchParams }) {
         <section className="container-content pt-32 pb-24 space-y-12 min-h-screen">
             {/* Search Header */}
             <div className="space-y-4 border-b border-border-1 pb-8" data-aos="fade-up">
-                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bg-2 border border-border-1 text-primary text-xs font-heading font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                <span className="inline-flex items-center gap-2 py-2 text-primary text-lg font-heading font-semibold">
                     Search Results
                 </span>
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-text-primary">
@@ -186,7 +186,7 @@ export default async function SearchResultsSection({ searchParams }) {
                                             {item.page || "General"}
                                         </span>
                                         {/* Safe rendering check for icon component/element */}
-                                        {IconComponent && (
+                                        {/* {IconComponent && (
                                             <div 
                                                 className="w-10 h-10 rounded-full bg-bg-1 border border-border-1 flex items-center justify-center overflow-hidden"
                                                 style={{ color: "var(--secondary)" }}
@@ -197,7 +197,7 @@ export default async function SearchResultsSection({ searchParams }) {
                                                     IconComponent
                                                 )}
                                             </div>
-                                        )}
+                                        )} */}
                                     </div>
 
                                     {/* Optional Thumbnail */}
@@ -228,7 +228,7 @@ export default async function SearchResultsSection({ searchParams }) {
                                 {/* Action Link Indicator */}
                                 <div className="pt-6 mt-6 border-t border-border-1 flex items-center justify-between text-xs font-heading font-semibold text-text-primary group-hover:text-primary transition-colors">
                                     <span>Read More</span>
-                                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                                    <ArrowRight className={"w-6 h-6 fill-text-primary"}/>
                                 </div>
                             </Link>
                         );

@@ -99,7 +99,7 @@ export default function ClientTicker({
                 <img
                   src={client.logo || "/images/placeholder-logo.png"}
                   alt={client.name || "Client Logo"}
-                  className="max-h-14 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  className="max-h-[80%] max-w-[80%] object-contain object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
                 />
               </a>
             </div>
