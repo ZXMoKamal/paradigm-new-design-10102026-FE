@@ -4,7 +4,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/cn"
 
 const inputVariants = cva(
-    "w-full outline-none transition bg-primary py-3 font-primary-regular",
+    "w-full outline-none transition bg-bg-1 py-3 font-primary-regular",
     {
         variants: {
             rounded: {
@@ -12,8 +12,8 @@ const inputVariants = cva(
                 full: "rounded-full",
             },
             border: {
-                thin: "border border-secondary",
-                thick: "border-2 border-secondary",
+                thin:"",
+                thick: "",
             },
             hasIcon: {
                 true: "px-12",

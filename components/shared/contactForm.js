@@ -245,7 +245,7 @@ export default function ContactForm() {
                 size="sm"
                 className="font-[600]"
             >
-                <Send className="w-5 h-5 fill-primary-dark" />
+                <Send className="w-5 h-5 fill-black" />
 
                 {formik.isSubmitting ? "Sending..." : "Send"}
             </Button>
