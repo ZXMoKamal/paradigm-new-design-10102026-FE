@@ -82,7 +82,7 @@ export default async function RecentWork() {
           </div>
 
           <Link
-            href="/events/"
+            href="/past-events/"
             className="group inline-flex items-center gap-4 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-bg-1 transition-all duration-300 hover:bg-primary-dark hover:shadow-brand"
           >
             <span>Discover More</span>
