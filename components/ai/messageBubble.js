@@ -16,8 +16,8 @@ export default function MessageBubble({ message }) {
             dir={rtl ? "rtl" : "ltr"} // flip layout for Arabic
             className={
                 isUser
-                    ? "ml-auto max-w-[80%] rounded-2xl bg-[#042a37] px-4 py-3 text-white"
-                    : "mr-auto max-w-[80%] rounded-2xl bg-gray-100 px-4 py-3 text-gray-900"
+                    ? "ml-auto max-w-[80%] rounded-2xl bg-bg-2 px-4 py-3 text-white"
+                    : "mr-auto max-w-[80%] rounded-2xl bg-bg-1 px-4 py-3 text-text-primary"
             }
         >
             <ReactMarkdown
@@ -53,7 +53,7 @@ export default function MessageBubble({ message }) {
                             className={
                                 isUser
                                     ? "underline text-blue-200 hover:text-white"
-                                    : "underline text-[#042a37] hover:text-[#065a72]"
+                                    : "underline text-text-primary hover:text-[#065a72]"
                             }
                         >
                             {children}

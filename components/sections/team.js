@@ -5,14 +5,36 @@ import Image from "next/image";
 
 // Full pool of team members / photos to randomly swap between
 const allTeamMembers = [
-  { name: "Sarah Jenkins", role: "Creative Director", image: "/images/team-1.jpg" },
-  { name: "Michael Chang", role: "Lead Developer", image: "/images/team-2.jpg" },
-  { name: "Elena Rostova", role: "UI/UX Designer", image: "/images/team-3.jpg" },
-  { name: "David Kim", role: "Brand Strategist", image: "/images/team-4.jpg" },
-  { name: "Amina Yusuf", role: "Full Stack Engineer", image: "/images/team-5.jpg" },
-  { name: "Lucas Vance", role: "Motion Designer", image: "/images/team-6.jpg" },
-  { name: "Chloe Bennett", role: "Product Manager", image: "/images/team-7.jpg" },
-  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/team-8.jpg" },
+  { name: "Sarah Jenkins", role: "Creative Director", image: "/images/home/team/Meet Our Team-01.png" },
+  { name: "Michael Chang", role: "Lead Developer", image: "/images/home/team/Meet Our Team-02.png" },
+  { name: "Elena Rostova", role: "UI/UX Designer", image: "/images/home/team/Meet Our Team-03.png" },
+  { name: "David Kim", role: "Brand Strategist", image: "/images/home/team/Meet Our Team-04.png" },
+  { name: "Amina Yusuf", role: "Full Stack Engineer", image: "/images/home/team/Meet Our Team-05.png" },
+  { name: "Lucas Vance", role: "Motion Designer", image: "/images/home/team/Meet Our Team-06.png" },
+  { name: "Chloe Bennett", role: "Product Manager", image: "/images/home/team/Meet Our Team-07.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-08.png" },
+  { name: "Sarah Jenkins", role: "Creative Director", image: "/images/home/team/Meet Our Team-09.png" },
+  { name: "Michael Chang", role: "Lead Developer", image: "/images/home/team/Meet Our Team-10.png" },
+  { name: "Elena Rostova", role: "UI/UX Designer", image: "/images/home/team/Meet Our Team-11.png" },
+  { name: "David Kim", role: "Brand Strategist", image: "/images/home/team/Meet Our Team-12.png" },
+  { name: "Amina Yusuf", role: "Full Stack Engineer", image: "/images/home/team/Meet Our Team-13.png" },
+  { name: "Lucas Vance", role: "Motion Designer", image: "/images/home/team/Meet Our Team-14.png" },
+  { name: "Chloe Bennett", role: "Product Manager", image: "/images/home/team/Meet Our Team-15.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-16.png" },
+  { name: "Sarah Jenkins", role: "Creative Director", image: "/images/home/team/Meet Our Team-17.png" },
+  { name: "Michael Chang", role: "Lead Developer", image: "/images/home/team/Meet Our Team-18.png" },
+  { name: "Elena Rostova", role: "UI/UX Designer", image: "/images/home/team/Meet Our Team-19.png" },
+  { name: "David Kim", role: "Brand Strategist", image: "/images/home/team/Meet Our Team-20.png" },
+  { name: "Amina Yusuf", role: "Full Stack Engineer", image: "/images/home/team/Meet Our Team-21.png" },
+  { name: "Lucas Vance", role: "Motion Designer", image: "/images/home/team/Meet Our Team-22.png" },
+  { name: "Chloe Bennett", role: "Product Manager", image: "/images/home/team/Meet Our Team-23.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-24.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-25.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-26.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-27.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-28.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-29.png" },
+  { name: "Marcus Brody", role: "Frontend Developer", image: "/images/home/team/Meet Our Team-30.png" },
 ];
 
 export default function TeamGridSection() {
@@ -56,8 +78,12 @@ export default function TeamGridSection() {
         setVisibleMembers((currentMembers) => {
           const updated = [...currentMembers];
           targetIndices.forEach((targetBoxIndex) => {
+            // Dedupe by `image`, not `name`: the pool only has 8 unique names repeated
+            // across 30 different photos, so filtering by name matched every entry
+            // against the 8 names already on screen and left availablePool empty —
+            // that's why nothing ever actually swapped. `image` is unique per entry.
             const availablePool = allTeamMembers.filter(
-              (m) => !updated.some((cm) => cm.name === m.name)
+              (m) => !updated.some((cm) => cm.image === m.image)
             );
             if (availablePool.length > 0) {
               const randomNewMember =

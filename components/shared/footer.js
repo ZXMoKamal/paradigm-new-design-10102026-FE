@@ -40,7 +40,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="overflow-hidden bg-[#06192F] text-white">
+        <footer className="overflow-hidden bg-bg-1 text-white">
             {/* Contact CTA */}
             <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                 <div className="border-b border-white/20 text-center">

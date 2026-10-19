@@ -123,7 +123,7 @@ export default function HeroSection() {
                 </video>
 
                 {/* Contrast overlay */}
-                <div className="absolute inset-0 bg-[#001023]/60" />
+                <div className="absolute inset-0 bg-[#001023]/20" />
 
                 <div className="absolute inset-0 bg-gradient-to-r from-[#001023]/85 via-[#001023]/30 to-[#001023]/40" />
 
@@ -145,7 +145,7 @@ export default function HeroSection() {
 
                         <span className="mb-5 h-32 w-px bg-white/40" />
 
-                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#90DD8C]/20 text-lg text-[#90DD8C] transition-colors hover:bg-[#90DD8C] hover:text-[#001023]">
+                        <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#90DD8C]/20 text-lg text-[#90DD8C] transition-colors hover:bg-primary hover:text-bg-2">
                             <ArrowDown className="h-5 w-5 fill-text-primary" />
                         </span>
                     </Link>
@@ -154,7 +154,7 @@ export default function HeroSection() {
                     <div className="flex w-full flex-col justify-center gap-8 py-24 sm:gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
                         <div className="max-w-5xl">
                             <p
-                                className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-[#90DD8C] sm:text-sm"
+                                className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-primary sm:text-sm"
                                 data-aos="fade-up"
                             >
                                 Paradigm · Events & Experiences
@@ -169,7 +169,7 @@ export default function HeroSection() {
                                 We Create
                                 <br />
 
-                                <span className="font-normal italic text-[#90DD8C]">
+                                <span className="font-normal italic text-primary">
                                     Experiences
                                 </span>
 
@@ -193,7 +193,7 @@ export default function HeroSection() {
 
                             <Link
                                 href="/our-services/"
-                                className="mt-7 inline-flex items-center gap-4 rounded-full bg-[#90DD8C] px-7 py-4 text-sm font-semibold text-[#001023] transition-colors duration-300 hover:bg-white"
+                                className="mt-7 inline-flex items-center gap-4 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-[#001023] transition-colors duration-300 hover:bg-white"
                             >
                                 Explore Our Services
 

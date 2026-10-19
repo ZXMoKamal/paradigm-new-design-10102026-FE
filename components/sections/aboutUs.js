@@ -164,7 +164,7 @@ export default function AboutCompany() {
   ];
 
   return (
-    <section className="bg-bg-1 pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px]">
+    <section id="#about" className="bg-bg-1 pt-[20px] pb-[20px] md:pt-[28px] md:pb-[28px] xl:pt-[100px] xl:pb-[75px]">
       <div className="container-content">
         <div className="grid grid-cols-1 items-center gap-12 md:gap-14 lg:grid-cols-12 lg:gap-10">
           {/* Left: Company information */}

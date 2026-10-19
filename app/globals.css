@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+*{
+  img{
+    transition: 1s filter;
+    filter:grayscale();
+  }
+  *:hover>img,img:hover{
+    filter:unset;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════
    ROOT VARS — source of truth, overridable by JS or .dark
    (Values from the Agenik template design system)
@@ -7,16 +17,16 @@
 :root {
 
   /* ── 1. COLORS — Primary brand ──────────────────────────── */
-  --primary:        #90DD8C;   /* Agenik theme green       */
+  --primary:        #b2f24c;/*#90DD8C;   /* Agenik theme green       */
   --primary-dark:   #6BC465;   /* hover / active states    */
   --primary-light:  #B9EBB5;   /* tints, badges, soft bg   */
 
   /* Secondary */
-  --secondary:      #C8F2C4;   /* soft mint accent         */
+  --secondary:      #9fc1db;/*#C8F2C4;   /* soft mint accent         */
 
   /* Backgrounds (dark-first template) */
-  --bg-1:           #001023;   /* deepest navy — page bg   */
-  --bg-2:           #06192F;   /* cards / sections         */
+  --bg-1:           #002b38;/*#001023;   /* deepest navy — page bg   */
+  --bg-2:           #012631;/*MK*//*#06192F;   /* cards / sections         */
 
   /* Text */
   --text-primary:   #FFFFFF;   /* headings                 */
