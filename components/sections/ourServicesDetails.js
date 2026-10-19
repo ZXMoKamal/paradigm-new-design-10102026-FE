@@ -227,7 +227,7 @@ export default function ServicesSection() {
               <span className="icon-placeholder inline-block w-4 h-4 bg-primary/20 rounded ml-2" />
             </Link> */}
             <Link
-                    href="/about/"
+                    href="/our-services/"
                     className="group inline-flex items-center gap-4 rounded-full bg-primary px-7 py-4 text-sm font-semibold text-bg-1 transition-all duration-300 hover:bg-primary-dark hover:shadow-brand"
                   >
                     <span>Discover More</span>

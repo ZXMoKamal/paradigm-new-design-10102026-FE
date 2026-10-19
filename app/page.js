@@ -20,6 +20,7 @@ import RecentWork from "@/components/sections/ourEvents";
 import NewsArticles from "@/components/sections/article";
 import TeamGridSection from "@/components/sections/team";
 import BranchesModern from "@/components/sections/branchesModern";
+import BranchesLandmarks from "@/components/sections/branchesLandmarks";
 
 
 export default function Home() {
@@ -46,7 +47,8 @@ export default function Home() {
                     <TeamGridSection/>
 
       {/* <Branches/> */}
-      <BranchesModern/>
+      {/* <BranchesModern/> */}
+      <BranchesLandmarks/>
 
     </main>
 
