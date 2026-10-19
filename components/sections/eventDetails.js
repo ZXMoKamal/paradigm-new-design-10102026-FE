@@ -84,7 +84,7 @@ import Link from "next/link";
 function ProjectCard({ project }) {
   return (
     <article className="group">
-      <div className="relative mb-6 h-[400px] overflow-hidden rounded-2xl bg-bg-2 sm:h-[450px] lg:h-[550px]">
+      <div className="relative mb-6 h-[400px] overflow-hidden rounded-2xl bg-bg-2 sm:h-[450px] lg:h-[550px] flex justify-center items-center">
         <Link
           href={project}
           aria-label={`View project: ${project.title}`}
@@ -126,7 +126,7 @@ function ProjectCard({ project }) {
 
 function ProjectMetadata({ items }) {
   return (
-    <div className="mb-16 grid grid-cols-2 gap-x-6 gap-y-8 border-b border-border-1 pb-10 lg:grid-cols-4 lg:gap-8">
+    <div className="mb-16 grid grid-cols-2 gap-x-6 gap-y-8 border-b border-border-1 pb-10 lg:grid-cols-3 lg:gap-8">
       {items.map((item, index) => (
         <div
           key={item.label}
@@ -192,11 +192,12 @@ export default function PortfolioDetails({
     challenges = [],
     solutions = [],
     results = [],
+    thumb
   } = project;
 
   const metadata = [
     { label: "Date", value: date },
-    { label: "Category", value: category },
+    // { label: "Category", value: category },
     { label: "Clients", value: client },
     { label: "Location", value: location },
   ];
@@ -207,15 +208,15 @@ export default function PortfolioDetails({
         {/* Main project image */}
         <div
           data-aos="fade-up"
-          className="relative mb-12 aspect-[16/9] overflow-hidden rounded-2xl bg-bg-2 sm:mb-16 lg:aspect-[16/7]"
+          className="flex justify-center items-center relative mb-12  overflow-hidden rounded-2xl bg-bg-2 sm:mb-16 h-[563px]"
         >
-          <Image
-            src={image}
+          <img
+            src={thumb}
             alt={imageAlt}
-            fill
-            priority
-            sizes="(max-width: 768px) 100vw, 1320px"
-            className="object-cover"
+            // fill
+            // priority
+            // sizes="(max-width: 768px) 100vw, 1320px"
+            className="w-full"
           />
         </div>
 
@@ -287,16 +288,20 @@ export default function PortfolioDetails({
       </div>
           {/* Project gallery */}
           {images.length > 0 && (
-            <ProjectSlider
+
+
+          <ProjectSlider
             items={images}
             ariaLabel="event photos"
             className="w-full"
             renderItem={(project) => (
-              <div className="w-full max-w-[850px]">{console.log(project)}
+              <div className="w-full max-w-[850px]">
                 <ProjectCard project={project} />
               </div>
             )}
           />
+
+
             )}
     </section>
   );

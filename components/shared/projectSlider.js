@@ -5,38 +5,42 @@ import { useState } from "react";
 import ArrowRight from "../icons/arrowRight";
 import Link from "next/link";
 
-function ProjectCard({ project }) {
+function ProjectCard({ project }) {console.log(project)
   return (
     <article className="group min-w-0 w-full">
       <div className="relative mb-6 h-[320px] w-full overflow-hidden rounded-2xl bg-bg-2 sm:h-[400px] lg:h-[480px]">
-        <Link
+        {project.thumb && <Link
           href={`/portfolio/${project.requestTitle}`}
           aria-label={`View project: ${project.name}`}
           className="absolute inset-0 z-10"
         >
           <span className="sr-only">View project</span>
-        </Link>
+        </Link>}
 
-        <img
+        {project.thumb?<img
           src={project.thumb}
           alt={project.name || "Portfolio project"}
           className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
+        />:<img
+          src={project}
+          alt={project.name || "Portfolio project"}
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />}
 
         <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/40" />
 
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        {project.thumb && <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <span className="flex size-16 scale-75 items-center justify-center rounded-full bg-white text-bg-1 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
             <ArrowRight className="h-6 w-6 rotate-[300deg]" />
           </span>
-        </div>
+        </div>}
       </div>
 
-      <h3 className="text-xl font-semibold leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-2xl">
+      {project.thumb && <h3 className="text-xl font-semibold leading-tight text-text-primary transition-colors duration-300 group-hover:text-primary sm:text-2xl">
         <Link href={`/portfolio/${project.requestTitle}`}>
           {project.name}
         </Link>
-      </h3>
+      </h3>}
     </article>
   );
 }
