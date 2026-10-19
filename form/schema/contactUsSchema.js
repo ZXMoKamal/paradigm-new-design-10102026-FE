@@ -14,6 +14,7 @@ export const contactUsSchema = Yup.object({
                 .required("Email is required"),
 
             phone: Yup.string()
+                .matches(/^[0-9+\-() ]*$/,"Phone can contain digits, +, -, parentheses, and spaces only")
                 .min(rules.phone.min, "Phone must be at least "+rules.phone.min+" digits")
                 .max(rules.phone.max, "Phone must be less than "+rules.phone.max+" digits")
                 .required("Phone is required"),
