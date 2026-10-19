@@ -109,7 +109,7 @@ async function portfolio({ params }) {
     <main className="relative w-full overflow-hidden">
       {/* <EventDetails eventRequestTitle={ requestTitle } />
       <EventSuggestions/> */}
-      <PageHeader title={ event.name } highlight="" breadcrumbLabel={ event.name } breadcrumbHref={"/portfolio/" + requestTitle}  backgroundAlt={event.name + " Header Image"}/>
+      <PageHeader title={ event.name } highlight="" breadcrumbLabel={ "past-events" } breadcrumbHref={"/past-events/"}  backgroundAlt={event.name + " Header Image"}/>
       <PortfolioDetails project={{ ...event, imagesWithAlt, info }} />
       </main>
   )
