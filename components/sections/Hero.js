@@ -68,14 +68,14 @@ export default function HeroSection() {
                 timeoutId = window.setTimeout(loadVideo, 0);//200
             }
         };
-
-        if (document.readyState === "complete") {
-            scheduleVideo();
-        } else {
-            window.addEventListener("load", scheduleVideo, {
-                once: true,
-            });
-        }
+scheduleVideo();
+        // if (document.readyState === "complete") {
+        //     scheduleVideo();
+        // } else {
+        //     window.addEventListener("load", scheduleVideo, {
+        //         once: true,
+        //     });
+        // }
 
         return () => {
             cancelled = true;
