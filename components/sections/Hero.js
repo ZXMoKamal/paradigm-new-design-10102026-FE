@@ -41,10 +41,10 @@ export default function HeroSection() {
         const loadVideo = () => {
             if (cancelled || !video.isConnected) return;
 
-            video.querySelectorAll("source[data-src]").forEach((source) => {
-                source.src = source.dataset.src;
-                source.removeAttribute("data-src");
-            });
+            // video.querySelectorAll("source[data-src]").forEach((source) => {
+            //     source.src = source.dataset.src;
+            //     source.removeAttribute("data-src");
+            // });
 
             video.load();
 
@@ -59,14 +59,14 @@ export default function HeroSection() {
 
         const scheduleVideo = () => {
             if (cancelled) return;
-
-            if ("requestIdleCallback" in window) {
-                idleId = window.requestIdleCallback(loadVideo, {
-                    timeout: 0,//1500
-                });
-            } else {
-                timeoutId = window.setTimeout(loadVideo, 0);//200
-            }
+loadVideo()
+            // if ("requestIdleCallback" in window) {
+            //     idleId = window.requestIdleCallback(loadVideo, {
+            //         timeout: 0,//1500
+            //     });
+            // } else {
+            //     timeoutId = window.setTimeout(loadVideo, 0);//200
+            // }
         };
 scheduleVideo();
         // if (document.readyState === "complete") {
