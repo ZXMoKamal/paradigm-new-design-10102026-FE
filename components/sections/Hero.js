@@ -102,13 +102,14 @@ scheduleVideo();
                 aria-hidden="true"
             >
                 <video
+                src={"/videos/hero-video.mp4"}
                     ref={videoRef}
                     className="absolute inset-0 h-full w-full object-cover"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    preload="none"
+                    preload="metadata"
                     poster="/images/hero-poster.webp"
                     tabIndex={-1}
                 >
