@@ -114,7 +114,7 @@ return(
 <>
     {!open && (
         <Button
-            className="fixed bottom-6 right-6 z-[2000] rounded-full px-6 py-4 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="fixed bottom-6 right-6 z-[1000] rounded-full px-6 py-4 shadow-xl transition-all duration-300 hover:scale-105 hover:shadow-2xl"
             onClick={() => setOpen(true)}
         >
             <span className="flex items-center gap-3">

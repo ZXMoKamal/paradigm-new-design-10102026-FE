@@ -168,7 +168,7 @@ export default function AboutCompany() {
       <div className="container-content">
         <div className="grid grid-cols-1 items-center gap-12 md:gap-14 lg:grid-cols-12 lg:gap-10">
           {/* Left: Company information */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 max-lg:order-1">
             <div className="lg:pr-5">
               <div
                 className="mb-10 md:mb-[60px]"
@@ -249,9 +249,9 @@ export default function AboutCompany() {
           </div>
 
           {/* Right: About image */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 max-lg:order-0">
             <div
-              className="relative mx-auto h-[420px] w-full max-w-[460px] overflow-hidden bg-bg-2 sm:h-[480px] md:h-[520px] lg:ml-auto lg:h-[590px]"
+              className="relative  h-[420px] w-full max-w-full overflow-hidden bg-bg-2 sm:h-[480px] md:h-[280px] lg:ml-auto lg:h-[590px]"
               data-aos="fade-left"
               data-aos-duration="1000"
             >
@@ -260,7 +260,7 @@ export default function AboutCompany() {
                 alt="about"
                 fill
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 80vw, 38vw"
-                className="object-cover"
+                className="object-cover max-lg:w-full "
               />
             </div>
           </div>

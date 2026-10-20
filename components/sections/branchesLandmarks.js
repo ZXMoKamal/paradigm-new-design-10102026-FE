@@ -20,9 +20,9 @@ function BranchesLandmarks() {
                   </span>
                 </h2>
 </div>
-        <section className="w-full justify-items-center">
+        <section className="w-full lg:justify-items-center">
 
-<div className="m-auto max-w-[1300px] grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-80">
+<div className="m-auto max-w-[1300px] grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 lg:gap-80">
   <div className='p-5 flex flex-col gap-2 w-100'>
 
           {/* Location */}
@@ -85,7 +85,7 @@ function BranchesLandmarks() {
   </div>
 </div>
 
-<img src="/images/home/branches/branches.png" alt="paradigm capital group Cairo egypt branch" width={100} height={100} className="rounded-lg w-[80%]"/>
+<img src="/images/home/branches/branches.png" alt="paradigm capital group Cairo egypt branch" width={100} height={100} className="rounded-lg w-[100%] lg:w-[80%]"/>
         </section>
     </section>
   )

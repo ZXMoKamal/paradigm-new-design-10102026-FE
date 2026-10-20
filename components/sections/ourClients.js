@@ -159,18 +159,18 @@ export default function Page() {
         {/* Each column now reads its own slice of clientSets instead of the
             full sampleClients array, so no two tickers show the same logos.
             Direction still alternates top-to-bottom / bottom-to-top per column. */}
-        <ClientTicker clients={clientSets[0]} orientation="vertical" direction="top-to-bottom" speed="20s" />
-        <ClientTicker clients={clientSets[1]} orientation="vertical" direction="bottom-to-top" speed="20s" />
-        <ClientTicker clients={clientSets[2]} orientation="vertical" direction="top-to-bottom" speed="20s" />
-        <ClientTicker clients={clientSets[3]} orientation="vertical" direction="bottom-to-top" speed="20s" />
-        <ClientTicker clients={clientSets[4]} orientation="vertical" direction="top-to-bottom" speed="20s" />
-        <ClientTicker clients={clientSets[5]} orientation="vertical" direction="bottom-to-top" speed="20s" />
-        <ClientTicker clients={clientSets[6]} orientation="vertical" direction="top-to-bottom" speed="20s" />
-        <ClientTicker clients={clientSets[7]} orientation="vertical" direction="bottom-to-top" speed="20s" />
-        <ClientTicker clients={clientSets[8]} orientation="vertical" direction="top-to-bottom" speed="20s" />
-        <ClientTicker clients={clientSets[9]} orientation="vertical" direction="bottom-to-top" speed="20s" />
-        <ClientTicker clients={clientSets[10]} orientation="vertical" direction="top-to-bottom" speed="20s" />
-        <ClientTicker clients={clientSets[11]} orientation="vertical" direction="bottom-to-top" speed="20s" />
+        <ClientTicker clients={clientSets[0]} orientation="vertical" direction="top-to-bottom" speed="20s" className="max-lg:hidden" />
+        <ClientTicker clients={clientSets[1]} orientation="vertical" direction="bottom-to-top" speed="20s" className="max-sm:hidden" />
+        <ClientTicker clients={clientSets[2]} orientation="vertical" direction="top-to-bottom" speed="20s" className="max-lg:hidden" />
+        <ClientTicker clients={clientSets[3]} orientation="vertical" direction="bottom-to-top" speed="20s" className="max-sm:hidden" />
+        <ClientTicker clients={clientSets[4]} orientation="vertical" direction="top-to-bottom" speed="20s" className="max-lg:hidden" />
+        <ClientTicker clients={clientSets[5]} orientation="vertical" direction="bottom-to-top" speed="20s" className="max-sm:hidden" />
+        <ClientTicker clients={clientSets[6]} orientation="vertical" direction="top-to-bottom" speed="20s" className="max-lg:hidden" />
+        <ClientTicker clients={clientSets[7]} orientation="vertical" direction="bottom-to-top" speed="20s" className="" />
+        <ClientTicker clients={clientSets[8]} orientation="vertical" direction="top-to-bottom" speed="20s" className="" />
+        <ClientTicker clients={clientSets[9]} orientation="vertical" direction="bottom-to-top" speed="20s" className="" />
+        <ClientTicker clients={clientSets[10]} orientation="vertical" direction="top-to-bottom" speed="20s" className="" />
+        <ClientTicker clients={clientSets[11]} orientation="vertical" direction="bottom-to-top" speed="20s" className="" />
       </div>
     </>
   );

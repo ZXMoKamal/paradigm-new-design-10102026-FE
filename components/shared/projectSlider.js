@@ -8,7 +8,7 @@ import Link from "next/link";
 function ProjectCard({ project }) {console.log(project)
   return (
     <article className="group min-w-0 w-full">
-      <div className="relative mb-6 h-[320px] w-full overflow-hidden rounded-2xl bg-bg-2 sm:h-[400px] lg:h-[480px]">
+      <div className="relative mb-6 h-[320px] w-full overflow-hidden rounded-2xl bg-bg-2 sm:h-[300px] lg:h-[480px]">
         {project.thumb && <Link
           href={`/portfolio/${project.requestTitle}`}
           aria-label={`View project: ${project.name}`}
@@ -108,7 +108,7 @@ export default function ProjectSlider({
         aria-label={ariaLabel}
       >
         <div
-          className="pl-50 flex w-full gap-5 transition-transform duration-700 ease-in-out motion-reduce:transition-none sm:gap-6 lg:gap-8"
+          className="2xl:pl-50 flex w-full gap-5 transition-transform duration-700 ease-in-out motion-reduce:transition-none sm:gap-6 lg:gap-8"
           style={{
             transform: `translateX(calc(-${safeIndex} * (100% / ${visibleCount} + ${visibleCount === 1 ? 0 : visibleCount === 2 ? 12 : 10}px)))`,
           }}
@@ -128,7 +128,7 @@ export default function ProjectSlider({
       </div>
 
       {items.length > visibleCount && (
-        <div className="mt-8 ml-50 flex items-center justify-start gap-3">
+        <div className="xl:mt-8 2xl:ml-50 flex items-center justify-start gap-3">
           <button
             type="button"
             onClick={previous}

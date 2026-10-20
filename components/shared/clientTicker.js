@@ -7,7 +7,8 @@ export default function ClientTicker({
   clients = [],
   orientation = "horizontal", // "horizontal" | "vertical"
   direction = "ltr",           // "ltr" | "rtl" (horizontal) or "top-to-bottom" | "bottom-to-top" (vertical)
-  speed = "30s",               // Animation duration (e.g. "20s", "40s")
+  speed = "30s",  
+  className=""             // Animation duration (e.g. "20s", "40s")
 }) {
   const [shuffledSlides, setShuffledSlides] = useState([]);
 
@@ -45,7 +46,7 @@ export default function ClientTicker({
   }
 
   return (
-    <div className={`relative overflow-hidden w-full ticker-pause-hover ${orientation === "vertical" ? "h-[450px]" : "py-4"}`}>
+    <div className={`relative overflow-hidden w-full ticker-pause-hover ${orientation === "vertical" ? "h-[450px] " : "py-4 "} ${className}`}>
       
       {/* Gradient Fade Masks for Smooth Edges */}
       {orientation === "horizontal" ? (
