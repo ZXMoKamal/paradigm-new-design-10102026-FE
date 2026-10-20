@@ -152,6 +152,7 @@ export default function TeamGridSection() {
                     <img
                       src={member.image}
                       alt={member.name}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale group-hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-1 via-transparent to-transparent opacity-80" />
