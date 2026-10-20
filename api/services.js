@@ -1,6 +1,13 @@
-export async function getServices() {
+export async function getServices(fbToken = null) {
+  const headers = {};
+
+  if (fbToken) {
+    headers.Authorization = `Bearer ${fbToken}`;
+  }
+
   const res = await fetch("http://localhost/paradigm/backend/paradigm-new-design-10102026-BE/query/services.php", {
-    cache: "default", // or use revalidate if needed
+    cache: "default",
+    headers,
   });
 
   if (!res.ok) {

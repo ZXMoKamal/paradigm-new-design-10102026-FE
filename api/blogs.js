@@ -1,6 +1,13 @@
-export async function getBlogs() {
+export async function getBlogs(fbToken = null) {
+  const headers = {};
+
+  if (fbToken) {
+    headers.Authorization = `Bearer ${fbToken}`;
+  }
+
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL+"/blog.php", {
-    cache: "default", // or use revalidate if needed
+    cache: "default",
+    headers,
   });
 
   if (!res.ok) {

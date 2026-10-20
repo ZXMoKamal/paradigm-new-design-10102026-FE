@@ -1,6 +1,13 @@
-export async function getEvents() {
+export async function getEvents(fbToken = null) {
+  const headers = {};
+
+  if (fbToken) {
+    headers.Authorization = `Bearer ${fbToken}`;
+  }
+
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL+"/events.php", {
-    cache: "default", // or use revalidate if needed
+    cache: "default",
+    headers,
   });
 
   if (!res.ok) {

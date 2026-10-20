@@ -14,7 +14,7 @@ export async function deleteBlog(blogId){
     const token = await user.getIdToken();
 
     const response = await fetch(
-        "http://localhost/paradigm/backend/paradigm-portfolio-backend/query/admin/deleteBlog.php",
+        "http://localhost/paradigm/backend/paradigm-new-design-10102026-BE/query/admin/deleteBlog.php",
         {
             method: "POST",
             headers: {

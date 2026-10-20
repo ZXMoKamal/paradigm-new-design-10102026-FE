@@ -281,12 +281,11 @@ function EventsTable({
 
               {/* thumb */ }
               <td className="px-4 py-4 ">
-                <section
-                    className="sm:w-12 w-8 sm:h-12 h-8 shrink-0 flex items-center justify-center rounded-full stroke-1!"
-                    style={{ fill: "var(--light-blue)" }}
-                  >
-                  { servicesIconCode[event.icon_code] }
-                  </section>
+                <img
+                  src={event.thumb}
+                  alt={`${event.title || "Service"} icon`}
+                  className="h-12 w-12 object-contain"
+                />
               </td>
 
               {/* Name */ }
