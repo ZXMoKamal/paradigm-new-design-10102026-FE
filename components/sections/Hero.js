@@ -62,10 +62,10 @@ export default function HeroSection() {
 
             if ("requestIdleCallback" in window) {
                 idleId = window.requestIdleCallback(loadVideo, {
-                    timeout: 1500,
+                    timeout: 0,//1500
                 });
             } else {
-                timeoutId = window.setTimeout(loadVideo, 200);
+                timeoutId = window.setTimeout(loadVideo, 0);//200
             }
         };
 
@@ -155,7 +155,7 @@ export default function HeroSection() {
                         <div className="max-w-5xl">
                             <p
                                 className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-primary sm:text-sm"
-                                data-aos="fade-up"
+                                // data-aos="fade-up"
                             >
                                 Paradigm · Events & Experiences
                             </p>
@@ -163,8 +163,8 @@ export default function HeroSection() {
                             <h1
                                 id="hero-title"
                                 className="text-[clamp(3rem,8.5vw,8.125rem)] font-medium uppercase leading-[0.98] tracking-[-0.045em]"
-                                data-aos="fade-up"
-                                data-aos-delay="100"
+                                // data-aos="fade-up"
+                                // data-aos-delay="100"
                             >
                                 We Create
                                 <br />
@@ -181,8 +181,8 @@ export default function HeroSection() {
 
                         <div
                             className="w-full max-w-md shrink-0 lg:mb-2 lg:max-w-[340px] xl:max-w-[390px]"
-                            data-aos="fade-up"
-                            data-aos-delay="200"
+                            // data-aos="fade-up"
+                            // data-aos-delay="200"
                         >
                             <p className="max-lg:border-t border-white/30 pt-6 text-base leading-7 text-[#E7E7E7] sm:text-lg sm:leading-8">
                                 From bold ideas to unforgettable moments, we
