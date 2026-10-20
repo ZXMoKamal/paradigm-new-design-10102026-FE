@@ -42,7 +42,7 @@ export default function Home() {
       {/* <BoardMembers/> */}
       <RecentWork/>
 
-      <OurClients/>
+      {/* <OurClients/> */}
                     <NewsArticles/>
                     <TeamGridSection/>
 

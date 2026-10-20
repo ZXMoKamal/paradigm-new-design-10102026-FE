@@ -29,67 +29,67 @@ import ArrowRight from "../icons/arrowRight";
 export default function HeroSection() {
     const videoRef = useRef(null);
 
-    useEffect(() => {
-        const video = videoRef.current;
+//     useEffect(() => {
+//         const video = videoRef.current;
 
-        if (!video) return;
+//         if (!video) return;
 
-        let idleId;
-        let timeoutId;
-        let cancelled = false;
+//         let idleId;
+//         let timeoutId;
+//         let cancelled = false;
 
-        const loadVideo = () => {
-            if (cancelled || !video.isConnected) return;
+//         const loadVideo = () => {
+//             if (cancelled || !video.isConnected) return;
 
-            // video.querySelectorAll("source[data-src]").forEach((source) => {
-            //     source.src = source.dataset.src;
-            //     source.removeAttribute("data-src");
-            // });
+//             // video.querySelectorAll("source[data-src]").forEach((source) => {
+//             //     source.src = source.dataset.src;
+//             //     source.removeAttribute("data-src");
+//             // });
 
-            video.load();
+//             video.load();
 
-            const playPromise = video.play();
+//             const playPromise = video.play();
 
-            if (playPromise) {
-                playPromise.catch(() => {
-                    // Keep the poster visible if autoplay is unavailable.
-                });
-            }
-        };
+//             if (playPromise) {
+//                 playPromise.catch(() => {
+//                     // Keep the poster visible if autoplay is unavailable.
+//                 });
+//             }
+//         };
 
-        const scheduleVideo = () => {
-            if (cancelled) return;
-loadVideo()
-            // if ("requestIdleCallback" in window) {
-            //     idleId = window.requestIdleCallback(loadVideo, {
-            //         timeout: 0,//1500
-            //     });
-            // } else {
-            //     timeoutId = window.setTimeout(loadVideo, 0);//200
-            // }
-        };
-scheduleVideo();
-        // if (document.readyState === "complete") {
-        //     scheduleVideo();
-        // } else {
-        //     window.addEventListener("load", scheduleVideo, {
-        //         once: true,
-        //     });
-        // }
+//         const scheduleVideo = () => {
+//             if (cancelled) return;
+// loadVideo()
+//             // if ("requestIdleCallback" in window) {
+//             //     idleId = window.requestIdleCallback(loadVideo, {
+//             //         timeout: 0,//1500
+//             //     });
+//             // } else {
+//             //     timeoutId = window.setTimeout(loadVideo, 0);//200
+//             // }
+//         };
+// scheduleVideo();
+//         // if (document.readyState === "complete") {
+//         //     scheduleVideo();
+//         // } else {
+//         //     window.addEventListener("load", scheduleVideo, {
+//         //         once: true,
+//         //     });
+//         // }
 
-        return () => {
-            cancelled = true;
-            window.removeEventListener("load", scheduleVideo);
+//         return () => {
+//             cancelled = true;
+//             window.removeEventListener("load", scheduleVideo);
 
-            if (idleId !== undefined) {
-                window.cancelIdleCallback?.(idleId);
-            }
+//             if (idleId !== undefined) {
+//                 window.cancelIdleCallback?.(idleId);
+//             }
 
-            if (timeoutId !== undefined) {
-                window.clearTimeout(timeoutId);
-            }
-        };
-    }, []);
+//             if (timeoutId !== undefined) {
+//                 window.clearTimeout(timeoutId);
+//             }
+//         };
+//     }, []);
 
     return (
         <section
@@ -101,7 +101,7 @@ scheduleVideo();
                 className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
                 aria-hidden="true"
             >
-                <video
+                {/* <video
                 src={"/videos/hero-video.mp4"}
                     ref={videoRef}
                     className="absolute inset-0 h-full w-full object-cover"
@@ -121,7 +121,7 @@ scheduleVideo();
                         data-src="/videos/hero-video.mp4"
                         type="video/mp4"
                     />
-                </video>
+                </video> */}
 
                 {/* Contrast overlay */}
                 <div className="absolute inset-0 bg-[#001023]/20" />
