@@ -80,7 +80,7 @@ export default function AddServicesForm() {
             );
 
             const response = await fetch(
-                "http://localhost/paradigm/backend/paradigm-portfolio-backend/query/admin/addService.php",
+                process.env.NEXT_PUBLIC_API_URL+"/admin/addService.php",
                 {
                     method: "POST",
                     headers: {

@@ -80,7 +80,7 @@ export default function AddEventForm() {
             // ---------------------------------------------
 
             const response = await fetch(
-                "http://localhost/paradigm/backend/paradigm-portfolio-backend/query/admin/addEvent.php",
+                process.env.NEXT_PUBLIC_API_URL+"/admin/addEvent.php",
                 {
                     method: "POST",
 

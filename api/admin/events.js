@@ -14,7 +14,7 @@ export async function deleteEvent(eventId){
     const token = await user.getIdToken();
 
     const response = await fetch(
-        "http://localhost/paradigm/backend/paradigm-new-design-10102026-BE/query/admin/deleteEvent.php",
+        process.env.NEXT_PUBLIC_API_URL + "/admin/deleteEvent.php",
         {
             method: "POST",
             headers: {

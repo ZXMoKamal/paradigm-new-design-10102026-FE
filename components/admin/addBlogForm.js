@@ -139,7 +139,7 @@ export default function AddEventForm() {
             // -------------------------------------------------
 
             const response = await fetch(
-                "http://localhost/paradigm/backend/paradigm-portfolio-backend/query/admin/addBlog.php",
+                process.env.NEXT_PUBLIC_API_URL+"/admin/addBlog.php",
                 {
                     method: "POST",
 
