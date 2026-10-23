@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
+import MemoryCachedImage from "@/components/shared/memoryCachedImage";
 
 // Full pool of team members / photos to randomly swap between
 const allTeamMembers = [
@@ -149,10 +149,9 @@ export default function TeamGridSection() {
                 >
                   {/* Photo Box */}
                   <div className="relative w-full h-64 rounded-xl overflow-hidden bg-bg-2">
-                    <img
+                    <MemoryCachedImage
                       src={member.image}
                       alt={member.name}
-                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale group-hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-1 via-transparent to-transparent opacity-80" />

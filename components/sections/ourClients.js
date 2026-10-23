@@ -1,45 +1,3 @@
-// import React from 'react'
-// import VerticalImageTicker from '../shared/verticalImageTicker'
-
-// function OurClients() {
-//   return (
-//         <section className=" m-auto max-w-[1300px] grid grid-cols-1 max-lg:gap-10 lg:grid-cols-[30%_70%] items-center lg:pb-30 pt-10 pb-10">
-//             <h2 data-aos="fade-up" className="text-5xl text-center font-primary-regular uppercase max-lg:tracking-widest max-lg:leading-20">our <br/>valuable <br/>clients</h2>
-//             <section className="flex relative overflow-hidden">
-
-//                 <VerticalImageTicker
-//                 aosAnimation={{["data-aos"]:"fade-up",["data-aos-duration"]:1000+(1000*1)}}
-//   speed={15}
-//   images={[
-//     { src: "/images/home/clients/clientsBar2.webp", alt: "paradigm capital group clients list" },
-//   ]}
-// />
-//                 <VerticalImageTicker
-//                 aosAnimation={{["data-aos"]:"fade-down",["data-aos-duration"]:1000+(1000*5)}}
-
-//   speed={15}
-//   images={[
-//     { src: "/images/home/clients/clientsBar1.webp", alt: "paradigm capital group clients list" },
-//   ]}
-// />
-//                 <VerticalImageTicker
-//                 aosAnimation={{["data-aos"]:"fade-up",["data-aos-duration"]:1000+(1000*10)}}
-
-// speed={15}
-//   images={[
-//     { src: "/images/home/clients/clientsBar3.webp", alt: "paradigm capital group clients list" },
-//   ]}
-// />
-
-// <div className='w-full h-[100px] absolute z-10 top-0 vertical-image-ticker-gradient-up'></div>
-// <div className='w-full h-[100px] absolute z-10 bottom-0 vertical-image-ticker-gradient-down'></div>
-//             </section>
-//         </section>
-//   )
-// }
-
-// export default OurClients
-
 import ClientTicker from "../shared/clientTicker";
 
 const sampleClients = [
@@ -64,25 +22,25 @@ const sampleClients = [
   { name: "Client A", logo: "/images/home/clients/logos/Picture39.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Picture40.jpg", url: "https://example.com" },
 
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-01.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-02.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-03.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-04.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-05.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-06.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-07.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-08.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-09.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-10.png", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-11.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-01.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-02.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-03.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-04.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-05.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-06.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-07.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-08.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-09.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-10.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-11.png", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-12.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-13.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-14.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-15.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-16.jpg", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-17.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-17.png", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-18.jpg", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-19.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-19.png", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-20.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-21.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-22.jpg", url: "https://example.com" },
@@ -94,7 +52,7 @@ const sampleClients = [
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-28.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-29.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-30.jpg", url: "https://example.com" },
-  { name: "Client A", logo: "/images/home/clients/logos/Our Clients-31.png", url: "https://example.com" },
+  { name: "Client A", logo: "/images/home/clients/logos/Our_Clients-31.png", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-32.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-33.jpg", url: "https://example.com" },
   { name: "Client A", logo: "/images/home/clients/logos/Our Clients-34.jpg", url: "https://example.com" },

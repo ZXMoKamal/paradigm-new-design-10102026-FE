@@ -21,12 +21,14 @@ import NewsArticles from "@/components/sections/article";
 import TeamGridSection from "@/components/sections/team";
 import BranchesModern from "@/components/sections/branchesModern";
 import BranchesLandmarks from "@/components/sections/branchesLandmarks";
+import HeroVideo from "@/components/sections/heroVideo";
 
 
 export default function Home() {
 
   return (<>
     <main className="relative w-full overflow-hidden">
+      {/* <HeroVideo/> */}
       <Hero />
       <Ticker/>
       <AboutCompany />
@@ -42,7 +44,7 @@ export default function Home() {
       {/* <BoardMembers/> */}
       <RecentWork/>
 
-      {/* <OurClients/> */}
+      <OurClients/>
                     <NewsArticles/>
                     <TeamGridSection/>
 

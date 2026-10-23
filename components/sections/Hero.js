@@ -1,95 +1,72 @@
-// import React from 'react'
-// import SocialMediaButtons from '../shared/socialMediaButtons'
-
-// function WelcomeHeader({welcomeTitleTag:WelcomeTitleTag="h1"}) {
-//   return (
-//     <section className='relative flex justify-center items-center py-75 h-[1080px] max-xl:h-[100vh]'>
-//           <WelcomeTitleTag className="mx-10 xl:text-8xl md:text-7xl sm:text-6xl text-5xl [word-spacing:10px] xl:leading-40 sm:leading-30 leading-20 text-center max-w-350">
-//             <span className='uppercase font-primary-bold inline-block p-2' data-aos="fade-right">Expertly</span>
-//             <span className='font-primary-regular inline-block p-2' data-aos="fade-up"> managing</span>
-//             <span className='uppercase font-primary-bold inline-block p-2' data-aos="fade-down"> Events</span>
-//             <span className='font-light inline-block p-2' data-aos="fade-down"> for</span>
-//             <span className='uppercase font-primary-bold inline-block p-2' data-aos="fade-left"> Global leaders</span>
-//         </WelcomeTitleTag>
-//         <SocialMediaButtons/>
-//     </section>
-//   )
-// }
-
-// export default WelcomeHeader
-
-
-"use client";
-
-import { useEffect, useRef } from "react";
+// import { useEffect, useRef } from "react";
 import Link from "next/link";
 import ArrowDown from "../icons/arrowDown";
 import ArrowRight from "../icons/arrowRight";
 
 export default function HeroSection() {
-    const videoRef = useRef(null);
+    // const videoRef = useRef(null);
 
-    useEffect(() => {
-        const video = videoRef.current;
+//     useEffect(() => {
+//         const video = videoRef.current;
 
-        if (!video) return;
+//         if (!video) return;
 
-        let idleId;
-        let timeoutId;
-        let cancelled = false;
+//         let idleId;
+//         let timeoutId;
+//         let cancelled = false;
 
-        const loadVideo = () => {
-            if (cancelled || !video.isConnected) return;
+//         const loadVideo = () => {
+//             if (cancelled || !video.isConnected) return;
 
-            // video.querySelectorAll("source[data-src]").forEach((source) => {
-            //     source.src = source.dataset.src;
-            //     source.removeAttribute("data-src");
-            // });
+//             // video.querySelectorAll("source[data-src]").forEach((source) => {
+//             //     source.src = source.dataset.src;
+//             //     source.removeAttribute("data-src");
+//             // });
 
-            video.load();
+//             video.load();
 
-            const playPromise = video.play();
+//             const playPromise = video.play();
 
-            if (playPromise) {
-                playPromise.catch(() => {
-                    // Keep the poster visible if autoplay is unavailable.
-                });
-            }
-        };
+//             if (playPromise) {
+//                 playPromise.catch(() => {
+//                     // Keep the poster visible if autoplay is unavailable.
+//                 });
+//             }
+//         };
 
-        const scheduleVideo = () => {
-            if (cancelled) return;
-loadVideo()
-            // if ("requestIdleCallback" in window) {
-            //     idleId = window.requestIdleCallback(loadVideo, {
-            //         timeout: 0,//1500
-            //     });
-            // } else {
-            //     timeoutId = window.setTimeout(loadVideo, 0);//200
-            // }
-        };
-scheduleVideo();
-        // if (document.readyState === "complete") {
-        //     scheduleVideo();
-        // } else {
-        //     window.addEventListener("load", scheduleVideo, {
-        //         once: true,
-        //     });
-        // }
+//         const scheduleVideo = () => {
+//             if (cancelled) return;
+// loadVideo()
+//             // if ("requestIdleCallback" in window) {
+//             //     idleId = window.requestIdleCallback(loadVideo, {
+//             //         timeout: 0,//1500
+//             //     });
+//             // } else {
+//             //     timeoutId = window.setTimeout(loadVideo, 0);//200
+//             // }
+//         };
+// scheduleVideo();
+//         // if (document.readyState === "complete") {
+//         //     scheduleVideo();
+//         // } else {
+//         //     window.addEventListener("load", scheduleVideo, {
+//         //         once: true,
+//         //     });
+//         // }
 
-        return () => {
-            cancelled = true;
-            window.removeEventListener("load", scheduleVideo);
+//         return () => {
+//             cancelled = true;
+//             window.removeEventListener("load", scheduleVideo);
 
-            if (idleId !== undefined) {
-                window.cancelIdleCallback?.(idleId);
-            }
+//             if (idleId !== undefined) {
+//                 window.cancelIdleCallback?.(idleId);
+//             }
 
-            if (timeoutId !== undefined) {
-                window.clearTimeout(timeoutId);
-            }
-        };
-    }, []);
+//             if (timeoutId !== undefined) {
+//                 window.clearTimeout(timeoutId);
+//             }
+//         };
+//     }, []);
 
     return (
         <section
@@ -103,7 +80,7 @@ scheduleVideo();
             >
                 <video
                 src={"/videos/hero-video.mp4"}
-                    ref={videoRef}
+                    // ref={videoRef}
                     className="absolute inset-0 h-full w-full object-cover"
                     autoPlay
                     muted

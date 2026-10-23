@@ -1,15 +1,5 @@
 import { getServices } from "@/api/services";
 
-// const tickerItems = [
-//   "Web Design",
-//   "UI/UX Design",
-//   "Mobile apps design",
-//   "Webflow Design",
-//   "Branding",
-//   "Solution",
-//   "Branding",
-// ];
-
 export default async function RunningText() {
   const services = await getServices(); // Fetch services from the API
 console.log(services);

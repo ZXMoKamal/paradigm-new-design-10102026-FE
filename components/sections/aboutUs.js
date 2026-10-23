@@ -1,106 +1,7 @@
-// import React from 'react'
-// import { SectionHeader } from '../shared/sectionHeader'
-// import ArrowDown from '../icons/arrowDown'
-// import LinkButton from '../shared/linkButton'
-// import ArrowRight from '../icons/arrowRight'
-// import FullStatistics from '../shared/fullStatistics'
-
-// function AboutUs() {
-//   return (
-//       <section className='w-full flex flex-col items-center justify-center pb-40'>
-//           <div className='flex justify-center items-center rounded-full w-18 h-18 bg-primary-dark'><ArrowDown className={"w-5 h-5 fill-text-primary"}/></div>
-//           <section className='max-w-[1100px] flex flex-col gap-8 mt-40'>
-//             <SectionHeader title="Paradigm Capital Group :" titleTag='h1' subtitle={"About Us"} subtitleTag='h2' titleClassName={"text-[34px] text-text-dark"} subTitleClassName='text-text-dark'/>
-//             <p className='font-primary-regular text-[34px] text-balance leading-tight tracking-wide text-text-dark'>We're more than just an event planning company. We're innovators, sustainability champions, and creators of extraordinary experiences. Our mission is to elevate events across Egypt and the MENA region, delivering unforgettable moments that align with your goals.</p>
-//             <LinkButton href="/about" variant={ "outlineDark" } size='lg' className='w-fit m-auto mt-10'
-//                 icon={<ArrowRight className='w-5 h-5 fill-text-dark'/>} iconPosition='right'>Read Our Story</LinkButton>
-//           </section>
-//           <div className='w-[1400px] mt-30 mb-30 h-[1px] bg-primary-dark'></div>
-//           <FullStatistics/>
-//       </section>
-//   )
-// }
-
-// export default AboutUs
-
-
-// import React from 'react';
-// import { SectionHeader } from '../shared/sectionHeader';
-// import ArrowDown from '../icons/arrowDown';
-// import LinkButton from '../shared/linkButton';
-// import ArrowRight from '../icons/arrowRight';
-// import FullStatistics from '../shared/fullStatistics';
-// import Typier from '../animation/Typier';
-// import FaideBgSection from '../animation/faideBgSection';
-
-// function AboutUs() {
-//     return (
-//         // <section className='w-full flex flex-col items-center justify-center sm:pb-40 pb-10'>
-//         <FaideBgSection className='w-full flex flex-col items-center justify-center sm:pb-40 pb-10'>
-
-//             <div className='flex justify-center items-center rounded-full w-18 h-18 bg-primary-dark mt-15'>
-//                 <ArrowDown className={ "w-5 h-5 fill-text-primary" } />
-//             </div>
-
-//             <section className='max-w-[1100px] flex flex-col gap-8 mx-5 md:mx-30 lg:mx-50 mt-40'>
-
-//                 <SectionHeader
-//                     title="Paradigm Capital Group:"
-//                     titleTag='h1'
-//                     subtitle={ "About Us" }
-//                     subtitleTag='h2'
-//                     titleClassName={ "text-[28px] sm:text-[34px] text-text-dark" }
-//                     subTitleClassName='text-text-dark'
-//                 />
-
-//                 <p  data-aos="fade-down" className='max-2xl:h-[255px] max-xl:h-[340px] max-md:h-[380px] max-sm:h-[200px] max-[500px]:h-[200px] max-[450px]:h-[280px] max-[364px]:h-[400px] font-primary-regular text-[24px] sm:text-[34px] leading-tight tracking-wide text-text-dark'>
-//                     We're more than just an event planning company. We're innovators,
-//                     sustainability champions, and creators of extraordinary experiences.
-//                     Our mission is to elevate events across Egypt and the MENA region,
-//                     <br/>
-//                     delivering{ ' ' }
-//                     <Typier
-//                         words={ [
-//                             'seamless communication',
-//                             'trusted expertise',
-//                             'unforgettable moments',
-//                         ] }
-//                         className="text-text-dark font-primary-regular"
-//                     />
-
-//                     { ' ' }that align with your goals.
-//                 </p>
-
-//                 <LinkButton
-//                     href="/our-story/"
-//                     variant={ "outlineDark" }
-//                     size='lg'
-//                     className='w-fit m-auto mt-10 max-sm:text-md max-sm:px-5 bg-transparent'
-//                     icon={ <ArrowRight className='w-5 h-5 fill-text-dark' /> }
-//                     iconPosition='right'
-//                      data-aos="fade-up"
-//                 >
-//                     Read Our Story
-//                 </LinkButton>
-//             </section>
-
-//             <div className='w-[1400px] mt-15 lg:mt-30 mb-15 lg:mb-30 h-[1px] bg-primary-dark'></div>
-
-//             <FullStatistics />
-//         </FaideBgSection>
-//     );
-// }
-
-// export default AboutUs;
-
-
-
-
-
-"use client"
+// "use client"
 import Image from "next/image";
 import Link from "next/link";
-import Slider from "@/components/shared/slider";
+import AboutStatsSlider from "@/components/sections/aboutStatsSlider";
 import NumberCounter from "../animation/counter";
 import ArrowRight from "../icons/arrowRight";
 
@@ -118,15 +19,6 @@ const aboutStats = [
 ];
 
 export default function AboutCompany() {
-
-// const clientLogos = [
-//     { name: "Client One", logo: "/images/client-1.png" },
-//     { name: "Client Two", logo: "/images/client-2.png" },
-//     { name: "Client Three", logo: "/images/client-3.png" },
-//     { name: "Client Four", logo: "/images/client-4.png" },
-//     { name: "Client Five", logo: "/images/client-5.png" },
-//     { name: "Client Six", logo: "/images/client-6.png" },
-//   ];
 
   const stats = [
     {
@@ -200,27 +92,10 @@ export default function AboutCompany() {
                 data-aos-delay="100"
               >
                 {/* Reusable statistics slider */}
-                <Slider
+                <AboutStatsSlider
                   slides={aboutStats}
-                  autoplay
-                  interval={5000}
-                  ariaLabel="Company experience and awards"
                   className="mb-10 w-full md:mb-0 md:w-[260px] md:shrink-0 md:border-r md:border-border-1 md:pr-8 lg:pr-10"
                   slideClassName="min-h-[180px] pt-4"
-                  renderSlide={(stat) => (
-                    <div>
-                      <h3 className="mb-5 flex items-start font-heading text-[70px] font-medium leading-none tracking-[-0.04em] text-text-primary lg:text-[100px] xl:text-[120px]">
-                        {stat.number}
-                        <span className="mt-1 text-[30px] text-primary">
-                          +
-                        </span>
-                      </h3>
-
-                      <p className="text-xl font-medium leading-snug text-text-primary lg:text-2xl">
-                        {stat.label}
-                      </p>
-                    </div>
-                  )}
                 />
 
                 {/* Original template copy */}
@@ -307,48 +182,3 @@ export default function AboutCompany() {
   );
 }
 
-
-
-
-
-// <div className="pt-12 border-t border-border-1" data-aos="fade-up" data-aos-duration="1000">
-//           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            
-//             {/* Trusted Clients Counter & Title Header */}
-//             <div className="lg:w-1/3 text-center lg:text-left space-y-2">
-//               <div className="inline-flex items-center gap-2 text-primary font-heading font-bold text-3xl sm:text-4xl">
-//                 2536+
-//               </div>
-//               <h3 className="font-heading font-bold text-xl text-text-primary">
-//                 Our Trusted and Valuable Clients
-//               </h3>
-//               <p className="text-sm text-text-muted">
-//                 Partnering with global brands and ambitious startups.
-//               </p>
-//             </div>
-
-//             {/* Custom Infinite Marquee / Slider Component (No Swiper) */}
-//             <div className="lg:w-2/3 w-full overflow-hidden relative ticker-pause-hover py-4">
-//               {/* Gradient fade masks for smooth edges */}
-//               <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-bg-1 to-transparent z-10 pointer-events-none" />
-//               <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-bg-1 to-transparent z-10 pointer-events-none" />
-
-//               <div className="flex gap-12 animate-ticker-Normal whitespace-nowrap items-center w-max">
-//                 {/* Render logos twice to ensure seamless infinite loop */}
-//                 {[...clientLogos, ...clientLogos].map((client, index) => (
-//                   <div
-//                     key={index}
-//                     className="flex items-center justify-center min-w-[160px] h-20 bg-bg-2 border border-border-1 rounded-xl px-6 py-4 shadow-card hover:border-primary transition-colors"
-//                   >
-//                     <span className="font-heading font-semibold text-text-primary text-sm opacity-80 hover:opacity-100">
-//                       {client.name}
-//                     </span>
-//                   </div>
-//                 ))}
-//               </div>
-//             </div>
-
-//           </div>
-//         </div> 
-
-   

@@ -4,36 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ArrowRight from "../icons/arrowRight";
 
-// const articles = [
-//   {
-//     id: 1,
-//     image: "/images/blog/post-4.png",
-//     title: "Graphic design agency your",
-//     highlightedTitle: "Brand needs.",
-//     category: "Web Design",
-//     date: "Jan 20, 2025",
-//     href: "/blog-details/",
-//   },
-//   {
-//     id: 2,
-//     image: "/images/blog/post-5.png",
-//     title: "Graphic design agency your",
-//     highlightedTitle: "Brand needs.",
-//     category: "Web Design",
-//     date: "Jan 20, 2025",
-//     href: "/blog-details/",
-//   },
-//   {
-//     id: 3,
-//     image: "/images/blog/post-6.png",
-//     title: "Graphic design agency your",
-//     highlightedTitle: "Brand needs.",
-//     category: "Web Design",
-//     date: "Jan 20, 2025",
-//     href: "/blog-details/",
-//   },
-// ];
-
 
  function ArticleCard({ article, index }) {
 
