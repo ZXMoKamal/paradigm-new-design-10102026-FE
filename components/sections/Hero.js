@@ -87,7 +87,7 @@ export default function HeroSection() {
                     loop
                     playsInline
                     preload="metadata"
-                    poster="/images/hero-poster.webp"
+                    poster="/videos/poster.webp"
                     tabIndex={-1}
                 >
                     <source
@@ -133,7 +133,7 @@ export default function HeroSection() {
                         <div className="max-w-5xl">
                             <p
                                 className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-primary sm:text-sm"
-                                // data-aos="fade-up"
+                                data-aos="fade-up"
                             >
                                 Paradigm · Events & Experiences
                             </p>
@@ -141,7 +141,7 @@ export default function HeroSection() {
                             <h1
                                 id="hero-title"
                                 className="text-[clamp(3rem,8.5vw,8.125rem)] font-medium uppercase leading-[0.98] tracking-[-0.045em]"
-                                // data-aos="fade-up"
+                                data-aos="fade-up"
                                 // data-aos-delay="100"
                             >
                                 We Create
