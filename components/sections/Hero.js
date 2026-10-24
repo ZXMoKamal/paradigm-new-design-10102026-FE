@@ -132,17 +132,14 @@ export default function HeroSection() {
                     <div className="flex w-full flex-col justify-center gap-8 py-24 sm:gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
                         <div className="max-w-5xl">
                             <p
-                                className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-primary sm:text-sm"
-                                data-aos="fade-up"
+                                className="mb-5 animate-slide-up-slow text-xs font-semibold uppercase tracking-[0.3em] text-primary sm:text-sm"
                             >
                                 Paradigm · Events & Experiences
                             </p>
 
                             <h1
                                 id="hero-title"
-                                className="text-[clamp(3rem,8.5vw,8.125rem)] font-medium uppercase leading-[0.98] tracking-[-0.045em]"
-                                data-aos="fade-up"
-                                // data-aos-delay="100"
+                                className="animate-slide-up text-[clamp(3rem,8.5vw,8.125rem)] font-medium uppercase leading-[0.98] tracking-[-0.045em]"
                             >
                                 We Create
                                 <br />
@@ -158,9 +155,7 @@ export default function HeroSection() {
                         </div>
 
                         <div
-                            className="w-full max-w-md shrink-0 lg:mb-2 lg:max-w-[340px] xl:max-w-[390px]"
-                            // data-aos="fade-up"
-                            // data-aos-delay="200"
+                            className="w-full max-w-md shrink-0 animate-slide-up-slow lg:mb-2 lg:max-w-[340px] xl:max-w-[390px]"
                         >
                             <p className="max-lg:border-t border-white/30 pt-6 text-base leading-7 text-[#E7E7E7] sm:text-lg sm:leading-8">
                                 From bold ideas to unforgettable moments, we
@@ -190,3 +185,4 @@ export default function HeroSection() {
         </section>
     );
 }
+

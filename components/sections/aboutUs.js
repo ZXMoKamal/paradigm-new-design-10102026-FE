@@ -89,7 +89,7 @@ export default function AboutCompany() {
                 className="flex flex-col items-start border-t border-border-1 pt-8 sm:pt-10 md:flex-row md:items-end md:gap-8 lg:gap-10"
                 data-aos="fade-up"
                 data-aos-duration="900"
-                data-aos-delay="100"
+                // data-aos-delay="100"
               >
                 {/* Reusable statistics slider */}
                 <AboutStatsSlider
@@ -103,7 +103,7 @@ export default function AboutCompany() {
                   className="w-full max-w-[430px]"
                   data-aos="fade-up"
                   data-aos-duration="900"
-                  data-aos-delay="200"
+                  // data-aos-delay="200"
                 >
                   <p className="mb-8 text-lg leading-[1.6] text-text-body lg:mb-10 lg:text-xl">
                     businesses to make impactful, forward-looking decisions.
@@ -134,6 +134,7 @@ export default function AboutCompany() {
                 src="/images/home/about/About us.jpeg"
                 alt="about"
                 fill
+                preload
                 sizes="(max-width: 767px) 100vw, (max-width: 1023px) 80vw, 38vw"
                 className="object-cover max-lg:w-full "
               />
@@ -181,4 +182,5 @@ export default function AboutCompany() {
 
   );
 }
+
 

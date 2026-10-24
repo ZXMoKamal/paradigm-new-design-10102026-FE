@@ -1,11 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "aos/dist/aos.css";
 import Navbar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import WhatsAppButton from "@/components/shared/whatsAppButton";
 import { SEO } from "@/data/SEO";
 import JsonLd from "@/components/seo/ld-json";
-import Aos from "aos";
 import AosInit from "@/components/animation/AOS";
 import { Toaster } from "sonner";
 import VisitorInitializer from "@/components/analytics/visitorInitializer";
@@ -127,5 +127,6 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
 
 

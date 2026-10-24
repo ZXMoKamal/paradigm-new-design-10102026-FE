@@ -100,6 +100,7 @@ async function Services({params}) {
       <ServiceDetails 
           title={service.title} 
           thumb={service.thumb} 
+          icon={service.icon} 
           // highlightedTitle="Design solution" 
           image="/images/services/service-details-img-1.png" 
           imageAlt="Service overview" 

@@ -180,6 +180,9 @@
   /* ── Animations ─────────────────────────────────────────── */
   --animate-fade-in:    fade-in 0.4s ease-out;
   --animate-slide-up:   slide-up 0.5s ease-out;
+  --animate-slide-up-slow:   slide-up 0.3s ease-out;
+  --animate-fade-right:      fade-right 0.9s ease-out both;
+  --animate-fade-left:       fade-left 0.9s ease-out both;
   --animate-spin-slow:  spin-slow 12s linear infinite;
   --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
 
@@ -188,8 +191,16 @@
     to   { opacity: 1; }
   }
   @keyframes slide-up {
-    from { transform: translateY(16px); opacity: 0; }
+    from { transform: translateY(100px); opacity: 0; }
     to   { transform: translateY(0);    opacity: 1; }
+  }
+  @keyframes fade-right {
+    from { transform: translateX(-32px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes fade-left {
+    from { transform: translateX(32px); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
   }
   @keyframes spin-slow {
     from { transform: rotate(0deg); }
@@ -223,7 +234,7 @@
    FONT-FACE PLACEHOLDERS — swap src with real woff2 files
    ═══════════════════════════════════════════════════════════ */
 /* TODO: replace /fonts/*.woff2 with your actual font files */
-@font-face {
+/* @font-face {
   font-family: "heading";
   src: url("/fonts/heading-regular.woff2") format("woff2");
   font-weight: 400;
@@ -270,7 +281,7 @@
   src: url("/fonts/body-bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
-}
+} */
 
 /* ═══════════════════════════════════════════════════════════
    BASE STYLES
@@ -466,3 +477,4 @@ html.dark {
     }
   }
 }
+

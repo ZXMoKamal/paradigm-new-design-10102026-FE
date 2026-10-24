@@ -70,7 +70,8 @@ export default function ServiceDetails({
   approachTitle = "Solution Approach",
   approachParagraphs = [],
   supportingImages = [],
-  thumb
+  thumb,
+  icon
 }) {
   return (
     <section className="bg-bg-1 py-16 sm:py-20 lg:py-[120px]">
@@ -81,7 +82,7 @@ export default function ServiceDetails({
           className="relative mb-12 aspect-[16/9] overflow-hidden rounded-2xl bg-bg-2 sm:mb-16 lg:aspect-[16/7]"
         >
           <Image
-            src={image}
+            src={thumb}
             alt={imageAlt}
             fill
             sizes="(max-width: 768px) 100vw, 1320px"
@@ -93,7 +94,7 @@ export default function ServiceDetails({
         <div className="mx-auto max-w-5xl">
           <div data-aos="fade-up"> 
             <div className="flex items-center">
-              <img src={thumb} alt={imageAlt} className="w-50 h-50"/>
+              <img src={icon} alt={imageAlt} className="w-50 h-50"/>
               <h1 className="mb-7 text-3xl font-semibold leading-tight tracking-tight text-text-primary sm:text-4xl lg:text-6xl">
                 {title}{" "}
                 <span className="font-normal italic text-primary">

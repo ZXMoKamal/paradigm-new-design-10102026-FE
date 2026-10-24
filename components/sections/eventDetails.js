@@ -116,7 +116,8 @@ export default function PortfolioDetails({
     challenges = [],
     solutions = [],
     results = [],
-    thumb
+    thumb,
+    HQthumb
   } = project;
 
   const metadata = [
@@ -135,7 +136,7 @@ export default function PortfolioDetails({
           className="flex justify-center items-center relative mb-12  overflow-hidden rounded-2xl bg-bg-2 sm:mb-16 h-[563px]"
         >
           <img
-            src={thumb}
+            src={HQthumb}
             alt={imageAlt}
             // fill
             // priority

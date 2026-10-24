@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "yiddish-amicably-frostlike.ngrok-free.dev",
+        port: "",
+        pathname:
+          "/paradigm/backend/paradigm-new-design-10102026-BE/storage/images/**",
+      },
+    ],
+  },
   /* config options here */
   //  output: 'export',
   trailingSlash: true,

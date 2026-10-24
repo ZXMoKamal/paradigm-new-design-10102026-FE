@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css";
 
 export default function AosInit() {
-    useEffect(() => {
+    // useEffect(() => {
         AOS.init({
            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
   offset: 80, // offset (in px) from the original trigger point
@@ -18,7 +17,7 @@ export default function AosInit() {
 
         // Refresh after components/content are rendered
         AOS.refresh();
-    }, []);
+    // }, []);
 
-    return null;
+    return <></>;
 }

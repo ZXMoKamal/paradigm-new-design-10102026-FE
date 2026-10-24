@@ -65,7 +65,7 @@ const services = await getServices();
                     {service.id}
                   </span> */}
                   <div className="flex items-center justify-centergroup-hover:bg-primary group-hover:text-bg-1 transition-colors duration-300">
-                    <img src={service.thumb} alt={service.title} className="w-24 h-24" />
+                    <img src={service.icon} alt={service.title} className="w-24 h-24" />
                   </div>
                 </div>
 
