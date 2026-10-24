@@ -20,6 +20,7 @@ export function SectionHeader({
     buttons,
 
     align = "between", // between | center | start
+    animated = true,
 }) {
     return (
         <section
@@ -34,13 +35,13 @@ export function SectionHeader({
             {/* LEFT: Subtitle + Title */ }
             <section  className="flex flex-col shrink-0 max-md:shrink gap-1">
                 { subtitle && (
-                    <SubtitleTag data-aos="fade-left" className={ cn("text-sm font-primary-medium text-text-primary mb-2 uppercase tracking-[0.2em]", subTitleClassName) }>
+                    <SubtitleTag data-aos={animated ? "fade-left" : undefined} className={ cn("text-sm font-primary-medium text-text-primary mb-2 uppercase tracking-[0.2em]", subTitleClassName) }>
                         { subtitle }
                     </SubtitleTag>
                 ) }
 
                 { title && (
-                    <TitleTag data-aos="fade-right" className={cn("leading-20 lg:text-[57px] md:text-[47px] sm:text-[37px] text-[27px] font-primary-medium text-text-primary", titleClassName)}>
+                    <TitleTag data-aos={animated ? "fade-right" : undefined} className={cn("leading-20 lg:text-[57px] md:text-[47px] sm:text-[37px] text-[27px] font-primary-medium text-text-primary", titleClassName)}>
                         { title }
                     </TitleTag>
                 ) }
@@ -48,17 +49,18 @@ export function SectionHeader({
 
             {/* MIDDLE: Description */ }
             { description && (
-                <p  data-aos="fade-up" className="w-[570px] max-xl:w-full lg:text-[18px] text-[16px] text-text-primary pt-15 max-2xl:pt-0 font-primary-light">
+                <p  data-aos={animated ? "fade-up" : undefined} className="w-[570px] max-xl:w-full lg:text-[18px] text-[16px] text-text-primary pt-15 max-2xl:pt-0 font-primary-light">
                     { description }
                 </p>
             ) }
 
             {/* RIGHT: Button */ }
             { buttons && (
-                <section data-aos="fade-right" className="pt-15 max-2xl:pt-0 justify-end flex items-center max-xl:w-full shrink-0">
+                <section data-aos={animated ? "fade-right" : undefined} className="pt-15 max-2xl:pt-0 justify-end flex items-center max-xl:w-full shrink-0">
                     {buttons}
                 </section>
             ) }
         </section>
     )
 }
+

@@ -5,7 +5,7 @@ import { useState } from "react";
 import ArrowRight from "../icons/arrowRight";
 import Link from "next/link";
 
-function ProjectCard({ project }) {console.log(project)
+function ProjectCard({ project }) {
   return (
     <article className="group min-w-0 w-full">
       <div className="relative mb-6 h-[320px] w-full overflow-hidden rounded-2xl bg-bg-2 sm:h-[300px] lg:h-[480px]">

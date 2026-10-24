@@ -138,6 +138,7 @@ export default function AddAdminForm() {
                         method: "POST",
 
                         headers: {
+                            "ngrok-skip-browser-warning": "true",
                             Authorization: `Bearer ${token}`,
                         },
 

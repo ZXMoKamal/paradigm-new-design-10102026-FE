@@ -2,7 +2,7 @@ import { getServices } from "@/api/services";
 
 export default async function RunningText() {
   const services = await getServices(); // Fetch services from the API
-console.log(services);
+
   // If services are fetched successfully, use them; otherwise, fallback to tickerItems
   const itemsToDisplay = services.length > 0 ? services.map(service => service.title) : [];
   return (

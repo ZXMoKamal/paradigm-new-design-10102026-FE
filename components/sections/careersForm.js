@@ -51,6 +51,7 @@ export default function CareersForm() {
       try {
         const res = await fetch("/api/apply", {
           method: "POST",
+          headers: { "ngrok-skip-browser-warning": "true" },
           body: formData,
         });
 

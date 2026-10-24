@@ -1,5 +1,5 @@
 export async function getServices(fbToken = null) {
-  const headers = {};
+  const headers = {"ngrok-skip-browser-warning": "true"};
 
   if (fbToken) {
     headers.Authorization = `Bearer ${fbToken}`;

@@ -101,6 +101,7 @@ if(hasAccess("googleCloud","view")){
                 method: "GET",
 
                 headers: {
+                    "ngrok-skip-browser-warning": "true",
                     Authorization: `Bearer ${token}`,
                 },
             }

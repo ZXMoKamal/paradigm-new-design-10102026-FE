@@ -60,6 +60,7 @@ useEffect(() => {
                 {
                     method: "GET",
                     headers: {
+                        "ngrok-skip-browser-warning": "true",
                         Authorization: `Bearer ${token}`,
                     },
                     cache: "no-store",
@@ -282,6 +283,7 @@ const handleSubmit = async (e) => {
                 method: "POST",
 
                 headers: {
+                    "ngrok-skip-browser-warning": "true",
                     Authorization: `Bearer ${token}`,
                 },
 

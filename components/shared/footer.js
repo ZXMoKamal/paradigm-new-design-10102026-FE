@@ -72,11 +72,12 @@ export default function Footer() {
                                 aria-label="Paradigm home"
                             >
                                 <Image
+                                loading="lazy"
                                     src="/images/logo/paradigm full logo.png"
                                     alt="Paradigm"
                                     width={170}
                                     height={60}
-                                    className="h-auto max-h-[60px] w-auto max-w-[170px] object-contain"
+                                    className="h-auto w-auto max-h-[60px] max-w-[170px] object-contain"
                                 />
                             </Link>
                         </div>
@@ -244,3 +245,4 @@ export default function Footer() {
         </footer>
     );
 }
+

@@ -1,6 +1,6 @@
 import { getBlog } from '@/api/blogs';
 import { getVisitorIdServer } from '@/lib/visitorIdServer';
-import React from 'react'
+import React, { Fragment } from 'react'
 import PageVisitDuration from '../shared/PageVisitDuration';
 
 async function BlogContent({ blogRequestTitle }) {
@@ -18,13 +18,13 @@ async function BlogContent({ blogRequestTitle }) {
           <br/>
           <h1 className='text-[34px] md:text-[42px] xl:text-[57px]'>{ blog.name }</h1>
           { JSON.parse(blog.content).map((item, inx) =>
-              <fragment key={ inx }>
+              <Fragment key={ inx }>
                   <br/>
                   <h2 className='text-[20px] md:text-[28px] xl:text-[34px]'>{ item.title }</h2>
                   <br/>
                   <p className='text-[16px] md:text-[18px] xl:text-[20px]'>{ item.paragraph }</p>
                   <br/>
-              </fragment>) }
+              </Fragment>) }
     </section>
   )
 }

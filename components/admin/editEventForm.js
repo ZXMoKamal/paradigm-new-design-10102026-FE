@@ -51,6 +51,7 @@ export default function EditEventForm({ allowEdit, requestTitle, open, onClose, 
                     {
                         method: "GET",
                         headers: {
+                            "ngrok-skip-browser-warning": "true",
                             Authorization: `Bearer ${token}`,
                         },
                         cache: "no-store",
@@ -214,6 +215,7 @@ if(allowEdit){
                     method: "POST",
 
                     headers: {
+                        "ngrok-skip-browser-warning": "true",
                         Authorization: `Bearer ${token}`,
                     },
 

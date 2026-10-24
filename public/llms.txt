@@ -2,7 +2,13 @@
 
 > Paradigm Capital Group is an event management and event production company delivering integrated event solutions across Egypt, the Middle East and the MENA region. The company specializes in event consultancy and management, public relations and VIP management, audiovisual solutions, interpretation and translation, technical support, media production, travel and accommodation, graphic design, branding, printing, catering, and event equipment.
 
-Website: https://paradigmcapitalgroup.com/
+- [Home](https://paradigmcapitalgroup.com/): Main website and company overview.
+- [Our Story](https://paradigmcapitalgroup.com/our-story/): Company background and experience.
+- [Our Services](https://paradigmcapitalgroup.com/our-services/): Overview of available services.
+- [Past Events](https://paradigmcapitalgroup.com/past-events/): Portfolio of previous events.
+- [Corporate Social Responsibility](https://paradigmcapitalgroup.com/csr/): Social responsibility initiatives.
+- [Contact Us](https://paradigmcapitalgroup.com/contacts/): Contact information.
+- [Careers](https://paradigmcapitalgroup.com/careers/): Career opportunities.
 
 ## Company Information
 
@@ -42,7 +48,7 @@ The company operates across Egypt, the United Arab Emirates and Saudi Arabia.
 
 ### Event Consultancy & Management
 
-https://paradigmcapitalgroup.com/services/event-consultancy-management/
+- [Event Consultancy & Management](https://paradigmcapitalgroup.com/services/event-consultancy-management/): Event planning, concept development, venue selection, registration, logistics, and execution.
 
 Event consultancy and management services covering the complete event lifecycle.
 
@@ -59,7 +65,7 @@ Highlights:
 
 ### Public Relations & VIP Management
 
-https://paradigmcapitalgroup.com/services/public-relations-vip-management/
+- [Public Relations & VIP Management](https://paradigmcapitalgroup.com/services/public-relations-vip-management/): Public relations, VIP coordination, protocol, permits, and ushering.
 
 Professional public relations, protocol and VIP management services.
 
@@ -72,7 +78,7 @@ Highlights:
 
 ### Audio Visual Solutions
 
-https://paradigmcapitalgroup.com/services/audio-visual-solutions/
+- [Audio Visual Solutions](https://paradigmcapitalgroup.com/services/audio-visual-solutions/): Event lighting, sound systems, LED screens, projection, and live streaming.
 
 Professional audiovisual systems and technical production solutions for events.
 
@@ -111,7 +117,7 @@ Highlights:
 
 ### Interpretation & Translation Services
 
-https://paradigmcapitalgroup.com/services/interpretation-translation-services/
+- [Interpretation & Translation](https://paradigmcapitalgroup.com/services/interpretation-translation-services/): Simultaneous interpretation, interpretation equipment, multilingual interpreters, and document translation.
 
 Interpretation and translation solutions for multilingual conferences, meetings and international events.
 
@@ -129,7 +135,7 @@ Highlights:
 
 ### Technical Support
 
-https://paradigmcapitalgroup.com/services/technical-support/
+- [Technical Support](https://paradigmcapitalgroup.com/services/technical-support/): IT infrastructure, internet, virtual and hybrid events, and registration systems.
 
 Technical support and digital infrastructure for physical, virtual and hybrid events.
 
@@ -143,7 +149,7 @@ Highlights:
 
 ### Documentation & Media Production
 
-https://paradigmcapitalgroup.com/services/documentation-media-production/
+- [Documentation & Media Production](https://paradigmcapitalgroup.com/services/documentation-media-production/): Event photography, videography, editing, and media production.
 
 Event documentation, photography, videography and media production services.
 
@@ -155,7 +161,7 @@ Highlights:
 
 ### Travel, Transportation & Accommodation
 
-https://paradigmcapitalgroup.com/services/travel-transportation-accommodation/
+- [Travel, Transportation & Accommodation](https://paradigmcapitalgroup.com/services/travel-transportation-accommodation/): Flights, accommodation, airport transfers, transportation, and travel logistics.
 
 Travel, transportation, accommodation and logistics services for event participants and guests.
 
@@ -172,7 +178,7 @@ Highlights:
 
 ### Graphic Design
 
-https://paradigmcapitalgroup.com/services/graphic-design/
+- [Graphic Design](https://paradigmcapitalgroup.com/services/graphic-design/): Event graphics, visual communication, and promotional materials.
 
 Graphic design and visual communication services for events and brands.
 
@@ -185,7 +191,7 @@ Highlights:
 
 ### Branding, Production & Printing
 
-https://paradigmcapitalgroup.com/services/branding-production-printing/
+- [Branding, Production & Printing](https://paradigmcapitalgroup.com/services/branding-production-printing/): Event branding, banners, exhibition booths, printing, and stage branding.
 
 Event branding, production, printing and physical event infrastructure.
 
@@ -202,7 +208,7 @@ Highlights:
 
 ### Catering
 
-https://paradigmcapitalgroup.com/services/catering/
+- [Catering](https://paradigmcapitalgroup.com/services/catering/): Catering for corporate, social, indoor, and outdoor events.
 
 Catering services for corporate, social and event occasions.
 
@@ -215,7 +221,7 @@ Highlights:
 
 ### Equipment
 
-https://paradigmcapitalgroup.com/services/equipment/
+- [Equipment](https://paradigmcapitalgroup.com/services/equipment/): Professional microphones, conference systems, speakers, mixers, and event equipment.
 
 Event equipment and professional audiovisual equipment solutions.
 
@@ -259,106 +265,84 @@ Highlights:
 
 ### Egypt’s Narrative for Economic Development
 
-https://paradigmcapitalgroup.com/portfolio/egypts-narrative-for-economic-development/
+- [Egypt’s Narrative for Economic Development](https://paradigmcapitalgroup.com/portfolio/egypts-narrative-for-economic-development/): As part of Egypt’s commitment to sustainable economic growth and strategic development, this initiative gathered leaders to align vision with execution and discuss key national priorities. Paradigm Capital Group proudly executed the full event setup, providing a seamless environment for presentations, panels, and stakeholder engagement. The event convened government officials, international partners, and business leaders to highlight actionable strategies and collaborative solutions that advance Egypt’s economic development on a global scale.
 
 - Date: 2025-09-07
 - Location: St Regis, New Capital
 
-As part of Egypt’s commitment to sustainable economic growth and strategic development, this initiative gathered leaders to align vision with execution and discuss key national priorities. Paradigm Capital Group proudly executed the full event setup, providing a seamless environment for presentations, panels, and stakeholder engagement. The event convened government officials, international partners, and business leaders to highlight actionable strategies and collaborative solutions that advance Egypt’s economic development on a global scale.
-
 ### Egypt – Spain Business Forum
 
-https://paradigmcapitalgroup.com/portfolio/egypt-spain-business-forum/
+- [Egypt – Spain Business Forum](https://paradigmcapitalgroup.com/portfolio/egypt-spain-business-forum/): The Egypt–Spain Business Forum brought together ministers, business leaders, investors, and key international stakeholders to explore opportunities across trade, investment, innovation, and economic cooperation between Egypt and Spain. Paradigm Capital Group delivered the full event setup and management, creating a seamless environment for official sessions, panel discussions, meetings, and networking.
 
 - Date: 2025-09-18
 - Location: St Regis, Cairo
 
-The Egypt–Spain Business Forum brought together ministers, business leaders, investors, and key international stakeholders to explore opportunities across trade, investment, innovation, and economic cooperation between Egypt and Spain. Paradigm Capital Group delivered the full event setup and management, creating a seamless environment for official sessions, panel discussions, meetings, and networking.
-
 ### Egypt–Türkiye Business Forum
 
-https://paradigmcapitalgroup.com/portfolio/egypt-turkiye-business-forum/
+- [Egypt–Türkiye Business Forum](https://paradigmcapitalgroup.com/portfolio/egypt-turkiye-business-forum/): The Egypt–Türkiye Business Forum brought together senior government officials, ministers, business leaders, investors, and key stakeholders from both countries to explore opportunities for trade, investment, and bilateral economic cooperation. Paradigm Capital Group delivered the complete event setup.
 
 - Date: 2026-02-04
 - Location: Al Masa Hotel Nasr City
 
-The Egypt–Türkiye Business Forum brought together senior government officials, ministers, business leaders, investors, and key stakeholders from both countries to explore opportunities for trade, investment, and bilateral economic cooperation. Paradigm Capital Group delivered the complete event setup.
-
 ### Egypt – France Business Forum
 
-https://paradigmcapitalgroup.com/portfolio/egypt-france-business-forum/
+- [Egypt – France Business Forum](https://paradigmcapitalgroup.com/portfolio/egypt-france-business-forum/): The Egypt–France Business Forum brought together senior government officials, business leaders, investors, and key stakeholders from Egypt and France to strengthen bilateral economic relations and explore opportunities for trade, investment, and strategic cooperation. Paradigm Capital Group delivered the full event setup.
 
 - Date: 2025-04-07
 - Location: Al Masa Hotel Nasr City
 
-The Egypt–France Business Forum brought together senior government officials, business leaders, investors, and key stakeholders from Egypt and France to strengthen bilateral economic relations and explore opportunities for trade, investment, and strategic cooperation. Paradigm Capital Group delivered the full event setup.
-
 ### Egypt-France Business Forum: Economic – Opportunities for Strategic Partnership
 
-https://paradigmcapitalgroup.com/portfolio/egypt-france-business-forum-economic-opportunities-for-strategic-partnership/
+- [Egypt-France Business Forum: Economic – Opportunities for Strategic Partnership](https://paradigmcapitalgroup.com/portfolio/egypt-france-business-forum-economic-opportunities-for-strategic-partnership/): Held at Almasa Hotel in the presence of senior Egyptian and French officials, the Egypt–France Business Forum brought together government officials, international business leaders, and key stakeholders to explore economic cooperation. Paradigm Capital Group led the complete production of the event, managing staging, audiovisual systems, transportation logistics, and media coverage.
 
 - Date: 2025-04-07
 - Location: Al Masa Hotel Nasr City, Cairo
 
-Held at Almasa Hotel in the presence of senior Egyptian and French officials, the Egypt–France Business Forum brought together government officials, international business leaders, and key stakeholders to explore economic cooperation. Paradigm Capital Group led the complete production of the event, managing staging, audiovisual systems, transportation logistics, and media coverage.
-
 ### The National Initiative for Smart Green Projects
 
-https://paradigmcapitalgroup.com/portfolio/the-national-initiative-for-smart-green-projects/
+- [The National Initiative for Smart Green Projects](https://paradigmcapitalgroup.com/portfolio/the-national-initiative-for-smart-green-projects/): An initiative showcasing pioneering projects that integrate green innovation with smart technologies. Paradigm Capital Group executed the full event setup, providing a seamless environment for presentations, exhibitions, and stakeholder engagement.
 
 - Date: 2025-03-23
 - Location: The St. Regis New Capital, Cairo
 
-An initiative showcasing pioneering projects that integrate green innovation with smart technologies. Paradigm Capital Group executed the full event setup, providing a seamless environment for presentations, exhibitions, and stakeholder engagement.
-
 ### 2nd Ministerial Conference Khartoum Process
 
-https://paradigmcapitalgroup.com/portfolio/2nd-ministerial-conference-khartoum-process/
+- [2nd Ministerial Conference Khartoum Process](https://paradigmcapitalgroup.com/portfolio/2nd-ministerial-conference-khartoum-process/): A high-level ministerial conference bringing together African and European representatives to strengthen dialogue and cooperation on migration and mobility. Paradigm Capital Group delivered the full technical and logistical production.
 
 - Date: 2025-04-09
 - Location: ALMASA Capital, New Administrative Capital
 
-A high-level ministerial conference bringing together African and European representatives to strengthen dialogue and cooperation on migration and mobility. Paradigm Capital Group delivered the full technical and logistical production.
-
 ### International Conference on Management and Innovation in Social Security
 
-https://paradigmcapitalgroup.com/portfolio/international-conference-on-management-and-innovation-in-social-security/
+- [International Conference on Management and Innovation in Social Security](https://paradigmcapitalgroup.com/portfolio/international-conference-on-management-and-innovation-in-social-security/): A high-level conference bringing together experts in social security to discuss governance, sustainability, and innovation. Paradigm Capital Group led the full-scale production of the event.
 
 - Date: 2025-02-11
 - Location: Nile Ritz Carlton, Cairo
 
-A high-level conference bringing together experts in social security to discuss governance, sustainability, and innovation. Paradigm Capital Group led the full-scale production of the event.
-
 ### Annual Green Growth Conference (UNDP)
 
-https://paradigmcapitalgroup.com/portfolio/annual-green-growth-conference-undp/
+- [Annual Green Growth Conference (UNDP)](https://paradigmcapitalgroup.com/portfolio/annual-green-growth-conference-undp/): The Annual Green Growth Conference served as a platform for discussing sustainable development, climate innovation, and economic resilience. Paradigm Capital Group delivered end-to-end event management.
 
 - Date: 2025-02-02
 - Location: Four Seasons, Cairo
 
-The Annual Green Growth Conference served as a platform for discussing sustainable development, climate innovation, and economic resilience. Paradigm Capital Group delivered end-to-end event management.
-
 ### United Nations Interregional Crime and Research Institute - 1st Regional Workshop Transparency
 
-https://paradigmcapitalgroup.com/portfolio/united-nations-interregional-crime-and-research-institute-1st-regional-workshop-transparency/
+- [United Nations Interregional Crime and Research Institute - 1st Regional Workshop Transparency](https://paradigmcapitalgroup.com/portfolio/united-nations-interregional-crime-and-research-institute-1st-regional-workshop-transparency/): A regional workshop focused on advancing transparency, accountability, and governance practices. Paradigm Capital Group provided full event setup, technical production, interpretation systems, and on-ground coordination.
 
 - Date: 2025-02-11
 - Location: Steigenberger Nile Palace, Luxor
 
-A regional workshop focused on advancing transparency, accountability, and governance practices. Paradigm Capital Group provided full event setup, technical production, interpretation systems, and on-ground coordination.
-
 ### Raya Kick-Off 2025
 
-https://paradigmcapitalgroup.com/portfolio/raya-kick-off-2025/
+- [Raya Kick-Off 2025](https://paradigmcapitalgroup.com/portfolio/raya-kick-off-2025/): Raya Holding's silver anniversary event celebrating 25 years of growth, innovation, and impact. Paradigm Capital Group managed the event experience from concept to execution.
 
 - Date: 2025-02-27
 - Location: Nile Ritz Carlton, Cairo
 
-Raya Holding's silver anniversary event celebrating 25 years of growth, innovation, and impact. Paradigm Capital Group managed the event experience from concept to execution.
-
 ### Aswan Forum 2024
 
-https://paradigmcapitalgroup.com/portfolio/aswan-forum-2024/
+- [Aswan Forum 2024](https://paradigmcapitalgroup.com/portfolio/aswan-forum-2024/): Aswan Forum 2024
 
 - Date: 2024
 - Location: Egypt
@@ -366,7 +350,7 @@ https://paradigmcapitalgroup.com/portfolio/aswan-forum-2024/
 
 ### Global Congress On Population, Health And Human Development 2024
 
-https://paradigmcapitalgroup.com/portfolio/global-congress-on-population-health-and-human-development-2024/
+- [Global Congress On Population, Health And Human Development 2024](https://paradigmcapitalgroup.com/portfolio/global-congress-on-population-health-and-human-development-2024/): Global Congress On Population, Health And Human Development 2024
 
 - Date: 2024
 - Location: Egypt
@@ -374,7 +358,7 @@ https://paradigmcapitalgroup.com/portfolio/global-congress-on-population-health-
 
 ### Enhancing Cooperation between Al Ahly Sporting Club and UNICEF to Support Every Child and Youth in Egypt
 
-https://paradigmcapitalgroup.com/portfolio/unicef-with-ahly-fc/
+- [Enhancing Cooperation between Al Ahly Sporting Club and UNICEF to Support Every Child and Youth in Egypt](https://paradigmcapitalgroup.com/portfolio/unicef-with-ahly-fc/): Enhancing Cooperation between Al Ahly Sporting Club and UNICEF to Support Every Child and Youth in Egypt
 
 - Date: 2024
 - Location: Egypt
@@ -382,7 +366,7 @@ https://paradigmcapitalgroup.com/portfolio/unicef-with-ahly-fc/
 
 ### King’s Birthday Celebration in the British Embassy
 
-https://paradigmcapitalgroup.com/portfolio/british-embassy/
+- [King’s Birthday Celebration in the British Embassy](https://paradigmcapitalgroup.com/portfolio/british-embassy/): King’s Birthday Celebration in the British Embassy
 
 - Date: 2024
 - Location: British Embassy, Egypt
@@ -390,7 +374,7 @@ https://paradigmcapitalgroup.com/portfolio/british-embassy/
 
 ### The Inaugural Joint Steering Committee Meeting of the Arab Republic of Egypt & United Nations Sustainable Development Cooperation Framework 2023-2027
 
-https://paradigmcapitalgroup.com/portfolio/united-nations-sustainable-developmentcooperation-frameworkarab-republic-of-egypt/
+- [The Inaugural Joint Steering Committee Meeting of the Arab Republic of Egypt & United Nations Sustainable Development Cooperation Framework 2023-2027](https://paradigmcapitalgroup.com/portfolio/united-nations-sustainable-developmentcooperation-frameworkarab-republic-of-egypt/): The Inaugural Joint Steering Committee Meeting of the Arab Republic of Egypt & United Nations Sustainable Development Cooperation Framework 2023-2027
 
 - Date: 2024
 - Location: Egypt
@@ -398,7 +382,7 @@ https://paradigmcapitalgroup.com/portfolio/united-nations-sustainable-developmen
 
 ### Ministry of International Cooperation
 
-https://paradigmcapitalgroup.com/portfolio/ministry-of-international-cooperation/
+- [Ministry of International Cooperation](https://paradigmcapitalgroup.com/portfolio/ministry-of-international-cooperation/): Ministry of International Cooperation
 
 - Date: 2024
 - Location: Egypt
@@ -406,7 +390,7 @@ https://paradigmcapitalgroup.com/portfolio/ministry-of-international-cooperation
 
 ### NDB Seminar in Egypt Navigating New Horizons
 
-https://paradigmcapitalgroup.com/portfolio/ndb-seminar-in-egypt-navigating-new-horizons-2024/
+- [NDB Seminar in Egypt Navigating New Horizons](https://paradigmcapitalgroup.com/portfolio/ndb-seminar-in-egypt-navigating-new-horizons-2024/): NDB Seminar in Egypt Navigating New Horizons
 
 - Date: 2025
 - Location: Egypt
@@ -414,7 +398,7 @@ https://paradigmcapitalgroup.com/portfolio/ndb-seminar-in-egypt-navigating-new-h
 
 ### HFHI Mena Housing Forum, 2022
 
-https://paradigmcapitalgroup.com/portfolio/hfhi-mena-housing-forum-2022/
+- [HFHI Mena Housing Forum, 2022](https://paradigmcapitalgroup.com/portfolio/hfhi-mena-housing-forum-2022/): HFHI Mena Housing Forum, 2022
 
 - Date: 2022
 - Location: Egypt
@@ -422,7 +406,7 @@ https://paradigmcapitalgroup.com/portfolio/hfhi-mena-housing-forum-2022/
 
 ### UNDP Frankie the Dino Egypt Visit for COP 27
 
-https://paradigmcapitalgroup.com/portfolio/undp-frankie-the-dino-egypt-visit-for-cop-27-2022/
+- [UNDP Frankie the Dino Egypt Visit for COP 27](https://paradigmcapitalgroup.com/portfolio/undp-frankie-the-dino-egypt-visit-for-cop-27-2022/): UNDP Frankie the Dino Egypt Visit for COP 27
 
 - Date: 2022
 - Location: Egypt
@@ -430,7 +414,7 @@ https://paradigmcapitalgroup.com/portfolio/undp-frankie-the-dino-egypt-visit-for
 
 ### UNICEF Art Gallery, 2022
 
-https://paradigmcapitalgroup.com/portfolio/unicef-art-gallery-2022/
+- [UNICEF Art Gallery, 2022](https://paradigmcapitalgroup.com/portfolio/unicef-art-gallery-2022/): UNICEF Art Gallery, 2022
 
 - Date: 2022
 - Location: Egypt
@@ -438,21 +422,11 @@ https://paradigmcapitalgroup.com/portfolio/unicef-art-gallery-2022/
 
 ### Raya Info Systems Kickoff, 2023
 
-https://paradigmcapitalgroup.com/portfolio/raya-info-systems-kickoff-2023/
+- [Raya Info Systems Kickoff, 2023](https://paradigmcapitalgroup.com/portfolio/raya-info-systems-kickoff-2023/): Raya Info Systems Kickoff, 2023
 
 - Date: 2023
 - Location: Egypt
 - Client: Raya
-
-## Main Website Pages
-
-- Home: https://paradigmcapitalgroup.com/
-- Our Story: https://paradigmcapitalgroup.com/our-story/
-- Our Services: https://paradigmcapitalgroup.com/our-services/
-- Past Events: https://paradigmcapitalgroup.com/past-events/
-- CSR: https://paradigmcapitalgroup.com/csr/
-- Contacts: https://paradigmcapitalgroup.com/contacts/
-- Careers: https://paradigmcapitalgroup.com/careers/
 
 ## Team
 

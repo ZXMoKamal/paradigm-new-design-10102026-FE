@@ -18,6 +18,7 @@ export async function deleteService(serviceId){
         {
             method: "POST",
             headers: {
+                "ngrok-skip-browser-warning": "true",
                 Authorization: `Bearer ${token}`,
             },
             body: formData,
@@ -32,4 +33,4 @@ export async function deleteService(serviceId){
     }
 
     return data;    
-} 
+}

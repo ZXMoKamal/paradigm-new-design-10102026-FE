@@ -1,5 +1,6 @@
 export async function getDataStatistics(duration, fbToken = null) {
   const headers = {
+    "ngrok-skip-browser-warning": "true",
     "Content-Type": "application/json",
   };
 

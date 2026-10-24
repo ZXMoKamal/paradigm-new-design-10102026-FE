@@ -6,7 +6,7 @@ export default function VisitorInitializer() {
     useEffect(() => {
         const visitorId = getVisitorId();
 
-        console.log("Visitor ID:", visitorId);
+        // console.log("Visitor ID:", visitorId);
     }, []);
 
     return null;

@@ -178,6 +178,7 @@ export default function AdminLogin() {
                 {
                     method: "POST",
                     headers: {
+                        "ngrok-skip-browser-warning": "true",
                         Authorization: `Bearer ${token}`,
                         "Content-Type": "application/json",
                     },

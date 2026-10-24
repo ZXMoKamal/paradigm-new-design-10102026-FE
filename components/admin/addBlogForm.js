@@ -144,6 +144,7 @@ export default function AddEventForm() {
                     method: "POST",
 
                     headers: {
+                        "ngrok-skip-browser-warning": "true",
                         Authorization: `Bearer ${token}`,
                     },
 

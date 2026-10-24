@@ -5,21 +5,21 @@ import AboutStatsSlider from "@/components/sections/aboutStatsSlider";
 import NumberCounter from "../animation/counter";
 import ArrowRight from "../icons/arrowRight";
 
-const aboutStats = [
-  {
-    id: "experience",
-    number: "32",
-    label: "Years Experience",
-  },
-  {
-    id: "awards",
-    number: "64",
-    label: "Award Winner",
-  },
-];
-
 export default function AboutCompany() {
-
+  
+  const aboutStats = [
+    {
+      id: "experience",
+      number: "32",
+      label: "Years Experience",
+    },
+    {
+      id: "awards",
+      number: "64",
+      label: "Award Winner",
+    },
+  ];
+  
   const stats = [
     {
       number: "32",

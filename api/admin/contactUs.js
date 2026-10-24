@@ -106,6 +106,7 @@ export async function getContacts({
         {
             method: "GET",
             headers: {
+                "ngrok-skip-browser-warning": "true",
                 Authorization: `Bearer ${token}`,
                 Accept: "application/json",
             },

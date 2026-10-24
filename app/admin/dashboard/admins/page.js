@@ -90,6 +90,7 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
                 {
                     method: "GET",
                     headers: {
+                        "ngrok-skip-browser-warning": "true",
                         Authorization: `Bearer ${token}`,
                     },
                 }
@@ -152,6 +153,7 @@ const [showEditAdmin, setShowEditAdmin] = useState(false);
                 {
                     method: "DELETE",
                     headers: {
+                        "ngrok-skip-browser-warning": "true",
                         Authorization: `Bearer ${token}`,
                     },
                 }
