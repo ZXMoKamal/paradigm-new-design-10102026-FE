@@ -17,7 +17,7 @@ import Button from "./button";
 import Send from "../icons/send";
 
 import { contactUsSchema } from "@/form/schema/contactUsSchema";
-
+import { getServices } from "@/api/services";
 import { toast } from "sonner";
 
 export default function ContactForm() {
@@ -43,10 +43,9 @@ export default function ContactForm() {
 
         onSubmit: async (values, { resetForm }) => {
             try {
-                const res = await fetch("/api/contact", {
+                const res = await fetch(process.env.NEXT_PUBLIC_API_URL+"/contactUs.php", {
                     method: "POST",
                     headers: {
-                        "ngrok-skip-browser-warning": "true",
                         "Content-Type": "application/json",
                     },
                     body: JSON.stringify(values),
@@ -68,8 +67,7 @@ export default function ContactForm() {
 
     useEffect(() => {
         const loadServices = async () => {
-            const response = await fetch("/api/contact");
-            const services = response.ok ? await response.json() : [];
+            const services = await getServices();
             setServices(services);
         };
 

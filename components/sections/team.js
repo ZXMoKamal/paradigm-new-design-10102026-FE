@@ -40,7 +40,7 @@ const allTeamMembers = [
 export default function TeamGridSection() {
   // Select an initial active subset of 8 visible team boxes
   const [visibleMembers, setVisibleMembers] = useState(() => {
-    return allTeamMembers.slice(0, 8);
+    return allTeamMembers.slice(0, 10);
   });
 
   // Track fading state for each box individually
@@ -136,7 +136,7 @@ export default function TeamGridSection() {
           data-aos="fade-up"
           data-aos-duration="1000"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-5 gap-6">
             {visibleMembers.map((member, index) => {
               const isFading = fadingIndices[index];
 
@@ -148,11 +148,11 @@ export default function TeamGridSection() {
                   }`}
                 >
                   {/* Photo Box */}
-                  <div className="relative w-full h-64 rounded-xl overflow-hidden bg-bg-2">
+                  <div className="relative w-full h-54 rounded-xl overflow-hidden bg-bg-2">
                     <MemoryCachedImage
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale group-hover:grayscale-0"
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 filter grayscale group-hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-1 via-transparent to-transparent opacity-80" />
                     
